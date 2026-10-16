@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dykmuy4fc3wqd"]
+
+[ext_resource type="Texture2D" uid="uid://d3gy6pirj6heu" path="res://sprites/panel_tile.png" id="1_yi3hh"]
+[ext_resource type="Script" uid="uid://b5ykq6s6384s6" path="res://script/weapon_slot_menu.gd" id="2_03pww"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="3_ycdfu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = ExtResource("1_yi3hh")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="WeaponSlot" type="Panel" unique_id=1923667338]
+custom_minimum_size = Vector2(192, 192)
+offset_right = 192.0
+offset_bottom = 192.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_g4v7s")
+script = ExtResource("2_03pww")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=242376612]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+pivot_offset = Vector2(96, 96)
+mouse_filter = 1
+stretch_mode = 5
+
+[node name="Particles" type="CPUParticles2D" parent="TextureButton" unique_id=1523056114]
+position = Vector2(96, 96)
+emitting = false
+amount = 20
+texture = ExtResource("3_ycdfu")
+emission_shape = 3
+emission_rect_extents = Vector2(96, 96)
+spread = 145.68
+gravity = Vector2(0, -50)
+angular_velocity_min = -455.59
+angular_velocity_max = 357.97
+angle_min = -325.4
+angle_max = 390.5
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+
+[node name="Select" type="Line2D" parent="." unique_id=1619161985]
+visible = false
+points = PackedVector2Array(191, 1, 191, 191, 1, 191, 1, 1)
+closed = true
+width = 1.0
+default_color = Color(0.48235294, 1, 1, 1)
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://c4qq8bfnhoj08"]
+
+[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1_346hm"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2_xrfu0"]
+[ext_resource type="Texture2D" uid="uid://cnky6pgkm7qwx" path="res://sprites/mushroom_enemy1.png" id="3_pwoy3"]
+[ext_resource type="Texture2D" uid="uid://bibx56ekw5g1v" path="res://sprites/mushroom_enemy2.png" id="4_5jenn"]
+[ext_resource type="Texture2D" uid="uid://bnuqygau5ca4w" path="res://sprites/mushroom_enemy3.png" id="5_n2yhi"]
+[ext_resource type="Texture2D" uid="uid://b3jjc244wf65v" path="res://sprites/mushroom_enemy4.png" id="6_s2x62"]
+[ext_resource type="Texture2D" uid="uid://mf41xda7iwwj" path="res://sprites/mushroom_enemy5.png" id="7_y772f"]
+[ext_resource type="Texture2D" uid="uid://bb1t6txm7q5dn" path="res://sprites/mushroom_enemy6.png" id="8_v1vpv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wt23p"]
+height = 28.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pwoy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5jenn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n2yhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s2x62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y772f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_v1vpv")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_v1vpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y772f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s2x62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n2yhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5jenn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pwoy3")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 12.0
+}]
+
+[node name="enemy" type="CharacterBody2D" unique_id=1984230688 groups=["Enemy"]]
+position = Vector2(-2, 0)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_346hm")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2132661467]
+self_modulate = Color(0.68235296, 0.67058825, 0.67058825, 1)
+position = Vector2(-8.666662, 0)
+amount = 3
+texture = ExtResource("2_xrfu0")
+lifetime = 0.4
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(-1, 0)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 39.36
+initial_velocity_max = 69.63
+scale_amount_max = 2.5
+
+[node name="SpeedUpParticles" type="CPUParticles2D" parent="." unique_id=2130889301]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-8.666662, 0)
+emitting = false
+amount = 6
+texture = ExtResource("2_xrfu0")
+lifetime = 0.4
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(-1, 0)
+spread = 6.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 121.33
+initial_velocity_max = 192.58
+scale_amount_max = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972375330]
+texture_filter = 1
+shape = SubResource("CapsuleShape2D_wt23p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1180037607]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"open"
+frame = 5
+frame_progress = 1.0

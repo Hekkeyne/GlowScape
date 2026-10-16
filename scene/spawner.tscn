@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cxgrxrr0bj7yu"]
+
+[ext_resource type="Script" uid="uid://bevkccyqixi3r" path="res://script/spawner.gd" id="1_2kgiw"]
+[ext_resource type="Resource" uid="uid://cu4gbrwg04x1s" path="res://resourse/enemy/1first_enemy.tres" id="3_c8o5u"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="3_l3v4w"]
+[ext_resource type="Resource" uid="uid://dxq8xrtxqh7hk" path="res://resourse/enemy/3mage.tres" id="3_ldcs6"]
+[ext_resource type="Resource" uid="uid://pabd110306cl" path="res://resourse/enemy/6xp_gunner.tres" id="3_yrr61"]
+[ext_resource type="Resource" uid="uid://b3mge2sruwy38" path="res://resourse/enemy/2snake_head.tres" id="4_c8o5u"]
+[ext_resource type="Resource" uid="uid://ci20jjitxu6c7" path="res://resourse/enemy/4repeater_child.tres" id="6_ko6wk"]
+[ext_resource type="Resource" uid="uid://0sclsnwcbid0" path="res://resourse/enemy/5gunner.tres" id="7_b6o37"]
+[ext_resource type="Resource" uid="uid://c7grngudukw2c" path="res://resourse/enemy/7red_jaws.tres" id="8_5dqwj"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="9_g32b3"]
+[ext_resource type="PackedScene" uid="uid://cuguyvtfsthwn" path="res://scene/destructible.tscn" id="9_yrr61"]
+[ext_resource type="Resource" uid="uid://s71q1v6s62cl" path="res://resourse/enemy/8death.tres" id="11_ko6wk"]
+
+[node name="spawner" type="Node2D" unique_id=1918145639]
+script = ExtResource("1_2kgiw")
+enemy_types = Array[ExtResource("3_l3v4w")]([ExtResource("3_c8o5u"), ExtResource("4_c8o5u"), ExtResource("3_ldcs6"), ExtResource("6_ko6wk"), ExtResource("7_b6o37"), ExtResource("3_yrr61"), ExtResource("8_5dqwj")])
+destructible = ExtResource("9_yrr61")
+end_distance = 1100.0
+random_pool_minutes = 1
+executioner_type = ExtResource("11_ko6wk")
+executioner_wipe_with_death = true
+calibration_seconds = 10
+drop_ratio = 0.9
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=433967818]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui" unique_id=226245251]
+z_index = 1
+texture_filter = 4
+propagate_maximum_size = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.056
+anchor_right = 0.5
+anchor_bottom = 0.056
+offset_left = -93.76001
+offset_top = -0.15999985
+offset_right = 94.23999
+offset_bottom = 44.840004
+grow_horizontal = 2
+
+[node name="minute" type="Label" parent="ui/HBoxContainer" unique_id=1039864208]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_g32b3")
+theme_override_font_sizes/font_size = 45
+text = "0"
+
+[node name="Label2" type="Label" parent="ui/HBoxContainer" unique_id=800367690]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_g32b3")
+theme_override_font_sizes/font_size = 45
+text = ":"
+
+[node name="second" type="Label" parent="ui/HBoxContainer" unique_id=1049830054]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_g32b3")
+theme_override_font_sizes/font_size = 45
+text = "00"
+
+[node name="Timer" type="Timer" parent="." unique_id=2113142344]
+autostart = true
+
+[node name="pattern" type="Timer" parent="." unique_id=108836081]
+wait_time = 30.0
+autostart = true
+
+[node name="elite" type="Timer" parent="." unique_id=1960998478]
+wait_time = 60.0
+autostart = true
+
+[node name="destructible" type="Timer" parent="." unique_id=969532186]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="pattern" to="." method="_on_pattern_timeout"]
+[connection signal="timeout" from="elite" to="." method="_on_elite_timeout"]
+[connection signal="timeout" from="destructible" to="." method="_on_destructible_timeout"]

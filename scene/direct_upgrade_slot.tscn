@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://dah62sv1xcku"]
+
+[ext_resource type="Script" uid="uid://ca4h1hw1hc4vb" path="res://script/direct_upgrade_slot.gd" id="1_gijwj"]
+[ext_resource type="Texture2D" uid="uid://c8fsbwmiqe54r" path="res://sprites/lazer_blaster.png" id="2_4tabm"]
+[ext_resource type="Texture2D" uid="uid://frfst01he4sp" path="res://sprites/soul_DIRECT.png" id="3_4tabm"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="3_n2kxk"]
+[ext_resource type="Texture2D" uid="uid://bgy5ex7btrxaa" path="res://sprites/card_sprite_choose_DIRECT.png" id="5_n2kxk"]
+
+[node name="DirectUpgradeSlot" type="TextureButton" unique_id=2015674889]
+process_mode = 3
+process_priority = 1
+texture_filter = 1
+custom_maximum_size = Vector2(375, -1)
+anchors_preset = -1
+anchor_right = 0.156
+anchor_bottom = 0.47200003
+offset_right = -66.52002
+offset_bottom = -100.76004
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_gijwj")
+
+[node name="OptionSprite" type="TextureRect" parent="." unique_id=739533]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(2, 2)
+texture = ExtResource("2_4tabm")
+stretch_mode = 4
+
+[node name="OptionSprite2" type="TextureRect" parent="." unique_id=307544533]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 48.0
+offset_bottom = 49.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 3.1415927
+scale = Vector2(2, 2)
+texture = ExtResource("3_4tabm")
+stretch_mode = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1532919426]
+show_behind_parent = true
+texture_filter = 1
+custom_minimum_size = Vector2(232, 409)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_n2kxk")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=101461420]
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="." unique_id=237913776]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.22900002
+anchor_right = 0.99600005
+anchor_bottom = 1.0
+offset_top = -4.890007
+offset_right = -1.5258789e-05
+offset_bottom = -294.0
+theme_override_fonts/font = ExtResource("3_n2kxk")
+theme_override_font_sizes/font_size = 20
+text = "TEXT LEVEL"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Name" type="Label" parent="." unique_id=277130643]
+self_modulate = Color(1, 1, 0.5372549, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.22900002
+anchor_right = 0.99600005
+anchor_bottom = 1.0
+offset_top = 47.109985
+offset_right = -1.5258789e-05
+offset_bottom = -242.0
+theme_override_fonts/font = ExtResource("3_n2kxk")
+theme_override_font_sizes/font_size = 20
+text = "TEXT LEVEL"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="." unique_id=293643051]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.231
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 77.187
+offset_right = -0.93200684
+offset_bottom = -88.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_n2kxk")
+theme_override_font_sizes/font_size = 20
+text = "THE LONGEST TEXT FFOR CHECK HOW IT WILL BE LOOCK"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

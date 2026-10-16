@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://xbgb881vbnbo"]
+
+[ext_resource type="Script" uid="uid://bxw3nct05p72p" path="res://script/dummy.gd" id="1_tk6c3"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2_1le2q"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="6_mo56k"]
+[ext_resource type="Texture2D" uid="uid://dj8heumr0oxoy" path="res://sprites/hp_dummy_under.png" id="6_nq7db"]
+[ext_resource type="Texture2D" uid="uid://dhk4uo5wlarlb" path="res://sprites/hp_dummy.png" id="7_w4gf6"]
+[ext_resource type="Texture2D" uid="uid://cy713xbjqk2xe" path="res://sprites/TargetPoint.png" id="22_3rpta"]
+[ext_resource type="Texture2D" uid="uid://bel6fe0cpswi5" path="res://sprites/lazer_character_evolution.png" id="23_sekjw"]
+
+[node name="dummy" type="Node2D" unique_id=489055995 groups=["Player"]]
+process_mode = 1
+script = ExtResource("1_tk6c3")
+revive_radius = 100.0
+
+[node name="RunParticles" type="CPUParticles2D" parent="." unique_id=1119473783]
+texture_filter = 1
+emitting = false
+amount = 15
+texture = ExtResource("2_1le2q")
+lifetime_randomness = 0.67
+draw_order = 1
+emission_shape = 2
+emission_sphere_radius = 8.0
+direction = Vector2(-1, 0)
+spread = 15.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 96.33
+initial_velocity_max = 164.12
+angular_velocity_min = -455.88
+angular_velocity_max = 383.52
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+
+[node name="TargetPoint" type="Sprite2D" parent="." unique_id=445790419]
+modulate = Color(0.5568628, 0, 0.8784314, 1)
+texture = ExtResource("22_3rpta")
+
+[node name="ring" type="CPUParticles2D" parent="TargetPoint" unique_id=1748464753]
+amount = 10
+texture = ExtResource("2_1le2q")
+lifetime = 0.25
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 8.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=316768836]
+modulate = Color(1.4369954, 1.4369954, 1.4369954, 1)
+texture = ExtResource("23_sekjw")
+
+[node name="dash_cooldown" type="Timer" parent="." unique_id=1860718883]
+one_shot = true
+
+[node name="start_teleport" type="CPUParticles2D" parent="." unique_id=218182458]
+emitting = false
+amount = 15
+texture = ExtResource("2_1le2q")
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 31.08
+gravity = Vector2(0, 0)
+radial_accel_min = 22.4
+radial_accel_max = 100.0
+scale_amount_max = 3.0
+color = Color(0.5568628, 0, 0.8784314, 1)
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=1875820487]
+process_mode = 3
+volume_db = -15.0
+
+[node name="NameLabel" type="Label" parent="." unique_id=2105098752]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 14.0
+offset_right = 50.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_mo56k")
+theme_override_font_sizes/font_size = 10
+text = "Hekkeyne"
+horizontal_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 5
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=856233627]
+process_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = -19.0
+offset_right = 16.0
+offset_bottom = -14.0
+grow_horizontal = 2
+mouse_filter = 2
+value = 100.0
+texture_under = ExtResource("6_nq7db")
+texture_progress = ExtResource("7_w4gf6")

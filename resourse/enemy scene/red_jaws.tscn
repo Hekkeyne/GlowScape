@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://c7x5gh1s3s6ru"]
+
+[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1_wrtjm"]
+[ext_resource type="Texture2D" uid="uid://cnyx788qtbii6" path="res://sprites/red_dash1.png" id="3_byo6d"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="3_yfxnm"]
+[ext_resource type="Texture2D" uid="uid://r20j5t03r5ov" path="res://sprites/red_dash2.png" id="4_b55m1"]
+[ext_resource type="Texture2D" uid="uid://i0yif3s4c66p" path="res://sprites/red_dash3.png" id="5_0bm32"]
+[ext_resource type="Texture2D" uid="uid://bqti7joup2ndi" path="res://sprites/red_dash4.png" id="6_y5ohp"]
+[ext_resource type="Texture2D" uid="uid://dyjaj6625g3ut" path="res://sprites/red_dash5.png" id="7_gxbdr"]
+[ext_resource type="Texture2D" uid="uid://cbuyfia0ajp63" path="res://sprites/red_dash6.png" id="8_5f78x"]
+[ext_resource type="Texture2D" uid="uid://cqfynb7b0vnb4" path="res://sprites/red_undash1.png" id="9_ou7xf"]
+[ext_resource type="Texture2D" uid="uid://8c4tuomubuch" path="res://sprites/red_undash2.png" id="10_f531w"]
+[ext_resource type="Texture2D" uid="uid://dywq4a5eq00jl" path="res://sprites/red_undash3.png" id="11_vqoqg"]
+[ext_resource type="Texture2D" uid="uid://brvxnhuoimh61" path="res://sprites/red_undash4.png" id="12_ufa38"]
+[ext_resource type="Texture2D" uid="uid://clsp5fthqgmjo" path="res://sprites/red_undash5.png" id="13_xb6yw"]
+[ext_resource type="Texture2D" uid="uid://bla8qptybffkp" path="res://sprites/red_undash6.png" id="14_f3fy4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k8m7u"]
+radius = 9.333334
+height = 30.66667
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_byo6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b55m1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0bm32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y5ohp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gxbdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5f78x")
+}],
+"loop": 0,
+"name": &"prepare",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ou7xf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_f531w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vqoqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ufa38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xb6yw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_f3fy4")
+}],
+"loop": 0,
+"name": &"undash",
+"speed": 6.0
+}]
+
+[node name="enemy" type="CharacterBody2D" unique_id=1984230688 groups=["Enemy"]]
+position = Vector2(-2, 0)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_wrtjm")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2132661467]
+position = Vector2(-15.333329, 0)
+emitting = false
+amount = 3
+texture = ExtResource("3_yfxnm")
+lifetime = 0.4
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(-1, 0)
+spread = 23.33
+gravity = Vector2(0, 0)
+initial_velocity_min = 39.36
+initial_velocity_max = 69.63
+scale_amount_max = 2.5
+
+[node name="DashParticles" type="CPUParticles2D" parent="." unique_id=1401790489]
+self_modulate = Color(0.95686275, 0.23921569, 0.23921569, 1)
+position = Vector2(-12.666665, 0)
+emitting = false
+amount = 5
+texture = ExtResource("3_yfxnm")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2(-1, 0)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 96.74
+initial_velocity_max = 208.97
+angular_velocity_min = -342.3
+angular_velocity_max = 153.45
+scale_amount_max = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972375330]
+texture_filter = 1
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_k8m7u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1394318843]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"undash"
+frame = 5
+frame_progress = 1.0

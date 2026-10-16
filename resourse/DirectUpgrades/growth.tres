@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DirectUpgrade" format=3 uid="uid://g62ee2rru2fa"]
+
+[ext_resource type="Texture2D" uid="uid://sl75bqaxmdsg" path="res://sprites/growth_DIRECT.png" id="1_vg5ko"]
+[ext_resource type="Script" uid="uid://vkilulnisgb7" path="res://resourse/idk lol/direct_upgrade.gd" id="2_qcpo7"]
+
+[resource]
+script = ExtResource("2_qcpo7")
+title = "GROWTH"
+icon = ExtResource("1_vg5ko")
+effect_value = 0.1
+stat_type = "growth"
+metadata/_custom_type_script = "uid://vkilulnisgb7"

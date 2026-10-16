@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Gem" format=3 uid="uid://q5x4k56sea56"]
+
+[ext_resource type="Texture2D" uid="uid://d3f2jy30glyao" path="res://sprites/low_xp.png" id="1_i6gn5"]
+[ext_resource type="Script" uid="uid://broswgjdfl4ur" path="res://script/Gem.gd" id="2_fnmtc"]
+
+[resource]
+script = ExtResource("2_fnmtc")
+XP = 3.0
+title = "low xp"
+icon = ExtResource("1_i6gn5")
+description = "Дает вам 1 очко опыта"
+metadata/_custom_type_script = "uid://broswgjdfl4ur"

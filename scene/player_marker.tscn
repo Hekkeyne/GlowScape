@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cltm8raprtxsy"]
+
+[ext_resource type="Script" uid="uid://knjtauwfphsj" path="res://script/player_marker.gd" id="1_pob7k"]
+[ext_resource type="Texture2D" uid="uid://c6ch0vk0aum4t" path="res://sprites/Marker.png" id="2_lcs2a"]
+[ext_resource type="Texture2D" uid="uid://duccjet6map8b" path="res://sprites/music_wave_character.png" id="3_idhbq"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="3_vnnmj"]
+
+[node name="PlayerMarker" type="Node2D" unique_id=277538046]
+script = ExtResource("1_pob7k")
+min_scale = 0.75
+max_scale = 2.0
+screen_margin = 100.0
+
+[node name="Pointer" type="Sprite2D" parent="." unique_id=1536525672]
+texture = ExtResource("2_lcs2a")
+
+[node name="PointerParticles" type="CPUParticles2D" parent="Pointer" unique_id=951220496]
+self_modulate = Color(0.21176471, 0.94509804, 0.9843137, 1)
+position = Vector2(40, 0)
+amount = 10
+texture = ExtResource("3_vnnmj")
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 5.0
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.84
+initial_velocity_max = 52.63
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_min = 0.5
+
+[node name="Skin" type="Sprite2D" parent="." unique_id=532616077]
+rotation = -1.5707964
+texture = ExtResource("3_idhbq")

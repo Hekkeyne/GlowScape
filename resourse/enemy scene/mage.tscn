@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://d3or74dqrwq5f"]
+
+[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1_qnfbg"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2_4uocr"]
+[ext_resource type="Texture2D" uid="uid://begx8w5t2cij8" path="res://sprites/mage6.png" id="3_qnfbg"]
+[ext_resource type="Texture2D" uid="uid://bcj4lqx02l0bn" path="res://sprites/mage5.png" id="4_4uocr"]
+[ext_resource type="Texture2D" uid="uid://bxi88j2ba3tjh" path="res://sprites/mage4.png" id="5_v36bm"]
+[ext_resource type="Texture2D" uid="uid://bl7tp441i4tf6" path="res://sprites/mage3.png" id="6_voq5u"]
+[ext_resource type="Texture2D" uid="uid://dqabn6jbtobps" path="res://sprites/mage2.png" id="7_y0oj7"]
+[ext_resource type="Texture2D" uid="uid://c2y6xe28k85b" path="res://sprites/mage1.png" id="8_r42oy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3cgr"]
+size = Vector2(10.666667, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qnfbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4uocr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v36bm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_voq5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y0oj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r42oy")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_r42oy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y0oj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_voq5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v36bm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4uocr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qnfbg")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 6.0
+}]
+
+[node name="enemy" type="CharacterBody2D" unique_id=1984230688 groups=["Enemy"]]
+position = Vector2(-2, 0)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_qnfbg")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2132661467]
+position = Vector2(5.722046e-06, 0)
+amount = 5
+texture = ExtResource("2_4uocr")
+lifetime = 0.4
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(-1, 0)
+spread = 23.33
+gravity = Vector2(0, 0)
+initial_velocity_min = 39.36
+initial_velocity_max = 69.63
+scale_amount_max = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972375330]
+texture_filter = 1
+shape = SubResource("RectangleShape2D_w3cgr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=331013050]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"open"

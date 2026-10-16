@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://0sclsnwcbid0"]
+
+[ext_resource type="PackedScene" uid="uid://cvmeosy4yvkd5" path="res://resourse/enemy_smth/gunner_projectile.tscn" id="1_1mvv5"]
+[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="1_p62sb"]
+[ext_resource type="Script" uid="uid://cocr7soue0mcq" path="res://resourse/enemy ai/gunner_ai.gd" id="2_py2m0"]
+[ext_resource type="PackedScene" uid="uid://rdalg4ijxcec" path="res://resourse/enemy scene/gunner.tscn" id="2_t3kd7"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="2_wexmf"]
+[ext_resource type="PackedScene" uid="uid://bqh5iif87qvwx" path="res://resourse/enemy_smth/tp_projectile.tscn" id="3_3lymm"]
+[ext_resource type="Texture2D" uid="uid://bryv8pqgpt4ly" path="res://sprites/gunner.png" id="4_eakrc"]
+[ext_resource type="Resource" uid="uid://kddwicwhckk" path="res://resourse/pickups/large_xp.tres" id="4_py2m0"]
+[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="6_wt6li"]
+[ext_resource type="Texture2D" uid="uid://cowhtixj7pry" path="res://sprites/gunner_icon.png" id="7_uar32"]
+
+[sub_resource type="Resource" id="Resource_t1p2o"]
+script = ExtResource("2_py2m0")
+shoot_range = 1000.0
+burst_interval = 0.2
+lean_angle = 1.5
+projectile_scene = ExtResource("1_1mvv5")
+teleport_scene = ExtResource("3_3lymm")
+tp_life_min = 0.5
+tp_life_max = 2.0
+metadata/_custom_type_script = "uid://cocr7soue0mcq"
+
+[resource]
+script = ExtResource("2_wexmf")
+title = "CRYSTAL"
+icon = ExtResource("7_uar32")
+texture = ExtResource("4_eakrc")
+health = 200.0
+damage = 10.0
+drops = Array[ExtResource("1_p62sb")]([ExtResource("4_py2m0")])
+description = "CRYSTAL_DESCRIPTION"
+speed = 0.0
+scene = ExtResource("2_t3kd7")
+ai_behavior = SubResource("Resource_t1p2o")
+elite_guaranteed_drop = ExtResource("6_wt6li")
+metadata/_custom_type_script = "uid://b7abjov5qlnih"

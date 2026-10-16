@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="PassiveItem" format=3 uid="uid://evcioijmo6yh"]
+
+[ext_resource type="Script" uid="uid://drv1e7e8gwj10" path="res://resourse/Items/PassiveItem.gd" id="1_pojbs"]
+[ext_resource type="Texture2D" uid="uid://dg75tcrir8jvo" path="res://sprites/armor.png" id="2_x77ab"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="3_gnmqr"]
+
+[sub_resource type="Resource" id="Resource_044oh"]
+script = ExtResource("3_gnmqr")
+armor = 10.0
+description = "+10 защиты"
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_lsflq"]
+script = ExtResource("3_gnmqr")
+armor = 15.0
+description = "+15 защиты"
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_1tye0"]
+script = ExtResource("3_gnmqr")
+armor = 20.0
+description = "+20 защиты"
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_mry8t"]
+script = ExtResource("3_gnmqr")
+armor = 35.0
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[resource]
+script = ExtResource("1_pojbs")
+upgrades = Array[ExtResource("3_gnmqr")]([SubResource("Resource_044oh"), SubResource("Resource_lsflq"), SubResource("Resource_1tye0"), SubResource("Resource_mry8t")])
+title = "ARMOR"
+icon = ExtResource("2_x77ab")
+description = "ARMOR_DESCRIPTION"
+metadata/_custom_type_script = "uid://drv1e7e8gwj10"

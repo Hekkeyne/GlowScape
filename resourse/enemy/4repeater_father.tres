@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://cp2cds0bk4srl"]
+
+[ext_resource type="Resource" uid="uid://ci20jjitxu6c7" path="res://resourse/enemy/4repeater_child.tres" id="1_otfxa"]
+[ext_resource type="Script" uid="uid://bu1rpt0d1jk7b" path="res://resourse/enemy ai/repeater_father.gd" id="1_ryuuk"]
+[ext_resource type="Texture2D" uid="uid://ch1bxdcdekd0m" path="res://sprites/boom.png" id="2_axufr"]
+[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="2_vbrx0"]
+[ext_resource type="PackedScene" uid="uid://c4qq8bfnhoj08" path="res://resourse/enemy scene/repeater_father.tscn" id="3_otfxa"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="4_axufr"]
+[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="5_m5vcq"]
+[ext_resource type="Resource" uid="uid://dpdfejtlrl0bl" path="res://resourse/pickups/meduim_xp.tres" id="5_ofwwd"]
+[ext_resource type="Texture2D" uid="uid://brkc44i21f3rf" path="res://sprites/mushroom_enemy6_icon.png" id="7_7i6ec"]
+[ext_resource type="Texture2D" uid="uid://bb1t6txm7q5dn" path="res://sprites/mushroom_enemy6.png" id="8_0cdll"]
+
+[sub_resource type="Resource" id="Resource_vr2sv"]
+script = ExtResource("1_ryuuk")
+accel_range = 600.0
+max_speed_mult = 2.5
+fast_anim = "close"
+normal_anim = "open"
+max_children = 2
+child_type = ExtResource("1_otfxa")
+explode_texture = ExtResource("2_axufr")
+explode_knockback = 500.0
+metadata/_custom_type_script = "uid://bu1rpt0d1jk7b"
+
+[resource]
+script = ExtResource("4_axufr")
+title = "MUSH"
+icon = ExtResource("7_7i6ec")
+texture = ExtResource("8_0cdll")
+health = 150.0
+damage = 20.0
+drops = Array[ExtResource("2_vbrx0")]([ExtResource("5_ofwwd")])
+description = "MUSH_DESCRIPTION"
+scene = ExtResource("3_otfxa")
+ai_behavior = SubResource("Resource_vr2sv")
+despawn_distance = 1200.0
+elite_guaranteed_drop = ExtResource("5_m5vcq")
+metadata/_custom_type_script = "uid://bu1rpt0d1jk7b"

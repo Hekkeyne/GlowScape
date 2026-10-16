@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://db4drylx548xy"]
+
+[ext_resource type="Script" uid="uid://c7y0xsao61855" path="res://script/slot.gd" id="1_g1wb0"]
+[ext_resource type="Texture2D" uid="uid://qt24i04y4wpu" path="res://sprites/ITEM_placeholder.png" id="2_502e6"]
+
+[node name="slot" type="PanelContainer" unique_id=357824885]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_right = 0.031000001
+anchor_bottom = 0.056
+offset_right = -19.520004
+offset_bottom = -20.480003
+script = ExtResource("1_g1wb0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=324049284]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("2_502e6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="cooldown" type="Timer" parent="." unique_id=1194736480]
+autostart = true
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

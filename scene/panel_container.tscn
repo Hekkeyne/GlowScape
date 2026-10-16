@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://efej88scew4x"]
+
+[ext_resource type="Texture2D" uid="uid://d3gy6pirj6heu" path="res://sprites/panel_tile.png" id="1_52c3j"]
+[ext_resource type="Script" uid="uid://5k4qswpamlax" path="res://script/h_slider.gd" id="2_mm3k8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5s0fj"]
+texture = ExtResource("1_52c3j")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_16i02"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uatrh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qomx6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1nrsg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qomx6"]
+content_margin_top = 162.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nrsg"]
+content_margin_top = 162.0
+bg_color = Color(1, 1, 1, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcc06"]
+bg_color = Color(1, 1, 1, 0.5882353)
+
+[node name="PanelContainer" type="PanelContainer" unique_id=1008491465]
+offset_left = 735.0
+offset_top = 63.0
+offset_right = 1697.0
+offset_bottom = 225.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5s0fj")
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1232895764]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("CanvasTexture_16i02")
+theme_override_icons/grabber_highlight = SubResource("CanvasTexture_uatrh")
+theme_override_icons/grabber_disabled = SubResource("CanvasTexture_qomx6")
+theme_override_icons/tick = SubResource("CanvasTexture_1nrsg")
+theme_override_styles/slider = SubResource("StyleBoxFlat_qomx6")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_1nrsg")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vcc06")
+script = ExtResource("2_mm3k8")

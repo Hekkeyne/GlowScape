@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dmxqyoadwhqap"]
+
+[ext_resource type="Script" uid="uid://e0upsvw25j40" path="res://script/virus.gd" id="1_e2m2f"]
+[ext_resource type="AudioStream" uid="uid://h0qlgihirant" path="res://resourse/audio/virus_attack.wav" id="2_6unut"]
+[ext_resource type="Texture2D" uid="uid://c1wi4wy82ipdu" path="res://sprites/virus_attck_0.png" id="4_iu50h"]
+[ext_resource type="Texture2D" uid="uid://c46ml6e5y5knx" path="res://sprites/virus_attck_1.png" id="5_pqt68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(8, 2)
+
+[sub_resource type="Curve" id="Curve_anf0s"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_6cg6r"]
+_data = [Vector2(0.012345679, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="laser_projectile" type="Area2D" unique_id=1347462161]
+process_mode = 1
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_e2m2f")
+sfx = Array[AudioStream]([ExtResource("2_6unut")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576228593]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=130012362]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="virus_0" type="CPUParticles2D" parent="." unique_id=1291298760]
+emitting = false
+amount = 10
+texture = ExtResource("4_iu50h")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 25.08
+initial_velocity_max = 119.32
+scale_amount_min = 3.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_anf0s")
+color = Color(0.41568628, 0.74509805, 0.1882353, 1)
+
+[node name="virus_1" type="CPUParticles2D" parent="." unique_id=493169464]
+emitting = false
+amount = 10
+texture = ExtResource("5_pqt68")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(1, -1)
+spread = 90.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 59.17
+initial_velocity_max = 119.32
+scale_amount_min = 3.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_6cg6r")
+color = Color(0.41568628, 0.74509805, 0.1882353, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1554126071]
+volume_db = -20.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="PassiveItem" format=3 uid="uid://dcyu4x6x85of7"]
+
+[ext_resource type="Script" uid="uid://drv1e7e8gwj10" path="res://resourse/Items/PassiveItem.gd" id="1_seoxl"]
+[ext_resource type="Texture2D" uid="uid://cl61g1hjk2dr0" path="res://sprites/movement_speed.png" id="2_nndhs"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="3_7gcyi"]
+
+[sub_resource type="Resource" id="Resource_x0crs"]
+script = ExtResource("3_7gcyi")
+movement_speed = 15.0
+description = "+15"
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_tws32"]
+script = ExtResource("3_7gcyi")
+movement_speed = 30.0
+description = "+30"
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_56bu0"]
+script = ExtResource("3_7gcyi")
+movement_speed = 45.0
+description = "+45"
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_c6i2c"]
+script = ExtResource("3_7gcyi")
+movement_speed = 50.0
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[resource]
+script = ExtResource("1_seoxl")
+upgrades = Array[ExtResource("3_7gcyi")]([SubResource("Resource_x0crs"), SubResource("Resource_tws32"), SubResource("Resource_56bu0"), SubResource("Resource_c6i2c")])
+title = "MOVEMENT_SPEED"
+icon = ExtResource("2_nndhs")
+description = "MOVS_DESCRIPTION"
+metadata/_custom_type_script = "uid://drv1e7e8gwj10"

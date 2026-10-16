@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://dkcq6bln5p1oa"]
+
+[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="1_3layv"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_wll8x"]
+[ext_resource type="Resource" uid="uid://xe4txl5opw8c" path="res://resourse/weapon/circular.tres" id="4_5ubae"]
+[ext_resource type="Texture2D" uid="uid://hodi0uv5ue05" path="res://sprites/circular_character.png" id="5_wll8x"]
+
+[sub_resource type="Resource" id="Resource_bwwah"]
+script = ExtResource("1_wll8x")
+max_health = 100.0
+recovery = 1.0
+movement_speed = 250.0
+might = 1.5
+area = 100.0
+growth = 2.0
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[resource]
+script = ExtResource("1_3layv")
+title = "CIRCULAR_CHARACTER"
+icon = ExtResource("5_wll8x")
+texture = ExtResource("5_wll8x")
+animation_name = "CIRCULAR_CHARACTER"
+base_stats = SubResource("Resource_bwwah")
+starting_weapon = ExtResource("4_5ubae")
+color_trail = "ff1c1c"
+metadata/_custom_type_script = "uid://cdfgec6qtjwl7"

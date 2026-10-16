@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://rsm7l1g34nqp"]
+
+[ext_resource type="Script" uid="uid://cwxn61l45fsom" path="res://script/revive_zone.gd" id="1_wdp2y"]
+
+[node name="ReviveZone" type="Node2D" unique_id=659082053]
+script = ExtResource("1_wdp2y")
+revive_time = 5.0

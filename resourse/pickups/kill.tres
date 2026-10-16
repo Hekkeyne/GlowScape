@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Death" format=3 uid="uid://cdhe8x7gnk3hg"]
+
+[ext_resource type="Texture2D" uid="uid://f2a4erp4pvjt" path="res://sprites/kill_pickup.png" id="1_xy8us"]
+[ext_resource type="Script" uid="uid://v60h5o0orgat" path="res://script/Death.gd" id="2_bk8cv"]
+
+[resource]
+script = ExtResource("2_bk8cv")
+title = "Kill"
+icon = ExtResource("1_xy8us")
+weight = 1.0
+metadata/_custom_type_script = "uid://v60h5o0orgat"

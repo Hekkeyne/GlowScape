@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="Lightning" format=3 uid="uid://ili7uf40n0mf"]
+
+[ext_resource type="Texture2D" uid="uid://f75o51edwvvc" path="res://sprites/virus_icon.png" id="1_j6kxw"]
+[ext_resource type="Resource" uid="uid://i2i3dmafspg2" path="res://resourse/trash_maybe_after/mega_virus.tres" id="1_uf5uv"]
+[ext_resource type="PackedScene" uid="uid://dmxqyoadwhqap" path="res://scene/virus_attack.tscn" id="2_yk1vw"]
+[ext_resource type="Script" uid="uid://q1rl7bx4gxi2" path="res://script/lightning.gd" id="3_c2u1a"]
+[ext_resource type="Resource" uid="uid://dcyu4x6x85of7" path="res://resourse/Items/Movement_Speed.tres" id="3_uf5uv"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="4_8wxto"]
+[ext_resource type="Texture2D" uid="uid://b3s6a6ywate60" path="res://sprites/virus_texture.png" id="4_j6kxw"]
+[ext_resource type="Script" uid="uid://dbelj4apidy5t" path="res://resourse/trash_maybe_after/LightningUpgrade.gd" id="6_c2u1a"]
+
+[sub_resource type="Resource" id="Resource_ougjg"]
+script = ExtResource("6_c2u1a")
+damage = 5.0
+metadata/_custom_type_script = "uid://dbelj4apidy5t"
+
+[sub_resource type="Resource" id="Resource_vda3x"]
+script = ExtResource("6_c2u1a")
+amount = 3
+metadata/_custom_type_script = "uid://dbelj4apidy5t"
+
+[sub_resource type="Resource" id="Resource_4ls3j"]
+script = ExtResource("6_c2u1a")
+amount = 2
+cooldown = -1.0
+metadata/_custom_type_script = "uid://dbelj4apidy5t"
+
+[sub_resource type="Resource" id="Resource_ebf80"]
+script = ExtResource("6_c2u1a")
+amount = 2
+damage = 2.0
+metadata/_custom_type_script = "uid://dbelj4apidy5t"
+
+[sub_resource type="Resource" id="Resource_eujuu"]
+script = ExtResource("6_c2u1a")
+damage = 3.0
+metadata/_custom_type_script = "uid://dbelj4apidy5t"
+
+[sub_resource type="Resource" id="Resource_0rnt2"]
+script = ExtResource("6_c2u1a")
+cooldown = -0.5
+metadata/_custom_type_script = "uid://dbelj4apidy5t"
+
+[sub_resource type="Resource" id="Resource_lsg47"]
+script = ExtResource("6_c2u1a")
+cooldown = -1.5
+metadata/_custom_type_script = "uid://dbelj4apidy5t"
+
+[resource]
+script = ExtResource("3_c2u1a")
+amount = 3
+damage = 10.0
+cooldown = 3.0
+projectile_node = ExtResource("2_yk1vw")
+upgrades = Array[ExtResource("4_8wxto")]([SubResource("Resource_ougjg"), SubResource("Resource_vda3x"), SubResource("Resource_4ls3j"), SubResource("Resource_ebf80"), SubResource("Resource_eujuu"), SubResource("Resource_0rnt2"), SubResource("Resource_lsg47")])
+item_needed = ExtResource("3_uf5uv")
+evolution = ExtResource("1_uf5uv")
+title = "BUG"
+icon = ExtResource("1_j6kxw")
+texture = ExtResource("4_j6kxw")
+description = "BUG_DESCRIPTION"
+metadata/_custom_type_script = "uid://q1rl7bx4gxi2"

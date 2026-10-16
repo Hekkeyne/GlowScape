@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="PassiveItem" format=3 uid="uid://dlybeoj371gvj"]
+
+[ext_resource type="Texture2D" uid="uid://3gvl26j7yu2v" path="res://sprites/luck.png" id="1_dqdy2"]
+[ext_resource type="Script" uid="uid://drv1e7e8gwj10" path="res://resourse/Items/PassiveItem.gd" id="2_5tyb6"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="3_rwoyh"]
+
+[sub_resource type="Resource" id="Resource_4reak"]
+script = ExtResource("3_rwoyh")
+luck = 0.1
+description = "0.1"
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_wt23p"]
+script = ExtResource("3_rwoyh")
+luck = 0.2
+description = "01"
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_k8m7u"]
+script = ExtResource("3_rwoyh")
+luck = 0.25
+description = "0.1"
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_qucqc"]
+script = ExtResource("3_rwoyh")
+luck = 0.3
+description = "0.1"
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[resource]
+script = ExtResource("2_5tyb6")
+upgrades = Array[ExtResource("3_rwoyh")]([SubResource("Resource_4reak"), SubResource("Resource_wt23p"), SubResource("Resource_k8m7u"), SubResource("Resource_qucqc")])
+title = "LUCK"
+icon = ExtResource("1_dqdy2")
+texture = ExtResource("1_dqdy2")
+description = "LUCK_DESCRIPTION"
+metadata/_custom_type_script = "uid://drv1e7e8gwj10"

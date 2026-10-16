@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://o17ex01swrso"]
+
+[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1_gckvu"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2_isa2y"]
+[ext_resource type="Texture2D" uid="uid://cnky6pgkm7qwx" path="res://sprites/mushroom_enemy1.png" id="3_isa2y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4reak"]
+height = 28.0
+
+[node name="enemy" type="CharacterBody2D" unique_id=1984230688 groups=["Enemy"]]
+position = Vector2(-2, 0)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_gckvu")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2132661467]
+self_modulate = Color(0.95686275, 0.23921569, 0.23921569, 1)
+position = Vector2(-15.333329, 0)
+emitting = false
+amount = 10
+texture = ExtResource("2_isa2y")
+lifetime = 0.4
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(-1, 0)
+spread = 23.33
+gravity = Vector2(0, 0)
+initial_velocity_min = 39.36
+initial_velocity_max = 69.63
+scale_amount_max = 2.5
+
+[node name="DashParticles" type="CPUParticles2D" parent="." unique_id=1401790489]
+self_modulate = Color(0.95686275, 0.23921569, 0.23921569, 1)
+position = Vector2(3.9339066e-06, 0)
+emitting = false
+amount = 50
+texture = ExtResource("2_isa2y")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(-1, 0)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 96.74
+initial_velocity_max = 208.97
+angular_velocity_min = -342.3
+angular_velocity_max = 153.45
+scale_amount_max = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972375330]
+texture_filter = 1
+shape = SubResource("CapsuleShape2D_4reak")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1925860203]
+texture = ExtResource("3_isa2y")

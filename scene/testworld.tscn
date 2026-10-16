@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://ctlphffaa6q38"]
+
+[ext_resource type="PackedScene" uid="uid://bqcrmi3rtwqc1" path="res://scene/player.tscn" id="1_i0ul0"]
+[ext_resource type="Script" uid="uid://lhmfs72wxngd" path="res://script/testworld.gd" id="1_qnrrx"]
+[ext_resource type="PackedScene" uid="uid://cxgrxrr0bj7yu" path="res://scene/spawner.tscn" id="2_dw2lx"]
+[ext_resource type="Script" uid="uid://u8kxg1y65615" path="res://script/parallax_2d.gd" id="2_pnckc"]
+[ext_resource type="PackedScene" uid="uid://xmphl10xosry" path="res://scene/ALL_UI_SCENE.tscn" id="2_x8uia"]
+[ext_resource type="Texture2D" uid="uid://bj2enerx576d8" path="res://sprites/floor1.png" id="3_xigmy"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="5_yoraa"]
+[ext_resource type="PackedScene" uid="uid://biyvabeehjb25" path="res://scene/music_manager.tscn" id="6_yoraa"]
+[ext_resource type="Script" uid="uid://c2gk4y12j70rv" path="res://scene/tips_for_play.gd" id="7_53vh3"]
+[ext_resource type="Texture2D" uid="uid://cj8rgunyydkkw" path="res://sprites/keayboardW.png" id="7_uytf0"]
+[ext_resource type="Texture2D" uid="uid://dm3qwn448w5v5" path="res://sprites/keayboardA.png" id="8_53vh3"]
+[ext_resource type="Texture2D" uid="uid://m6ci6rmdabvn" path="res://sprites/keayboardS.png" id="9_im5ey"]
+[ext_resource type="Texture2D" uid="uid://cnuvpboar55c1" path="res://sprites/keayboardD.png" id="10_ov0wd"]
+[ext_resource type="Texture2D" uid="uid://f3sxqbu712h6" path="res://sprites/mouse1.png" id="11_37ygd"]
+[ext_resource type="Texture2D" uid="uid://chicp1unumat" path="res://sprites/mouse2.png" id="12_ms0fa"]
+[ext_resource type="Texture2D" uid="uid://qokvb3s8cdio" path="res://sprites/mobile_tp_button.png" id="12_ov0wd"]
+[ext_resource type="Texture2D" uid="uid://ccj3ic6phua5p" path="res://sprites/mobile_tp_button_disabled.png" id="13_37ygd"]
+[ext_resource type="Texture2D" uid="uid://b1ionvjcbb0gy" path="res://sprites/SPACE1.png" id="13_pnckc"]
+[ext_resource type="Texture2D" uid="uid://dpt4t2i3cefmw" path="res://sprites/SPACE2.png" id="14_8flnp"]
+[ext_resource type="Texture2D" uid="uid://b6klcax252nck" path="res://sprites/tp_tip1.png" id="16_ov0wd"]
+[ext_resource type="Texture2D" uid="uid://dptc31yrbmuk8" path="res://sprites/tp_tip2.png" id="17_37ygd"]
+[ext_resource type="Script" uid="uid://chti5a1almtpv" path="res://script/remote_players.gd" id="21_3y3dj"]
+[ext_resource type="PackedScene" uid="uid://xbgb881vbnbo" path="res://scene/dummy.tscn" id="22_ygedw"]
+[ext_resource type="Script" uid="uid://c2d70kbn5543e" path="res://script/enemy_snapshot_manager.gd" id="23_sec56"]
+[ext_resource type="PackedScene" uid="uid://17wpju5ghbdn" path="res://resourse/enemy scene/enemy_dummy.tscn" id="24_qdm41"]
+[ext_resource type="Script" uid="uid://b5nxrgeyl6my8" path="res://script/spectator_manager.gd" id="25_sr8ch"]
+[ext_resource type="Script" uid="uid://dfipa2p8g6s6c" path="res://script/pickup_snapshot_manager.gd" id="26_qdm41"]
+[ext_resource type="PackedScene" uid="uid://cleiuag2dugbj" path="res://scene/pickup_dummy.tscn" id="27_sr8ch"]
+[ext_resource type="Script" uid="uid://dww3gvt8btdrc" path="res://script/player_markers.gd" id="28_viayr"]
+[ext_resource type="PackedScene" uid="uid://cltm8raprtxsy" path="res://scene/player_marker.tscn" id="29_lrg48"]
+[ext_resource type="Script" uid="uid://bqh4e5543v4rb" path="res://script/projectile_snapshot_manager.gd" id="30_6e8qd"]
+[ext_resource type="Script" uid="uid://bgvoe26go2p08" path="res://script/projectile_dummy_manager.gd" id="31_8lsap"]
+[ext_resource type="Script" uid="uid://da6kh3pgd8ilk" path="res://script/revive_zone_manager.gd" id="32_g3aki"]
+[ext_resource type="PackedScene" uid="uid://rsm7l1g34nqp" path="res://scene/revive_zone.tscn" id="33_qnrrx"]
+[ext_resource type="Script" uid="uid://dnssfj16ays2m" path="res://script/pickup_marker_manager.gd" id="35_ydvjg"]
+[ext_resource type="PackedScene" uid="uid://ddkmkbarc0qsg" path="res://scene/object_marker.tscn" id="36_4v1dv"]
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 3
+background_canvas_max_layer = 5
+glow_enabled = true
+glow_levels/1 = 0.5
+glow_levels/2 = 0.0
+glow_levels/3 = 0.0
+glow_intensity = 0.5
+glow_strength = 0.9
+glow_bloom = 0.5
+glow_blend_mode = 0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ms0fa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_37ygd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ms0fa")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_pnckc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8flnp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_53vh3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_ov0wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_37ygd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ov0wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_37ygd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="testworld" type="Node2D" unique_id=567862391]
+script = ExtResource("1_qnrrx")
+
+[node name="spawner" parent="." unique_id=1918145639 node_paths=PackedStringArray("player") instance=ExtResource("2_dw2lx")]
+player = NodePath("../player")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=2070782540]
+repeat_size = Vector2(1024, 2048)
+script = ExtResource("2_pnckc")
+
+[node name="grundsquare" type="Sprite2D" parent="Parallax2D" unique_id=1737565164]
+self_modulate = Color(0.23529412, 0.23529412, 0.23529412, 1)
+texture_repeat = 2
+position = Vector2(1076, 718)
+texture = ExtResource("3_xigmy")
+region_enabled = true
+region_rect = Rect2(0, 0, 4096, 8192)
+
+[node name="decoration" type="TileMapLayer" parent="Parallax2D" unique_id=2138897277]
+
+[node name="sky" type="CPUParticles2D" parent="Parallax2D" unique_id=932946631]
+amount = 100
+texture = ExtResource("5_yoraa")
+lifetime = 2.0
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(2048, 2048)
+gravity = Vector2(0, 0)
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_max = 2.5
+
+[node name="player" parent="." unique_id=561257320 instance=ExtResource("1_i0ul0")]
+position = Vector2(964, 545)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1798123087]
+environment = SubResource("Environment_g4v7s")
+
+[node name="ALL_SCENE_UI" parent="." unique_id=524427554 instance=ExtResource("2_x8uia")]
+
+[node name="MusicManager" parent="." unique_id=293318194 instance=ExtResource("6_yoraa")]
+mouse_filter = 1
+
+[node name="PC_TIP" type="Node2D" parent="." unique_id=584294479]
+position = Vector2(-186, 175)
+script = ExtResource("7_53vh3")
+
+[node name="W" type="Sprite2D" parent="PC_TIP" unique_id=1561851532]
+position = Vector2(967, 413)
+texture = ExtResource("7_uytf0")
+
+[node name="A" type="Sprite2D" parent="PC_TIP" unique_id=325705990]
+position = Vector2(933, 447)
+texture = ExtResource("8_53vh3")
+
+[node name="S" type="Sprite2D" parent="PC_TIP" unique_id=437360654]
+position = Vector2(967, 447)
+texture = ExtResource("9_im5ey")
+
+[node name="D" type="Sprite2D" parent="PC_TIP" unique_id=159653725]
+position = Vector2(1001, 447)
+texture = ExtResource("10_ov0wd")
+
+[node name="MOUSE" type="AnimatedSprite2D" parent="PC_TIP" unique_id=1241070275]
+position = Vector2(1389, 445)
+sprite_frames = SubResource("SpriteFrames_ms0fa")
+
+[node name="SPACE" type="AnimatedSprite2D" parent="PC_TIP" unique_id=676168453]
+position = Vector2(1157, 488)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+
+[node name="TP_TIPS" type="AnimatedSprite2D" parent="PC_TIP" unique_id=1626285935]
+position = Vector2(1296, 386)
+sprite_frames = SubResource("SpriteFrames_53vh3")
+frame_progress = 0.52210665
+
+[node name="MOBILE_TIP" type="Node2D" parent="." unique_id=883001211]
+position = Vector2(-186, 175)
+script = ExtResource("7_53vh3")
+
+[node name="BUTTON" type="AnimatedSprite2D" parent="MOBILE_TIP" unique_id=534051992]
+position = Vector2(1385, 386)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+frame_progress = 0.63420415
+
+[node name="TP_TIPS" type="AnimatedSprite2D" parent="MOBILE_TIP" unique_id=1770680092]
+position = Vector2(1296, 386)
+sprite_frames = SubResource("SpriteFrames_53vh3")
+frame_progress = 0.52210665
+
+[node name="RemotePlayers" type="Node2D" parent="." unique_id=797349179]
+script = ExtResource("21_3y3dj")
+dummy_scene = ExtResource("22_ygedw")
+
+[node name="EnemySnapshotManager" type="Node2D" parent="." unique_id=1458570970]
+script = ExtResource("23_sec56")
+enemy_dummy_scene = ExtResource("24_qdm41")
+
+[node name="SpectatorManager" type="Node2D" parent="." unique_id=1148979661]
+script = ExtResource("25_sr8ch")
+
+[node name="PickupSnapshotManager" type="Node2D" parent="." unique_id=472153347]
+script = ExtResource("26_qdm41")
+pickup_dummy_scene = ExtResource("27_sr8ch")
+
+[node name="PlayerMarkers" type="Node2D" parent="." unique_id=617664492]
+script = ExtResource("28_viayr")
+marker_scene = ExtResource("29_lrg48")
+
+[node name="ProjectileSnapshotManager" type="Node2D" parent="." unique_id=632193240]
+script = ExtResource("30_6e8qd")
+
+[node name="ProjectileDummyManager" type="Node2D" parent="." unique_id=2034423325]
+script = ExtResource("31_8lsap")
+
+[node name="ReviveZoneManager" type="Node2D" parent="." unique_id=1050880134]
+script = ExtResource("32_g3aki")
+zone_scene = ExtResource("33_qnrrx")
+
+[node name="MarkerManager" type="Node2D" parent="." unique_id=199994340]
+script = ExtResource("35_ydvjg")
+marker_scene = ExtResource("36_4v1dv")

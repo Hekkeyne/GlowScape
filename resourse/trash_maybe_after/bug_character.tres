@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://c74scn5gdvf22"]
+
+[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="1_pfgww"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_t8kjw"]
+[ext_resource type="Resource" uid="uid://ili7uf40n0mf" path="res://resourse/trash_maybe_after/lightning.tres" id="4_gmmaf"]
+[ext_resource type="Texture2D" uid="uid://fddjdw4438uh" path="res://sprites/bug_character.png" id="5_t8kjw"]
+
+[sub_resource type="Resource" id="Resource_aij0f"]
+script = ExtResource("1_t8kjw")
+max_health = 200.0
+armor = 20.0
+movement_speed = 150.0
+might = 0.75
+area = 200.0
+growth = 1.0
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[resource]
+script = ExtResource("1_pfgww")
+title = "BUG_CHARACTER"
+icon = ExtResource("5_t8kjw")
+texture = ExtResource("5_t8kjw")
+animation_name = "BUG_CHARACTER"
+base_stats = SubResource("Resource_aij0f")
+starting_weapon = ExtResource("4_gmmaf")
+color_trail = "00e000"
+metadata/_custom_type_script = "uid://cdfgec6qtjwl7"

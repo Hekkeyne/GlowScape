@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://clr14u4527mdx"]
+
+[ext_resource type="Script" uid="uid://bf8l0vhf4lk6f" path="res://script/pickup.gd" id="1_31h7f"]
+[ext_resource type="Texture2D" uid="uid://4pvmyo50ln33" path="res://sprites/XP_low_particles.png" id="2_x228r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[node name="Pickup" type="Area2D" unique_id=852586997 groups=["pickup"]]
+collision_layer = 4
+script = ExtResource("1_31h7f")
+max_xp_on_field = 250
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=671362468]
+amount = 2
+texture = ExtResource("2_x228r")
+emission_shape = 1
+emission_sphere_radius = 8.11
+spread = 0.0
+gravity = Vector2(0, -100)
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=532815015]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1409202624]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

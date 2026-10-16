@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://b22b1a7ldxnak"]
+
+[ext_resource type="Script" uid="uid://b4dlaqn107pj8" path="res://confirm_upgrade.gd" id="1_oo5jc"]
+[ext_resource type="Shader" uid="uid://dw6xj0tu45sri" path="res://scene/holy_glas.gdshader" id="2_7um20"]
+[ext_resource type="Texture2D" uid="uid://jvx55qdca02s" path="res://sprites/card_sprite.png" id="3_bvfcc"]
+[ext_resource type="Texture2D" uid="uid://dw4kvc18xr1dg" path="res://sprites/button_ui.png" id="4_ck0pn"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="5_r6kys"]
+[ext_resource type="Script" uid="uid://b4stil7p10bcr" path="res://script/quit_button.gd" id="6_0ljn2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhu7m"]
+shader = ExtResource("2_7um20")
+
+[node name="Confirm_upgrade" type="Control" unique_id=2021431105]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oo5jc")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1156446735]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_bhu7m")
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.45
+anchor_right = 1.0
+anchor_bottom = 0.55
+offset_left = 473.0
+offset_top = -405.0
+offset_right = -477.0
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bvfcc")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Confirm" type="TextureButton" parent="NinePatchRect" unique_id=1384116954]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -465.0
+offset_top = -123.0
+offset_right = 106.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("6_0ljn2")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect/Confirm" unique_id=1784559616]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_bhu7m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bvfcc")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="NinePatchRect/Confirm" unique_id=1986314953]
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="NinePatchRect/Confirm" unique_id=1997166727]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -25.0
+offset_right = 225.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_r6kys")
+theme_override_font_sizes/font_size = 45
+text = "BUY_BUTTON"
+horizontal_alignment = 1
+
+[node name="Decline" type="TextureButton" parent="NinePatchRect" unique_id=272673440]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 115.0
+offset_top = -123.0
+offset_right = 465.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("6_0ljn2")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect/Decline" unique_id=985244432]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_bhu7m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bvfcc")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="NinePatchRect/Decline" unique_id=692905010]
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="NinePatchRect/Decline" unique_id=1375114006]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -25.0
+offset_right = 225.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_r6kys")
+theme_override_font_sizes/font_size = 45
+text = "CANCEL_BUTTON"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect" unique_id=918340593]
+custom_minimum_size = Vector2(230, 230)
+custom_maximum_size = Vector2(230, 230)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 370.5
+offset_top = 40.0
+offset_right = -370.5
+offset_bottom = 270.0
+grow_horizontal = 2
+texture = ExtResource("4_ck0pn")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect" unique_id=2062499081]
+custom_maximum_size = Vector2(900, -1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.27600002
+anchor_right = 0.5
+anchor_bottom = 0.27600002
+offset_left = -450.0
+offset_top = 18.799988
+offset_right = 450.0
+offset_bottom = 157.79999
+grow_horizontal = 2
+alignment = 1
+
+[node name="Name" type="Label" parent="NinePatchRect/VBoxContainer" unique_id=712643072]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_r6kys")
+theme_override_font_sizes/font_size = 32
+text = "Название навыка:  укц ц ц ц ц ц ц ц ц ц"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Cost" type="Label" parent="NinePatchRect/VBoxContainer" unique_id=1231083327]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_r6kys")
+theme_override_font_sizes/font_size = 32
+text = "Цена: "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="NinePatchRect/VBoxContainer" unique_id=229115834]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_r6kys")
+theme_override_font_sizes/font_size = 32
+text = "Описание навыка: "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="mouse_entered" from="NinePatchRect/Confirm" to="NinePatchRect/Confirm" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect/Confirm" to="NinePatchRect/Confirm" method="_on_mouse_exited"]
+[connection signal="pressed" from="NinePatchRect/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="mouse_entered" from="NinePatchRect/Decline" to="NinePatchRect/Decline" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect/Decline" to="NinePatchRect/Decline" method="_on_mouse_exited"]
+[connection signal="pressed" from="NinePatchRect/Decline" to="." method="_on_decline_pressed"]

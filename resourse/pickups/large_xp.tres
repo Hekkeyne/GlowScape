@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Gem" format=3 uid="uid://kddwicwhckk"]
+
+[ext_resource type="Texture2D" uid="uid://c8081km5ig7cm" path="res://sprites/large_xp.png" id="1_k4ruq"]
+[ext_resource type="Script" uid="uid://broswgjdfl4ur" path="res://script/Gem.gd" id="2_bige8"]
+
+[resource]
+script = ExtResource("2_bige8")
+XP = 10.0
+title = "large_xp"
+icon = ExtResource("1_k4ruq")
+description = "Дает вам 10 очков опыта"
+metadata/_custom_type_script = "uid://broswgjdfl4ur"

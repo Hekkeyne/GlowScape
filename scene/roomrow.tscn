@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cusxxskep3gec"]
+
+[ext_resource type="Script" uid="uid://ci0bop3y2c7da" path="res://script/roomrow.gd" id="1_64810"]
+[ext_resource type="Texture2D" uid="uid://jvx55qdca02s" path="res://sprites/card_sprite.png" id="1_o8oq4"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="2_64810"]
+[ext_resource type="Texture2D" uid="uid://dnj7gmipskxrr" path="res://sprites/lock.png" id="3_ub7vk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fd7y4"]
+
+[node name="RoomRow" type="TextureButton" unique_id=819381737]
+custom_minimum_size = Vector2(0, 70)
+offset_right = 791.0
+offset_bottom = 70.0
+size_flags_vertical = 4
+script = ExtResource("1_64810")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1202920542]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_fd7y4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o8oq4")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=360113480]
+volume_db = -15.0
+
+[node name="NameLabel" type="Label" parent="." unique_id=1819898644]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -261.0
+offset_top = -10.0
+offset_right = 261.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_64810")
+theme_override_font_sizes/font_size = 20
+text = "BACK_BUTTON"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 5
+
+[node name="PlayersLabel" type="Label" parent="." unique_id=216805143]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -10.0
+offset_right = 125.0
+offset_bottom = 10.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_64810")
+theme_override_font_sizes/font_size = 20
+text = "4/4"
+vertical_alignment = 1
+
+[node name="LockIcon" type="TextureRect" parent="." unique_id=1656288714]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -20.0
+offset_right = -25.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_ub7vk")

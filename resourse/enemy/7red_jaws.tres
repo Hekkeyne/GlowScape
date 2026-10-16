@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://c7grngudukw2c"]
+
+[ext_resource type="Script" uid="uid://brn8nnikaje7u" path="res://resourse/enemy ai/dash_ai.gd" id="1_7o8d3"]
+[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="1_ge5o8"]
+[ext_resource type="Texture2D" uid="uid://s5dnpck8puyb" path="res://sprites/red.png" id="2_63lgi"]
+[ext_resource type="Resource" uid="uid://kddwicwhckk" path="res://resourse/pickups/large_xp.tres" id="3_7o8d3"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="4_5rxbl"]
+[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="4_5ub6o"]
+[ext_resource type="Texture2D" uid="uid://d3dr0qf1s0nht" path="res://sprites/red_icon.png" id="5_0fqdr"]
+[ext_resource type="PackedScene" uid="uid://c7x5gh1s3s6ru" path="res://resourse/enemy scene/red_jaws.tscn" id="5_7o8d3"]
+
+[sub_resource type="Resource" id="Resource_ldcs6"]
+script = ExtResource("1_7o8d3")
+prepare_range = 250.0
+keep_distance = 250.0
+back_speed_mult = 0.5
+creep_speed_mult = 0.5
+metadata/_custom_type_script = "uid://brn8nnikaje7u"
+
+[resource]
+script = ExtResource("4_5rxbl")
+title = "RED_JAWS"
+icon = ExtResource("5_0fqdr")
+texture = ExtResource("2_63lgi")
+health = 450.0
+damage = 35.0
+drops = Array[ExtResource("1_ge5o8")]([ExtResource("3_7o8d3")])
+description = "RED_JAWS_DESCRIPTION"
+scene = ExtResource("5_7o8d3")
+ai_behavior = SubResource("Resource_ldcs6")
+elite_guaranteed_drop = ExtResource("4_5ub6o")
+metadata/_custom_type_script = "uid://b7abjov5qlnih"

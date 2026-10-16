@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cpxt3j4wlr46c"]
+
+[ext_resource type="Script" uid="uid://cr4mbxd3x8ha3" path="res://script/turret_rocket.gd" id="1_ggekf"]
+[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="2_2nogi"]
+[ext_resource type="AudioStream" uid="uid://btf3k2gbtk8ba" path="res://resourse/audio/8bit-explode23.wav" id="2_ilo3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(8, 2)
+
+[node name="rocket" type="Area2D" unique_id=1347462161]
+process_mode = 1
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ggekf")
+sfx = Array[AudioStream]([ExtResource("2_ilo3t")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576228593]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=130012362]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1291298760]
+amount = 10
+texture = ExtResource("2_2nogi")
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(-1, 0)
+spread = 2.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 59.17
+initial_velocity_max = 119.32
+scale_amount_min = 3.0
+scale_amount_max = 4.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=207723813]
+rect = Rect2(-4, -1, 8, 2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1554126071]
+volume_db = -20.0

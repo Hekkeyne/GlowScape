@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://uc6aeneimx8v"
+path="res://.godot/imported/01. Battle Theme I (full).ogg-6f3fbfc5b54b8c839f5043fb10af17a1.oggvorbisstr"
+
+[deps]
+
+source_file="res://resourse/music/01. Battle Theme I (full).ogg"
+dest_files=["res://.godot/imported/01. Battle Theme I (full).ogg-6f3fbfc5b54b8c839f5043fb10af17a1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

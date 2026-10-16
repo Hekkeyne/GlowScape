@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MetaStat" format=3 uid="uid://bosuoj24j4vtm"]
+
+[ext_resource type="Texture2D" uid="uid://frfst01he4sp" path="res://sprites/soul_DIRECT.png" id="1_ug3td"]
+[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="1_vqddq"]
+
+[resource]
+script = ExtResource("1_vqddq")
+stat_type = "recovery"
+display_name = "META_RECOVERY"
+icon = ExtResource("1_ug3td")
+max_level = 10
+base_cost = 50
+cost_step = 75
+metadata/_custom_type_script = "uid://dgeh84pcgehsj"

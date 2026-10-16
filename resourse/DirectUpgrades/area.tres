@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DirectUpgrade" format=3 uid="uid://bo0uhki4855dr"]
+
+[ext_resource type="Texture2D" uid="uid://choe3hwreul4v" path="res://sprites/area_DIRECT.png" id="1_6j5di"]
+[ext_resource type="Script" uid="uid://vkilulnisgb7" path="res://resourse/idk lol/direct_upgrade.gd" id="1_76vbq"]
+
+[resource]
+script = ExtResource("1_76vbq")
+title = "AREA"
+icon = ExtResource("1_6j5di")
+effect_value = 5.0
+stat_type = "area"
+metadata/_custom_type_script = "uid://vkilulnisgb7"

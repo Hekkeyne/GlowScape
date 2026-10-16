@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Sawstorm" format=3 uid="uid://cvhq0hv1ddd2f"]
+
+[ext_resource type="Texture2D" uid="uid://18afybjjo7r5" path="res://sprites/error_place_evolution_icon.png" id="1_ln6pk"]
+[ext_resource type="Texture2D" uid="uid://duyf1iigmplef" path="res://sprites/error_place_icon.png" id="1_pel12"]
+[ext_resource type="Texture2D" uid="uid://3gvl26j7yu2v" path="res://sprites/luck.png" id="2_02san"]
+[ext_resource type="PackedScene" uid="uid://cvmdfu7xju1jn" path="res://scene/area_projectile_upgrade.tscn" id="2_ln6pk"]
+[ext_resource type="Script" uid="uid://d1m72dvawbpxn" path="res://script/sawshtorm.gd" id="3_ln6pk"]
+[ext_resource type="Texture2D" uid="uid://o2hki2mxglqe" path="res://sprites/error_place_evolution_texture.png" id="4_pel12"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="5_drxyj"]
+[ext_resource type="PackedScene" uid="uid://c8uovs17srxem" path="res://scene/web_line.tscn" id="8_xkniu"]
+
+[resource]
+script = ExtResource("3_ln6pk")
+amount = 10
+web_line_scene = ExtResource("8_xkniu")
+damage = 20.0
+cooldown = 5.0
+speed = 600.0
+projectile_node = ExtResource("2_ln6pk")
+before_evolution = ExtResource("1_pel12")
+before_item_needed = ExtResource("2_02san")
+title = "HOLY_DISC"
+icon = ExtResource("1_ln6pk")
+texture = ExtResource("4_pel12")
+description = "HD_DESCRIPTION"
+metadata/_custom_type_script = "uid://cubdov3ukpghi"

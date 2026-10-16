@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://yfg8i44sn5rf"]
+
+[ext_resource type="Script" uid="uid://bsk82kxyvla2v" path="res://script/lazer_attack.gd" id="1_kt87n"]
+[ext_resource type="AudioStream" uid="uid://drxnorpqn7mt7" path="res://resourse/audio/Ring_Pitched_Down.wav" id="2_aq2r5"]
+[ext_resource type="Texture2D" uid="uid://dfptl7p5jy7jr" path="res://sprites/lazer_glow.png" id="2_mpg8r"]
+[ext_resource type="Texture2D" uid="uid://5xaasau7rf08" path="res://sprites/lazer_sprite.png" id="3_mpg8r"]
+
+[node name="Node2D" type="Node2D" unique_id=665265748]
+script = ExtResource("1_kt87n")
+hit_sound = ExtResource("2_aq2r5")
+
+[node name="Glow" type="Line2D" parent="." unique_id=461081924]
+width = 7.0
+default_color = Color(1, 1, 1, 0.11764706)
+texture = ExtResource("2_mpg8r")
+texture_mode = 1
+
+[node name="Core" type="Line2D" parent="." unique_id=1407162260]
+width = 5.0
+texture = ExtResource("3_mpg8r")
+texture_mode = 1

@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://xmphl10xosry"]
+
+[ext_resource type="Script" uid="uid://beupbqbq3gfcv" path="res://script/ALL_UI_SCRIPT.gd" id="1_u5lca"]
+[ext_resource type="Texture2D" uid="uid://b1m1bfuy5cvw3" path="res://sprites/mobile_ui.png" id="2_4873j"]
+[ext_resource type="Script" uid="uid://mytceipmiln8" path="res://scene/mouse.gd" id="2_a5ahn"]
+[ext_resource type="Texture2D" uid="uid://qokvb3s8cdio" path="res://sprites/mobile_tp_button.png" id="3_lvrrk"]
+[ext_resource type="Texture2D" uid="uid://mwxabuwm5nv2" path="res://sprites/idle_cursor.png" id="3_vb1t3"]
+[ext_resource type="Texture2D" uid="uid://2tcl0nt3486x" path="res://sprites/mobile_tp_button_pressed.png" id="4_k01qa"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="5_lqq23"]
+
+[node name="UI_ALL_DEVICES" type="CanvasLayer" unique_id=524427554]
+process_thread_group = 1
+process_thread_group_order = 1
+process_thread_messages = 0
+layer = 2
+script = ExtResource("1_u5lca")
+
+[node name="Mouse" type="CanvasLayer" parent="." unique_id=1560617966]
+process_mode = 3
+layer = 3
+script = ExtResource("2_a5ahn")
+
+[node name="cursor_animated_sprite" type="Sprite2D" parent="Mouse" unique_id=24638162]
+unique_name_in_owner = true
+texture = ExtResource("3_vb1t3")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Mouse/cursor_animated_sprite" unique_id=903015491]
+amount = 15
+texture = ExtResource("5_lqq23")
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+gravity = Vector2(0, -50)
+scale_amount_min = 0.5
+scale_amount_max = 0.75
+
+[node name="NinePatchRectRIGHT" type="NinePatchRect" parent="." unique_id=1045917481]
+self_modulate = Color(1, 1, 1, 0.39215687)
+anchors_preset = -1
+anchor_left = 0.0050000004
+anchor_top = 0.79300004
+anchor_right = 0.23300001
+anchor_bottom = 0.989
+offset_left = 0.39999962
+offset_top = -212.44006
+offset_right = 436.63998
+offset_bottom = -0.11999512
+grow_vertical = 0
+texture = ExtResource("2_4873j")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="Control" type="Control" parent="NinePatchRectRIGHT" unique_id=1312445722]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="NinePatchRectRIGHT/Control" unique_id=1481734305]
+process_mode = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = 3.0839844
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+joystick_mode = 1
+joystick_size = 250.0
+tip_size = 110.0
+action_left = &"left"
+action_right = &"right"
+action_up = &"up"
+action_down = &"down"
+visibility_mode = 1
+
+[node name="NinePatchRectLEFT" type="NinePatchRect" parent="." unique_id=1061554099]
+self_modulate = Color(1, 1, 1, 0.39215687)
+anchors_preset = -1
+anchor_left = 0.76600003
+anchor_top = 0.791
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = -437.7201
+offset_top = -212.28003
+offset_right = -13.0
+offset_bottom = -2.119995
+grow_vertical = 0
+texture = ExtResource("2_4873j")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="Control" type="Control" parent="NinePatchRectLEFT" unique_id=1435380035]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="NinePatchRectLEFT/Control" unique_id=1084834284]
+process_mode = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = 3.0839844
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+joystick_mode = 1
+joystick_size = 250.0
+tip_size = 110.0
+action_left = &"left"
+action_right = &"right"
+action_up = &"up"
+action_down = &"down"
+visibility_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=488050924]
+layout_mode = 3
+anchor_left = 1.0
+anchor_top = 0.81000006
+anchor_right = 1.0
+anchor_bottom = 0.81000006
+offset_left = -1920.0
+offset_top = -874.80005
+offset_right = -1880.0
+offset_bottom = -834.80005
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureButtonRIGHT" type="TouchScreenButton" parent="Control" unique_id=1763638379]
+position = Vector2(1352, 652)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_lvrrk")
+texture_pressed = ExtResource("4_k01qa")
+action = "dash"
+
+[node name="colldown_tp" type="Timer" parent="Control/TextureButtonRIGHT" unique_id=2039546276]
+one_shot = true
+
+[node name="Control2" type="Control" parent="." unique_id=288253322]
+layout_mode = 3
+anchor_top = 0.81000006
+anchor_bottom = 0.81000006
+offset_top = -874.80005
+offset_right = 40.0
+offset_bottom = -834.80005
+grow_vertical = 0
+
+[node name="TextureButtonLEFT" type="TouchScreenButton" parent="Control2" unique_id=1433417263]
+position = Vector2(230, 652)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_lvrrk")
+texture_pressed = ExtResource("4_k01qa")
+action = "dash"
+
+[node name="colldown_tp" type="Timer" parent="Control2/TextureButtonLEFT" unique_id=1217557172]
+one_shot = true
+
+[connection signal="pressed" from="Control/TextureButtonRIGHT" to="." method="_on_texture_button_right_pressed"]
+[connection signal="timeout" from="Control/TextureButtonRIGHT/colldown_tp" to="." method="_on_colldown_tp_timeoutR"]
+[connection signal="pressed" from="Control2/TextureButtonLEFT" to="." method="_on_texture_button_left_pressed"]
+[connection signal="timeout" from="Control2/TextureButtonLEFT/colldown_tp" to="." method="_on_colldown_tp_timeoutL"]

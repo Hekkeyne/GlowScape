@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="PassiveItem" format=3 uid="uid://dl6roqw3q15h1"]
+
+[ext_resource type="Script" uid="uid://drv1e7e8gwj10" path="res://resourse/Items/PassiveItem.gd" id="1_8jx1g"]
+[ext_resource type="Texture2D" uid="uid://btqjotw32xb5g" path="res://sprites/growth.png" id="1_xdoq4"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="2_xdoq4"]
+
+[sub_resource type="Resource" id="Resource_nhomh"]
+script = ExtResource("2_xdoq4")
+growth = 0.15
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_e45dt"]
+script = ExtResource("2_xdoq4")
+growth = 0.2
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_yjstp"]
+script = ExtResource("2_xdoq4")
+growth = 0.3
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[sub_resource type="Resource" id="Resource_ylllw"]
+script = ExtResource("2_xdoq4")
+growth = 0.35
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[resource]
+script = ExtResource("1_8jx1g")
+upgrades = Array[ExtResource("2_xdoq4")]([SubResource("Resource_nhomh"), SubResource("Resource_e45dt"), SubResource("Resource_yjstp"), SubResource("Resource_ylllw")])
+title = "GROWTH"
+icon = ExtResource("1_xdoq4")
+metadata/_custom_type_script = "uid://drv1e7e8gwj10"

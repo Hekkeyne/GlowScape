@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://hog4xgs6v8f8"]
+
+[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1_4vwec"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2_f48il"]
+[ext_resource type="Texture2D" uid="uid://bsp0g22smskot" path="res://sprites/magnet_enemy.png" id="3_4vwec"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sh3nm"]
+radius = 12.7366495
+
+[node name="enemy" type="CharacterBody2D" unique_id=1984230688 groups=["Enemy"]]
+position = Vector2(-2, 0)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_4vwec")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2132661467]
+self_modulate = Color(0.9843137, 0.9490196, 0.21176471, 1)
+position = Vector2(-9.999995, 0)
+amount = 3
+texture = ExtResource("2_f48il")
+lifetime = 0.4
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(-1, 0)
+spread = 23.33
+gravity = Vector2(0, 0)
+initial_velocity_min = 39.36
+initial_velocity_max = 69.63
+scale_amount_max = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972375330]
+texture_filter = 1
+rotation = 1.5707964
+shape = SubResource("CircleShape2D_sh3nm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1925860203]
+texture = ExtResource("3_4vwec")

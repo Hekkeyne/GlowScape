@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardResource" format=3 uid="uid://dj7vvynjfmjmg"]
+
+[ext_resource type="Texture2D" uid="uid://c2dk4ixby3pdf" path="res://sprites/card-chest.png" id="1_nt4pb"]
+[ext_resource type="Script" uid="uid://dfou1xr0fy3bl" path="res://resourse/Items/CardResourse.gd" id="2_nhsys"]
+
+[resource]
+script = ExtResource("2_nhsys")
+title = "Card"
+icon = ExtResource("1_nt4pb")
+metadata/_custom_type_script = "uid://dfou1xr0fy3bl"

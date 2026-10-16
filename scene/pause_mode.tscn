@@ -1,0 +1,367 @@
+[gd_scene format=3 uid="uid://c8wdk1vofpjl4"]
+
+[ext_resource type="Script" uid="uid://bytgsmicqmi4m" path="res://script/pause.gd" id="1_hqcb6"]
+[ext_resource type="Shader" uid="uid://bnqinmtgkq4ek" path="res://scene/main_menu_start_button.gdshader" id="2_rgdsy"]
+[ext_resource type="Script" uid="uid://qskyh1but5pc" path="res://script/pause_button.gd" id="3_a6h02"]
+[ext_resource type="Shader" uid="uid://dw6xj0tu45sri" path="res://scene/holy_glas.gdshader" id="4_v671d"]
+[ext_resource type="Texture2D" uid="uid://cpywxavqsh5sr" path="res://sprites/pause_button.png" id="5_c808r"]
+[ext_resource type="Texture2D" uid="uid://qt24i04y4wpu" path="res://sprites/ITEM_placeholder.png" id="6_c808r"]
+[ext_resource type="Script" uid="uid://c0e6krdkrfwe4" path="res://script/resume_button.gd" id="6_rt8bs"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="7_ku8na"]
+[ext_resource type="Texture2D" uid="uid://jvx55qdca02s" path="res://sprites/card_sprite.png" id="8_hpjen"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="9_wfdyy"]
+[ext_resource type="Script" uid="uid://b4stil7p10bcr" path="res://script/quit_button.gd" id="10_v671d"]
+[ext_resource type="Script" uid="uid://d2rf6vf7hl01m" path="res://script/quit_no.gd" id="11_c808r"]
+[ext_resource type="Script" uid="uid://708xiicu5sln" path="res://script/quit_yes.gd" id="12_rt8bs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l1pku"]
+shader = ExtResource("2_rgdsy")
+shader_parameter/pixel_size = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m6816"]
+shader = ExtResource("4_v671d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = ExtResource("6_c808r")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[node name="Pause_Mode" type="Control" unique_id=1700640308]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_hqcb6")
+
+[node name="Pause" type="TextureButton" parent="." unique_id=316475486]
+process_mode = 1
+material = SubResource("ShaderMaterial_l1pku")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.056
+anchor_right = 1.0
+anchor_bottom = 0.056
+offset_left = -172.0
+offset_top = 32.519997
+offset_right = -72.0
+offset_bottom = 132.51999
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+script = ExtResource("3_a6h02")
+
+[node name="NinePatchRect" type="TextureRect" parent="Pause" unique_id=1040399198]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_m6816")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_c808r")
+stretch_mode = 4
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="Pause" unique_id=537483604]
+volume_db = -15.0
+
+[node name="Panel" type="Panel" parent="." unique_id=33793587]
+visible = false
+custom_minimum_size = Vector2(850, 500)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.508
+anchor_right = 1.0
+anchor_bottom = 0.508
+offset_left = 559.0
+offset_top = -249.64001
+offset_right = -511.0
+offset_bottom = 250.35999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g4v7s")
+
+[node name="Resume" type="TextureButton" parent="Panel" unique_id=1176804691]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+material = SubResource("ShaderMaterial_l1pku")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50100005
+anchor_right = 0.50100005
+offset_left = -359.85004
+offset_top = 136.0
+offset_right = 360.14996
+offset_bottom = 276.0
+grow_horizontal = 2
+script = ExtResource("6_rt8bs")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel/Resume" unique_id=259337561]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_m6816")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_hpjen")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="Panel/Resume" unique_id=2027008175]
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="Panel/Resume" unique_id=1615122389]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_wfdyy")
+theme_override_font_sizes/font_size = 50
+text = "PAUSE_RESUME"
+
+[node name="Label2w" type="Label" parent="Panel/Resume" unique_id=34534419]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = -0.97
+anchor_right = 0.504
+anchor_bottom = -0.97
+offset_left = -324.88
+offset_top = 28.800003
+offset_right = 325.12
+offset_bottom = 78.8
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_wfdyy")
+theme_override_font_sizes/font_size = 50
+text = "PAUSE_TITLE"
+horizontal_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="Panel" unique_id=1730582275]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+material = SubResource("ShaderMaterial_l1pku")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -359.0
+offset_top = 294.0
+offset_right = 361.0
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("10_v671d")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel/Quit" unique_id=424034014]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_m6816")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_hpjen")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="Panel/Quit" unique_id=1882146967]
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="Panel/Quit" unique_id=608228200]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_wfdyy")
+theme_override_font_sizes/font_size = 50
+text = "EXIT_BUTTON"
+
+[node name="quit_no" type="TextureButton" parent="Panel" unique_id=762385309]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+material = SubResource("ShaderMaterial_l1pku")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 294.0
+offset_right = 363.0
+offset_bottom = 434.0
+grow_horizontal = 2
+script = ExtResource("11_c808r")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel/quit_no" unique_id=270352463]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_m6816")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_hpjen")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="Panel/quit_no" unique_id=1111485953]
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="Panel/quit_no" unique_id=122231059]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_wfdyy")
+theme_override_font_sizes/font_size = 50
+text = "STAY_BUTTON"
+
+[node name="Label2" type="Label" parent="Panel/quit_no" unique_id=297803089]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.136
+anchor_top = -2.0860002
+anchor_right = 0.136
+anchor_bottom = -2.0860002
+offset_left = -275.072
+offset_top = 27.04004
+offset_right = 274.928
+offset_bottom = 77.04004
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_wfdyy")
+theme_override_font_sizes/font_size = 50
+text = "AUS"
+horizontal_alignment = 1
+
+[node name="quit_yes" type="TextureButton" parent="Panel" unique_id=1195121071]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+material = SubResource("ShaderMaterial_l1pku")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -357.0
+offset_top = 294.0
+offset_right = -71.0
+offset_bottom = 434.0
+grow_horizontal = 2
+script = ExtResource("12_rt8bs")
+
+[node name="Particle" type="CPUParticles2D" parent="Panel/quit_yes" unique_id=581810517]
+position = Vector2(143, 70)
+emitting = false
+amount = 20
+texture = ExtResource("7_ku8na")
+emission_shape = 3
+emission_rect_extents = Vector2(143, 70)
+gravity = Vector2(0, 0)
+radial_accel_min = -92.0
+radial_accel_max = -76.0
+angle_min = -138.5
+angle_max = 576.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel/quit_yes" unique_id=1452513133]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_m6816")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_hpjen")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="Panel/quit_yes" unique_id=194857820]
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="Panel/quit_yes" unique_id=1932105060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_wfdyy")
+theme_override_font_sizes/font_size = 50
+text = "EXIT_BUTTON"
+
+[connection signal="mouse_entered" from="Pause" to="Pause" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pause" to="Pause" method="_on_mouse_exited"]
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="mouse_entered" from="Panel/Resume" to="Panel/Resume" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Resume" to="Panel/Resume" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="Panel/Quit" to="Panel/Quit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Quit" to="Panel/Quit" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="Panel/quit_no" to="Panel/quit_no" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/quit_no" to="Panel/quit_no" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/quit_no" to="." method="_on_quit_no_pressed"]
+[connection signal="mouse_entered" from="Panel/quit_yes" to="Panel/quit_yes" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/quit_yes" to="Panel/quit_yes" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/quit_yes" to="." method="_on_quit_yes_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaStat" format=3 uid="uid://dtx6ew8h31f17"]
+
+[ext_resource type="Texture2D" uid="uid://b5ximkv1kcstk" path="res://sprites/magnet_DIRECT.png" id="1_2t3j0"]
+[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="1_n3ete"]
+
+[resource]
+script = ExtResource("1_n3ete")
+stat_type = "magnet"
+display_name = "META_MAGNET"
+icon = ExtResource("1_2t3j0")
+max_level = 10
+effect_per_level = 10.0
+metadata/_custom_type_script = "uid://dgeh84pcgehsj"

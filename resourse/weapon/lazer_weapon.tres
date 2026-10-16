@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="LaserWeapon" format=3 uid="uid://b0fm2ww3l0ov3"]
+
+[ext_resource type="PackedScene" uid="uid://yfg8i44sn5rf" path="res://scene/lazer.tscn" id="1_epw2m"]
+[ext_resource type="Script" uid="uid://ca03n53472hum" path="res://script/lazer_weap.gd" id="2_c4u6q"]
+[ext_resource type="PackedScene" uid="uid://cf0y3qq2hrbcr" path="res://scene/emitt_scene.tscn" id="2_iksyq"]
+[ext_resource type="Texture2D" uid="uid://dkiigqo324220" path="res://sprites/emitt_sprite.png" id="3_la381"]
+[ext_resource type="PackedScene" uid="uid://dhw7wici5tb12" path="res://scene/laser_projectile.tscn" id="4_8po4i"]
+[ext_resource type="Texture2D" uid="uid://om53q2bck1dy" path="res://sprites/lazer_icon.png" id="4_iksyq"]
+[ext_resource type="Resource" uid="uid://c3dxfdd4ktoet" path="res://resourse/weapon upgrade/lazer_weapon_evo.tres" id="4_md30b"]
+[ext_resource type="Resource" uid="uid://drh0uvi4kujdv" path="res://resourse/Items/Magnet.tres" id="5_sdxgi"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="7_sdxgi"]
+[ext_resource type="Script" uid="uid://kl75lq2kuw4c" path="res://resourse/upgrade/Wandupgrade.gd" id="9_md30b"]
+
+[sub_resource type="Resource" id="Resource_iksyq"]
+script = ExtResource("9_md30b")
+reflections = 1
+metadata/_custom_type_script = "uid://kl75lq2kuw4c"
+
+[sub_resource type="Resource" id="Resource_la381"]
+script = ExtResource("9_md30b")
+lasers = 1
+metadata/_custom_type_script = "uid://kl75lq2kuw4c"
+
+[sub_resource type="Resource" id="Resource_sdxgi"]
+script = ExtResource("9_md30b")
+damage = 5.0
+metadata/_custom_type_script = "uid://kl75lq2kuw4c"
+
+[sub_resource type="Resource" id="Resource_md30b"]
+script = ExtResource("9_md30b")
+cooldown = -2.5
+metadata/_custom_type_script = "uid://kl75lq2kuw4c"
+
+[sub_resource type="Resource" id="Resource_bmid7"]
+script = ExtResource("9_md30b")
+reflections = 1
+lasers = 1
+metadata/_custom_type_script = "uid://kl75lq2kuw4c"
+
+[sub_resource type="Resource" id="Resource_p827u"]
+script = ExtResource("9_md30b")
+cooldown = -2.5
+metadata/_custom_type_script = "uid://kl75lq2kuw4c"
+
+[sub_resource type="Resource" id="Resource_2xybw"]
+script = ExtResource("9_md30b")
+damage = 5.0
+metadata/_custom_type_script = "uid://kl75lq2kuw4c"
+
+[resource]
+script = ExtResource("2_c4u6q")
+beam_scene = ExtResource("1_epw2m")
+emitter_scene = ExtResource("2_iksyq")
+emitter_texture = ExtResource("3_la381")
+beam_duration = 1.5
+grow_time = 0.2
+deploy_radius = 200.0
+crown_stiffness = 90.0
+recoil_force = 200.0
+bob_amp = 2.0
+bob_freq = 2.0
+rehit_interval = 0.5
+side_swing_speed = 20.0
+damage = 10.0
+cooldown = 7.5
+upgrades = Array[ExtResource("7_sdxgi")]([SubResource("Resource_iksyq"), SubResource("Resource_la381"), SubResource("Resource_sdxgi"), SubResource("Resource_md30b"), SubResource("Resource_bmid7"), SubResource("Resource_p827u"), SubResource("Resource_2xybw")])
+item_needed = ExtResource("5_sdxgi")
+evolution = ExtResource("4_md30b")
+title = "WAND"
+icon = ExtResource("4_iksyq")
+texture = ExtResource("4_iksyq")
+description = "WAND_DESCRIPTION"
+metadata/_custom_type_script = "uid://ca03n53472hum"

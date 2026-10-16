@@ -1,0 +1,726 @@
+[gd_scene format=3 uid="uid://bqcrmi3rtwqc1"]
+
+[ext_resource type="Script" uid="uid://crypf71rmqc07" path="res://script/player.gd" id="1_hjaqi"]
+[ext_resource type="Texture2D" uid="uid://sm6d1lrgufmr" path="res://sprites/XP_bar_under.png" id="2_ml7e8"]
+[ext_resource type="Texture2D" uid="uid://cvnkiftqhyg7p" path="res://sprites/progtess_bar_under.png" id="3_ct4mp"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="3_hp4bs"]
+[ext_resource type="Texture2D" uid="uid://hw6fji0pogwp" path="res://sprites/UI_placeholder.png" id="3_j4wxg"]
+[ext_resource type="Texture2D" uid="uid://d2qwr7sla38y" path="res://sprites/progtess_bar.png" id="4_s4jxa"]
+[ext_resource type="PackedScene" uid="uid://db4drylx548xy" path="res://scene/slot.tscn" id="5_s4jxa"]
+[ext_resource type="Texture2D" uid="uid://cy713xbjqk2xe" path="res://sprites/TargetPoint.png" id="8_g2vtq"]
+[ext_resource type="Texture2D" uid="uid://d33yn34yl5apc" path="res://sprites/XP_bar.png" id="9_2fvbb"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="9_ihjo1"]
+[ext_resource type="PackedScene" uid="uid://bmsqv0sspqyw8" path="res://scene/passive_slot.tscn" id="9_u7b46"]
+[ext_resource type="Script" uid="uid://x7xd55p5h8nf" path="res://script/random_button.gd" id="11_wt23p"]
+[ext_resource type="Script" uid="uid://cckq1o8ux8gdn" path="res://script/options.gd" id="12_dk1vr"]
+[ext_resource type="Texture2D" uid="uid://b4eb5t11gdr4w" path="res://sprites/tp_bar_under.png" id="19_4reak"]
+[ext_resource type="Texture2D" uid="uid://d4m3bkuiq7ib7" path="res://sprites/tp_bar.png" id="20_wt23p"]
+[ext_resource type="Texture2D" uid="uid://dw4kvc18xr1dg" path="res://sprites/button_ui.png" id="21_wt23p"]
+[ext_resource type="Texture2D" uid="uid://bel6fe0cpswi5" path="res://sprites/lazer_character_evolution.png" id="22_4reak"]
+[ext_resource type="Script" uid="uid://dxd2xpik37seq" path="res://script/card.gd" id="22_qucqc"]
+[ext_resource type="Texture2D" uid="uid://bi3abpvhhv7wd" path="res://sprites/wheel_spin.png" id="23_k8m7u"]
+[ext_resource type="Script" uid="uid://4pr1wo7unwan" path="res://script/camera_2d.gd" id="24_k8m7u"]
+[ext_resource type="Texture2D" uid="uid://bo4ovbwfkdlby" path="res://sprites/violet.png" id="24_qucqc"]
+[ext_resource type="PackedScene" uid="uid://c8wdk1vofpjl4" path="res://scene/pause_mode.tscn" id="24_wt23p"]
+[ext_resource type="Script" uid="uid://ofdi2ap15giq" path="res://script/back_button.gd" id="28_3vgh4"]
+[ext_resource type="Texture2D" uid="uid://jvx55qdca02s" path="res://sprites/card_sprite.png" id="29_h3knh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_34jf3"]
+light_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 10.049875
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oh5ij"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 50.0
+
+[node name="player" type="CharacterBody2D" unique_id=561257320 groups=["Player"]]
+process_mode = 1
+script = ExtResource("1_hjaqi")
+invincible_duration = 0.25
+
+[node name="player" type="CPUParticles2D" parent="." unique_id=1119473783]
+texture_filter = 1
+emitting = false
+amount = 15
+texture = ExtResource("3_hp4bs")
+lifetime_randomness = 0.67
+draw_order = 1
+emission_shape = 2
+emission_sphere_radius = 8.0
+direction = Vector2(-1, 0)
+spread = 15.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 96.33
+initial_velocity_max = 164.12
+angular_velocity_min = -455.88
+angular_velocity_max = 383.52
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2145905476]
+process_mode = 1
+layer = 2
+
+[node name="Pause_Mode" parent="UI" unique_id=1700640308 instance=ExtResource("24_wt23p")]
+process_mode = 3
+
+[node name="XP" type="TextureProgressBar" parent="UI" unique_id=1888533220]
+unique_name_in_owner = true
+process_mode = 3
+self_modulate = Color(2.055, 2.055, 2.055, 1)
+material = SubResource("CanvasItemMaterial_34jf3")
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.056
+anchor_right = 1.0
+anchor_bottom = 0.056
+offset_left = -825.0
+offset_top = -0.48000336
+offset_right = -75.0
+offset_bottom = 14.519997
+max_value = 0.0
+fill_mode = 1
+texture_under = ExtResource("2_ml7e8")
+texture_progress = ExtResource("9_2fvbb")
+
+[node name="Level" type="Label" parent="UI/XP" unique_id=580397342]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -2.0
+offset_top = 22.0
+offset_right = 748.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0.9843137, 0.9490196, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_font_sizes/font_size = 20
+text = "LABEL_LEVEL"
+
+[node name="health" type="TextureProgressBar" parent="UI" unique_id=1022191373]
+unique_name_in_owner = true
+process_mode = 3
+anchors_preset = -1
+anchor_top = 0.056
+anchor_bottom = 0.056
+offset_left = 65.0
+offset_top = -0.48000336
+offset_right = 815.0
+offset_bottom = 14.519997
+grow_horizontal = 0
+mouse_filter = 2
+value = 100.0
+texture_under = ExtResource("3_ct4mp")
+texture_progress = ExtResource("4_s4jxa")
+
+[node name="HealthLabel" type="Label" parent="UI/health" unique_id=1905651333]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 22.0
+offset_right = 752.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0.41568628, 0.74509805, 0.1882353, 1)
+theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_font_sizes/font_size = 20
+text = "LABEL_HEALTH"
+horizontal_alignment = 2
+
+[node name="Panel" type="NinePatchRect" parent="UI" unique_id=1468312942]
+unique_name_in_owner = true
+process_mode = 3
+anchors_preset = -1
+anchor_left = 0.22000001
+anchor_top = 0.45
+anchor_right = 0.78200006
+anchor_bottom = 0.55
+offset_left = -89.400024
+offset_top = 885.0
+offset_right = 26.559814
+offset_bottom = 1462.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_j4wxg")
+region_rect = Rect2(0, 0, 40, 40)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Options" type="HBoxContainer" parent="UI/Panel" unique_id=1612079674 node_paths=PackedStringArray("weapons", "passive_items", "particles", "panel")]
+unique_name_in_owner = true
+process_mode = 3
+self_modulate = Color(1.8984075, 1.8984075, 1.8984075, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 115.0
+offset_right = -50.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("12_dk1vr")
+weapons = NodePath("../../weapons")
+passive_items = NodePath("../../PassiveItems")
+particles = NodePath("../../../Camera2D/Particle")
+panel = NodePath("..")
+
+[node name="Label" type="Label" parent="UI/Panel" unique_id=1357237686]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_top = 27.0
+offset_right = 225.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_font_sizes/font_size = 25
+text = "УРОВЕНЬ ПОВЫШЕН
+выберите улучшение"
+horizontal_alignment = 1
+
+[node name="RandomButton" type="TextureButton" parent="UI/Panel" unique_id=704272904]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 269.0
+offset_top = -101.52002
+offset_right = -265.0
+offset_bottom = -16.52002
+grow_horizontal = 2
+mouse_filter = 1
+script = ExtResource("11_wt23p")
+
+[node name="Button_Texture" type="NinePatchRect" parent="UI/Panel/RandomButton" unique_id=462862583]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("3_j4wxg")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Button_label" type="Label" parent="UI/Panel/RandomButton" unique_id=2036707249]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_font_sizes/font_size = 20
+text = "RANDOM_BUTTON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="weapons" type="HBoxContainer" parent="UI" unique_id=1638514295]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 1.006
+anchor_top = 0.056
+anchor_right = 1.006
+anchor_bottom = 0.056
+offset_left = -836.52
+offset_top = 74.52
+offset_right = -456.52002
+offset_bottom = 134.51999
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot" parent="UI/weapons" unique_id=123618376 instance=ExtResource("5_s4jxa")]
+layout_mode = 2
+
+[node name="slot2" parent="UI/weapons" unique_id=1449733323 instance=ExtResource("5_s4jxa")]
+layout_mode = 2
+
+[node name="slot3" parent="UI/weapons" unique_id=466929034 instance=ExtResource("5_s4jxa")]
+layout_mode = 2
+
+[node name="slot4" parent="UI/weapons" unique_id=338462428 instance=ExtResource("5_s4jxa")]
+layout_mode = 2
+
+[node name="slot5" parent="UI/weapons" unique_id=1943271243 instance=ExtResource("5_s4jxa")]
+layout_mode = 2
+
+[node name="slot6" parent="UI/weapons" unique_id=357824885 instance=ExtResource("5_s4jxa")]
+layout_mode = 2
+
+[node name="PassiveItems" type="HBoxContainer" parent="UI" unique_id=1846147967]
+anchors_preset = -1
+anchor_top = 0.056
+anchor_bottom = 0.056
+offset_left = 435.0
+offset_top = 74.52
+offset_right = 815.0
+offset_bottom = 134.51999
+
+[node name="PassiveSlot" parent="UI/PassiveItems" unique_id=1616843693 instance=ExtResource("9_u7b46")]
+layout_mode = 2
+
+[node name="PassiveSlot2" parent="UI/PassiveItems" unique_id=1683618962 instance=ExtResource("9_u7b46")]
+layout_mode = 2
+
+[node name="PassiveSlot3" parent="UI/PassiveItems" unique_id=732086170 instance=ExtResource("9_u7b46")]
+layout_mode = 2
+
+[node name="PassiveSlot4" parent="UI/PassiveItems" unique_id=935456900 instance=ExtResource("9_u7b46")]
+layout_mode = 2
+
+[node name="PassiveSlot5" parent="UI/PassiveItems" unique_id=2093134086 instance=ExtResource("9_u7b46")]
+layout_mode = 2
+
+[node name="PassiveSlot6" parent="UI/PassiveItems" unique_id=1304895571 instance=ExtResource("9_u7b46")]
+layout_mode = 2
+
+[node name="Teleport" type="TextureProgressBar" parent="UI" unique_id=454279724]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.056
+anchor_right = 0.5
+anchor_bottom = 0.056
+offset_left = -75.0
+offset_top = 74.52
+offset_right = 75.0
+offset_bottom = 89.52
+grow_horizontal = 2
+value = 100.0
+texture_under = ExtResource("19_4reak")
+texture_progress = ExtResource("20_wt23p")
+
+[node name="TeleportLabel" type="Label" parent="UI/Teleport" unique_id=860513719]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -36.0
+offset_top = 17.0
+offset_right = 188.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.5568628, 0, 0.8784314, 1)
+theme_override_fonts/font = ExtResource("9_ihjo1")
+text = "LABEL_TELEPORT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Card" type="NinePatchRect" parent="UI" unique_id=803059198]
+process_mode = 3
+custom_minimum_size = Vector2(700, 600)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 826.0
+offset_right = 300.0
+offset_bottom = 1586.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("21_wt23p")
+region_rect = Rect2(0, 0, 40, 40)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource("22_qucqc")
+
+[node name="WheelSprite" type="TextureRect" parent="UI/Card" unique_id=1552645296]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -216.0
+offset_top = 22.0
+offset_right = 216.0
+offset_bottom = 454.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("23_k8m7u")
+stretch_mode = 5
+
+[node name="Reward" type="Control" parent="UI/Card/WheelSprite" unique_id=45238788]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.00002
+offset_top = -88.000046
+offset_right = -97.000015
+offset_bottom = -48.000046
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=1937400526]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 49.0
+offset_top = -80.00006
+offset_right = 113.0
+offset_bottom = -16.000061
+texture = ExtResource("24_qucqc")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=1572282070]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 161.0
+offset_top = -80.00006
+offset_right = 225.0
+offset_bottom = -16.000061
+texture = ExtResource("24_qucqc")
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=512966814]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 241.0
+offset_top = -6.1035156e-05
+offset_right = 305.0
+offset_bottom = 63.99994
+texture = ExtResource("24_qucqc")
+
+[node name="TextureRect4" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=107477547]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 241.0
+offset_top = 111.99994
+offset_right = 305.0
+offset_bottom = 175.99994
+texture = ExtResource("24_qucqc")
+
+[node name="TextureRect5" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=1683353833]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 161.0
+offset_top = 191.99994
+offset_right = 225.0
+offset_bottom = 255.99994
+texture = ExtResource("24_qucqc")
+
+[node name="TextureRect6" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=1982615659]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 191.99994
+offset_right = 113.0
+offset_bottom = 255.99994
+texture = ExtResource("24_qucqc")
+
+[node name="TextureRect7" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=2067599216]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = -31.0
+offset_top = 111.99994
+offset_right = 33.0
+offset_bottom = 175.99994
+texture = ExtResource("24_qucqc")
+
+[node name="TextureRect8" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=293736418]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = -31.0
+offset_top = -6.1035156e-05
+offset_right = 33.0
+offset_bottom = 63.99994
+texture = ExtResource("24_qucqc")
+
+[node name="Open" type="TextureButton" parent="UI/Card" unique_id=1241371683]
+custom_minimum_size = Vector2(250, 85)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 225.0
+offset_top = -117.0
+offset_right = -225.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button_Texture" type="NinePatchRect" parent="UI/Card/Open" unique_id=353422007]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("3_j4wxg")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Button_label" type="Label" parent="UI/Card/Open" unique_id=1500483220]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_font_sizes/font_size = 20
+text = "Крутить"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="TextureButton" parent="UI/Card" unique_id=1184335532]
+visible = false
+custom_minimum_size = Vector2(250, 85)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 225.0
+offset_top = -117.0
+offset_right = -225.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button_Texture" type="NinePatchRect" parent="UI/Card/Close" unique_id=659226680]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("3_j4wxg")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Button_label" type="Label" parent="UI/Card/Close" unique_id=1586994322]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_font_sizes/font_size = 20
+text = "BACK_BUTTON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Win_Label" type="Label" parent="UI/Card" unique_id=1435489910]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50100005
+anchor_top = 1.0
+anchor_right = 0.50100005
+anchor_bottom = 1.0
+offset_left = -300.80005
+offset_top = -297.0
+offset_right = 300.19998
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Microchips" type="Label" parent="UI" unique_id=373338443]
+unique_name_in_owner = true
+process_mode = 3
+anchors_preset = -1
+anchor_top = 0.056
+anchor_bottom = 0.056
+offset_left = 64.0
+offset_top = 41.519997
+offset_right = 224.0
+offset_bottom = 64.52
+theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_font_sizes/font_size = 20
+text = "TR_CHIPS"
+
+[node name="Back" type="TextureButton" parent="UI" unique_id=639321386]
+process_mode = 3
+anchors_preset = -1
+anchor_top = 0.508
+anchor_right = 1.0
+anchor_bottom = 0.508
+offset_left = 533.0
+offset_top = -53.640015
+offset_right = -533.0
+offset_bottom = 53.359985
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("28_3vgh4")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/Back" unique_id=1952495778]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_h3knh")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="UI/Back" unique_id=30752714]
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="UI/Back" unique_id=1102119892]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_font_sizes/font_size = 50
+text = "EXIT_TO_MENU"
+
+[node name="TargetPoint" type="Sprite2D" parent="." unique_id=445790419]
+unique_name_in_owner = true
+modulate = Color(0.5568628, 0, 0.8784314, 1)
+texture = ExtResource("8_g2vtq")
+
+[node name="ring" type="CPUParticles2D" parent="TargetPoint" unique_id=1748464753]
+unique_name_in_owner = true
+amount = 10
+texture = ExtResource("3_hp4bs")
+lifetime = 0.25
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 8.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=316768836]
+modulate = Color(1.4369954, 1.4369954, 1.4369954, 1)
+texture = ExtResource("22_4reak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=156322994]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=639194414]
+texture_filter = 1
+position_smoothing_enabled = true
+script = ExtResource("24_k8m7u")
+portrait_zoom = 1.5
+
+[node name="Particle" type="CPUParticles2D" parent="Camera2D" unique_id=1852914260]
+process_mode = 3
+self_modulate = Color(0.9843137, 0.9490196, 0.21176471, 1)
+position = Vector2(0, 1080)
+amount = 100
+texture = ExtResource("3_hp4bs")
+lifetime = 2.0
+preprocess = 0.39
+emission_shape = 3
+emission_rect_extents = Vector2(1080, 1)
+gravity = Vector2(0, -981)
+angular_velocity_min = -216.0
+angular_velocity_max = 216.0
+linear_accel_min = -51.26
+linear_accel_max = 29.15
+scale_amount_max = 8.0
+
+[node name="selfdamage" type="Area2D" parent="." unique_id=1067139470]
+collision_layer = 0
+collision_mask = 2
+
+[node name="collision" type="CollisionShape2D" parent="selfdamage" unique_id=188990066]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_oh5ij")
+
+[node name="Timer" type="Timer" parent="." unique_id=1908159749]
+autostart = true
+
+[node name="Magnet" type="Area2D" parent="." unique_id=7378449]
+collision_layer = 0
+collision_mask = 4
+
+[node name="Magnet" type="CollisionShape2D" parent="Magnet" unique_id=1436849498]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="dash_cooldown" type="Timer" parent="." unique_id=1860718883]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="start_teleport" type="CPUParticles2D" parent="." unique_id=218182458]
+emitting = false
+amount = 15
+texture = ExtResource("3_hp4bs")
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 31.08
+gravity = Vector2(0, 0)
+radial_accel_min = 22.4
+radial_accel_max = 100.0
+scale_amount_max = 3.0
+color = Color(0.5568628, 0, 0.8784314, 1)
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=1875820487]
+process_mode = 3
+volume_db = -15.0
+
+[connection signal="mouse_entered" from="UI/Panel/RandomButton" to="UI/Panel/RandomButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Panel/RandomButton" to="UI/Panel/RandomButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/Panel/RandomButton" to="UI/Panel/Options" method="_on_random_button_pressed"]
+[connection signal="pressed" from="UI/Card/Open" to="UI/Card" method="_on_open_pressed"]
+[connection signal="mouse_entered" from="UI/Card/Open/Button_Texture" to="." method="_on_button_texture_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Card/Open/Button_Texture" to="." method="_on_button_texture_mouse_exited"]
+[connection signal="pressed" from="UI/Card/Close" to="UI/Card" method="_on_close_pressed"]
+[connection signal="mouse_entered" from="UI/Card/Close/Button_Texture" to="." method="_on_button_texture_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Card/Close/Button_Texture" to="." method="_on_button_texture_mouse_exited"]
+[connection signal="mouse_entered" from="UI/Back" to="UI/Back" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Back" to="UI/Back" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/Back" to="UI/Back" method="_on_pressed"]
+[connection signal="area_entered" from="selfdamage" to="." method="_on_selfdamage_area_entered"]
+[connection signal="body_entered" from="selfdamage" to="." method="_on_selfdamage_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

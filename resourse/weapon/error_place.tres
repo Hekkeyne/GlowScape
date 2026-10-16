@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="DiscWeapon" format=3 uid="uid://c1u255d11133j"]
+
+[ext_resource type="Resource" uid="uid://cvhq0hv1ddd2f" path="res://resourse/weapon upgrade/error_place_evolution.tres" id="1_17b2m"]
+[ext_resource type="Texture2D" uid="uid://duyf1iigmplef" path="res://sprites/error_place_icon.png" id="1_q5dc8"]
+[ext_resource type="PackedScene" uid="uid://bkn5o7f1tiv1m" path="res://scene/area_projectile.tscn" id="2_gjkjv"]
+[ext_resource type="Resource" uid="uid://dlybeoj371gvj" path="res://resourse/Items/luck.tres" id="3_bioh7"]
+[ext_resource type="Texture2D" uid="uid://c5m4gb6ch1bpl" path="res://sprites/error_place_texture.png" id="4_17b2m"]
+[ext_resource type="Script" uid="uid://cubdov3ukpghi" path="res://script/MultiDamaginArea.gd" id="5_17b2m"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="5_bioh7"]
+[ext_resource type="Script" uid="uid://rcbuvmibgkcf" path="res://resourse/upgrade/MultiDamagingUpgrade.gd" id="6_gjkjv"]
+
+[sub_resource type="Resource" id="Resource_yujdy"]
+script = ExtResource("6_gjkjv")
+amount = 1
+metadata/_custom_type_script = "uid://rcbuvmibgkcf"
+
+[sub_resource type="Resource" id="Resource_xgptf"]
+script = ExtResource("6_gjkjv")
+damage = 1.5
+metadata/_custom_type_script = "uid://rcbuvmibgkcf"
+
+[sub_resource type="Resource" id="Resource_ou5w0"]
+script = ExtResource("6_gjkjv")
+speed = 150.0
+damage = 0.5
+metadata/_custom_type_script = "uid://rcbuvmibgkcf"
+
+[sub_resource type="Resource" id="Resource_jtwvg"]
+script = ExtResource("6_gjkjv")
+amount = 1
+damage = 1.0
+metadata/_custom_type_script = "uid://rcbuvmibgkcf"
+
+[sub_resource type="Resource" id="Resource_vuqbl"]
+script = ExtResource("6_gjkjv")
+cooldown = -1.0
+metadata/_custom_type_script = "uid://rcbuvmibgkcf"
+
+[sub_resource type="Resource" id="Resource_got2y"]
+script = ExtResource("6_gjkjv")
+damage = 1.5
+metadata/_custom_type_script = "uid://rcbuvmibgkcf"
+
+[sub_resource type="Resource" id="Resource_bsa7r"]
+script = ExtResource("6_gjkjv")
+amount = 1
+speed = 150.0
+metadata/_custom_type_script = "uid://rcbuvmibgkcf"
+
+[resource]
+script = ExtResource("5_17b2m")
+amount = 3
+damage = 2.0
+cooldown = 5.0
+projectile_node = ExtResource("2_gjkjv")
+upgrades = Array[ExtResource("5_bioh7")]([SubResource("Resource_yujdy"), SubResource("Resource_xgptf"), SubResource("Resource_ou5w0"), SubResource("Resource_jtwvg"), SubResource("Resource_vuqbl"), SubResource("Resource_got2y"), SubResource("Resource_bsa7r")])
+item_needed = ExtResource("3_bioh7")
+evolution = ExtResource("1_17b2m")
+title = "DISC"
+icon = ExtResource("1_q5dc8")
+texture = ExtResource("4_17b2m")
+description = "DISC_DESCRIPTION"
+metadata/_custom_type_script = "uid://cubdov3ukpghi"

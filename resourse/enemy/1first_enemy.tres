@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://cu4gbrwg04x1s"]
+
+[ext_resource type="Script" uid="uid://bdar2s6wi23oe" path="res://resourse/enemy ai/ChaseAi.gd" id="1_enr66"]
+[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="3_ct1sv"]
+[ext_resource type="PackedScene" uid="uid://d0r0ns5ow50i8" path="res://resourse/enemy scene/first_enemy.tscn" id="3_hulmm"]
+[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="4_kytbm"]
+[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="4_uqmrd"]
+[ext_resource type="Texture2D" uid="uid://duundxhhdw2y2" path="res://sprites/first_enemy_icon.png" id="5_abxb1"]
+[ext_resource type="Texture2D" uid="uid://j41nunrfqfiy" path="res://sprites/first_enemy.png" id="5_ct1sv"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="6_8vxnr"]
+
+[sub_resource type="Resource" id="Resource_chggb"]
+script = ExtResource("1_enr66")
+metadata/_custom_type_script = "uid://bdar2s6wi23oe"
+
+[resource]
+script = ExtResource("6_8vxnr")
+title = "ORANGE_ENEMY"
+icon = ExtResource("5_abxb1")
+texture = ExtResource("5_ct1sv")
+health = 25.0
+damage = 5.0
+drops = Array[ExtResource("4_uqmrd")]([ExtResource("3_ct1sv")])
+description = "ORANGE_ENEMY_DESCRIPTION"
+scene = ExtResource("3_hulmm")
+ai_behavior = SubResource("Resource_chggb")
+despawn_distance = 1200.0
+elite_guaranteed_drop = ExtResource("4_kytbm")
+metadata/_custom_type_script = "uid://bu1rpt0d1jk7b"

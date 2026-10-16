@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cf0y3qq2hrbcr"]
+
+[ext_resource type="Texture2D" uid="uid://dkiigqo324220" path="res://sprites/emitt_sprite.png" id="1_0aa84"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2_0aa84"]
+
+[node name="Node2D" type="Node2D" unique_id=1048638088]
+
+[node name="fly" type="CPUParticles2D" parent="." unique_id=1327726622]
+self_modulate = Color(0.8627451, 0.38039216, 0.70980394, 1)
+position = Vector2(-1, 0)
+amount = 5
+texture = ExtResource("2_0aa84")
+lifetime = 0.25
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 7.0
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+scale_amount_max = 1.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=370069033]
+position = Vector2(-8, 0)
+texture = ExtResource("1_0aa84")

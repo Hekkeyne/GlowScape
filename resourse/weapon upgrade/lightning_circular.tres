@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="OrbitalStorm" format=3 uid="uid://c4yuko130y0pr"]
+
+[ext_resource type="Texture2D" uid="uid://fleiv5su6iwi" path="res://sprites/circular_icon_evolved.png" id="1_0r8cj"]
+[ext_resource type="Texture2D" uid="uid://bvniyhcm07ett" path="res://sprites/circular_icon.png" id="1_3gu6p"]
+[ext_resource type="Texture2D" uid="uid://djinjpgm8ep28" path="res://sprites/lightning_for_circ.png" id="1_03xha"]
+[ext_resource type="PackedScene" uid="uid://lt7wjy01tqlo" path="res://scene/circular_projectile_upgrade.tscn" id="2_0r8cj"]
+[ext_resource type="Texture2D" uid="uid://dg75tcrir8jvo" path="res://sprites/armor.png" id="2_acgmb"]
+[ext_resource type="Script" uid="uid://dgqi1l0h6g641" path="res://script/orbital_storm.gd" id="3_0r8cj"]
+[ext_resource type="Texture2D" uid="uid://bxbwfrs548vbc" path="res://sprites/circular_projectile_evolved.png" id="4_acgmb"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="5_fwu0o"]
+
+[resource]
+script = ExtResource("3_0r8cj")
+angular_speed = 200.0
+radius = 350.0
+amount = 10
+chain_texture = ExtResource("1_03xha")
+chain_jumps = 5
+chain_radius = 500.0
+chain_cooldown = 0.2
+damage = 25.0
+cooldown = 2.0
+projectile_node = ExtResource("2_0r8cj")
+before_evolution = ExtResource("1_3gu6p")
+before_item_needed = ExtResource("2_acgmb")
+title = "LIGHTNING_CIRCULAR"
+icon = ExtResource("1_0r8cj")
+texture = ExtResource("4_acgmb")
+description = "LC_DESCRIPTION"
+metadata/_custom_type_script = "uid://d1p2rk1gmapwm"

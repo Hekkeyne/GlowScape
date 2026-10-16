@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dn4kmjd6yolmw"]
+
+[ext_resource type="Material" uid="uid://b1wewwbptl0pv" path="res://resourse/trans/seecond_trans.tres" id="2_38647"]
+[ext_resource type="Material" uid="uid://b6n72pgdaltju" path="res://resourse/trans/firts_trans.tres" id="2_rw0jq"]
+[ext_resource type="Script" uid="uid://yw8of6fp8d12" path="res://script/scene_changer.gd" id="3_r0fr4"]
+[ext_resource type="Material" uid="uid://dg36gs71b2xlv" path="res://resourse/trans/third_trans.tres" id="4_r0fr4"]
+[ext_resource type="AudioStream" uid="uid://csrqa6s00pttq" path="res://resourse/audio/Menu_Start.wav" id="5_r0fr4"]
+
+[node name="Scene_Changer" type="CanvasLayer" unique_id=885850406]
+process_mode = 3
+layer = 4
+script = ExtResource("3_r0fr4")
+materian = Array[Material]([ExtResource("2_rw0jq"), ExtResource("2_38647"), ExtResource("4_r0fr4")])
+
+[node name="Trans_animation" type="ColorRect" parent="." unique_id=2078208177]
+process_mode = 3
+material = ExtResource("4_r0fr4")
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=59195435]
+stream = ExtResource("5_r0fr4")

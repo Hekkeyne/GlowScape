@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="RouletteEvolution" format=3 uid="uid://b73spksrjo5it"]
+
+[ext_resource type="PackedScene" uid="uid://dhw7wici5tb12" path="res://scene/laser_projectile.tscn" id="1_03bc7"]
+[ext_resource type="Texture2D" uid="uid://c5icxulsrfn7" path="res://sprites/destroy_all.png" id="1_ilrb1"]
+[ext_resource type="Texture2D" uid="uid://btqjotw32xb5g" path="res://sprites/growth.png" id="1_mudep"]
+[ext_resource type="Script" uid="uid://pyh0lky77av1" path="res://script/roulette_evo.gd" id="2_cnhpo"]
+[ext_resource type="Texture2D" uid="uid://ccrnhugs266au" path="res://sprites/destroy_all_evo.png" id="2_mudep"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="3_mudep"]
+
+[resource]
+script = ExtResource("2_cnhpo")
+base_sectors = 15
+appear_time = 0.30000000000000004
+fill_time = 2.5
+lock_alpha = 0.30000000000000004
+strike_hold = 0.2
+strike_fade = 0.30000000000000004
+disappear_time = 0.30000000000000004
+damage = 75.0
+cooldown = 15.0
+before_evolution = ExtResource("1_ilrb1")
+before_item_needed = ExtResource("1_mudep")
+title = "ROULETTE_EVO"
+icon = ExtResource("2_mudep")
+description = "ROULETTE_EVO_DESCRIPTION"
+metadata/_custom_type_script = "uid://pyh0lky77av1"

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dyfd7l1sobpvx"]
+
+[ext_resource type="Script" uid="uid://b00tv1ocd7gd3" path="res://script/turret_unit.gd" id="1_4tyuk"]
+
+[node name="turret_unit" type="Node2D" unique_id=7106366]
+script = ExtResource("1_4tyuk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2053743480]

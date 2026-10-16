@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DirectUpgrade" format=3 uid="uid://cdnn0ra853ehl"]
+
+[ext_resource type="Script" uid="uid://vkilulnisgb7" path="res://resourse/idk lol/direct_upgrade.gd" id="1_2n8mk"]
+[ext_resource type="Texture2D" uid="uid://drsx44vpgrubh" path="res://sprites/health_DIRECT.png" id="1_6hk5r"]
+
+[resource]
+script = ExtResource("1_2n8mk")
+title = "MAX_HEALTH"
+icon = ExtResource("1_6hk5r")
+effect_value = 5.0
+stat_type = "max_health"
+metadata/_custom_type_script = "uid://vkilulnisgb7"

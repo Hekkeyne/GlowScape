@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://cym645do6fjd3"]
+
+[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="1_7br3b"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_cox1x"]
+[ext_resource type="Resource" uid="uid://bwnbk85c6al6m" path="res://resourse/weapon/turrret.tres" id="4_1346k"]
+[ext_resource type="Texture2D" uid="uid://bm0md3do4gjmc" path="res://sprites/turret_character.png" id="5_cox1x"]
+
+[sub_resource type="Resource" id="Resource_n8nsa"]
+script = ExtResource("1_cox1x")
+max_health = 100.0
+recovery = 1.0
+armor = 15.0
+movement_speed = 250.0
+might = 1.0
+area = 100.0
+growth = 1.0
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[resource]
+script = ExtResource("1_7br3b")
+title = "TURRET_CHARACTER"
+icon = ExtResource("5_cox1x")
+texture = ExtResource("5_cox1x")
+animation_name = "TURRET_CHARACTER"
+base_stats = SubResource("Resource_n8nsa")
+starting_weapon = ExtResource("4_1346k")
+color_trail = "00ff84"
+metadata/_custom_type_script = "uid://cdfgec6qtjwl7"

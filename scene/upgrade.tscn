@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bqq6n0javhe6s"]
+
+[ext_resource type="Script" uid="uid://vtmr6p6ribmo" path="res://script/upgrade.gd" id="1_rebu6"]
+[ext_resource type="PackedScene" uid="uid://dte46v5nhoaxf" path="res://scene/line_2d.tscn" id="2_nlsrb"]
+
+[node name="Upgrade" type="TextureButton" unique_id=1484202538]
+visibility_layer = 2
+custom_minimum_size = Vector2(128, 128)
+offset_right = 40.0
+offset_bottom = 40.0
+toggle_mode = true
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("1_rebu6")
+
+[node name="Outline" parent="." unique_id=137524102 instance=ExtResource("2_nlsrb")]
+
+[node name="Connection" parent="." unique_id=479540086 instance=ExtResource("2_nlsrb")]
+
+[node name="PPpaa" type="Panel" parent="." unique_id=775422633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

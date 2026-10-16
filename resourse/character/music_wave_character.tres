@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://dtqpqdv0hdsfh"]
+
+[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="1_ejglp"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_q05sq"]
+[ext_resource type="Resource" uid="uid://0nwxdn0y3sls" path="res://resourse/weapon/music_wave.tres" id="4_8o07c"]
+[ext_resource type="Texture2D" uid="uid://duccjet6map8b" path="res://sprites/music_wave_character.png" id="5_8o07c"]
+
+[sub_resource type="Resource" id="Resource_aiqb1"]
+script = ExtResource("1_q05sq")
+max_health = 85.0
+recovery = 2.0
+movement_speed = 250.0
+might = 1.1
+area = 125.0
+growth = 1.1
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[resource]
+script = ExtResource("1_ejglp")
+icon = ExtResource("5_8o07c")
+texture = ExtResource("5_8o07c")
+base_stats = SubResource("Resource_aiqb1")
+starting_weapon = ExtResource("4_8o07c")
+color_trail = "fb9a36"
+metadata/_custom_type_script = "uid://cdfgec6qtjwl7"

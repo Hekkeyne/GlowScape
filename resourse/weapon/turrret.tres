@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="Turret" format=3 uid="uid://bwnbk85c6al6m"]
+
+[ext_resource type="PackedScene" uid="uid://cwhp2lhre03u5" path="res://scene/turret_bullet.tscn" id="1_maamb"]
+[ext_resource type="Script" uid="uid://f8e24l0q1et6" path="res://script/turret.gd" id="2_7f88w"]
+[ext_resource type="Texture2D" uid="uid://cmnl3sinf71d3" path="res://sprites/turret_bullet.png" id="2_crurj"]
+[ext_resource type="Texture2D" uid="uid://coe2jm3svg6qx" path="res://sprites/turret_icon.png" id="2_maamb"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="3_4l47e"]
+[ext_resource type="PackedScene" uid="uid://0j821qsptp3y" path="res://scene/fake_projectile.tscn" id="3_8xiny"]
+[ext_resource type="Resource" uid="uid://b6q6nqnr3j1xk" path="res://resourse/weapon upgrade/mega_turret.tres" id="3_slbv4"]
+[ext_resource type="PackedScene" uid="uid://cpxt3j4wlr46c" path="res://scene/turret_rocket.tscn" id="4_slbv4"]
+[ext_resource type="Resource" uid="uid://d23fyc5kghvc3" path="res://resourse/Items/Might.tres" id="5_kctw5"]
+[ext_resource type="Texture2D" uid="uid://v866w83snd3n" path="res://sprites/turret.png" id="6_kctw5"]
+[ext_resource type="PackedScene" uid="uid://dyfd7l1sobpvx" path="res://scene/turret_unit.tscn" id="7_icdoe"]
+[ext_resource type="Script" uid="uid://dx3xu5lfb3g1f" path="res://resourse/upgrade/TurretUpgrade.gd" id="12_kctw5"]
+
+[sub_resource type="Resource" id="Resource_k8m7u"]
+script = ExtResource("12_kctw5")
+amount = 1
+metadata/_custom_type_script = "uid://dx3xu5lfb3g1f"
+
+[sub_resource type="Resource" id="Resource_qucqc"]
+script = ExtResource("12_kctw5")
+amount = 2
+metadata/_custom_type_script = "uid://dx3xu5lfb3g1f"
+
+[sub_resource type="Resource" id="Resource_jtwvg"]
+script = ExtResource("12_kctw5")
+damage = 2.5
+metadata/_custom_type_script = "uid://dx3xu5lfb3g1f"
+
+[sub_resource type="Resource" id="Resource_vuqbl"]
+script = ExtResource("12_kctw5")
+amount = 2
+metadata/_custom_type_script = "uid://dx3xu5lfb3g1f"
+
+[sub_resource type="Resource" id="Resource_got2y"]
+script = ExtResource("12_kctw5")
+cooldown = -0.5
+metadata/_custom_type_script = "uid://dx3xu5lfb3g1f"
+
+[sub_resource type="Resource" id="Resource_ujlj0"]
+script = ExtResource("12_kctw5")
+damage = 2.5
+metadata/_custom_type_script = "uid://dx3xu5lfb3g1f"
+
+[sub_resource type="Resource" id="Resource_bsa7r"]
+script = ExtResource("12_kctw5")
+amount = 1
+metadata/_custom_type_script = "uid://dx3xu5lfb3g1f"
+
+[resource]
+script = ExtResource("2_7f88w")
+max_turrets = 1
+turret_scene = ExtResource("7_icdoe")
+bullet_scene = ExtResource("1_maamb")
+rocket_scene = ExtResource("4_slbv4")
+bullet_texture = ExtResource("2_crurj")
+orbit_radius = 100.0
+orbit_speed = 0.0
+damage = 10.0
+cooldown = 2.0
+projectile_node = ExtResource("3_8xiny")
+upgrades = Array[ExtResource("3_4l47e")]([SubResource("Resource_k8m7u"), SubResource("Resource_qucqc"), SubResource("Resource_jtwvg"), SubResource("Resource_vuqbl"), SubResource("Resource_got2y"), SubResource("Resource_ujlj0"), SubResource("Resource_bsa7r")])
+item_needed = ExtResource("5_kctw5")
+evolution = ExtResource("3_slbv4")
+title = "TURRET"
+icon = ExtResource("2_maamb")
+texture = ExtResource("6_kctw5")
+description = "TURRET_DESCRIPTION"
+metadata/_custom_type_script = "uid://f8e24l0q1et6"
