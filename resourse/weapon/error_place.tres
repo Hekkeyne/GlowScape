@@ -56,6 +56,7 @@ projectile_node = ExtResource("2_gjkjv")
 upgrades = Array[ExtResource("5_bioh7")]([SubResource("Resource_yujdy"), SubResource("Resource_xgptf"), SubResource("Resource_ou5w0"), SubResource("Resource_jtwvg"), SubResource("Resource_vuqbl"), SubResource("Resource_got2y"), SubResource("Resource_bsa7r")])
 item_needed = ExtResource("3_bioh7")
 evolution = ExtResource("1_17b2m")
+require_max_level_passive = false
 title = "DISC"
 icon = ExtResource("1_q5dc8")
 texture = ExtResource("4_17b2m")

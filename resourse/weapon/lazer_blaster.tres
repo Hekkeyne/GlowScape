@@ -52,6 +52,7 @@ speed = 1000.0
 upgrades = Array[ExtResource("4_rnd8h")]([SubResource("Resource_b08fr"), SubResource("Resource_l7ydm"), SubResource("Resource_50bda"), SubResource("Resource_nfuxv"), SubResource("Resource_fquln"), SubResource("Resource_ujlj0"), SubResource("Resource_376y0")])
 item_needed = ExtResource("3_e2xjl")
 evolution = ExtResource("1_w74k0")
+require_max_level_passive = false
 title = "BLASTER"
 icon = ExtResource("3_rnd8h")
 texture = ExtResource("6_ar1nl")

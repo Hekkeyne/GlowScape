@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="BlackHoleWeapon" format=3 uid="uid://bco14efsrnia0"]
 
 [ext_resource type="Texture2D" uid="uid://bihbrc3dklnx0" path="res://sprites/black_hole_core.png" id="1_i4emy"]
-[ext_resource type="PackedScene" uid="uid://dhw7wici5tb12" path="res://scene/laser_projectile.tscn" id="1_kk2co"]
 [ext_resource type="PackedScene" uid="uid://b852nppui31yu" path="res://scene/black_hole.tscn" id="1_uyncc"]
 [ext_resource type="Texture2D" uid="uid://bnpug3fsxtoyq" path="res://sprites/black_hole_icon.png" id="2_b2i5c"]
 [ext_resource type="Texture2D" uid="uid://bemxwoq58pdgr" path="res://sprites/black_hole_field.png" id="2_f3trb"]
@@ -53,18 +52,22 @@ metadata/_custom_type_script = "uid://tke3dsxf76mx"
 
 [resource]
 script = ExtResource("2_h2jfb")
+amount = null
 hole_scene = ExtResource("1_uyncc")
 missile_scene = ExtResource("5_gvhpx")
 cluster_radius = 400.0
+evolved = null
 core_texture = ExtResource("1_i4emy")
 rim_texture = ExtResource("6_gvhpx")
 swirl_texture = ExtResource("8_f7il8")
 field_texture = ExtResource("2_f3trb")
 damage = 20.0
 cooldown = 15.0
+speed = null
 upgrades = Array[ExtResource("3_b2i5c")]([SubResource("Resource_qagfp"), SubResource("Resource_q03u5"), SubResource("Resource_xwqqm"), SubResource("Resource_0lqb5"), SubResource("Resource_0s5yr"), SubResource("Resource_g453x"), SubResource("Resource_c7kh5")])
 item_needed = ExtResource("6_35gsa")
 evolution = ExtResource("2_f7il8")
+require_max_level_passive = null
 title = "BH"
 icon = ExtResource("2_b2i5c")
 texture = ExtResource("2_b2i5c")

@@ -63,6 +63,7 @@ projectile_node = ExtResource("3_8xiny")
 upgrades = Array[ExtResource("3_4l47e")]([SubResource("Resource_k8m7u"), SubResource("Resource_qucqc"), SubResource("Resource_jtwvg"), SubResource("Resource_vuqbl"), SubResource("Resource_got2y"), SubResource("Resource_ujlj0"), SubResource("Resource_bsa7r")])
 item_needed = ExtResource("5_kctw5")
 evolution = ExtResource("3_slbv4")
+require_max_level_passive = false
 title = "TURRET"
 icon = ExtResource("2_maamb")
 texture = ExtResource("6_kctw5")

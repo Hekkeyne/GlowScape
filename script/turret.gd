@@ -112,7 +112,7 @@ func _attack_radius() -> float:
 
 func upgrade_item():
 	if max_level_reached():
-		slot.item = evolution
+		try_evolve()
 		return
 	if not is_upgradable():
 		return

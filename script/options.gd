@@ -121,18 +121,16 @@ func show_options():
 	var equipped_all = get_available_resource_in(weapons)
 	equipped_all.append_array(get_available_resource_in(passive_items))
 	var upgradable_equipped = get_upgradable(equipped_all)
-	var all_maxed = upgradable_equipped.is_empty()
+	var all_maxed = upgradable_equipped.is_empty() and not slot_available(weapons) and not slot_available(passive_items)
 	if random_upgrade_used:
 		apply_random_upgrade(all_maxed)
 		_is_showing = false
 		if _pending_levels > 0:
 			queue_level_up()
 		return
-	
 	if all_maxed:
 		show_direct_upgrades()
 		return
-	
 	for slot in get_children():
 		if slot is DirectUpgradeSlot or slot is TextureButton:
 			slot.queue_free()
@@ -324,8 +322,10 @@ func get_available_upgrades() -> Array[Item]:
 	for weapon: Weapon in get_available_resource_in(weapons):
 		if weapon.is_upgradable():
 			upgrades.append(weapon)
-		if weapon.max_level_reached() and _is_item_in_array(weapon.item_needed, get_available_resource_in(passive_items)):
-			upgrades.append(weapon)
+		elif weapon.max_level_reached():
+			if weapon.has_method("is_evolution_available"):
+				if weapon.is_evolution_available():
+					upgrades.append(weapon)
 	for passive_item: PassiveItem in get_available_resource_in(passive_items):
 		if passive_item.is_upgradable():
 			upgrades.append(passive_item)

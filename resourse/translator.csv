@@ -33,7 +33,7 @@ EXIT_TO_MENU;Выйти в меню;Exit to menu
 SPIN_BUTTON;Крутить (%s);Spin (%s)
 LEVEL_UP;УРОВЕНЬ ПОВЫШЕН!\nВыберите улучшение;LEVEL UP!\nChoose up
 LEVEL_OPTION_SLOT;Ур. %s;Lvl %s
-EVOLUTION_LABEL;Эволюция!;Evolution!
+EVOLUTION_LABEL;СИНЕРГИЯ!;SYNERGY!
 WEAPON_DAMAGE;Увеличивает наносимый урон на %s;Increases damage dealt by %s
 WEAPON_COOLDOWN;Уменьшает перезарядку оружия на %s;Reduces weapon cooldown by %s
 WEAPON_ANG_SPEED;Увеличивает скорость вращения снарядов на %s;Increases projectile rotation speed by %s

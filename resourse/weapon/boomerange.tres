@@ -60,6 +60,7 @@ projectile_node = ExtResource("1_5lx0y")
 upgrades = Array[ExtResource("3_q4n7b")]([SubResource("Resource_maamb"), SubResource("Resource_crurj"), SubResource("Resource_ds27l"), SubResource("Resource_7g8hy"), SubResource("Resource_7dgqb"), SubResource("Resource_0fdgi"), SubResource("Resource_vsxhx")])
 item_needed = ExtResource("3_ktiof")
 evolution = ExtResource("1_cwexg")
+require_max_level_passive = false
 title = "BOOMERANG"
 icon = ExtResource("1_q4n7b")
 texture = ExtResource("6_6738d")

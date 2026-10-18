@@ -56,6 +56,7 @@ projectile_node = ExtResource("4_kjrgv")
 upgrades = Array[ExtResource("5_kjrgv")]([SubResource("Resource_f2v8x"), SubResource("Resource_yujdy"), SubResource("Resource_xgptf"), SubResource("Resource_cp0ct"), SubResource("Resource_ngvcu"), SubResource("Resource_0q1ej"), SubResource("Resource_yp2x1")])
 item_needed = ExtResource("3_kjrgv")
 evolution = ExtResource("1_m22ei")
+require_max_level_passive = false
 title = "MW"
 icon = ExtResource("1_ggdp3")
 texture = ExtResource("4_m22ei")

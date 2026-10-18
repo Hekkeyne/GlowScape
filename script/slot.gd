@@ -8,6 +8,8 @@ var enabled: bool = true
 			item.reset()
 		item=value
 		if item == null:
+			$TextureRect.texture=preload("res://sprites/ITEM_placeholder.png")
+			visible = true
 			return
 		$TextureRect.texture=value.icon
 		$cooldown.wait_time=value.cooldown

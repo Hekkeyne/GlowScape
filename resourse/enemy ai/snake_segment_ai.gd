@@ -10,7 +10,10 @@ var follower: EnemyBase
 func on_death(_enemy: CharacterBody2D) -> void:
 	if is_instance_valid(follower) and follower.ai is SnakeSegmentAI:
 		var follower_ai: SnakeSegmentAI = follower.ai
-		follower_ai.leader = leader
+		if is_instance_valid(leader):
+			follower_ai.leader = leader
+		else:
+			follower_ai.leader = null
 
 func calculate_movement(enemy: CharacterBody2D, player: Node2D, _delta: float) -> Vector2:
 	var segment = enemy as EnemyBase

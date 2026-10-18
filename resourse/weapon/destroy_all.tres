@@ -62,6 +62,7 @@ cooldown = 10.0
 upgrades = Array[ExtResource("3_kx3yi")]([SubResource("Resource_rju77"), SubResource("Resource_k8m7u"), SubResource("Resource_qucqc"), SubResource("Resource_xsw3c"), SubResource("Resource_l1uwf"), SubResource("Resource_pk8el"), SubResource("Resource_3vgh4")])
 item_needed = ExtResource("3_j0484")
 evolution = ExtResource("1_1lf0g")
+require_max_level_passive = false
 title = "ROULETTE"
 icon = ExtResource("2_j0484")
 texture = ExtResource("1_wlwnb")

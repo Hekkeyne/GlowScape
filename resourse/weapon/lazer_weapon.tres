@@ -66,6 +66,7 @@ cooldown = 7.5
 upgrades = Array[ExtResource("7_sdxgi")]([SubResource("Resource_iksyq"), SubResource("Resource_la381"), SubResource("Resource_sdxgi"), SubResource("Resource_md30b"), SubResource("Resource_bmid7"), SubResource("Resource_p827u"), SubResource("Resource_2xybw")])
 item_needed = ExtResource("5_sdxgi")
 evolution = ExtResource("4_md30b")
+require_max_level_passive = false
 title = "WAND"
 icon = ExtResource("4_iksyq")
 texture = ExtResource("4_iksyq")
