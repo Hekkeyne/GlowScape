@@ -38,38 +38,68 @@
 [ext_resource type="Texture2D" uid="uid://d3gy6pirj6heu" path="res://sprites/panel_tile.png" id="27_5dp28"]
 [ext_resource type="Script" uid="uid://ci1li5dnx4fea" path="res://script/setting_button.gd" id="27_6jy8e"]
 [ext_resource type="Script" uid="uid://pl3iklaapxdq" path="res://script/play.gd" id="27_eq0s3"]
+[ext_resource type="Script" uid="uid://bedcg8p72tfna" path="res://script/menu_sim.gd" id="27_mjfpw"]
 [ext_resource type="Script" uid="uid://bjodcyv35l5gq" path="res://script/weapon_list.gd" id="27_pixcj"]
 [ext_resource type="Script" uid="uid://c8nxyjim3m8vb" path="res://script/screen_turn.gd" id="27_qs2km"]
 [ext_resource type="PackedScene" uid="uid://dykmuy4fc3wqd" path="res://scene/weapon_slot_menu.tscn" id="28_5dp28"]
 [ext_resource type="Script" uid="uid://c6alwc78isao0" path="res://script/grundsquare.gd" id="28_d5kma"]
+[ext_resource type="PackedScene" uid="uid://cxl0yj72kfvpx" path="res://scene/sim_player.tscn" id="28_f24b5"]
 [ext_resource type="Texture2D" uid="uid://bk6pr7us45ihg" path="res://sprites/settings_icon.png" id="28_hhtb2"]
 [ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="29_lfhnn"]
 [ext_resource type="Texture2D" uid="uid://coodug1j7evw7" path="res://sprites/rotate_screen.png" id="29_teg8v"]
 [ext_resource type="Texture2D" uid="uid://dw4kvc18xr1dg" path="res://sprites/button_ui.png" id="30_ap5il"]
 [ext_resource type="Resource" uid="uid://beekp8ckrhsnf" path="res://resourse/character/lazer_character.tres" id="30_d5kma"]
+[ext_resource type="Resource" uid="uid://cu4gbrwg04x1s" path="res://resourse/enemy/1first_enemy.tres" id="30_gm1du"]
 [ext_resource type="Script" uid="uid://dpahfw8o0n1oe" path="res://script/left_right.gd" id="30_j4sq8"]
 [ext_resource type="Texture2D" uid="uid://bavjyjkkwbusd" path="res://sprites/left_right.png" id="31_6jy8e"]
 [ext_resource type="Texture2D" uid="uid://kbifjxm7r23t" path="res://sprites/wheelspin_arrow.png" id="31_6lll2"]
 [ext_resource type="Resource" uid="uid://dtqpqdv0hdsfh" path="res://resourse/character/music_wave_character.tres" id="32_lfhnn"]
+[ext_resource type="Resource" uid="uid://b3mge2sruwy38" path="res://resourse/enemy/2snake_head.tres" id="32_xtsmb"]
+[ext_resource type="Resource" uid="uid://dxq8xrtxqh7hk" path="res://resourse/enemy/3mage.tres" id="33_4qolr"]
+[ext_resource type="Resource" uid="uid://cp2cds0bk4srl" path="res://resourse/enemy/4repeater_father.tres" id="34_42imh"]
+[ext_resource type="Resource" uid="uid://0sclsnwcbid0" path="res://resourse/enemy/5gunner.tres" id="35_rpfp8"]
+[ext_resource type="Resource" uid="uid://pabd110306cl" path="res://resourse/enemy/6xp_gunner.tres" id="36_yhdns"]
+[ext_resource type="Resource" uid="uid://c7grngudukw2c" path="res://resourse/enemy/7red_jaws.tres" id="37_h5nig"]
 [ext_resource type="Resource" uid="uid://dkcq6bln5p1oa" path="res://resourse/character/circular_character.tres" id="39_y06n1"]
 [ext_resource type="Resource" uid="uid://c36i17bfvaxdf" path="res://resourse/character/boomerang_character.tres" id="40_6jy8e"]
 [ext_resource type="Script" uid="uid://5fa4mi70u6ll" path="res://script/back_weapon.gd" id="42_n1nve"]
 [ext_resource type="Resource" uid="uid://dm4tr6cthtj4f" path="res://resourse/character/disc_charcter.tres" id="43_r4gq0"]
 [ext_resource type="Resource" uid="uid://cym645do6fjd3" path="res://resourse/character/turret_character.tres" id="44_npk8l"]
 [ext_resource type="Resource" uid="uid://dfqab7wwdbpdo" path="res://resourse/character/black_hole_character.tres" id="45_mry8t"]
+[ext_resource type="Resource" uid="uid://bco14efsrnia0" path="res://resourse/weapon/black_hole.tres" id="48_2kcuy"]
 [ext_resource type="Script" uid="uid://bwr3w58uk2jif" path="res://script/back.gd" id="48_npk8l"]
 [ext_resource type="Resource" uid="uid://cp54inqx1x0gm" path="res://resourse/character/destroy_all_character.tres" id="48_q6r24"]
+[ext_resource type="Resource" uid="uid://bh4q2wmq672f" path="res://resourse/weapon/boomerange.tres" id="49_1rjff"]
 [ext_resource type="Resource" uid="uid://c1xfra3rurhiu" path="res://resourse/character/star_character.tres" id="50_mry8t"]
 [ext_resource type="AudioStream" uid="uid://ds3drfxorx3r5" path="res://resourse/music/in_menu.ogg" id="50_n1nve"]
+[ext_resource type="Resource" uid="uid://xe4txl5opw8c" path="res://resourse/weapon/circular.tres" id="50_vk2bc"]
+[ext_resource type="Resource" uid="uid://dhvwu70bi81p5" path="res://resourse/weapon/destroy_all.tres" id="51_7u47g"]
+[ext_resource type="Resource" uid="uid://c1u255d11133j" path="res://resourse/weapon/error_place.tres" id="52_178um"]
 [ext_resource type="Script" uid="uid://ckbmgm5i6volr" path="res://script/multiplayer.gd" id="52_nrgb6"]
+[ext_resource type="Resource" uid="uid://0nwxdn0y3sls" path="res://resourse/weapon/music_wave.tres" id="52_yhdns"]
 [ext_resource type="Script" uid="uid://bv1aw77uuk2il" path="res://script/stats_rows.gd" id="53_gvqo7"]
+[ext_resource type="Texture2D" uid="uid://d23yelxnsaayl" path="res://sprites/corner.png" id="53_mjfpw"]
+[ext_resource type="Resource" uid="uid://bp8y5uft3lt2h" path="res://resourse/weapon/lazer_blaster.tres" id="53_ngf1q"]
+[ext_resource type="Resource" uid="uid://b0fm2ww3l0ov3" path="res://resourse/weapon/lazer_weapon.tres" id="54_ewc3k"]
+[ext_resource type="Resource" uid="uid://bwnbk85c6al6m" path="res://resourse/weapon/turrret.tres" id="55_ycvqj"]
+[ext_resource type="Resource" uid="uid://cje761hula56t" path="res://resourse/weapon upgrade/bass_boosted.tres" id="56_5t87p"]
+[ext_resource type="Texture2D" uid="uid://d77efyij8jj7" path="res://sprites/button_arrow.png" id="57_f24b5"]
+[ext_resource type="Resource" uid="uid://5wy2wsvjix5d" path="res://resourse/weapon upgrade/black_hole_evo.tres" id="57_yfjrk"]
+[ext_resource type="Resource" uid="uid://b73spksrjo5it" path="res://resourse/weapon upgrade/destroy_all_evo.tres" id="58_sroap"]
+[ext_resource type="Resource" uid="uid://cvhq0hv1ddd2f" path="res://resourse/weapon upgrade/error_place_evolution.tres" id="59_rfqsr"]
 [ext_resource type="Script" uid="uid://c0cxy75u58n7u" path="res://script/epilepsy.gd" id="59_w4qbt"]
 [ext_resource type="Script" uid="uid://p4a2gtebu56e" path="res://script/character_upgrade.gd" id="60_c6i2c"]
 [ext_resource type="Texture2D" uid="uid://bapr4lob4xewl" path="res://sprites/epilepsy_on.png" id="60_e8rmo"]
 [ext_resource type="Script" uid="uid://hk6tiby1ylpf" path="res://scene/character_upgrade_grid.gd" id="60_gk0e6"]
+[ext_resource type="Resource" uid="uid://b23a46cqofgim" path="res://resourse/weapon upgrade/holy_lazer.tres" id="60_hcl8d"]
+[ext_resource type="Resource" uid="uid://c3dxfdd4ktoet" path="res://resourse/weapon upgrade/lazer_weapon_evo.tres" id="61_qd2ag"]
 [ext_resource type="Texture2D" uid="uid://c7yxapxhknqp" path="res://sprites/epilepsy_off.png" id="61_wr4wo"]
 [ext_resource type="Texture2D" uid="uid://3epn38rlkw7y" path="res://sprites/meta_plus_texture.png" id="62_5r0xg"]
+[ext_resource type="Resource" uid="uid://c4yuko130y0pr" path="res://resourse/weapon upgrade/lightning_circular.tres" id="62_nhg0r"]
 [ext_resource type="Script" uid="uid://b8swgn8it2smw" path="res://script/volume.gd" id="63_16i02"]
+[ext_resource type="Texture2D" uid="uid://du0bi4utjhcc0" path="res://sprites/line_mm.png" id="63_eft4t"]
+[ext_resource type="Resource" uid="uid://b6q6nqnr3j1xk" path="res://resourse/weapon upgrade/mega_turret.tres" id="63_rs01w"]
+[ext_resource type="Resource" uid="uid://bloxk8efkv535" path="res://resourse/weapon upgrade/spectralSplitterang.tres" id="64_57kec"]
 [ext_resource type="Texture2D" uid="uid://cr5qfa66j5bld" path="res://sprites/volume.png" id="64_uatrh"]
 [ext_resource type="Texture2D" uid="uid://bf4dgafpk2mm6" path="res://sprites/star_character.png" id="67_wr4wo"]
 [ext_resource type="Script" uid="uid://c1ev50smkqmwa" path="res://script/multiplayer_panel.gd" id="68_16i02"]
@@ -89,17 +119,17 @@ shader = ExtResource("20_s7uu8")
 shader_parameter/g_random_seed = 0.0
 shader_parameter/g_cell_offset = Vector2(0, 0)
 shader_parameter/g_speed = Vector2(0.5, 0.7)
-shader_parameter/g_draw_size_min = 0.1
-shader_parameter/g_draw_size_max = 1.0
+shader_parameter/g_draw_size_min = 0.10000000475
+shader_parameter/g_draw_size_max = 0.50000002375
 shader_parameter/tex_draw = ExtResource("7_g7f83")
 shader_parameter/u_rect_size = Vector2(1152, 648)
 shader_parameter/cell_size_px = 120.0
 shader_parameter/use_pixelation = true
 shader_parameter/pixel_size = 128.0
-shader_parameter/g_color_a = Color(1, 1, 1, 0.105882354)
-shader_parameter/g_color_b = Color(1, 1, 1, 0.6509804)
+shader_parameter/g_color_a = Color(1, 1, 1, 0.09803922)
+shader_parameter/g_color_b = Color(1, 1, 1, 0.29411766)
 shader_parameter/g_rot_global_speed = 1.0
-shader_parameter/g_rot_min_speed = 0.1
+shader_parameter/g_rot_min_speed = 0.0
 shader_parameter/g_rot_max_speed = 1.0
 
 [sub_resource type="Resource" id="Resource_rebu6"]
@@ -740,11 +770,12 @@ metadata/_custom_type_script = "uid://ngfld46hvekk"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_owuq4"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_502e6"]
-shader = ExtResource("19_g7f83")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ilvd"]
-shader = ExtResource("19_g7f83")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gy30"]
+texture = ExtResource("73_by18p")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v0h3m"]
 shader = ExtResource("11_sra1m")
@@ -753,7 +784,11 @@ shader_parameter/pixel_size = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s7uu8"]
 shader = ExtResource("19_g7f83")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ilvd"]
+shader = ExtResource("19_g7f83")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_502e6"]
+shader = ExtResource("19_g7f83")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jt4fc"]
 shader = ExtResource("19_g7f83")
@@ -905,16 +940,17 @@ texture_margin_bottom = 3.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvqo7"]
 texture = ExtResource("27_5dp28")
 
-[sub_resource type="Environment" id="Environment_sra1m"]
+[sub_resource type="Environment" id="Environment_a1bm5"]
 background_mode = 3
 background_canvas_max_layer = 5
 glow_enabled = true
-glow_levels/2 = 0.6
+glow_levels/1 = 0.5
+glow_levels/2 = 0.0
 glow_levels/3 = 0.0
-glow_levels/4 = 0.0
-glow_bloom = 0.15
-glow_hdr_threshold = 0.6
-glow_hdr_scale = 0.6
+glow_intensity = 0.5
+glow_strength = 0.5
+glow_bloom = 0.5
+glow_blend_mode = 0
 
 [node name="MainMenu" type="Control" unique_id=1208349757]
 layout_mode = 3
@@ -934,10 +970,11 @@ unique_name_in_owner = true
 texture = ExtResource("13_os2d6")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Mouse/cursor_animated_sprite" unique_id=1438291881]
+position = Vector2(1, 0)
 amount = 15
 texture = ExtResource("9_ictww")
 emission_shape = 3
-emission_rect_extents = Vector2(8, 8)
+emission_rect_extents = Vector2(7, 8)
 gravity = Vector2(0, -50)
 scale_amount_min = 0.5
 scale_amount_max = 0.75
@@ -1554,7 +1591,36 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1920, 1080)
 script = ExtResource("28_d5kma")
 
+[node name="Corner" type="TextureRect" parent="Menu" unique_id=132385660]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 31.000002
+offset_top = -89.0
+offset_right = 63.0
+offset_bottom = -57.0
+grow_vertical = 0
+scale = Vector2(2.0625, 2.062499)
+texture = ExtResource("53_mjfpw")
+stretch_mode = 5
+
+[node name="Corner2" type="TextureRect" parent="Menu" unique_id=393807528]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.999878
+offset_top = 167.0
+offset_right = 1.0001221
+offset_bottom = 199.0
+grow_horizontal = 0
+rotation = 3.1415927
+scale = Vector2(4.2539063, 4.2539024)
+texture = ExtResource("53_mjfpw")
+
 [node name="BackGround_Shader" type="ColorRect" parent="Menu" unique_id=1503454326]
+z_index = 1
 material = SubResource("ShaderMaterial_yf5fn")
 layout_mode = 1
 anchors_preset = 15
@@ -1564,35 +1630,81 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wju0j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=42822544]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -107.0
-offset_bottom = 369.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 68
-alignment = 1
-
-[node name="Beastiary" type="TextureButton" parent="Menu/VBoxContainer" unique_id=161164194]
-custom_minimum_size = Vector2(800, 100)
-propagate_maximum_size = true
-layout_mode = 2
-size_flags_horizontal = 4
-stretch_mode = 0
-script = ExtResource("13_v0h3m")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Menu/VBoxContainer/Beastiary" unique_id=2054508364]
-show_behind_parent = true
-texture_filter = 1
-material = SubResource("ShaderMaterial_502e6")
+[node name="SimPanel" type="Panel" parent="Menu" unique_id=575147132]
+z_index = 1
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1247.0
+offset_top = 383.0
+offset_right = -63.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7gy30")
+
+[node name="grundsquare" type="TextureRect" parent="Menu/SimPanel" unique_id=1462206844]
+self_modulate = Color(0.08744659, 0.08744659, 0.08744659, 1)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_s7uu8")
+stretch_mode = 1
+
+[node name="SimBattle" type="Node2D" parent="Menu/SimPanel" unique_id=411414869]
+position = Vector2(-1455, -429)
+script = ExtResource("27_mjfpw")
+sim_player_scene = ExtResource("28_f24b5")
+enemy_types = Array[Resource]([ExtResource("30_gm1du"), ExtResource("32_xtsmb"), ExtResource("33_4qolr"), ExtResource("34_42imh"), ExtResource("35_rpfp8"), ExtResource("36_yhdns"), ExtResource("37_h5nig")])
+characters = Array[Resource]([ExtResource("45_mry8t"), ExtResource("40_6jy8e"), ExtResource("39_y06n1"), ExtResource("48_q6r24"), ExtResource("43_r4gq0"), ExtResource("30_d5kma"), ExtResource("32_lfhnn"), ExtResource("50_mry8t"), ExtResource("44_npk8l")])
+weapons = Array[Resource]([ExtResource("52_yhdns"), ExtResource("48_2kcuy"), ExtResource("49_1rjff"), ExtResource("50_vk2bc"), ExtResource("51_7u47g"), ExtResource("52_178um"), ExtResource("53_ngf1q"), ExtResource("54_ewc3k"), ExtResource("55_ycvqj"), ExtResource("56_5t87p"), ExtResource("57_yfjrk"), ExtResource("58_sroap"), ExtResource("59_rfqsr"), ExtResource("60_hcl8d"), ExtResource("61_qd2ag"), ExtResource("62_nhg0r"), ExtResource("63_rs01w"), ExtResource("64_57kec")])
+min_enemies = 10
+max_enemies = 25
+arena_margin = 0.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=42822544]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = 394.5
+offset_right = -607.0
+offset_bottom = -55.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Start" type="TextureButton" parent="Menu/VBoxContainer" unique_id=1646392161]
+material = SubResource("ShaderMaterial_v0h3m")
+custom_minimum_size = Vector2(900, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+stretch_mode = 0
+script = ExtResource("8_hmxu4")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Menu/VBoxContainer/Start" unique_id=2140954635]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_s7uu8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_1o50l")
@@ -1602,31 +1714,41 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="Menu/VBoxContainer/Beastiary" unique_id=1649849120]
+[node name="SFX" type="AudioStreamPlayer2D" parent="Menu/VBoxContainer/Start" unique_id=1792429784]
 volume_db = -15.0
 
-[node name="Label" type="Label" parent="Menu/VBoxContainer/Beastiary" unique_id=396290048]
+[node name="Label" type="Label" parent="Menu/VBoxContainer/Start" unique_id=1253782164]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -225.0
-offset_top = -25.0
-offset_right = 225.0
-offset_bottom = 25.0
+offset_left = -245.0
+offset_top = -35.0
+offset_right = 245.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_2atga")
-theme_override_font_sizes/font_size = 50
-text = "M_BEAST"
+theme_override_font_sizes/font_size = 70
+text = "M_START"
 horizontal_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="Menu/VBoxContainer/Start" unique_id=126851299]
+position = Vector2(831, 76)
+scale = Vector2(4, 4)
+texture = ExtResource("57_f24b5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menu/VBoxContainer/Start" unique_id=390737252]
+position = Vector2(816, 76)
+scale = Vector2(2, 2)
+texture = ExtResource("57_f24b5")
+
 [node name="Upgrades" type="TextureButton" parent="Menu/VBoxContainer" unique_id=63939111]
-custom_minimum_size = Vector2(800, 100)
+custom_minimum_size = Vector2(900, 100)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 stretch_mode = 0
 script = ExtResource("13_cht4j")
 
@@ -1668,24 +1790,27 @@ theme_override_font_sizes/font_size = 50
 text = "M_UPG"
 horizontal_alignment = 1
 
-[node name="Start" type="TextureButton" parent="Menu/VBoxContainer" unique_id=1646392161]
-material = SubResource("ShaderMaterial_v0h3m")
-custom_minimum_size = Vector2(1200, 140)
-layout_mode = 2
-size_flags_horizontal = 4
-stretch_mode = 0
-script = ExtResource("8_hmxu4")
+[node name="Sprite2D" type="Sprite2D" parent="Menu/VBoxContainer/Upgrades" unique_id=940302758]
+position = Vector2(831, 51)
+scale = Vector2(4, 4)
+texture = ExtResource("57_f24b5")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Menu/VBoxContainer/Start" unique_id=2140954635]
+[node name="Beastiary" type="TextureButton" parent="Menu/VBoxContainer" unique_id=161164194]
+custom_minimum_size = Vector2(900, 100)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 0
+stretch_mode = 0
+script = ExtResource("13_v0h3m")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Menu/VBoxContainer/Beastiary" unique_id=2054508364]
 show_behind_parent = true
 texture_filter = 1
-material = SubResource("ShaderMaterial_s7uu8")
+material = SubResource("ShaderMaterial_502e6")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_1o50l")
@@ -1695,49 +1820,113 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="Menu/VBoxContainer/Start" unique_id=1792429784]
+[node name="SFX" type="AudioStreamPlayer2D" parent="Menu/VBoxContainer/Beastiary" unique_id=1649849120]
 volume_db = -15.0
 
-[node name="Label" type="Label" parent="Menu/VBoxContainer/Start" unique_id=1253782164]
+[node name="Label" type="Label" parent="Menu/VBoxContainer/Beastiary" unique_id=396290048]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -239.0
-offset_top = -34.0
-offset_right = 251.0
-offset_bottom = 36.0
+offset_left = -225.0
+offset_top = -25.0
+offset_right = 225.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_2atga")
-theme_override_font_sizes/font_size = 70
-text = "M_START"
+theme_override_font_sizes/font_size = 50
+text = "M_BEAST"
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="Menu" unique_id=1573369401]
+[node name="Sprite2D" type="Sprite2D" parent="Menu/VBoxContainer/Beastiary" unique_id=468924082]
+position = Vector2(831, 51)
+scale = Vector2(4, 4)
+texture = ExtResource("57_f24b5")
+
+[node name="QuitButton" type="TextureButton" parent="Menu/VBoxContainer" unique_id=208664762]
+modulate = Color(1, 0.30091587, 0.09167918, 1)
+custom_minimum_size = Vector2(900, 100)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 0
+stretch_mode = 0
+script = ExtResource("13_v0h3m")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Menu/VBoxContainer/QuitButton" unique_id=293277909]
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_502e6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1o50l")
+region_rect = Rect2(0, 0, 32, 51)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="Menu/VBoxContainer/QuitButton" unique_id=1713911331]
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer/QuitButton" unique_id=476304367]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -25.0
+offset_right = 225.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_2atga")
+theme_override_font_sizes/font_size = 50
+text = "M_QUIT"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Menu/VBoxContainer/QuitButton" unique_id=1910379023]
+position = Vector2(831, 51)
+scale = Vector2(4, 4)
+texture = ExtResource("57_f24b5")
+
+[node name="GameBanner" type="TextureRect" parent="Menu" unique_id=757677563]
+z_index = 1
+layout_mode = 0
+offset_left = -17.999996
+offset_top = 95.000015
+offset_right = 582.0
+offset_bottom = 287.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("18_2nbnt")
+
+[node name="LineUnderGameBanner" type="TextureRect" parent="Menu" unique_id=921659582]
+layout_mode = 0
+offset_left = 45.999996
+offset_top = 303.0
+offset_right = 816.0
+offset_bottom = 337.0
+texture = ExtResource("63_eft4t")
+stretch_mode = 5
+
+[node name="SettingButton" type="TextureButton" parent="Menu" unique_id=1640622495]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1920.0
-offset_right = -1597.0
-offset_bottom = 235.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_g4v7s")
-
-[node name="GameBanner" type="Sprite2D" parent="Menu/Panel" unique_id=1872600416]
-position = Vector2(1549, 149)
-texture = ExtResource("18_2nbnt")
-
-[node name="SettingButton" type="TextureButton" parent="Menu" unique_id=1640622495]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 92.0
-offset_top = 61.0
-offset_right = 242.0
-offset_bottom = 211.0
+offset_left = -257.0
+offset_top = 95.0
+offset_right = -95.0
+offset_bottom = 257.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("27_6jy8e")
@@ -1763,9 +1952,26 @@ patch_margin_bottom = 6
 volume_db = -15.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Menu/SettingButton" unique_id=1617208934]
-position = Vector2(75.000015, 74.99999)
-scale = Vector2(4.6875014, 4.6875005)
+position = Vector2(81.00001, 80.999985)
+scale = Vector2(5.0625005, 5.0625)
 texture = ExtResource("28_hhtb2")
+
+[node name="Label" type="Label" parent="Menu" unique_id=755914948]
+self_modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_2atga")
+theme_override_font_sizes/font_size = 25
+text = "v1.3.7.4BETA"
+horizontal_alignment = 1
 
 [node name="Beastiary" type="Panel" parent="." unique_id=1862036888]
 visible = false
@@ -3659,7 +3865,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_y83an")
 theme_override_styles/read_only = SubResource("StyleBoxTexture_by18p")
 theme_override_styles/focus = SubResource("StyleBoxTexture_ngkkh")
-placeholder_text = "ROOM_MULT"
+placeholder_text = "ROOM_NAME_PLACEHOLDER"
 
 [node name="CreatePasswordField" type="LineEdit" parent="Multiplayer" unique_id=780820667]
 unique_name_in_owner = true
@@ -3749,7 +3955,7 @@ theme_override_icons/unchecked = ExtResource("74_s0goa")
 theme_override_icons/checked_disabled = ExtResource("76_ngkkh")
 theme_override_icons/unchecked_disabled = ExtResource("77_dk0kf")
 button_pressed = true
-text = "NO_PASSWORD"
+text = "NO_PASSWORD_LABEL"
 
 [node name="DirectIPField" type="LineEdit" parent="Multiplayer" unique_id=1237330299]
 unique_name_in_owner = true
@@ -4497,9 +4703,6 @@ rotation = -1.5707964
 scale = Vector2(6, 6)
 texture = ExtResource("67_wr4wo")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1263030289]
-environment = SubResource("Environment_sra1m")
-
 [node name="background_Music" type="AudioStreamPlayer" parent="." unique_id=1863516891]
 unique_name_in_owner = true
 stream = ExtResource("50_n1nve")
@@ -4508,6 +4711,9 @@ autoplay = true
 [node name="Confirm_upgrade" parent="." unique_id=2021431105 instance=ExtResource("26_mh7xh")]
 visible = false
 layout_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1330198368]
+environment = SubResource("Environment_a1bm5")
 
 [connection signal="off_play" from="." to="Weapon_select/VBoxContainer/Play" method="_on_main_menu_off_play"]
 [connection signal="off_play" from="." to="Weapon_select/VBoxContainer/Multiplayer" method="_on_main_menu_off_play"]
@@ -4522,15 +4728,18 @@ layout_mode = 1
 [connection signal="mouse_entered" from="FSkillTree/Back_upgrade" to="FSkillTree/Back_upgrade" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="FSkillTree/Back_upgrade" to="FSkillTree/Back_upgrade" method="_on_mouse_exited"]
 [connection signal="pressed" from="FSkillTree/Back_upgrade" to="." method="_on_back_upgrade_pressed"]
-[connection signal="mouse_entered" from="Menu/VBoxContainer/Beastiary" to="Menu/VBoxContainer/Beastiary" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Menu/VBoxContainer/Beastiary" to="Menu/VBoxContainer/Beastiary" method="_on_mouse_exited"]
-[connection signal="pressed" from="Menu/VBoxContainer/Beastiary" to="." method="_on_beastiary_pressed"]
-[connection signal="mouse_entered" from="Menu/VBoxContainer/Upgrades" to="Menu/VBoxContainer/Upgrades" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Menu/VBoxContainer/Upgrades" to="Menu/VBoxContainer/Upgrades" method="_on_mouse_exited"]
-[connection signal="pressed" from="Menu/VBoxContainer/Upgrades" to="." method="_on_upgrades_pressed"]
 [connection signal="mouse_entered" from="Menu/VBoxContainer/Start" to="Menu/VBoxContainer/Start" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/VBoxContainer/Start" to="Menu/VBoxContainer/Start" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="Menu/VBoxContainer/Upgrades" to="Menu/VBoxContainer/Upgrades" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/VBoxContainer/Upgrades" to="Menu/VBoxContainer/Upgrades" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/Upgrades" to="." method="_on_upgrades_pressed"]
+[connection signal="mouse_entered" from="Menu/VBoxContainer/Beastiary" to="Menu/VBoxContainer/Beastiary" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/VBoxContainer/Beastiary" to="Menu/VBoxContainer/Beastiary" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/Beastiary" to="." method="_on_beastiary_pressed"]
+[connection signal="mouse_entered" from="Menu/VBoxContainer/QuitButton" to="Menu/VBoxContainer/QuitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/VBoxContainer/QuitButton" to="Menu/VBoxContainer/QuitButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="mouse_entered" from="Menu/SettingButton" to="Menu/SettingButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/SettingButton" to="Menu/SettingButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/SettingButton" to="." method="_on_setting_button_pressed"]

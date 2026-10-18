@@ -57,6 +57,13 @@ func _on_pressed() -> void:
 		new_locale = "ru"
 		if has_node("Sprite2D"):
 			$Sprite2D.texture = load("res://sprites/rus_lang.png")
-			
 	TranslationServer.set_locale(new_locale)
 	_save_locale(new_locale)
+	_force_ui_update(get_tree().root)
+
+func _force_ui_update(node: Node) -> void:
+	if node is Control and node.has_method("get_text") and node.has_method("set_text"):
+		var current_text = node.get_text()
+		node.set_text(current_text)
+	for child in node.get_children():
+		_force_ui_update(child)

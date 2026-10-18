@@ -19,6 +19,8 @@ func _upgade_epi()-> void:
 	$"../../Weapon_select/BackGround_Shader".visible=!is_epilepsy
 	$"../BackGround_Shader".visible=!is_epilepsy
 	$"../../CharacterUpgrade/BackGround_Shader".visible=!is_epilepsy
+	$"../../MultiplayerRoom/BackGround_Shader".visible=!is_epilepsy
+	$"../../Multiplayer/BackGround_Shader".visible=!is_epilepsy
 	$Sprite2D.texture=ep_off if is_epilepsy==false else ep_on
 
 func _on_pressed() -> void:

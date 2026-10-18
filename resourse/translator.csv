@@ -219,3 +219,5 @@ SYS_JOIN;%s присоединился;%s joined
 SYS_LEAVE;%s покинул комнату;%s left the room
 SYS_KICKED;%s кикнут;%s was kicked
 SYS_YOU_KICKED;Тебя кикнули из комнаты;You were kicked from the room
+M_QUIT;Выйти из игры;Quit
+WEPON_ON_SCREEN;(Оружие на экране);(Weapon on screen)

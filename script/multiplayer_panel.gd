@@ -31,11 +31,7 @@ var _dots_count: int = 0
 @onready var status_label: Label = %StatusLabel
 
 func _ready() -> void:
-	title_label.text = tr("MULTIPLAYER_TITLE")
-	no_password_check.text = tr("NO_PASSWORD_LABEL")
 	name_field.text = Net.player_name
-	room_name_field.placeholder_text = tr("ROOM_NAME_PLACEHOLDER")
-	direct_ip_field.placeholder_text = tr("IP_PLACEHOLDER")
 	no_password_check.button_pressed = true
 	refresh_btn.pressed.connect(_on_refresh_pressed)
 	create_btn.pressed.connect(_on_create_pressed)

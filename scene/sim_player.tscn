@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://cxl0yj72kfvpx"]
+
+[ext_resource type="Script" uid="uid://bwex1e1mp3qhe" path="res://script/sim_player.gd" id="1_vcpfr"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2_em76f"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="6_t1ouw"]
+[ext_resource type="PackedScene" uid="uid://db4drylx548xy" path="res://scene/slot.tscn" id="12_ig8gy"]
+[ext_resource type="Texture2D" uid="uid://cy713xbjqk2xe" path="res://sprites/TargetPoint.png" id="22_66jkq"]
+[ext_resource type="Texture2D" uid="uid://bel6fe0cpswi5" path="res://sprites/lazer_character_evolution.png" id="23_pinmr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 10.049875
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oh5ij"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 50.0
+
+[node name="simplayer" type="CharacterBody2D" unique_id=561257320 groups=["Player"]]
+process_mode = 1
+script = ExtResource("1_vcpfr")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1321498538]
+process_mode = 1
+layer = 2
+visible = false
+
+[node name="weapons" type="HBoxContainer" parent="UI" unique_id=465879822]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -446.0
+offset_top = -150.0
+offset_right = -66.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot" parent="UI/weapons" unique_id=357824885 instance=ExtResource("12_ig8gy")]
+layout_mode = 2
+
+[node name="slot2" parent="UI/weapons" unique_id=2053051640 instance=ExtResource("12_ig8gy")]
+layout_mode = 2
+
+[node name="slot3" parent="UI/weapons" unique_id=34076567 instance=ExtResource("12_ig8gy")]
+layout_mode = 2
+
+[node name="slot4" parent="UI/weapons" unique_id=981094448 instance=ExtResource("12_ig8gy")]
+layout_mode = 2
+
+[node name="slot5" parent="UI/weapons" unique_id=460214877 instance=ExtResource("12_ig8gy")]
+layout_mode = 2
+
+[node name="slot6" parent="UI/weapons" unique_id=105031982 instance=ExtResource("12_ig8gy")]
+layout_mode = 2
+
+[node name="Win_Label" type="Label" parent="UI" unique_id=747730770]
+self_modulate = Color(1, 1, 1, 0.39215687)
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -446.0
+offset_top = -174.0
+offset_right = -66.0
+offset_bottom = -154.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_t1ouw")
+theme_override_font_sizes/font_size = 20
+text = "WEPON_ON_SCREEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="player" type="CPUParticles2D" parent="." unique_id=1119473783]
+texture_filter = 1
+emitting = false
+amount = 15
+texture = ExtResource("2_em76f")
+lifetime_randomness = 0.67
+draw_order = 1
+emission_shape = 2
+emission_sphere_radius = 8.0
+direction = Vector2(-1, 0)
+spread = 15.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 96.33
+initial_velocity_max = 164.12
+angular_velocity_min = -455.88
+angular_velocity_max = 383.52
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+
+[node name="TargetPoint" type="Sprite2D" parent="." unique_id=445790419]
+unique_name_in_owner = true
+modulate = Color(0.5568628, 0, 0.8784314, 1)
+texture = ExtResource("22_66jkq")
+
+[node name="ring" type="CPUParticles2D" parent="TargetPoint" unique_id=1748464753]
+unique_name_in_owner = true
+amount = 10
+texture = ExtResource("2_em76f")
+lifetime = 0.25
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 8.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=316768836]
+modulate = Color(1.4369954, 1.4369954, 1.4369954, 1)
+texture = ExtResource("23_pinmr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=156322994]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="selfdamage" type="Area2D" parent="." unique_id=1067139470]
+collision_layer = 0
+collision_mask = 3
+
+[node name="collision" type="CollisionShape2D" parent="selfdamage" unique_id=188990066]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_oh5ij")
+
+[node name="Timer" type="Timer" parent="." unique_id=1908159749]
+autostart = true
+
+[node name="Magnet" type="Area2D" parent="." unique_id=7378449]
+collision_layer = 0
+collision_mask = 4
+
+[node name="Magnet" type="CollisionShape2D" parent="Magnet" unique_id=1436849498]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="dash_cooldown" type="Timer" parent="." unique_id=1860718883]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="start_teleport" type="CPUParticles2D" parent="." unique_id=218182458]
+emitting = false
+amount = 15
+texture = ExtResource("2_em76f")
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 31.08
+gravity = Vector2(0, 0)
+radial_accel_min = 22.4
+radial_accel_max = 100.0
+scale_amount_max = 3.0
+color = Color(0.5568628, 0, 0.8784314, 1)
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=1875820487]
+process_mode = 3
+volume_db = -15.0
+
+[connection signal="area_entered" from="selfdamage" to="." method="_on_selfdamage_area_entered"]
+[connection signal="body_entered" from="selfdamage" to="." method="_on_selfdamage_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
