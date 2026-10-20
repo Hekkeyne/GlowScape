@@ -76,8 +76,9 @@ func _ready() -> void:
 	_cooldown_timer = cooldown * randf()
 	_orbit_t = randf()
 	global_position = _get_perimeter_point(_orbit_t)
-	rotation = _get_orbit_rotation_for(_orbit_t) + deg_to_rad(sprite_angle_offset)
-	_aim_dir = Vector2.RIGHT.rotated(rotation - deg_to_rad(sprite_angle_offset))
+	var dir: Vector2 = _orbit_direction(_orbit_t)
+	rotation = dir.angle() + deg_to_rad(sprite_angle_offset)
+	_aim_dir = dir
 func _process(delta: float) -> void:
 	match state:
 		State.ORBIT:
@@ -94,11 +95,26 @@ func _physics_process(delta: float) -> void:
 func _tick_orbit(delta: float) -> void:
 	_cooldown_timer -= delta
 	_orbit_t = fmod(_orbit_t + orbit_speed * delta, 1.0)
+	if _orbit_t < 0.0:
+		_orbit_t += 1.0
 	global_position = _get_perimeter_point(_orbit_t)
-	var target_rot: float = _get_orbit_rotation_for(_orbit_t) + deg_to_rad(sprite_angle_offset)
+	var dir: Vector2 = _orbit_direction(_orbit_t)
+	_aim_dir = dir
+	var target_rot: float = dir.angle() + deg_to_rad(sprite_angle_offset)
 	rotation = lerp_angle(rotation, target_rot, 20.0 * delta)
 	if _cooldown_timer <= 0.0:
 		_find_target()
+func _orbit_direction(t: float) -> Vector2:
+	t = fmod(t, 1.0)
+	if t < 0.0:
+		t += 1.0
+	if t < 0.25:
+		return Vector2.RIGHT
+	elif t < 0.5:
+		return Vector2.DOWN
+	elif t < 0.75:
+		return Vector2.LEFT
+	return Vector2.UP
 func _tick_aim(delta: float) -> void:
 	_aim_timer -= delta
 	if is_instance_valid(_target):
@@ -188,7 +204,6 @@ func _find_target() -> void:
 	else:
 		_cooldown_timer = 0.5
 func _start_fly() -> void:
-	#сделать чтоб сама пила крутилась во время полета и могла атаковать врагов в момент простоя
 	state = State.FLY
 	_current_speed = fly_speed
 	_current_spin = charge_spin_speed
@@ -201,6 +216,8 @@ func _start_fly() -> void:
 		_fly_dir = (_target.global_position - global_position).normalized()
 	else:
 		_fly_dir = _aim_dir
+	if _fly_dir.length_squared() < 0.0001:
+		_fly_dir = Vector2.RIGHT
 	var edge_distance: float = _ray_exit_distance(global_position, _fly_dir, rect)
 	if edge_distance < 0.0:
 		edge_distance = 10000.0
@@ -218,7 +235,7 @@ func _start_emerge() -> void:
 	_emerge_start_pos = global_position
 	_orbit_t = _position_to_orbit_t(global_position)
 	_emerge_target_pos = _get_perimeter_point(_orbit_t)
-	_emerge_target_rot = _get_orbit_rotation_for(_orbit_t) + deg_to_rad(sprite_angle_offset)
+	_emerge_target_rot = _orbit_direction(_orbit_t).angle() + deg_to_rad(sprite_angle_offset)
 	_disc_visual_spin = _current_spin
 func _finish_emerge() -> void:
 	state = State.ORBIT
@@ -267,20 +284,11 @@ func _screen_world_rect() -> Rect2:
 	var vp: Viewport = get_viewport()
 	if vp == null:
 		return Rect2(global_position - Vector2(600.0, 600.0), Vector2(1200.0, 1200.0))
-	var cam: Camera2D = vp.get_camera_2d()
-	if cam == null or not is_instance_valid(cam):
-		return Rect2(global_position - Vector2(600.0, 600.0), Vector2(1200.0, 1200.0))
-	var size: Vector2 = vp.get_visible_rect().size
-	if size.x <= 0.0 or size.y <= 0.0:
-		size = Vector2(1280.0, 720.0)
-	var zoom: Vector2 = cam.zoom
-	if absf(zoom.x) < 0.0001:
-		zoom.x = 1.0
-	if absf(zoom.y) < 0.0001:
-		zoom.y = zoom.x
-	var half: Vector2 = size / (2.0 * zoom)
-	var center: Vector2 = cam.global_position + cam.offset
-	return Rect2(center - half, half * 2.0)
+	var vis: Rect2 = vp.get_visible_rect()
+	var xform: Transform2D = vp.get_canvas_transform().affine_inverse()
+	var a: Vector2 = xform * Vector2.ZERO
+	var b: Vector2 = xform * vis.size
+	return Rect2(a, b - a).abs()
 func _rect_has_point(rect: Rect2, point: Vector2) -> bool:
 	return point.x >= rect.position.x - 0.5 and point.x <= rect.end.x + 0.5 and point.y >= rect.position.y - 0.5 and point.y <= rect.end.y + 0.5
 func _get_perimeter_point(t: float) -> Vector2:
@@ -299,8 +307,7 @@ func _get_perimeter_point(t: float) -> Vector2:
 		return top_left + Vector2(w, (t - 0.25) / 0.25 * h)
 	elif t < 0.75:
 		return top_left + Vector2(w - (t - 0.5) / 0.25 * w, h)
-	else:
-		return top_left + Vector2(0.0, h - (t - 0.75) / 0.25 * h)
+	return top_left + Vector2(0.0, h - (t - 0.75) / 0.25 * h)
 func _position_to_orbit_t(pos: Vector2) -> float:
 	var rect: Rect2 = _screen_world_rect()
 	var half: Vector2 = rect.size / 2.0 + Vector2(orbit_margin, orbit_margin)
@@ -332,14 +339,6 @@ func _position_to_orbit_t(pos: Vector2) -> float:
 				3:
 					best_t = 0.75 + ((h - cand.y) / h) * 0.25
 	return best_t
-func _get_orbit_rotation_for(t: float) -> float:
-	var pos: Vector2 = _get_perimeter_point(t)
-	var next_t: float = fmod(t + 0.01, 1.0)
-	var next_pos: Vector2 = _get_perimeter_point(next_t)
-	var dir: Vector2 = next_pos - pos
-	if dir.length_squared() < 0.01:
-		return 0.0
-	return dir.angle()
 func _shake_camera() -> void:
 	if shake_strength <= 0.0:
 		return
@@ -402,3 +401,4 @@ func _play_hit_sfx() -> void:
 	scene.add_child(sound)
 	sound.play()
 	sound.finished.connect(func(): sound.queue_free())
+	

@@ -1578,6 +1578,7 @@ text = "M_UPG"
 horizontal_alignment = 1
 
 [node name="Menu" type="Panel" parent="." unique_id=1423114357]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -4200,7 +4201,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="CharacterUpgrade" type="Panel" parent="." unique_id=1292665302 node_paths=PackedStringArray("char_grid", "rows_root")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -4353,7 +4353,7 @@ size_flags_vertical = 3
 columns = 2
 script = ExtResource("60_gk0e6")
 character_slot = ExtResource("28_5dp28")
-characters = Array[ExtResource("29_lfhnn")]([ExtResource("39_y06n1"), ExtResource("32_lfhnn"), ExtResource("40_6jy8e"), ExtResource("45_mry8t"), ExtResource("43_r4gq0"), ExtResource("30_d5kma"), ExtResource("48_q6r24"), ExtResource("44_npk8l"), ExtResource("50_mry8t")])
+characters = Array[ExtResource("29_lfhnn")]([ExtResource("39_y06n1"), ExtResource("32_lfhnn"), ExtResource("40_6jy8e"), ExtResource("45_mry8t"), ExtResource("43_r4gq0"), ExtResource("30_d5kma"), ExtResource("48_q6r24"), ExtResource("44_npk8l"), ExtResource("50_mry8t"), ExtResource("82_4qolr"), ExtResource("84_rpfp8")])
 
 [node name="RowsPanel" type="Panel" parent="CharacterUpgrade" unique_id=36210897]
 layout_mode = 1

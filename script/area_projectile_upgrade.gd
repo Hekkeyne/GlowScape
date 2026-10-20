@@ -21,12 +21,15 @@ class_name SawstormDisc
 @export_range(1.0, 5.0, 0.1) var knockback_speed_mult: float = 2.0
 @export_range(0.0, 0.5, 0.02) var lead_time: float = 0.12
 @export_range(0.05, 1.0, 0.05) var shrink_time: float = 0.25
-@export_range(200.0, 3000.0, 50.0) var leash_radius: float = 900.0
+
+# 0.0 = бесконечная дальность.
+# Если нужно ограничение — поставь положительное значение, например 900.0 или 3000.0.
+@export var leash_radius: float = 0.0
+
 @export_range(0.0, 1.0, 0.05) var bounce_back_mix: float = 0.35
 @export_range(0.0, 1.0, 0.05) var bounce_aim_mix: float = 0.4
 @export_range(0.0, 0.6, 0.02) var bounce_spread: float = 0.18
 @export_range(0.05, 1.0, 0.05) var flash_time: float = 0.15
-@export var edge_bounce: bool = true
 @export_range(0.5, 1.0, 0.01) var decay_threshold: float = 0.75
 @export_range(0.0, 1000.0, 25.0) var decay_drag: float = 180.0
 @export_range(20.0, 200.0, 5.0) var explosion_base_radius: float = 60.0
@@ -62,7 +65,6 @@ var speed:
 		current_max = maxf(current_max, base_speed)
 	get:
 		return base_speed
-
 var net_id: int = 0
 
 func _ready() -> void:
@@ -109,10 +111,16 @@ func _physics_process(delta: float) -> void:
 	if state == "dying":
 		_tick_dying(delta)
 		return
-	modulate = Color(1.0 + 2.5 * flash, 1.0 + 2.5 * flash, 1.0 + 2.5 * flash, 1.0)
-	if source != null and is_instance_valid(source) and global_position.distance_to(source.global_position) > leash_radius:
-		_start_dying()
-		return
+	modulate = Color(
+		1.0 + 2.5 * flash,
+		1.0 + 2.5 * flash,
+		1.0 + 2.5 * flash,
+		1.0
+	)
+	if leash_radius > 0.0 and source != null and is_instance_valid(source):
+		if global_position.distance_to(source.global_position) > leash_radius:
+			_start_dying()
+			return
 	match state:
 		"seek":
 			_tick_seek(delta)
@@ -130,8 +138,6 @@ func _physics_process(delta: float) -> void:
 					state_timer = search_cooldown
 	var prev_pos = global_position
 	global_position += vel * delta
-	if edge_bounce:
-		_wall_bounce()
 	_sweep_hit(prev_pos, global_position)
 	if vel.length_squared() > 1.0:
 		rotation = vel.angle()
@@ -151,45 +157,6 @@ func _tick_seek(delta: float) -> void:
 	if dist > 0.01:
 		var desired = (to / dist) * current_max
 		vel = vel.move_toward(desired, steer_accel * delta)
-
-func _wall_bounce() -> void:
-	var r = _screen_rect()
-	var m = _bound_margin()
-	var bounced := false
-	if global_position.x < r.position.x + m:
-		global_position.x = r.position.x + m
-		if vel.x < 0:
-			vel.x = -vel.x
-		bounced = true
-	elif global_position.x > r.end.x - m:
-		global_position.x = r.end.x - m
-		if vel.x > 0:
-			vel.x = -vel.x
-		bounced = true
-	if global_position.y < r.position.y + m:
-		global_position.y = r.position.y + m
-		if vel.y < 0:
-			vel.y = -vel.y
-		bounced = true
-	elif global_position.y > r.end.y - m:
-		global_position.y = r.end.y - m
-		if vel.y > 0:
-			vel.y = -vel.y
-		bounced = true
-	if bounced:
-		flash = maxf(flash, 0.4)
-
-func _bound_margin() -> float:
-	return hit_radius + 6.0
-
-func _screen_rect() -> Rect2:
-	var vp = get_viewport()
-	var vis = vp.get_visible_rect()
-	var xform = vp.get_canvas_transform().affine_inverse()
-	var a = xform * Vector2.ZERO
-	var b = xform * vis.size
-	return Rect2(a, b - a).abs()
-
 func _sweep_hit(prev: Vector2, cur: Vector2) -> void:
 	if state == "dying":
 		return
@@ -299,7 +266,9 @@ func _spawn_explosion(pos: Vector2, spd_t: float, base_dmg: float) -> void:
 	get_tree().current_scene.add_child(expl)
 	var tw = expl.create_tween()
 	tw.set_parallel(true)
-	tw.tween_property(expl, "scale", Vector2(radius / 32.0, radius / 32.0), 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tw.tween_property(expl, "scale", Vector2(radius / 32.0, radius / 32.0), 0.25) \
+		.set_trans(Tween.TRANS_QUAD) \
+		.set_ease(Tween.EASE_OUT)
 	tw.tween_property(expl, "modulate:a", 0.0, 0.25)
 	tw.finished.connect(expl.queue_free)
 

@@ -15,12 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://cnuvpboar55c1" path="res://sprites/keayboardD.png" id="10_ov0wd"]
 [ext_resource type="Texture2D" uid="uid://f3sxqbu712h6" path="res://sprites/mouse1.png" id="11_37ygd"]
 [ext_resource type="Texture2D" uid="uid://chicp1unumat" path="res://sprites/mouse2.png" id="12_ms0fa"]
-[ext_resource type="Texture2D" uid="uid://qokvb3s8cdio" path="res://sprites/mobile_tp_button.png" id="12_ov0wd"]
 [ext_resource type="Texture2D" uid="uid://ccj3ic6phua5p" path="res://sprites/mobile_tp_button_disabled.png" id="13_37ygd"]
 [ext_resource type="Texture2D" uid="uid://b1ionvjcbb0gy" path="res://sprites/SPACE1.png" id="13_pnckc"]
 [ext_resource type="Texture2D" uid="uid://dpt4t2i3cefmw" path="res://sprites/SPACE2.png" id="14_8flnp"]
 [ext_resource type="Texture2D" uid="uid://b6klcax252nck" path="res://sprites/tp_tip1.png" id="16_ov0wd"]
 [ext_resource type="Texture2D" uid="uid://dptc31yrbmuk8" path="res://sprites/tp_tip2.png" id="17_37ygd"]
+[ext_resource type="Texture2D" uid="uid://bqf6aon0h5suc" path="res://sprites/mobile_tp_button_tips.png" id="20_4v1dv"]
 [ext_resource type="Script" uid="uid://chti5a1almtpv" path="res://script/remote_players.gd" id="21_3y3dj"]
 [ext_resource type="PackedScene" uid="uid://xbgb881vbnbo" path="res://scene/dummy.tscn" id="22_ygedw"]
 [ext_resource type="Script" uid="uid://c2d70kbn5543e" path="res://script/enemy_snapshot_manager.gd" id="23_sec56"]
@@ -95,7 +95,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_ov0wd")
+"texture": ExtResource("20_4v1dv")
 }, {
 "duration": 1.0,
 "texture": ExtResource("13_37ygd")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_srxyt"]
 [ext_resource type="Texture2D" uid="uid://h57gawsvkwvb" path="res://sprites/holy_sword_character.png" id="2_srxyt"]
 [ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="3_xtmt0"]
-[ext_resource type="Resource" uid="uid://0q4ucwc66765" path="res://resourse/weapon/holy_sword.tres" id="4_srxyt"]
+[ext_resource type="Resource" uid="uid://dd3o7dqtd1hww" path="res://resourse/weapon upgrade/StarSword.tres" id="4_srxyt"]
 
 [sub_resource type="Resource" id="Resource_8n75t"]
 script = ExtResource("1_srxyt")

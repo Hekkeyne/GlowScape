@@ -24,17 +24,20 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_22q12")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1931102975]
+visible = false
 scale = Vector2(3, 3)
 texture = ExtResource("3_22q12")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1291298760]
-self_modulate = Color(0.34509805, 0.14509805, 0.14509805, 1)
-amount = 5
+self_modulate = Color(0.21176471, 0.94509804, 0.9843137, 1)
+position = Vector2(-33, 0)
+amount = 10
 texture = ExtResource("4_urq40")
 draw_order = 1
 emission_shape = 1
-emission_sphere_radius = 3.0
-spread = 2.5
+emission_sphere_radius = 5.0
+direction = Vector2(-1, 0)
+spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 59.17
 initial_velocity_max = 119.32

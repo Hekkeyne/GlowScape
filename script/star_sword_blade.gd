@@ -144,7 +144,8 @@ func _get_home_rotation() -> float:
 	return _front_angle + deg_to_rad(sprite_forward_offset)
 func _tick_idle(delta: float) -> void:
 	_rig_time += delta
-	_cooldown_timer -= delta
+	if _cooldown_timer > 0.0:
+		_cooldown_timer -= delta
 	var target_pos: Vector2 = _get_home_position()
 	_home_velocity += (target_pos - global_position) * follow_stiffness * delta
 	_home_velocity *= exp(-follow_damping * delta)
@@ -285,13 +286,15 @@ func _on_wall_hit() -> void:
 	_hit_enemies.clear()
 func _start_return() -> void:
 	state = State.RETURN
-	_emerge_timer = emerge_time
+	_emerge_timer = maxf(emerge_time, 0.001)
 	_disc_visual_spin = _current_spin
 	_cooldown_timer = cooldown
 	_hit_enemies.clear()
 	_target = null
 func _tick_return(delta: float) -> void:
 	_rig_time += delta
+	if _cooldown_timer > 0.0:
+		_cooldown_timer -= delta
 	_emerge_timer -= delta
 	var progress: float = 1.0 - clampf(_emerge_timer / maxf(emerge_time, 0.001), 0.0, 1.0)
 	var eased: float = progress * progress * (3.0 - 2.0 * progress)
@@ -309,19 +312,18 @@ func _tick_return(delta: float) -> void:
 	if _home_velocity.length() > return_max_speed:
 		_home_velocity = _home_velocity.normalized() * return_max_speed
 	global_position += _home_velocity * delta
-	if progress >= 1.0:
-		rotation = lerp_angle(rotation, _get_home_rotation(), 10.0 * delta)
-		if global_position.distance_to(target_pos) < 25.0:
-			state = State.IDLE
-			_home_velocity = Vector2.ZERO
-			_current_spin = 0.0
-			_disc_visual_spin = 0.0
-			if _sprite:
-				_sprite.modulate.a = cooldown_alpha
-			if _disc_sprite:
-				_disc_sprite.visible = false
-				_disc_sprite.modulate.a = 0.0
-				_disc_sprite.rotation = 0.0
+	if _emerge_timer <= 0.0:
+		state = State.IDLE
+		_current_spin = 0.0
+		_disc_visual_spin = 0.0
+		if _sprite:
+			_sprite.modulate.a = 1.0 if _cooldown_timer <= 0.0 else cooldown_alpha
+		if _disc_sprite:
+			_disc_sprite.visible = false
+			_disc_sprite.modulate.a = 0.0
+			_disc_sprite.rotation = 0.0
+		if _cooldown_timer <= 0.0:
+			_find_target()
 func _update_trail(delta: float) -> void:
 	for i in range(_trail_pool.size()):
 		if _trail_life[i] <= 0.0:
@@ -493,17 +495,8 @@ func _screen_world_rect() -> Rect2:
 	var vp: Viewport = get_viewport()
 	if vp == null:
 		return Rect2(global_position - Vector2(600.0, 600.0), Vector2(1200.0, 1200.0))
-	var cam: Camera2D = vp.get_camera_2d()
-	if cam == null or not is_instance_valid(cam):
-		return Rect2(global_position - Vector2(600.0, 600.0), Vector2(1200.0, 1200.0))
-	var size: Vector2 = vp.get_visible_rect().size
-	if size.x <= 0.0 or size.y <= 0.0:
-		size = Vector2(1280.0, 720.0)
-	var zoom: Vector2 = cam.zoom
-	if absf(zoom.x) < 0.0001:
-		zoom.x = 1.0
-	if absf(zoom.y) < 0.0001:
-		zoom.y = zoom.x
-	var half: Vector2 = size / (2.0 * zoom)
-	var center: Vector2 = cam.global_position
-	return Rect2(center - half, half * 2.0)
+	var vis: Rect2 = vp.get_visible_rect()
+	var xform: Transform2D = vp.get_canvas_transform().affine_inverse()
+	var a: Vector2 = xform * Vector2.ZERO
+	var b: Vector2 = xform * vis.size
+	return Rect2(a, b - a).abs()

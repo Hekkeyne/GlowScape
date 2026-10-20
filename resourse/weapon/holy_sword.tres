@@ -52,6 +52,7 @@ sword_scene = ExtResource("2_pm0hr")
 orbit_margin = -16.0
 orbit_speed = 0.05
 aim_time = 1.0
+overshoot = 200.0
 shake_strength = 1.0
 disc_texture = ExtResource("1_mpy67")
 damage = 25.0
