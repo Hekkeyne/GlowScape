@@ -221,3 +221,9 @@ SYS_KICKED;%s кикнут;%s was kicked
 SYS_YOU_KICKED;Тебя кикнули из комнаты;You were kicked from the room
 M_QUIT;Выйти из игры;Quit
 WEPON_ON_SCREEN;(Оружие на экране);(Weapon on screen)
+STARFALL;Звездопад;Starfall
+STARFALL_DESCRIPTION;Звёзды падают туда, куда ты смотришь. Пронзают врагов;Stars fall wherever you look. Piercing enemies.
+WEAPON_STARFALL_AMOUNT;+%s звезды;+%s stars
+HOLY_SWORD;Обсидиановый меч;Obsidian sword
+HOLY_SWORD_DESCRIPTION;Заточенный во тьме. Ждёт у края экрана, чтобы рассечь врагов.;Bound in darkness. Lurking at the edge of the screen, ready to cleave his foes.
+WEAPON_HOLY_SWORD_AMOUNT;+%s обсидиановый меч;+%s obsidian saw

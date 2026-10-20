@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://bkwikwrif22lm"]
+
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_srxyt"]
+[ext_resource type="Texture2D" uid="uid://h57gawsvkwvb" path="res://sprites/holy_sword_character.png" id="2_srxyt"]
+[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="3_xtmt0"]
+[ext_resource type="Resource" uid="uid://0q4ucwc66765" path="res://resourse/weapon/holy_sword.tres" id="4_srxyt"]
+
+[sub_resource type="Resource" id="Resource_8n75t"]
+script = ExtResource("1_srxyt")
+max_health = 100.0
+armor = 25.0
+movement_speed = 250.0
+might = 1.0
+area = 100.0
+magnet = 100.0
+growth = 1.0
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[resource]
+script = ExtResource("3_xtmt0")
+title = "HOLY_SWORD_CHARACTER"
+icon = ExtResource("2_srxyt")
+texture = ExtResource("2_srxyt")
+animation_name = "HOLY_SWORD_CHARACTER"
+base_stats = SubResource("Resource_8n75t")
+starting_weapon = ExtResource("4_srxyt")
+color_trail = "582525"
+metadata/_custom_type_script = "uid://cdfgec6qtjwl7"

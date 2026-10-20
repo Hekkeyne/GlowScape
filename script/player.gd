@@ -77,6 +77,10 @@ func _ready() -> void:
 	set_base_stats(character.base_stats)
 	%Options.check_item(character.starting_weapon)
 	$player.modulate=Color.from_string(character.color_trail,Color.WHITE)
+	%TargetPoint.modulate = Color.from_string(character.color_trail, Color.WHITE)
+	$start_teleport.modulate = Color.from_string(character.color_trail, Color.WHITE)
+	%Teleport.tint_progress = Color.from_string(character.color_trail, Color.WHITE)
+	%TeleportLabel.modulate=Color.from_string(character.color_trail, Color.WHITE)
 	if back_button:
 		back_button_final_pos = back_button.position
 		back_button.position.y = -150
@@ -481,7 +485,7 @@ func gain_microchips(amount):
 
 func _on_dash_cooldown_timeout() -> void:
 	can_dash=true
-	%TargetPoint.modulate = Color("8e00e0")
+	%TargetPoint.modulate = Color.from_string(character.color_trail, Color.WHITE)
 
 func open_card():
 	$UI/Card.open_check()

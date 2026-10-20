@@ -101,10 +101,12 @@
 [ext_resource type="Resource" uid="uid://b6q6nqnr3j1xk" path="res://resourse/weapon upgrade/mega_turret.tres" id="63_rs01w"]
 [ext_resource type="Resource" uid="uid://bloxk8efkv535" path="res://resourse/weapon upgrade/spectralSplitterang.tres" id="64_57kec"]
 [ext_resource type="Texture2D" uid="uid://cr5qfa66j5bld" path="res://sprites/volume.png" id="64_uatrh"]
+[ext_resource type="Resource" uid="uid://2t3t3c7gg3do" path="res://resourse/weapon/starfall.tres" id="65_42imh"]
 [ext_resource type="Texture2D" uid="uid://bf4dgafpk2mm6" path="res://sprites/star_character.png" id="67_wr4wo"]
 [ext_resource type="Script" uid="uid://c1ev50smkqmwa" path="res://script/multiplayer_panel.gd" id="68_16i02"]
 [ext_resource type="Script" uid="uid://5k4qswpamlax" path="res://script/h_slider.gd" id="68_uatrh"]
 [ext_resource type="Script" uid="uid://c0vtotwxil6ka" path="res://script/multiplayer_room.gd" id="68_vcc06"]
+[ext_resource type="Resource" uid="uid://0q4ucwc66765" path="res://resourse/weapon/holy_sword.tres" id="68_yhdns"]
 [ext_resource type="Texture2D" uid="uid://duccjet6map8b" path="res://sprites/music_wave_character.png" id="69_qnyc3"]
 [ext_resource type="PackedScene" uid="uid://cusxxskep3gec" path="res://scene/roomrow.tscn" id="69_uatrh"]
 [ext_resource type="Texture2D" uid="uid://dos3d14nc3s1n" path="res://sprites/ban.png" id="70_nurkc"]
@@ -113,6 +115,8 @@
 [ext_resource type="Texture2D" uid="uid://psgpouyvcsgg" path="res://sprites/unchecked_checkbox.png" id="74_s0goa"]
 [ext_resource type="Texture2D" uid="uid://dg8dqcrol71c" path="res://sprites/checked_checkbox_disabled.png" id="76_ngkkh"]
 [ext_resource type="Texture2D" uid="uid://dm0ohkucwgf7r" path="res://sprites/unchecked_checkbox_disabled.png" id="77_dk0kf"]
+[ext_resource type="Resource" uid="uid://cdguhrtdaaldx" path="res://resourse/character/starfall_character.tres" id="82_4qolr"]
+[ext_resource type="Resource" uid="uid://bkwikwrif22lm" path="res://resourse/character/holy_sword_character.tres" id="84_rpfp8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
 shader = ExtResource("20_s7uu8")
@@ -1574,6 +1578,7 @@ text = "M_UPG"
 horizontal_alignment = 1
 
 [node name="Menu" type="Panel" parent="." unique_id=1423114357]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -1597,9 +1602,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 31.000002
-offset_top = -89.0
-offset_right = 63.0
-offset_bottom = -57.0
+offset_top = -121.0
+offset_right = 78.51515
+offset_bottom = -73.48486
 grow_vertical = 0
 scale = Vector2(2.0625, 2.062499)
 texture = ExtResource("53_mjfpw")
@@ -1610,13 +1615,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -30.999878
-offset_top = 167.0
-offset_right = 1.0001221
-offset_bottom = 199.0
+offset_left = -31.0
+offset_top = 128.00002
+offset_right = 1.0
+offset_bottom = 160.00002
 grow_horizontal = 0
 rotation = 3.1415927
-scale = Vector2(4.2539063, 4.2539024)
+scale = Vector2(3, 3)
 texture = ExtResource("53_mjfpw")
 
 [node name="BackGround_Shader" type="ColorRect" parent="Menu" unique_id=1503454326]
@@ -1666,8 +1671,8 @@ position = Vector2(-1455, -429)
 script = ExtResource("27_mjfpw")
 sim_player_scene = ExtResource("28_f24b5")
 enemy_types = Array[Resource]([ExtResource("30_gm1du"), ExtResource("32_xtsmb"), ExtResource("33_4qolr"), ExtResource("34_42imh"), ExtResource("35_rpfp8"), ExtResource("36_yhdns"), ExtResource("37_h5nig")])
-characters = Array[Resource]([ExtResource("45_mry8t"), ExtResource("40_6jy8e"), ExtResource("39_y06n1"), ExtResource("48_q6r24"), ExtResource("43_r4gq0"), ExtResource("30_d5kma"), ExtResource("32_lfhnn"), ExtResource("50_mry8t"), ExtResource("44_npk8l")])
-weapons = Array[Resource]([ExtResource("52_yhdns"), ExtResource("48_2kcuy"), ExtResource("49_1rjff"), ExtResource("50_vk2bc"), ExtResource("51_7u47g"), ExtResource("52_178um"), ExtResource("53_ngf1q"), ExtResource("54_ewc3k"), ExtResource("55_ycvqj"), ExtResource("56_5t87p"), ExtResource("57_yfjrk"), ExtResource("58_sroap"), ExtResource("59_rfqsr"), ExtResource("60_hcl8d"), ExtResource("61_qd2ag"), ExtResource("62_nhg0r"), ExtResource("63_rs01w"), ExtResource("64_57kec")])
+characters = Array[Resource]([ExtResource("45_mry8t"), ExtResource("40_6jy8e"), ExtResource("39_y06n1"), ExtResource("48_q6r24"), ExtResource("43_r4gq0"), ExtResource("30_d5kma"), ExtResource("32_lfhnn"), ExtResource("50_mry8t"), ExtResource("44_npk8l"), ExtResource("82_4qolr"), ExtResource("84_rpfp8")])
+weapons = Array[Resource]([ExtResource("52_yhdns"), ExtResource("48_2kcuy"), ExtResource("49_1rjff"), ExtResource("50_vk2bc"), ExtResource("51_7u47g"), ExtResource("52_178um"), ExtResource("53_ngf1q"), ExtResource("54_ewc3k"), ExtResource("55_ycvqj"), ExtResource("56_5t87p"), ExtResource("57_yfjrk"), ExtResource("58_sroap"), ExtResource("59_rfqsr"), ExtResource("60_hcl8d"), ExtResource("61_qd2ag"), ExtResource("62_nhg0r"), ExtResource("63_rs01w"), ExtResource("64_57kec"), ExtResource("65_42imh"), ExtResource("68_yhdns")])
 min_enemies = 10
 max_enemies = 25
 arena_margin = 0.0
@@ -1970,7 +1975,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_2atga")
 theme_override_font_sizes/font_size = 25
-text = "v1.3.7.4BETA"
+text = "v1.3.7.6BETA"
 horizontal_alignment = 1
 
 [node name="Beastiary" type="Panel" parent="." unique_id=1862036888]
@@ -2221,7 +2226,6 @@ theme_override_font_sizes/font_size = 50
 text = "BACK_BUTTON"
 
 [node name="Weapon_select" type="Panel" parent="." unique_id=1268882086]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -2250,14 +2254,14 @@ grow_vertical = 2
 script = ExtResource("9_wju0j")
 
 [node name="charactr_panel" type="Panel" parent="Weapon_select" unique_id=1999172690]
-custom_maximum_size = Vector2(592, -1)
+custom_maximum_size = Vector2(610, -1)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.47900003
 anchor_bottom = 1.0
 offset_left = 63.0
 offset_top = 191.0
-offset_right = -264.68005
+offset_right = -246.68005
 offset_bottom = -183.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_g4v7s")
@@ -2278,7 +2282,7 @@ size_flags_vertical = 3
 columns = 3
 script = ExtResource("27_pixcj")
 character_slot = ExtResource("28_5dp28")
-characters = Array[ExtResource("29_lfhnn")]([ExtResource("39_y06n1"), ExtResource("32_lfhnn"), ExtResource("40_6jy8e"), ExtResource("45_mry8t"), ExtResource("43_r4gq0"), ExtResource("30_d5kma"), ExtResource("48_q6r24"), ExtResource("44_npk8l"), ExtResource("50_mry8t")])
+characters = Array[ExtResource("29_lfhnn")]([ExtResource("39_y06n1"), ExtResource("32_lfhnn"), ExtResource("40_6jy8e"), ExtResource("45_mry8t"), ExtResource("43_r4gq0"), ExtResource("30_d5kma"), ExtResource("48_q6r24"), ExtResource("44_npk8l"), ExtResource("50_mry8t"), ExtResource("82_4qolr"), ExtResource("84_rpfp8")])
 
 [node name="Label" type="Label" parent="Weapon_select" unique_id=1419191921]
 layout_mode = 0
@@ -2367,15 +2371,16 @@ anchor_bottom = 1.0
 offset_left = 703.0
 offset_top = -376.0
 offset_right = -63.0
-offset_bottom = -184.0
+offset_bottom = -183.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_constants/separation = 32
 alignment = 1
 
 [node name="Play" type="TextureButton" parent="Weapon_select/VBoxContainer" unique_id=1053652332]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_v0h3m")
-custom_minimum_size = Vector2(650, 192)
+custom_minimum_size = Vector2(600, 192)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -2519,7 +2524,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 447.0
+offset_left = 415.0
 offset_top = -152.0
 offset_right = -64.0
 offset_bottom = -54.0

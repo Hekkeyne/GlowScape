@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dw3682sfi0w20" path="res://scene/missle_bh.tscn" id="5_gvhpx"]
 [ext_resource type="Resource" uid="uid://dcyu4x6x85of7" path="res://resourse/Items/Movement_Speed.tres" id="6_35gsa"]
 [ext_resource type="Texture2D" uid="uid://x4yhterurv3h" path="res://sprites/black_hole_rim.png" id="6_gvhpx"]
+[ext_resource type="PackedScene" uid="uid://dhw7wici5tb12" path="res://scene/laser_projectile.tscn" id="8_35gsa"]
 [ext_resource type="Texture2D" uid="uid://dyahooocualhy" path="res://sprites/black_hole_swirl.png" id="8_f7il8"]
 [ext_resource type="Script" uid="uid://tke3dsxf76mx" path="res://resourse/upgrade/BHUpgrade.gd" id="13_35gsa"]
 

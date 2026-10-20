@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://cdguhrtdaaldx"]
+
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_6obiy"]
+[ext_resource type="Texture2D" uid="uid://c2xuj6fj36nre" path="res://sprites/starfall_character.png" id="2_6obiy"]
+[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="3_oqxte"]
+[ext_resource type="Resource" uid="uid://2t3t3c7gg3do" path="res://resourse/weapon/starfall.tres" id="4_wwa65"]
+
+[sub_resource type="Resource" id="Resource_n8nsa"]
+script = ExtResource("1_6obiy")
+max_health = 25.0
+movement_speed = 250.0
+might = 2.0
+area = 100.0
+growth = 1.5
+metadata/_custom_type_script = "uid://c4otyonjcxtkq"
+
+[resource]
+script = ExtResource("3_oqxte")
+title = "STARFALL_CHARACTER"
+icon = ExtResource("2_6obiy")
+texture = ExtResource("2_6obiy")
+animation_name = "STARFALL_CHARACTER"
+base_stats = SubResource("Resource_n8nsa")
+starting_weapon = ExtResource("4_wwa65")
+color_trail = "4c4c4c"
+metadata/_custom_type_script = "uid://cdfgec6qtjwl7"

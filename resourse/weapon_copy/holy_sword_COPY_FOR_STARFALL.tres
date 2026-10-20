@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="HolySword" format=3 uid="uid://cgbu23stel5b7"]
+
+[ext_resource type="Texture2D" uid="uid://c5m4gb6ch1bpl" path="res://sprites/error_place_texture.png" id="1_1o6d8"]
+[ext_resource type="Texture2D" uid="uid://b3te4c86qvgbh" path="res://sprites/holy_swordl_icon.png" id="2_k1ciy"]
+[ext_resource type="PackedScene" uid="uid://de2qc14b6dsxn" path="res://scene/holy_sword.tscn" id="4_ytkjs"]
+[ext_resource type="Script" uid="uid://uj3whdkop6wn" path="res://script/holy_swordWEAP.gd" id="5_wi6nx"]
+[ext_resource type="Texture2D" uid="uid://b1dyg0i842e1h" path="res://sprites/death.png" id="6_y42n4"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="7_o5gke"]
+
+[resource]
+script = ExtResource("5_wi6nx")
+sword_scene = ExtResource("4_ytkjs")
+sword_count = 3
+aim_time = 1.0
+disc_texture = ExtResource("1_1o6d8")
+damage = 50.0
+cooldown = 10.0
+projectile_node = ExtResource("4_ytkjs")
+title = "HOLY_SWORD"
+icon = ExtResource("2_k1ciy")
+texture = ExtResource("6_y42n4")
+description = "HOLY_SWORD_EVOLUTION"
+metadata/_custom_type_script = "uid://uj3whdkop6wn"

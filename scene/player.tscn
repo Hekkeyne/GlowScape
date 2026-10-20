@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bmsqv0sspqyw8" path="res://scene/passive_slot.tscn" id="9_u7b46"]
 [ext_resource type="Script" uid="uid://x7xd55p5h8nf" path="res://script/random_button.gd" id="11_wt23p"]
 [ext_resource type="Script" uid="uid://cckq1o8ux8gdn" path="res://script/options.gd" id="12_dk1vr"]
-[ext_resource type="Texture2D" uid="uid://b4eb5t11gdr4w" path="res://sprites/tp_bar_under.png" id="19_4reak"]
 [ext_resource type="Texture2D" uid="uid://d4m3bkuiq7ib7" path="res://sprites/tp_bar.png" id="20_wt23p"]
 [ext_resource type="Texture2D" uid="uid://dw4kvc18xr1dg" path="res://sprites/button_ui.png" id="21_wt23p"]
 [ext_resource type="Texture2D" uid="uid://bel6fe0cpswi5" path="res://sprites/lazer_character_evolution.png" id="22_4reak"]
@@ -304,7 +303,7 @@ offset_right = 75.0
 offset_bottom = 89.52
 grow_horizontal = 2
 value = 100.0
-texture_under = ExtResource("19_4reak")
+texture_under = ExtResource("20_wt23p")
 texture_progress = ExtResource("20_wt23p")
 
 [node name="TeleportLabel" type="Label" parent="UI/Teleport" unique_id=860513719]
@@ -314,7 +313,6 @@ offset_left = -36.0
 offset_top = 17.0
 offset_right = 188.0
 offset_bottom = 40.0
-theme_override_colors/font_color = Color(0.5568628, 0, 0.8784314, 1)
 theme_override_fonts/font = ExtResource("9_ihjo1")
 text = "LABEL_TELEPORT"
 horizontal_alignment = 1
@@ -645,6 +643,7 @@ shape = SubResource("CircleShape2D_g4v7s")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=639194414]
 texture_filter = 1
 position_smoothing_enabled = true
+position_smoothing_speed = 16.0
 script = ExtResource("24_k8m7u")
 portrait_zoom = 1.5
 
@@ -701,7 +700,6 @@ gravity = Vector2(0, 0)
 radial_accel_min = 22.4
 radial_accel_max = 100.0
 scale_amount_max = 3.0
-color = Color(0.5568628, 0, 0.8784314, 1)
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=1875820487]
 process_mode = 3
