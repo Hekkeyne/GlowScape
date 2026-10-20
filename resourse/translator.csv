@@ -227,3 +227,5 @@ WEAPON_STARFALL_AMOUNT;+%s звезды;+%s stars
 HOLY_SWORD;Обсидиановый меч;Obsidian sword
 HOLY_SWORD_DESCRIPTION;Заточенный во тьме. Ждёт у края экрана, чтобы рассечь врагов.;Bound in darkness. Lurking at the edge of the screen, ready to cleave his foes.
 WEAPON_HOLY_SWORD_AMOUNT;+%s обсидиановый меч;+%s obsidian saw
+STAR_SWORD;Звёздный клинок;Star blade
+STAR_SWORD_DESCRIPTION;Парящий клинок, сотрясающий небо и обрушивающий на врагов шквал звёзд;A hovering blade that shakes the sky and unleashes a barrage of stars upon enemies

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c3mh1y0qxtmd5"]
+
+[ext_resource type="Script" uid="uid://dubda5aq0la06" path="res://script/star_sword_blade.gd" id="1_1t1f0"]
+[ext_resource type="Texture2D" uid="uid://bow38up30yfve" path="res://sprites/star_sword_evolution .png" id="2_22q12"]
+[ext_resource type="Texture2D" uid="uid://ddrtvw6h7b2vx" path="res://sprites/star_sword_evolution_circle.png" id="3_22q12"]
+[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="4_urq40"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t18yu"]
+radius = 85.0
+
+[node name="star_sword_blade" type="Area2D" unique_id=1347462161]
+process_mode = 1
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_1t1f0")
+fly_max_speed = 2500.0
+fly_passive_decel = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=130012362]
+shape = SubResource("CircleShape2D_t18yu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576228593]
+scale = Vector2(3, 3)
+texture = ExtResource("2_22q12")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1931102975]
+scale = Vector2(3, 3)
+texture = ExtResource("3_22q12")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1291298760]
+self_modulate = Color(0.34509805, 0.14509805, 0.14509805, 1)
+amount = 5
+texture = ExtResource("4_urq40")
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 2.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 59.17
+initial_velocity_max = 119.32
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_min = -720.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1554126071]
+volume_db = -20.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

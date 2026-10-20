@@ -643,7 +643,7 @@ shape = SubResource("CircleShape2D_g4v7s")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=639194414]
 texture_filter = 1
 position_smoothing_enabled = true
-position_smoothing_speed = 16.0
+position_smoothing_speed = 8.0
 script = ExtResource("24_k8m7u")
 portrait_zoom = 1.5
 

@@ -1578,7 +1578,6 @@ text = "M_UPG"
 horizontal_alignment = 1
 
 [node name="Menu" type="Panel" parent="." unique_id=1423114357]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -1975,7 +1974,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_2atga")
 theme_override_font_sizes/font_size = 25
-text = "v1.3.7.6BETA"
+text = "v1.3.7.7BETA"
 horizontal_alignment = 1
 
 [node name="Beastiary" type="Panel" parent="." unique_id=1862036888]
@@ -2226,6 +2225,7 @@ theme_override_font_sizes/font_size = 50
 text = "BACK_BUTTON"
 
 [node name="Weapon_select" type="Panel" parent="." unique_id=1268882086]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15

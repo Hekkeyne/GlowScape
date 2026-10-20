@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Starfall" format=3 uid="uid://2t3t3c7gg3do"]
 
-[ext_resource type="Resource" uid="uid://c1u255d11133j" path="res://resourse/weapon/error_place.tres" id="1_oh42v"]
+[ext_resource type="Resource" uid="uid://dd3o7dqtd1hww" path="res://resourse/weapon upgrade/StarSword.tres" id="1_oh42v"]
 [ext_resource type="Texture2D" uid="uid://cfqom33nmdowx" path="res://sprites/starfall_icon.png" id="1_qlmrb"]
 [ext_resource type="Script" uid="uid://bxpgkngc8ifku" path="res://script/starfall.gd" id="2_ors85"]
 [ext_resource type="PackedScene" uid="uid://kjyl5smpkh1e" path="res://scene/star_projectile.tscn" id="2_qlmrb"]

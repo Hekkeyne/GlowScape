@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://xbp12hefx6ar" path="res://sprites/holy_sword_circle.png" id="1_mpy67"]
 [ext_resource type="Texture2D" uid="uid://b3te4c86qvgbh" path="res://sprites/holy_swordl_icon.png" id="1_tnk5c"]
-[ext_resource type="Resource" uid="uid://c1u255d11133j" path="res://resourse/weapon/error_place.tres" id="2_mpy67"]
 [ext_resource type="PackedScene" uid="uid://de2qc14b6dsxn" path="res://scene/holy_sword.tscn" id="2_pm0hr"]
+[ext_resource type="Resource" uid="uid://dd3o7dqtd1hww" path="res://resourse/weapon upgrade/StarSword.tres" id="2_st4p4"]
 [ext_resource type="Script" uid="uid://uj3whdkop6wn" path="res://script/holy_swordWEAP.gd" id="2_tnk5c"]
 [ext_resource type="Resource" uid="uid://2t3t3c7gg3do" path="res://resourse/weapon/starfall.tres" id="3_ljis7"]
 [ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="3_pm0hr"]
@@ -59,7 +59,7 @@ cooldown = 10.0
 projectile_node = ExtResource("2_pm0hr")
 upgrades = Array[ExtResource("3_pm0hr")]([SubResource("Resource_wt23p"), SubResource("Resource_k8m7u"), SubResource("Resource_qucqc"), SubResource("Resource_l1uwf"), SubResource("Resource_8ie14"), SubResource("Resource_pk8el"), SubResource("Resource_3vgh4")])
 item_needed = ExtResource("3_ljis7")
-evolution = ExtResource("2_mpy67")
+evolution = ExtResource("2_st4p4")
 title = "HOLY_SWORD"
 icon = ExtResource("1_tnk5c")
 texture = ExtResource("7_st4p4")
