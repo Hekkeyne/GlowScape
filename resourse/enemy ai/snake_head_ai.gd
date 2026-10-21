@@ -13,14 +13,14 @@ extends EnemyAIBehavior
 var time: float = 0.0
 var segments: Array[EnemyBase] = []
 
-func on_spawn(enemy: CharacterBody2D, player: Node2D) -> void:
+func on_spawn(enemy: CharacterBody2D, player: Node2D) -> void :
 	var head = enemy as EnemyBase
 	if not head or not segment_scene or segments_count <= 0:
 		return
 	var actual_count = randi_range(1, segments_count)
 	if head.is_elite:
 		actual_count *= 2
-	var back_direction := Vector2.LEFT
+	var back_direction: = Vector2.LEFT
 	if is_instance_valid(player):
 		back_direction = (head.global_position - player.global_position).normalized()
 	var previous: EnemyBase = head
@@ -38,7 +38,7 @@ func on_spawn(enemy: CharacterBody2D, player: Node2D) -> void:
 	head.enemy_died.connect(_on_head_died)
 	time = randf() * TAU
 
-func _setup_segment_leader(segment: EnemyBase, previous: EnemyBase, spacing: float) -> void:
+func _setup_segment_leader(segment: EnemyBase, previous: EnemyBase, spacing: float) -> void :
 	if not is_instance_valid(segment):
 		return
 	if previous.ai is SnakeSegmentAI:
@@ -73,10 +73,10 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 		return Vector2.ZERO
 	time += delta
 	var wiggle = sin(time * wiggle_frequency) * wiggle_amplitude
-	var move_direction = (direction + Vector2(-direction.y, direction.x) * wiggle).normalized()
+	var move_direction = (direction + Vector2( - direction.y, direction.x) * wiggle).normalized()
 	return move_direction * head.speed
 
-func _on_head_died(_head: EnemyBase) -> void:
+func _on_head_died(_head: EnemyBase) -> void :
 	for seg in segments:
 		if is_instance_valid(seg) and not seg.is_dying:
 			seg.die()

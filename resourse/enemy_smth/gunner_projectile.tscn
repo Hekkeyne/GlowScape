@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cvmeosy4yvkd5"]
 
-[ext_resource type="Script" uid="uid://ifs3alx0sk76" path="res://script/gunner_projectile.gd" id="1_3qc23"]
-[ext_resource type="Texture2D" uid="uid://dwownco28gtrc" path="res://sprites/gunner_projectile.png" id="2_qxmbx"]
-[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="3_qxmbx"]
+[ext_resource type="Script" uid="uid://ifs3alx0sk76" path="res://script/gunner_projectile.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dwownco28gtrc" path="res://sprites/gunner_projectile.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(15, 6)
 
 [node name="GunnerProjectile" type="Area2D" unique_id=973629003]
-script = ExtResource("1_3qc23")
+script = ExtResource("1")
 lifetime = 5.0
 back_time = 0.5
 back_speed = 80.0
@@ -22,14 +22,14 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1311696915]
 rotation = 0.7853982
-texture = ExtResource("2_qxmbx")
+texture = ExtResource("2")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D" unique_id=1392790404]
 self_modulate = Color(1, 0, 0.7372549, 1)
 position = Vector2(-1.4142137, 1.4142137)
 rotation = -0.7853982
 amount = 2
-texture = ExtResource("3_qxmbx")
+texture = ExtResource("3")
 draw_order = 1
 emission_shape = 1
 emission_sphere_radius = 1.0

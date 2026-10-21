@@ -1,9 +1,9 @@
 extends Upgrade
 class_name BoomerangUpgrade
 
-@export var amount : int
-@export var speed : float
-@export var return_speed : float
+@export var amount: int
+@export var speed: float
+@export var return_speed: float
 @export var max_distance: float
 
 func create_description():

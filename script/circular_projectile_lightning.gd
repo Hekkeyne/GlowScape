@@ -3,20 +3,20 @@ class_name OrbitalStormProjectile
 
 @export var sfx: Array[AudioStream] = []
 @export var chain_sfx: Array[AudioStream] = []
-var direction := Vector2.RIGHT
-var speed := 0.0
-var damage := 1.0
+var direction: = Vector2.RIGHT
+var speed: = 0.0
+var damage: = 1.0
 var source
-var chain_damage := 1.0
-var chain_jumps := 3
-var chain_radius := 150.0
-var chain_cooldown := 0.35
+var chain_damage: = 1.0
+var chain_jumps: = 3
+var chain_radius: = 150.0
+var chain_cooldown: = 0.35
 var chain_texture: Texture2D
-var _last_chain_time := 0
+var _last_chain_time: = 0
 
 var net_id: int = 0
 
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("Projectile")
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)
@@ -25,11 +25,11 @@ func _ready() -> void:
 	if speed > 0.0:
 		rotation = direction.angle()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if speed > 0.0:
 		global_position += direction * speed * delta
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if body == null or not is_instance_valid(body):
 		return
 	if not body.is_in_group("Enemy"):
@@ -39,7 +39,7 @@ func _on_body_entered(body: Node2D) -> void:
 	_play_hit_sfx(hit_position)
 	_try_chain(body, hit_position)
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void :
 	var target = area.get_parent()
 	if target == null or not is_instance_valid(target):
 		target = area
@@ -52,7 +52,7 @@ func _on_area_entered(area: Area2D) -> void:
 	_play_hit_sfx(hit_position)
 	_try_chain(target, hit_position)
 
-func _try_chain(initial_target: Node, start_position: Vector2) -> void:
+func _try_chain(initial_target: Node, start_position: Vector2) -> void :
 	var now = Time.get_ticks_msec()
 	if now - _last_chain_time < int(chain_cooldown * 1000.0):
 		return
@@ -92,7 +92,7 @@ func _find_next_enemy(from_position: Vector2, exclude: Array) -> Node2D:
 	return best
 
 
-func _damage_target(target: Node, base_damage: float, knockback_strength: float) -> void:
+func _damage_target(target: Node, base_damage: float, knockback_strength: float) -> void :
 	if target == null or not is_instance_valid(target):
 		return
 	if not target.has_method("take_damage"):
@@ -110,7 +110,7 @@ func _damage_target(target: Node, base_damage: float, knockback_strength: float)
 		target.knockback = knockback_direction * knockback_strength
 
 
-func _spawn_chain_visual(from_position: Vector2, to_position: Vector2) -> void:
+func _spawn_chain_visual(from_position: Vector2, to_position: Vector2) -> void :
 	if chain_texture == null:
 		return
 	var scene = get_tree().current_scene
@@ -132,7 +132,7 @@ func _spawn_chain_visual(from_position: Vector2, to_position: Vector2) -> void:
 	tween.tween_property(sprite, "modulate:a", 0.0, 0.12)
 	tween.tween_callback(sprite.queue_free)
 
-func _play_hit_sfx(pos: Vector2) -> void:
+func _play_hit_sfx(pos: Vector2) -> void :
 	if sfx.is_empty():
 		return
 	var player = get_node_or_null("AudioStreamPlayer2D")
@@ -143,7 +143,7 @@ func _play_hit_sfx(pos: Vector2) -> void:
 	else:
 		_spawn_audio(sfx.pick_random(), pos, -16.0)
 
-func _play_chain_sfx(pos: Vector2) -> void:
+func _play_chain_sfx(pos: Vector2) -> void :
 	if chain_sfx.is_empty():
 		if sfx.is_empty():
 			return
@@ -151,7 +151,7 @@ func _play_chain_sfx(pos: Vector2) -> void:
 	else:
 		_spawn_audio(chain_sfx.pick_random(), pos, -12.0)
 
-func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db := -12.0) -> void:
+func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db: = -12.0) -> void :
 	if stream == null:
 		return
 	var scene = get_tree().current_scene
@@ -164,4 +164,4 @@ func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db := -12.0) -> void
 	player.global_position = pos
 	scene.add_child(player)
 	player.play()
-	player.finished.connect(func(): player.queue_free())
+	player.finished.connect( func(): player.queue_free())

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dte46v5nhoaxf"]
 
-[ext_resource type="Shader" uid="uid://d1jgdrar0xrqo" path="res://scene/line.gdshader" id="1_phxq1"]
+[ext_resource type="Shader" uid="uid://d1jgdrar0xrqo" path="res://scene/line.gdshader" id="1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
-shader = ExtResource("1_phxq1")
+shader = ExtResource("1")
 shader_parameter/color_1 = Color(1, 1, 1, 1)
 shader_parameter/color_2 = Color(0.28118703, 0.2811868, 0.2811868, 1)
 shader_parameter/pixel_size = 3.0

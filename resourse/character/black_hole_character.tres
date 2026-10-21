@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://dfqab7wwdbpdo"]
 
-[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_qagfp"]
-[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="1_qtar8"]
-[ext_resource type="Texture2D" uid="uid://ud2vujwk6kty" path="res://sprites/black_hole_character.png" id="2_q03u5"]
-[ext_resource type="Resource" uid="uid://bco14efsrnia0" path="res://resourse/weapon/black_hole.tres" id="4_xwqqm"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ud2vujwk6kty" path="res://sprites/black_hole_character.png" id="2"]
+[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="3"]
+[ext_resource type="Resource" uid="uid://bco14efsrnia0" path="res://resourse/weapon/black_hole.tres" id="4"]
 
 [sub_resource type="Resource" id="Resource_o631y"]
-script = ExtResource("1_qagfp")
+script = ExtResource("1")
 max_health = 100.0
 movement_speed = 250.0
 might = 1.0
@@ -15,11 +15,11 @@ growth = 1.5
 metadata/_custom_type_script = "uid://c4otyonjcxtkq"
 
 [resource]
-script = ExtResource("1_qtar8")
+script = ExtResource("3")
 title = "BH_CHARACTER"
-icon = ExtResource("2_q03u5")
-texture = ExtResource("2_q03u5")
+icon = ExtResource("2")
+texture = ExtResource("2")
 base_stats = SubResource("Resource_o631y")
-starting_weapon = ExtResource("4_xwqqm")
+starting_weapon = ExtResource("4")
 color_trail = "00e000"
 metadata/_custom_type_script = "uid://cdfgec6qtjwl7"

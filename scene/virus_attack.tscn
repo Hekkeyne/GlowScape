@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dmxqyoadwhqap"]
 
-[ext_resource type="Script" uid="uid://e0upsvw25j40" path="res://script/virus.gd" id="1_e2m2f"]
-[ext_resource type="AudioStream" uid="uid://h0qlgihirant" path="res://resourse/audio/virus_attack.wav" id="2_6unut"]
-[ext_resource type="Texture2D" uid="uid://c1wi4wy82ipdu" path="res://sprites/virus_attck_0.png" id="4_iu50h"]
-[ext_resource type="Texture2D" uid="uid://c46ml6e5y5knx" path="res://sprites/virus_attck_1.png" id="5_pqt68"]
+[ext_resource type="Script" uid="uid://e0upsvw25j40" path="res://script/virus.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://h0qlgihirant" path="res://resourse/audio/virus_attack.wav" id="2"]
+[ext_resource type="Texture2D" uid="uid://c1wi4wy82ipdu" path="res://sprites/virus_attck_0.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c46ml6e5y5knx" path="res://sprites/virus_attck_1.png" id="4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(8, 2)
@@ -20,8 +20,8 @@ point_count = 2
 process_mode = 1
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_e2m2f")
-sfx = Array[AudioStream]([ExtResource("2_6unut")])
+script = ExtResource("1")
+sfx = [ExtResource("2")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=576228593]
 
@@ -31,7 +31,7 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="virus_0" type="CPUParticles2D" parent="." unique_id=1291298760]
 emitting = false
 amount = 10
-texture = ExtResource("4_iu50h")
+texture = ExtResource("3")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
@@ -51,7 +51,7 @@ color = Color(0.41568628, 0.74509805, 0.1882353, 1)
 [node name="virus_1" type="CPUParticles2D" parent="." unique_id=493169464]
 emitting = false
 amount = 10
-texture = ExtResource("5_pqt68")
+texture = ExtResource("4")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0

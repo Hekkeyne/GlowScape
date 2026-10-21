@@ -25,7 +25,7 @@ static func pick_weighted(drops: Array[Resource]) -> Resource:
 		if drop is Pickups:
 			total_weight += drop.weight
 		else:
-			total_weight += 1.0 
+			total_weight += 1.0
 	if total_weight <= 0.0:
 		return drops.pick_random()
 	var roll = randf() * total_weight

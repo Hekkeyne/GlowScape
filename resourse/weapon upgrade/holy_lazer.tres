@@ -1,24 +1,26 @@
 [gd_resource type="Resource" script_class="single_Shot" format=3 uid="uid://b23a46cqofgim"]
 
-[ext_resource type="Texture2D" uid="uid://c8fsbwmiqe54r" path="res://sprites/lazer_blaster.png" id="1_n3ble"]
-[ext_resource type="Script" uid="uid://u0wlndvdkm2a" path="res://script/single_Shot.gd" id="2_c6wvl"]
-[ext_resource type="PackedScene" uid="uid://0clxm43bw744" path="res://scene/laser_projectile_upgrade.tscn" id="2_n3ble"]
-[ext_resource type="Texture2D" uid="uid://7mnwva3knegu" path="res://sprites/health.png" id="2_o2fd8"]
-[ext_resource type="Texture2D" uid="uid://cucam3qu0v25c" path="res://sprites/lazer_blaster_evolution.png" id="3_n3ble"]
-[ext_resource type="Texture2D" uid="uid://cun4imdq8kxlg" path="res://sprites/laser_projectile_evolution.png" id="4_c6wvl"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="4_o2fd8"]
+[ext_resource type="Texture2D" uid="uid://c8fsbwmiqe54r" path="res://sprites/lazer_blaster.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://7mnwva3knegu" path="res://sprites/health.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cucam3qu0v25c" path="res://sprites/lazer_blaster_evolution.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://0clxm43bw744" path="res://scene/laser_projectile_upgrade.tscn" id="4"]
+[ext_resource type="Script" uid="uid://u0wlndvdkm2a" path="res://script/single_Shot.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://cun4imdq8kxlg" path="res://sprites/laser_projectile_evolution.png" id="6"]
 
 [resource]
-script = ExtResource("2_c6wvl")
+script = ExtResource("5")
+sfx_shoot = null
 split_on_hit = true
 damage = 30.0
 cooldown = 0.5
 speed = 1000.0
-projectile_node = ExtResource("2_n3ble")
-before_evolution = ExtResource("1_n3ble")
-before_item_needed = ExtResource("2_o2fd8")
+projectile_node = ExtResource("4")
+item_needed = null
+evolution = null
+before_evolution = ExtResource("1")
+before_item_needed = ExtResource("2")
 title = "CHARGED_BLASTER"
-icon = ExtResource("3_n3ble")
-texture = ExtResource("4_c6wvl")
+icon = ExtResource("3")
+texture = ExtResource("6")
 description = "CB_DESCRIPTION"
 metadata/_custom_type_script = "uid://u0wlndvdkm2a"

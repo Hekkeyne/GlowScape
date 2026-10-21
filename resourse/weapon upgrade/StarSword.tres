@@ -1,38 +1,38 @@
 [gd_resource type="Resource" script_class="StarSword" format=3 uid="uid://dd3o7dqtd1hww"]
 
-[ext_resource type="Texture2D" uid="uid://b3te4c86qvgbh" path="res://sprites/holy_swordl_icon.png" id="1_ofgva"]
-[ext_resource type="Texture2D" uid="uid://cfqom33nmdowx" path="res://sprites/starfall_icon.png" id="2_7t67o"]
-[ext_resource type="PackedScene" uid="uid://c3mh1y0qxtmd5" path="res://scene/star_sword.tscn" id="3_6g7x2"]
-[ext_resource type="PackedScene" uid="uid://dhw7wici5tb12" path="res://scene/laser_projectile.tscn" id="4_6g7x2"]
-[ext_resource type="Texture2D" uid="uid://ddsgst5bu26u3" path="res://sprites/star_sword_evolution_icon.png" id="4_alkdf"]
-[ext_resource type="Script" uid="uid://bng8k210xe4iu" path="res://script/star_sword.gd" id="5_mglic"]
-[ext_resource type="Texture2D" uid="uid://ddrtvw6h7b2vx" path="res://sprites/star_sword_evolution_circle.png" id="7_alkdf"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="7_chatk"]
-[ext_resource type="PackedScene" uid="uid://cseuaahrs5tr3" path="res://scene/star_sword_projectile.tscn" id="7_mglic"]
-[ext_resource type="Texture2D" uid="uid://cpo65iyv06cut" path="res://sprites/star_proj_1.png" id="8_mglic"]
-[ext_resource type="Texture2D" uid="uid://cg0kcn2yteog7" path="res://sprites/star_proj_2.png" id="9_alkdf"]
-[ext_resource type="Texture2D" uid="uid://bow38up30yfve" path="res://sprites/star_sword_evolution .png" id="11_chatk"]
+[ext_resource type="Texture2D" uid="uid://b3te4c86qvgbh" path="res://sprites/holy_swordl_icon.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cfqom33nmdowx" path="res://sprites/starfall_icon.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://c3mh1y0qxtmd5" path="res://scene/star_sword.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cseuaahrs5tr3" path="res://scene/star_sword_projectile.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://cpo65iyv06cut" path="res://sprites/star_proj_1.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cg0kcn2yteog7" path="res://sprites/star_proj_2.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://ddrtvw6h7b2vx" path="res://sprites/star_sword_evolution_circle.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://ddsgst5bu26u3" path="res://sprites/star_sword_evolution_icon.png" id="8"]
+[ext_resource type="Script" uid="uid://bng8k210xe4iu" path="res://script/star_sword.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://bow38up30yfve" path="res://sprites/star_sword_evolution .png" id="10"]
 
 [resource]
-script = ExtResource("5_mglic")
-blade_scene = ExtResource("3_6g7x2")
+script = ExtResource("9")
+blade_scene = ExtResource("3")
 base_distance = 50.0
 area_multiplier = 1.0
 attack_radius_mult = 1.0
 shake_strength = 0.5
-disc_texture = ExtResource("7_alkdf")
+disc_texture = ExtResource("7")
 spin_star_count = 15
-spin_star_scene = ExtResource("7_mglic")
-spin_star_textures = Array[Texture2D]([ExtResource("8_mglic"), ExtResource("9_alkdf")])
+spin_star_scene = ExtResource("4")
+spin_star_textures = [ExtResource("5"), ExtResource("6")]
 max_bounce_star_count = 25
-bounce_star_scene = ExtResource("7_mglic")
-bounce_star_textures = Array[Texture2D]([ExtResource("8_mglic"), ExtResource("9_alkdf")])
+bounce_star_scene = ExtResource("4")
+bounce_star_textures = [ExtResource("5"), ExtResource("6")]
 damage = 25.0
 cooldown = 5.0
-before_evolution = ExtResource("1_ofgva")
-before_item_needed = ExtResource("2_7t67o")
+item_needed = null
+evolution = null
+before_evolution = ExtResource("1")
+before_item_needed = ExtResource("2")
 title = "STAR_SWORD"
-icon = ExtResource("4_alkdf")
-texture = ExtResource("11_chatk")
+icon = ExtResource("8")
+texture = ExtResource("10")
 description = "STAR_SWORD_DESCRIPTION"
 metadata/_custom_type_script = "uid://bng8k210xe4iu"

@@ -7,7 +7,7 @@ extends EnemyAIBehavior
 var leader: EnemyBase
 var follower: EnemyBase
 
-func on_death(_enemy: CharacterBody2D) -> void:
+func on_death(_enemy: CharacterBody2D) -> void :
 	if is_instance_valid(follower) and follower.ai is SnakeSegmentAI:
 		var follower_ai: SnakeSegmentAI = follower.ai
 		if is_instance_valid(leader):

@@ -13,7 +13,7 @@ var _anim: AnimatedSprite2D = null
 var _separation: float = 0.0
 var _last_update_time: float = 0.0
 
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("Enemy")
 	_sprite = get_node_or_null("Sprite2D")
 	_anim = get_node_or_null("AnimatedSprite2D")
@@ -23,7 +23,7 @@ func _ready() -> void:
 		_anim.visible = false
 		_anim.stop()
 
-func update_from_snapshot(entry: Dictionary) -> void:
+func update_from_snapshot(entry: Dictionary) -> void :
 	_net_id = int(entry.get("id", 0))
 	target_pos = entry.get("pos", Vector2.ZERO)
 	target_rot = entry.get("rot", 0.0)
@@ -44,7 +44,7 @@ func update_from_snapshot(entry: Dictionary) -> void:
 		is_dying = true
 		_play_death()
 
-func set_separation(value: float) -> void:
+func set_separation(value: float) -> void :
 	_separation = value
 	var player = get_tree().get_first_node_in_group("Player")
 	if player and is_instance_valid(player):
@@ -53,15 +53,15 @@ func set_separation(value: float) -> void:
 				player.nearest_enemy = self
 				player.nearest_enemy_distance = _separation
 
-func take_damage(amount: float, is_crit: bool = false) -> void:
+func take_damage(amount: float, is_crit: bool = false) -> void :
 	if Net.is_host:
 		return
 	if _net_id <= 0 or is_dying:
 		return
 	Net.send_enemy_damage(_net_id, amount, is_crit)
-	DamagePopup.spawn(global_position,amount,is_crit)
+	DamagePopup.spawn(global_position, amount, is_crit)
 
-func _load_type(type_path: String) -> void:
+func _load_type(type_path: String) -> void :
 	if not ResourceLoader.exists(type_path):
 		return
 	_type_path = type_path
@@ -96,7 +96,7 @@ func _load_type(type_path: String) -> void:
 		if _anim != null:
 			_anim.visible = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if is_dying:
 		return
 	global_position = global_position.lerp(target_pos, clampf(delta * 12.0, 0.0, 1.0))
@@ -110,7 +110,7 @@ func _physics_process(delta: float) -> void:
 			var dist = global_position.distance_to(player.global_position)
 			set_separation(dist)
 
-func _play_death() -> void:
+func _play_death() -> void :
 	remove_from_group("Enemy")
 	if _anim != null:
 		_anim.stop()

@@ -2,10 +2,10 @@ extends Node2D
 
 var _dummies: Dictionary = {}
 
-func _ready() -> void:
+func _ready() -> void :
 	Net.projectile_snapshot_received.connect(_on_snapshot)
 
-func _on_snapshot(data: Array) -> void:
+func _on_snapshot(data: Array) -> void :
 	if Net.is_host:
 		return
 	var seen: Dictionary = {}
@@ -27,7 +27,7 @@ func _on_snapshot(data: Array) -> void:
 			_dummies[id].queue_free()
 		_dummies.erase(id)
 
-func _spawn_dummy(id: int, entry: Dictionary) -> void:
+func _spawn_dummy(id: int, entry: Dictionary) -> void :
 	var dummy = preload("res://scene/projectile_dummy.tscn").instantiate()
 	get_tree().current_scene.add_child(dummy)
 	if entry.has("pos"):

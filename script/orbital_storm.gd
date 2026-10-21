@@ -1,15 +1,15 @@
 extends Weapon
 class_name OrbitalStorm
-@export var angular_speed := 45.0
-@export var radius := 42.0
-@export var amount := 2
+@export var angular_speed: = 45.0
+@export var radius: = 42.0
+@export var amount: = 2
 @export var chain_texture: Texture2D
-@export var chain_damage_multiplier := 0.65
-@export var chain_jumps := 3
-@export var chain_radius := 150.0
-@export var chain_cooldown := 0.35
+@export var chain_damage_multiplier: = 0.65
+@export var chain_jumps: = 3
+@export var chain_radius: = 150.0
+@export var chain_cooldown: = 0.35
 var projectile_ref: Array = []
-var angle := 0.0
+var angle: = 0.0
 
 func activate(source, _target, scene_tree):
 	if source == null:

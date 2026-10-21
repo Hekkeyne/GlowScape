@@ -1,31 +1,31 @@
 [gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://ceev075343bmh"]
 
-[ext_resource type="Script" uid="uid://c8t3o02iqroqe" path="res://resourse/enemy ai/snake_segment_ai.gd" id="1_2b4lk"]
-[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="1_a6p64"]
-[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="2_h72pp"]
-[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="3_2b4lk"]
-[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="3_mq5j8"]
-[ext_resource type="Texture2D" uid="uid://cgkfc46ex4uf1" path="res://sprites/snake_segment_texture.png" id="4_il537"]
-[ext_resource type="Texture2D" uid="uid://b34casckpe0rl" path="res://sprites/snake_segment_icon.png" id="5_kwh67"]
-[ext_resource type="PackedScene" uid="uid://s4upc8b7lm8j" path="res://resourse/enemy scene/snake_segment.tscn" id="6_0row4"]
+[ext_resource type="Script" uid="uid://c8t3o02iqroqe" path="res://resourse/enemy ai/snake_segment_ai.gd" id="1"]
+[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="2"]
+[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="2_0row4"]
+[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://b34casckpe0rl" path="res://sprites/snake_segment_icon.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://s4upc8b7lm8j" path="res://resourse/enemy scene/snake_segment.tscn" id="5"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://cgkfc46ex4uf1" path="res://sprites/snake_segment_texture.png" id="7"]
 
 [sub_resource type="Resource" id="Resource_o14dt"]
-script = ExtResource("1_2b4lk")
+script = ExtResource("1")
 follow_distance = 50.0
 metadata/_custom_type_script = "uid://c8t3o02iqroqe"
 
 [resource]
-script = ExtResource("2_h72pp")
+script = ExtResource("6")
 title = "SNAKE_SEGMENT"
-icon = ExtResource("5_kwh67")
-texture = ExtResource("4_il537")
+icon = ExtResource("4")
+texture = ExtResource("7")
 health = 250.0
 damage = 25.0
-drops = Array[ExtResource("1_a6p64")]([ExtResource("3_mq5j8")])
+drops = Array[ExtResource("2_0row4")]([ExtResource("2")])
 description = "SNAKE_SEGMENT_DESCRIPTION"
 speed = 160.0
-scene = ExtResource("6_0row4")
+scene = ExtResource("5")
 ai_behavior = SubResource("Resource_o14dt")
 despawn_distance = 1200.0
-elite_guaranteed_drop = ExtResource("3_2b4lk")
+elite_guaranteed_drop = ExtResource("3")
 metadata/_custom_type_script = "uid://b7abjov5qlnih"

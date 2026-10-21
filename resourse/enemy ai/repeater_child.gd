@@ -11,7 +11,7 @@ extends EnemyAIBehavior
 var timer: float = 0.0
 var grown: bool = false
 
-func on_spawn(enemy: CharacterBody2D, player: Node2D) -> void:
+func on_spawn(enemy: CharacterBody2D, player: Node2D) -> void :
 	var e = enemy as EnemyBase
 	if not e:
 		return
@@ -23,7 +23,7 @@ func on_spawn(enemy: CharacterBody2D, player: Node2D) -> void:
 		_disable_collision(e)
 	e.set_invincible(invincible_time)
 
-func _disable_collision(e: EnemyBase) -> void:
+func _disable_collision(e: EnemyBase) -> void :
 	if e.collision_shape:
 		e.collision_shape.set_deferred("disabled", true)
 
@@ -43,7 +43,7 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 		_grow(e)
 	return Vector2.ZERO
 
-func _grow(e: EnemyBase) -> void:
+func _grow(e: EnemyBase) -> void :
 	if adult_path.is_empty():
 		push_error("ChildAI: не задан adult_path!")
 		return

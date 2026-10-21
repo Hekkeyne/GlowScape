@@ -1,43 +1,43 @@
 [gd_resource type="Resource" script_class="Turret" format=3 uid="uid://b6q6nqnr3j1xk"]
 
-[ext_resource type="Texture2D" uid="uid://coe2jm3svg6qx" path="res://sprites/turret_icon.png" id="1_kou1u"]
-[ext_resource type="PackedScene" uid="uid://cwhp2lhre03u5" path="res://scene/turret_bullet.tscn" id="1_oxkea"]
-[ext_resource type="PackedScene" uid="uid://dhw7wici5tb12" path="res://scene/laser_projectile.tscn" id="1_x3r5h"]
-[ext_resource type="Texture2D" uid="uid://d1iadp7ta1l1d" path="res://sprites/might.png" id="2_5bhb2"]
-[ext_resource type="Texture2D" uid="uid://cmnl3sinf71d3" path="res://sprites/turret_bullet.png" id="2_42n2i"]
-[ext_resource type="Script" uid="uid://f8e24l0q1et6" path="res://script/turret.gd" id="2_am16q"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="3_5t3gt"]
-[ext_resource type="Texture2D" uid="uid://cy713xbjqk2xe" path="res://sprites/TargetPoint.png" id="3_acs6g"]
-[ext_resource type="Texture2D" uid="uid://cahyh7wfwdex8" path="res://sprites/turret_evolution_icon.png" id="4_nl18a"]
-[ext_resource type="PackedScene" uid="uid://cpxt3j4wlr46c" path="res://scene/turret_rocket.tscn" id="6_kou1u"]
-[ext_resource type="Texture2D" uid="uid://ctwtxq1u58wcv" path="res://sprites/turret_rocket.png" id="7_5bhb2"]
-[ext_resource type="Texture2D" uid="uid://co3am0xo2a76n" path="res://sprites/turret_zap.png" id="9_1cqqx"]
-[ext_resource type="Texture2D" uid="uid://v866w83snd3n" path="res://sprites/turret.png" id="9_kou1u"]
-[ext_resource type="Texture2D" uid="uid://bokod2bi7nlan" path="res://sprites/turret_zap_orb.png" id="10_5bhb2"]
-[ext_resource type="PackedScene" uid="uid://dyfd7l1sobpvx" path="res://scene/turret_unit.tscn" id="10_yrmfy"]
-[ext_resource type="Texture2D" uid="uid://d3ala4xjf2f4d" path="res://sprites/turret_rocket_orb.png" id="11_1cqqx"]
+[ext_resource type="Texture2D" uid="uid://coe2jm3svg6qx" path="res://sprites/turret_icon.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d1iadp7ta1l1d" path="res://sprites/might.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://cwhp2lhre03u5" path="res://scene/turret_bullet.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://cmnl3sinf71d3" path="res://sprites/turret_bullet.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cy713xbjqk2xe" path="res://sprites/TargetPoint.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cahyh7wfwdex8" path="res://sprites/turret_evolution_icon.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://cpxt3j4wlr46c" path="res://scene/turret_rocket.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://ctwtxq1u58wcv" path="res://sprites/turret_rocket.png" id="8"]
+[ext_resource type="Script" uid="uid://f8e24l0q1et6" path="res://script/turret.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://v866w83snd3n" path="res://sprites/turret.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://bokod2bi7nlan" path="res://sprites/turret_zap_orb.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://d3ala4xjf2f4d" path="res://sprites/turret_rocket_orb.png" id="12"]
+[ext_resource type="PackedScene" uid="uid://dyfd7l1sobpvx" path="res://scene/turret_unit.tscn" id="13"]
+[ext_resource type="Texture2D" uid="uid://co3am0xo2a76n" path="res://sprites/turret_zap.png" id="14"]
 
 [resource]
-script = ExtResource("2_am16q")
+script = ExtResource("9")
 max_turrets = 10
-turret_types = Array[String](["mg", "lightning", "rocket", "lightning", "rocket"])
-turret_scene = ExtResource("10_yrmfy")
-bullet_scene = ExtResource("1_oxkea")
-rocket_scene = ExtResource("6_kou1u")
-turret_lightning_texture = ExtResource("10_5bhb2")
-turret_rocket_texture = ExtResource("11_1cqqx")
-zap_texture = ExtResource("9_1cqqx")
-explosion_texture = ExtResource("3_acs6g")
-bullet_texture = ExtResource("2_42n2i")
-rocket_texture = ExtResource("7_5bhb2")
+turret_types = ["mg", "lightning", "rocket", "lightning", "rocket"]
+turret_scene = ExtResource("13")
+bullet_scene = ExtResource("3")
+rocket_scene = ExtResource("7")
+turret_lightning_texture = ExtResource("11")
+turret_rocket_texture = ExtResource("12")
+zap_texture = ExtResource("14")
+explosion_texture = ExtResource("5")
+bullet_texture = ExtResource("4")
+rocket_texture = ExtResource("8")
 orbit_radius = 200.0
 orbit_speed = 150.0
 damage = 15.0
 cooldown = 1.5
-before_evolution = ExtResource("1_kou1u")
-before_item_needed = ExtResource("2_5bhb2")
+item_needed = null
+evolution = null
+before_evolution = ExtResource("1")
+before_item_needed = ExtResource("2")
 title = "MEGA_TURRET"
-icon = ExtResource("4_nl18a")
-texture = ExtResource("9_kou1u")
+icon = ExtResource("6")
+texture = ExtResource("10")
 description = "MEGA_TURRET_DESCRIPTION"
 metadata/_custom_type_script = "uid://f8e24l0q1et6"

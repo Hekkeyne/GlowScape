@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://s4upc8b7lm8j"]
 
-[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1_acadg"]
-[ext_resource type="Texture2D" uid="uid://cgkfc46ex4uf1" path="res://sprites/snake_segment_texture.png" id="2_jy6ls"]
+[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cgkfc46ex4uf1" path="res://sprites/snake_segment_texture.png" id="2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_co8i0"]
 radius = 10.666667
@@ -12,11 +12,11 @@ position = Vector2(-2, 0)
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_acadg")
+script = ExtResource("1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1527173295]
 texture_filter = 1
-texture = ExtResource("2_jy6ls")
+texture = ExtResource("2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972375330]
 texture_filter = 1

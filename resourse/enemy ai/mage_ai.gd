@@ -10,7 +10,7 @@ extends EnemyAIBehavior
 @export_range(0.5, 2.0, 0.1) var close_time: float = 1.0
 @export var projectile_scene: PackedScene
 
-enum State { NORMAL, OPENING, SHOOTING, CLOSING }
+enum State{NORMAL, OPENING, SHOOTING, CLOSING}
 var state: int = State.NORMAL
 var fire_timer: float = 0.0
 var burst_left: int = 0
@@ -69,11 +69,11 @@ func _move_to_range(e: EnemyBase, player: Node2D, distance: float, direction: Ve
 		return direction * radial * e.speed
 	return Vector2.ZERO
 
-func _shoot(e: EnemyBase, player: Node2D) -> void:
+func _shoot(e: EnemyBase, player: Node2D) -> void :
 	if not projectile_scene:
 		return
 	var to_player = (player.global_position - e.global_position).normalized()
-	var perp = Vector2(-to_player.y, to_player.x)
+	var perp = Vector2( - to_player.y, to_player.x)
 	_squash_toward(e, perp)
 	for side in [-1.0, 1.0]:
 		var p = projectile_scene.instantiate()
@@ -83,10 +83,10 @@ func _shoot(e: EnemyBase, player: Node2D) -> void:
 		p.global_position = e.global_position
 		e.get_tree().current_scene.add_child(p)
 
-func _squash_toward(e: EnemyBase, dir: Vector2) -> void:
+func _squash_toward(e: EnemyBase, dir: Vector2) -> void :
 	if not e.visual_node:
 		return
-	var local_dir = dir.rotated(-e.rotation)
+	var local_dir = dir.rotated( - e.rotation)
 	var squash = Vector2(1.0, 1.0)
 	if absf(local_dir.x) > absf(local_dir.y):
 		squash = Vector2(0.7, 1.3)

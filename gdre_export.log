@@ -1,0 +1,35 @@
+GDRE Tools v2.7.4
+Windows 10.0.28000, Intel(R) UHD Graphics, vulkan
+Opening file: C:/Users/User/Desktop/glowscape survival/mobile/RBETA/glowscapeRBETA1.3.7.7.apk
+Loaded 649 imported files
+WARNING: No valid assembly file 'GlowScape.dll' found in any directory in C:/Users/User/Desktop/glowscape survival/mobile/RBETA and no C# files found, assuming it's not a C# project
+   at: GDRESettings::load_project_dotnet_assembly (modules\gdsdecomp\utility\gdre_settings.cpp:2957)
+Detected Engine Version: 4.7.2.stable
+Detected Bytecode Revision: 4.5.0-stable (ebc36a7)
+Verified 1316 files, 2 files skipped (MD5 hash entry was empty)
+Extracted 1318 files, no errors detected!
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     181
+Scripts not decompiled:                 0
+Imported resources for export session:  649
+Successfully converted:                 649
+Lossy:                                  34
+Rewrote metadata:                       305
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 4.7.2.stable to edit the project.
+
+*******************************************************************************
+

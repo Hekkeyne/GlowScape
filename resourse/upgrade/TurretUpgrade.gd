@@ -1,6 +1,6 @@
 extends Upgrade
 class_name TurretUpgrade
-@export var amount : int
+@export var amount: int
 
 func create_description():
 	var rez = ""

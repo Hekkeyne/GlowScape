@@ -1,29 +1,29 @@
 [gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://cu4gbrwg04x1s"]
 
-[ext_resource type="Script" uid="uid://bdar2s6wi23oe" path="res://resourse/enemy ai/ChaseAi.gd" id="1_enr66"]
-[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="3_ct1sv"]
-[ext_resource type="PackedScene" uid="uid://d0r0ns5ow50i8" path="res://resourse/enemy scene/first_enemy.tscn" id="3_hulmm"]
-[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="4_kytbm"]
-[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="4_uqmrd"]
-[ext_resource type="Texture2D" uid="uid://duundxhhdw2y2" path="res://sprites/first_enemy_icon.png" id="5_abxb1"]
-[ext_resource type="Texture2D" uid="uid://j41nunrfqfiy" path="res://sprites/first_enemy.png" id="5_ct1sv"]
-[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="6_8vxnr"]
+[ext_resource type="Script" uid="uid://bdar2s6wi23oe" path="res://resourse/enemy ai/ChaseAi.gd" id="1"]
+[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="2"]
+[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="2_abxb1"]
+[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://duundxhhdw2y2" path="res://sprites/first_enemy_icon.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://d0r0ns5ow50i8" path="res://resourse/enemy scene/first_enemy.tscn" id="5"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://j41nunrfqfiy" path="res://sprites/first_enemy.png" id="7"]
 
 [sub_resource type="Resource" id="Resource_chggb"]
-script = ExtResource("1_enr66")
+script = ExtResource("1")
 metadata/_custom_type_script = "uid://bdar2s6wi23oe"
 
 [resource]
-script = ExtResource("6_8vxnr")
+script = ExtResource("6")
 title = "ORANGE_ENEMY"
-icon = ExtResource("5_abxb1")
-texture = ExtResource("5_ct1sv")
+icon = ExtResource("4")
+texture = ExtResource("7")
 health = 25.0
 damage = 5.0
-drops = Array[ExtResource("4_uqmrd")]([ExtResource("3_ct1sv")])
+drops = Array[ExtResource("2_abxb1")]([ExtResource("2")])
 description = "ORANGE_ENEMY_DESCRIPTION"
-scene = ExtResource("3_hulmm")
+scene = ExtResource("5")
 ai_behavior = SubResource("Resource_chggb")
 despawn_distance = 1200.0
-elite_guaranteed_drop = ExtResource("4_kytbm")
+elite_guaranteed_drop = ExtResource("3")
 metadata/_custom_type_script = "uid://bu1rpt0d1jk7b"

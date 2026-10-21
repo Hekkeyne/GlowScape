@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://brc2sa4mjc5rm"]
 
-[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="1_ejrcm"]
-[ext_resource type="Script" uid="uid://c4g8or4d4mfhw" path="res://script/mchip_add_label.gd" id="2_606lm"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="1"]
+[ext_resource type="Script" uid="uid://c4g8or4d4mfhw" path="res://script/mchip_add_label.gd" id="2"]
 
 [node name="mchip_add_label" type="Label" unique_id=67239002]
 offset_left = -20.0
 offset_top = -12.0
 offset_right = 20.0
 offset_bottom = 11.0
-theme_override_fonts/font = ExtResource("1_ejrcm")
+theme_override_fonts/font = ExtResource("1")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("2_606lm")
+script = ExtResource("2")

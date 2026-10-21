@@ -1,27 +1,29 @@
 [gd_scene format=3 uid="uid://chh6oxvgael5m"]
 
-[ext_resource type="Script" uid="uid://eqcq6fpf0iq6" path="res://script/shader_pool.gd" id="1_fkaij"]
-[ext_resource type="Shader" uid="uid://byfcgksfm5kw4" path="res://scene/enemy_die.gdshader" id="2_pwp8g"]
-[ext_resource type="Shader" uid="uid://cp7gecr7o03fv" path="res://resourse/rainbow.gdshader" id="3_audk2"]
+[ext_resource type="Script" uid="uid://eqcq6fpf0iq6" path="res://script/shader_pool.gd" id="1"]
+[ext_resource type="Shader" uid="uid://byfcgksfm5kw4" path="res://scene/enemy_die.gdshader" id="2"]
+[ext_resource type="Shader" uid="uid://cp7gecr7o03fv" path="res://resourse/rainbow.gdshader" id="3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nhei1"]
-shader = ExtResource("2_pwp8g")
+shader = ExtResource("2")
 shader_parameter/position = Vector2(0, 0)
 shader_parameter/radius = 0.0
 shader_parameter/borderWidth = 0.2
 shader_parameter/burnMult = 0.34
+shader_parameter/noiseTexture = null
 shader_parameter/burnColor = Color(0, 0, 0, 1)
 shader_parameter/pixel_size = 0.004
 shader_parameter/blend_steps = 8.5
+shader_parameter/colorCurve = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mavw2"]
-shader = ExtResource("3_audk2")
+shader = ExtResource("3")
 shader_parameter/line_thickness = 1.0
 shader_parameter/sin_frequency = 0.5
 shader_parameter/sin_offset = 0.0
 shader_parameter/light_offset = 0.5
 
 [node name="ShaderPool" type="Node2D" unique_id=345849096]
-script = ExtResource("1_fkaij")
+script = ExtResource("1")
 burn = SubResource("ShaderMaterial_nhei1")
 outline = SubResource("ShaderMaterial_mavw2")

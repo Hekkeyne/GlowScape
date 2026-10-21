@@ -6,7 +6,7 @@ extends Node
 var _snap_acc: float = 0.0
 var _dummies: Dictionary = {}
 
-func _ready() -> void:
+func _ready() -> void :
 	if not multiplayer.has_multiplayer_peer():
 		return
 	if Net.is_host:
@@ -14,7 +14,7 @@ func _ready() -> void:
 	else:
 		Net.enemy_snapshot_received.connect(_on_snapshot)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if not multiplayer.has_multiplayer_peer():
 		return
 	if not Net.is_host:
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		_snap_acc = 0.0
 		_send_snapshot()
 
-func _send_snapshot() -> void:
+func _send_snapshot() -> void :
 	var data: Array = []
 	for enemy in get_tree().get_nodes_in_group("Enemy"):
 		if not is_instance_valid(enemy):
@@ -35,30 +35,30 @@ func _send_snapshot() -> void:
 		var type_path = ""
 		if e.type != null:
 			type_path = e.type.resource_path
-		var anim_name := ""
-		var flip_h := false
+		var anim_name: = ""
+		var flip_h: = false
 		if e.visual_node is AnimatedSprite2D:
 			anim_name = e.visual_node.animation
 			flip_h = e.visual_node.flip_h
 		elif e.visual_node is Sprite2D:
 			flip_h = e.visual_node.flip_h
 		data.append({
-			"id": e.net_id,
-			"type": type_path,
-			"pos": e.global_position,
-			"rot": e.rotation,
-			"scale": e.scale,
-			"hp": e.health,
-			"max_hp": e.type.health if e.type else 100.0,
-			"elite": e.is_elite,
-			"anim": anim_name,
-			"flip": flip_h,
-			"dying": e.is_dying,
+			"id": e.net_id, 
+			"type": type_path, 
+			"pos": e.global_position, 
+			"rot": e.rotation, 
+			"scale": e.scale, 
+			"hp": e.health, 
+			"max_hp": e.type.health if e.type else 100.0, 
+			"elite": e.is_elite, 
+			"anim": anim_name, 
+			"flip": flip_h, 
+			"dying": e.is_dying, 
 		})
 	if data.size() > 0:
 		Net.send_enemy_snapshot(data)
 
-func _on_snapshot(data: Array) -> void:
+func _on_snapshot(data: Array) -> void :
 	var seen_ids: Dictionary = {}
 	for entry in data:
 		var id = int(entry.get("id", 0))
@@ -75,7 +75,7 @@ func _on_snapshot(data: Array) -> void:
 				_dummies[id].queue_free()
 			_dummies.erase(id)
 
-func _spawn_dummy(id: int, entry: Dictionary) -> void:
+func _spawn_dummy(id: int, entry: Dictionary) -> void :
 	if enemy_dummy_scene == null:
 		return
 	var dummy = enemy_dummy_scene.instantiate()
@@ -85,14 +85,14 @@ func _spawn_dummy(id: int, entry: Dictionary) -> void:
 	_dummies[id] = dummy
 	_update_dummy(id, entry)
 
-func _update_dummy(id: int, entry: Dictionary) -> void:
+func _update_dummy(id: int, entry: Dictionary) -> void :
 	var dummy = _dummies.get(id)
 	if not is_instance_valid(dummy):
 		_dummies.erase(id)
 		return
 	dummy.update_from_snapshot(entry)
 
-func _on_enemy_damage(enemy_id: int, amount: float, is_crit: bool) -> void:
+func _on_enemy_damage(enemy_id: int, amount: float, is_crit: bool) -> void :
 	if not Net.is_host:
 		return
 	for node in get_tree().get_nodes_in_group("Enemy"):

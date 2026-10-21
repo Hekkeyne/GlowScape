@@ -3,7 +3,7 @@ extends CanvasItem
 @export var show_time: float = 8.0
 @export var fade_time: float = 1.0
 
-func _ready() -> void:
+func _ready() -> void :
 	var is_mobile_tip = name == "MOBILE_TIP"
 	if is_mobile_tip != _check_is_mobile():
 		visible = false

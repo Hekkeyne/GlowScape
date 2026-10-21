@@ -3,24 +3,24 @@ class_name TurretUnit
 @export var sfx_shoot: Array[AudioStream] = []
 @export var sfx_zap: Array[AudioStream] = []
 @export var sfx_rocket: Array[AudioStream] = []
-var orbit_angle := 0
-var orbit_speed := 90.0
-var orbit_radius := 60.0
-var turret_type := "mg"
-var damage := 10.0
+var orbit_angle: = 0
+var orbit_speed: = 90.0
+var orbit_radius: = 60.0
+var turret_type: = "mg"
+var damage: = 10.0
 var source
-var lifetime := 10.0
-var attack_range := 420.0
+var lifetime: = 10.0
+var attack_range: = 420.0
 var bullet_scene: PackedScene
 var rocket_scene: PackedScene
 var zap_texture: Texture2D
 var explosion_texture: Texture2D
-var _fire_timer := 0.5
+var _fire_timer: = 0.5
 var _target: Node2D = null
 var bullet_texture: Texture2D
 var rocket_texture: Texture2D
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	lifetime -= delta
 	if lifetime <= 0.0:
 		queue_free()
@@ -53,7 +53,7 @@ func _is_valid_target(enemy) -> bool:
 	if "health" in enemy and enemy.health <= 0.0:
 		return false
 	return true
-func _fire() -> void:
+func _fire() -> void :
 	match turret_type:
 		"mg":
 			_fire_mg()
@@ -62,7 +62,7 @@ func _fire() -> void:
 		"rocket":
 			_fire_rocket()
 
-func _fire_mg() -> void:
+func _fire_mg() -> void :
 	if bullet_scene == null or not is_instance_valid(_target):
 		return
 	var scene = get_tree().current_scene
@@ -82,11 +82,11 @@ func _fire_mg() -> void:
 	_fire_timer = 0.3
 	_play_sfx(sfx_shoot, global_position, -18.0)
 
-func _fire_lightning() -> void:
+func _fire_lightning() -> void :
 	if not is_instance_valid(_target):
 		return
 	var first_pos = _target.global_position
-	var hit_list := [_target]
+	var hit_list: = [_target]
 	var current = _target
 	_damage_enemy(current, damage * 0.8)
 	for i in range(2):
@@ -101,7 +101,7 @@ func _fire_lightning() -> void:
 	_fire_timer = 0.9
 	_play_sfx(sfx_zap, global_position, -14.0)
 
-func _fire_rocket() -> void:
+func _fire_rocket() -> void :
 	if rocket_scene == null or not is_instance_valid(_target):
 		return
 	var scene = get_tree().current_scene
@@ -123,7 +123,7 @@ func _fire_rocket() -> void:
 	_fire_timer = 1.6
 	_play_sfx(sfx_rocket, global_position, -16.0)
 
-func _damage_enemy(enemy: Node, base_damage: float) -> void:
+func _damage_enemy(enemy: Node, base_damage: float) -> void :
 	if enemy == null or not is_instance_valid(enemy):
 		return
 	if not enemy.has_method("take_damage"):
@@ -152,7 +152,7 @@ func _find_nearest_enemy_excluding(from_pos: Vector2, exclude: Array, radius: fl
 	return best
 
 
-func _spawn_zap(from_pos: Vector2, to_pos: Vector2) -> void:
+func _spawn_zap(from_pos: Vector2, to_pos: Vector2) -> void :
 	if zap_texture == null:
 		return
 	var scene = get_tree().current_scene
@@ -177,7 +177,7 @@ func _play_sfx(streams: Array[AudioStream], pos: Vector2, volume: float):
 	if streams.is_empty():
 		return
 	_spawn_audio(streams.pick_random(), pos, volume)
-func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db := -12.0) -> void:
+func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db: = -12.0) -> void :
 	if stream == null:
 		return
 	var scene = get_tree().current_scene
@@ -190,5 +190,4 @@ func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db := -12.0) -> void
 	player.global_position = pos
 	scene.add_child(player)
 	player.play()
-	player.finished.connect(func(): player.queue_free())
-	
+	player.finished.connect( func(): player.queue_free())

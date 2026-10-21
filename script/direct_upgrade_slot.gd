@@ -17,10 +17,10 @@ class_name DirectUpgradeSlot
 			$Description.text = ""
 			$Label.text = ""
 
-func setup(upg: DirectUpgrade) -> void:
+func setup(upg: DirectUpgrade) -> void :
 	upgrade = upg
 
-func _on_gui_input(event: InputEvent) -> void:
+func _on_gui_input(event: InputEvent) -> void :
 	if event.is_action_pressed("click") and upgrade:
 		$SFX.stream = load("res://resourse/audio/choose_upgrade.wav")
 		$SFX.pitch_scale = randf_range(0.7, 1.3)
@@ -30,11 +30,11 @@ func _on_gui_input(event: InputEvent) -> void:
 			upgrade.apply(player)
 		get_parent().close_option()
 
-func _on_mouse_entered() -> void:
+func _on_mouse_entered() -> void :
 	create_tween().tween_property($NinePatchRect, "modulate", Color(2, 2, 2, 2), 0.25)
 	$SFX.stream = load("res://resourse/audio/idk_mouse.wav")
 	$SFX.pitch_scale = randf_range(0.7, 1.3)
 	$SFX.play()
 
-func _on_mouse_exited() -> void:
+func _on_mouse_exited() -> void :
 	create_tween().tween_property($NinePatchRect, "modulate", Color(1, 1, 1, 1), 0.25)

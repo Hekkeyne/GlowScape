@@ -1,21 +1,21 @@
 extends Area2D
 class_name TurretRocket
 @export var sfx: Array[AudioStream] = []
-var direction := Vector2.RIGHT
-var speed := 500
+var direction: = Vector2.RIGHT
+var speed: = 500
 
-var damage := 12.0
+var damage: = 12.0
 var source
 var target_node: Node2D = null
-var explosion_radius := 80.0
-var turn_speed := 6.0
+var explosion_radius: = 80.0
+var turn_speed: = 6.0
 var explosion_texture: Texture2D
-var lifetime := 3.0
-var _exploded := false
+var lifetime: = 3.0
+var _exploded: = false
 
 var net_id: int = 0
 
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("Projectile")
 	rotation = direction.angle()
 	if not body_entered.is_connected(_on_body_entered):
@@ -23,7 +23,7 @@ func _ready() -> void:
 	if not area_entered.is_connected(_on_area_entered):
 		area_entered.connect(_on_area_entered)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	lifetime -= delta
 	if lifetime <= 0.0:
 		_explode(global_position)
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
 	rotation = direction.angle()
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if body == null or not is_instance_valid(body):
 		return
 	if not body.is_in_group("Enemy"):
@@ -49,7 +49,7 @@ func _on_body_entered(body: Node2D) -> void:
 	_explode(body.global_position)
 	queue_free()
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void :
 	var target = area.get_parent()
 	if target == null or not is_instance_valid(target):
 		return
@@ -61,7 +61,7 @@ func _on_area_entered(area: Area2D) -> void:
 	_explode(pos)
 	queue_free()
 
-func _explode(pos: Vector2) -> void:
+func _explode(pos: Vector2) -> void :
 	if _exploded:
 		return
 	_exploded = true
@@ -87,7 +87,7 @@ func _explode(pos: Vector2) -> void:
 	if not sfx.is_empty():
 		_spawn_audio(sfx.pick_random(), pos, -10.0)
 
-func _spawn_explosion(pos: Vector2) -> void:
+func _spawn_explosion(pos: Vector2) -> void :
 	if explosion_texture == null:
 		return
 	var scene = get_tree().current_scene
@@ -104,7 +104,7 @@ func _spawn_explosion(pos: Vector2) -> void:
 	tween.tween_property(sprite, "modulate:a", 0.0, 0.3)
 	tween.chain().tween_callback(sprite.queue_free)
 
-func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db := -12.0) -> void:
+func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db: = -12.0) -> void :
 	if stream == null:
 		return
 	var scene = get_tree().current_scene
@@ -117,5 +117,4 @@ func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db := -12.0) -> void
 	player.global_position = pos
 	scene.add_child(player)
 	player.play()
-	player.finished.connect(func(): player.queue_free())
-	
+	player.finished.connect( func(): player.queue_free())

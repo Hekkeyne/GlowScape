@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://dm4tr6cthtj4f"]
 
-[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="1_4nqul"]
-[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_vpuul"]
-[ext_resource type="Resource" uid="uid://c1u255d11133j" path="res://resourse/weapon/error_place.tres" id="4_abwts"]
-[ext_resource type="Texture2D" uid="uid://bywg073ehtye8" path="res://sprites/disc_character.png" id="5_vpuul"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bywg073ehtye8" path="res://sprites/disc_character.png" id="2"]
+[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="3"]
+[ext_resource type="Resource" uid="uid://c1u255d11133j" path="res://resourse/weapon/error_place.tres" id="4"]
 
 [sub_resource type="Resource" id="Resource_2jr5o"]
-script = ExtResource("1_vpuul")
+script = ExtResource("1")
 max_health = 100.0
 recovery = 0.1
 armor = 10.0
@@ -17,12 +17,12 @@ growth = 1.25
 metadata/_custom_type_script = "uid://c4otyonjcxtkq"
 
 [resource]
-script = ExtResource("1_4nqul")
+script = ExtResource("3")
 title = "DISC_CHARACTER"
-icon = ExtResource("5_vpuul")
-texture = ExtResource("5_vpuul")
+icon = ExtResource("2")
+texture = ExtResource("2")
 animation_name = "DISC_CHARACTER"
 base_stats = SubResource("Resource_2jr5o")
-starting_weapon = ExtResource("4_abwts")
+starting_weapon = ExtResource("4")
 color_trail = "46d4be"
 metadata/_custom_type_script = "uid://cdfgec6qtjwl7"

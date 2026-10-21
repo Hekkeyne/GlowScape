@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cwhp2lhre03u5"]
 
-[ext_resource type="Script" uid="uid://q58jdqf8maoj" path="res://script/turret_bullet.gd" id="1_srfgh"]
-[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="2_4i72d"]
-[ext_resource type="Texture2D" uid="uid://cmnl3sinf71d3" path="res://sprites/turret_bullet.png" id="2_qbq3x"]
-[ext_resource type="AudioStream" uid="uid://7rydagoj5ox6" path="res://resourse/audio/8bit-damage24.wav" id="2_uul68"]
+[ext_resource type="Script" uid="uid://q58jdqf8maoj" path="res://script/turret_bullet.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://7rydagoj5ox6" path="res://resourse/audio/8bit-damage24.wav" id="2"]
+[ext_resource type="Texture2D" uid="uid://cmnl3sinf71d3" path="res://sprites/turret_bullet.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(8, 2)
@@ -12,11 +12,11 @@ size = Vector2(8, 2)
 process_mode = 1
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_srfgh")
-sfx = Array[AudioStream]([ExtResource("2_uul68")])
+script = ExtResource("1")
+sfx = [ExtResource("2")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=576228593]
-texture = ExtResource("2_qbq3x")
+texture = ExtResource("3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=130012362]
 shape = SubResource("RectangleShape2D_g4v7s")
@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1291298760]
 self_modulate = Color(0, 1, 0.5176471, 1)
 amount = 10
-texture = ExtResource("2_4i72d")
+texture = ExtResource("4")
 draw_order = 1
 emission_shape = 1
 emission_sphere_radius = 5.0

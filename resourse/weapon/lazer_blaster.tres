@@ -1,60 +1,60 @@
 [gd_resource type="Resource" script_class="single_Shot" format=3 uid="uid://bp8y5uft3lt2h"]
 
-[ext_resource type="Resource" uid="uid://b23a46cqofgim" path="res://resourse/weapon upgrade/holy_lazer.tres" id="1_w74k0"]
-[ext_resource type="Script" uid="uid://u0wlndvdkm2a" path="res://script/single_Shot.gd" id="2_2838h"]
-[ext_resource type="PackedScene" uid="uid://dhw7wici5tb12" path="res://scene/laser_projectile.tscn" id="3_ar1nl"]
-[ext_resource type="Resource" uid="uid://cydi54ex53a4o" path="res://resourse/Items/Max_Health.tres" id="3_e2xjl"]
-[ext_resource type="Texture2D" uid="uid://c8fsbwmiqe54r" path="res://sprites/lazer_blaster.png" id="3_rnd8h"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="4_rnd8h"]
-[ext_resource type="Script" uid="uid://cdeopvjx0r12c" path="res://resourse/upgrade/ProjectileUpgrade.gd" id="5_kllqs"]
-[ext_resource type="Texture2D" uid="uid://banskkmjjkwy5" path="res://sprites/laser_projectile.png" id="6_ar1nl"]
+[ext_resource type="Resource" uid="uid://b23a46cqofgim" path="res://resourse/weapon upgrade/holy_lazer.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://c8fsbwmiqe54r" path="res://sprites/lazer_blaster.png" id="2"]
+[ext_resource type="Resource" uid="uid://cydi54ex53a4o" path="res://resourse/Items/Max_Health.tres" id="3"]
+[ext_resource type="Script" uid="uid://u0wlndvdkm2a" path="res://script/single_Shot.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://dhw7wici5tb12" path="res://scene/laser_projectile.tscn" id="4_ar1nl"]
+[ext_resource type="Texture2D" uid="uid://banskkmjjkwy5" path="res://sprites/laser_projectile.png" id="5"]
+[ext_resource type="Script" uid="uid://cdeopvjx0r12c" path="res://resourse/upgrade/ProjectileUpgrade.gd" id="6"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="7_e2xjl"]
 
 [sub_resource type="Resource" id="Resource_b08fr"]
-script = ExtResource("5_kllqs")
+script = ExtResource("6")
 damage = 3.0
 metadata/_custom_type_script = "uid://cdeopvjx0r12c"
 
 [sub_resource type="Resource" id="Resource_l7ydm"]
-script = ExtResource("5_kllqs")
+script = ExtResource("6")
 cooldown = -0.1
 metadata/_custom_type_script = "uid://cdeopvjx0r12c"
 
 [sub_resource type="Resource" id="Resource_50bda"]
-script = ExtResource("5_kllqs")
+script = ExtResource("6")
 damage = 2.0
 metadata/_custom_type_script = "uid://cdeopvjx0r12c"
 
 [sub_resource type="Resource" id="Resource_nfuxv"]
-script = ExtResource("5_kllqs")
+script = ExtResource("6")
 damage = 2.0
 metadata/_custom_type_script = "uid://cdeopvjx0r12c"
 
 [sub_resource type="Resource" id="Resource_fquln"]
-script = ExtResource("5_kllqs")
+script = ExtResource("6")
 cooldown = -0.1
 metadata/_custom_type_script = "uid://cdeopvjx0r12c"
 
 [sub_resource type="Resource" id="Resource_ujlj0"]
-script = ExtResource("5_kllqs")
+script = ExtResource("6")
 damage = 5.0
 metadata/_custom_type_script = "uid://cdeopvjx0r12c"
 
 [sub_resource type="Resource" id="Resource_376y0"]
-script = ExtResource("5_kllqs")
+script = ExtResource("6")
 speed = 250.0
 metadata/_custom_type_script = "uid://cdeopvjx0r12c"
 
 [resource]
-script = ExtResource("2_2838h")
+script = ExtResource("4")
 damage = 10.0
 cooldown = 0.7
 speed = 1000.0
-upgrades = Array[ExtResource("4_rnd8h")]([SubResource("Resource_b08fr"), SubResource("Resource_l7ydm"), SubResource("Resource_50bda"), SubResource("Resource_nfuxv"), SubResource("Resource_fquln"), SubResource("Resource_ujlj0"), SubResource("Resource_376y0")])
-item_needed = ExtResource("3_e2xjl")
-evolution = ExtResource("1_w74k0")
+upgrades = Array[ExtResource("7_e2xjl")]([SubResource("Resource_b08fr"), SubResource("Resource_l7ydm"), SubResource("Resource_50bda"), SubResource("Resource_nfuxv"), SubResource("Resource_fquln"), SubResource("Resource_ujlj0"), SubResource("Resource_376y0")])
+item_needed = ExtResource("3")
+evolution = ExtResource("1")
 require_max_level_passive = false
 title = "BLASTER"
-icon = ExtResource("3_rnd8h")
-texture = ExtResource("6_ar1nl")
+icon = ExtResource("2")
+texture = ExtResource("5")
 description = "BLASTER_DESCRIPTION"
 metadata/_custom_type_script = "uid://u0wlndvdkm2a"

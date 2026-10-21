@@ -1,26 +1,27 @@
 [gd_resource type="Resource" script_class="SpectralSplitterang" format=3 uid="uid://bloxk8efkv535"]
 
-[ext_resource type="Texture2D" uid="uid://8ippp7glqvfd" path="res://sprites/boomerang_evolution.png" id="1_dyvaa"]
-[ext_resource type="Texture2D" uid="uid://cgpf3kclp1aea" path="res://sprites/boomerang.png" id="1_y6g7j"]
-[ext_resource type="Texture2D" uid="uid://ct4asefmakdi8" path="res://sprites/soul.png" id="2_2m4mc"]
-[ext_resource type="PackedScene" uid="uid://bihhr7dk36hvs" path="res://scene/spectral_boomerang.tscn" id="2_dyvaa"]
-[ext_resource type="Script" uid="uid://dwt2coqkmlyws" path="res://script/spectral_bomerang_weap.gd" id="2_vbgon"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="3_dyvaa"]
-[ext_resource type="Texture2D" uid="uid://od1evxbgdjsn" path="res://sprites/boomerang_evolution_texture.png" id="4_dyvaa"]
+[ext_resource type="Texture2D" uid="uid://cgpf3kclp1aea" path="res://sprites/boomerang.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://ct4asefmakdi8" path="res://sprites/soul.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://8ippp7glqvfd" path="res://sprites/boomerang_evolution.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://bihhr7dk36hvs" path="res://scene/spectral_boomerang.tscn" id="4"]
+[ext_resource type="Script" uid="uid://dwt2coqkmlyws" path="res://script/spectral_bomerang_weap.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://od1evxbgdjsn" path="res://sprites/boomerang_evolution_texture.png" id="6"]
 
 [resource]
-script = ExtResource("2_vbgon")
+script = ExtResource("5")
 amount = 8
 max_distance = 750.0
 return_speed = 750.0
 damage = 20.0
 cooldown = 2.5
 speed = 750.0
-projectile_node = ExtResource("2_dyvaa")
-before_evolution = ExtResource("1_y6g7j")
-before_item_needed = ExtResource("2_2m4mc")
+projectile_node = ExtResource("4")
+item_needed = null
+evolution = null
+before_evolution = ExtResource("1")
+before_item_needed = ExtResource("2")
 title = "SPLITTERANG"
-icon = ExtResource("1_dyvaa")
-texture = ExtResource("4_dyvaa")
+icon = ExtResource("3")
+texture = ExtResource("6")
 description = "SPLITTERANG_DESCRIPTION"
 metadata/_custom_type_script = "uid://dwt2coqkmlyws"

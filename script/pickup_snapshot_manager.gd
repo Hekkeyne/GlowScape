@@ -6,7 +6,7 @@ extends Node
 var _snap_acc: float = 0.0
 var _dummies: Dictionary = {}
 
-func _ready() -> void:
+func _ready() -> void :
 	if not multiplayer.has_multiplayer_peer():
 		return
 	if Net.is_host:
@@ -14,7 +14,7 @@ func _ready() -> void:
 	else:
 		Net.pickup_snapshot_received.connect(_on_snapshot)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if not multiplayer.has_multiplayer_peer():
 		return
 	if not Net.is_host:
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		_snap_acc = 0.0
 		_send_snapshot()
 
-func _send_snapshot() -> void:
+func _send_snapshot() -> void :
 	var data: Array = []
 	for pickup in get_tree().get_nodes_in_group("PickupNet"):
 		if not is_instance_valid(pickup):
@@ -35,16 +35,16 @@ func _send_snapshot() -> void:
 		if pickup.type != null:
 			type_path = pickup.type.resource_path
 		data.append({
-			"id": pickup.net_id,
-			"pos": pickup.global_position,
-			"type": type_path,
-			"is_mega": pickup.is_mega,
-			"bonus_xp": pickup.bonus_xp,
+			"id": pickup.net_id, 
+			"pos": pickup.global_position, 
+			"type": type_path, 
+			"is_mega": pickup.is_mega, 
+			"bonus_xp": pickup.bonus_xp, 
 		})
 	if data.size() > 0:
 		Net.send_pickup_snapshot(data)
 
-func _on_snapshot(data: Array) -> void:
+func _on_snapshot(data: Array) -> void :
 	var seen_ids: Dictionary = {}
 	for entry in data:
 		var id = int(entry.get("id", 0))
@@ -61,7 +61,7 @@ func _on_snapshot(data: Array) -> void:
 				_dummies[id].queue_free()
 			_dummies.erase(id)
 
-func _spawn_dummy(id: int, entry: Dictionary) -> void:
+func _spawn_dummy(id: int, entry: Dictionary) -> void :
 	if pickup_dummy_scene == null:
 		return
 	var dummy = pickup_dummy_scene.instantiate()
@@ -71,14 +71,14 @@ func _spawn_dummy(id: int, entry: Dictionary) -> void:
 	_dummies[id] = dummy
 	_update_dummy(id, entry)
 
-func _update_dummy(id: int, entry: Dictionary) -> void:
+func _update_dummy(id: int, entry: Dictionary) -> void :
 	var dummy = _dummies.get(id)
 	if not is_instance_valid(dummy):
 		_dummies.erase(id)
 		return
 	dummy.update_from_snapshot(entry)
 
-func _on_pickup_collected(pickup_id: int, collector_id: int) -> void:
+func _on_pickup_collected(pickup_id: int, collector_id: int) -> void :
 	if not Net.is_host:
 		return
 	for pickup in get_tree().get_nodes_in_group("PickupNet"):

@@ -1,28 +1,29 @@
 [gd_resource type="Resource" script_class="ParasiteSwarm" format=3 uid="uid://i2i3dmafspg2"]
 
-[ext_resource type="Texture2D" uid="uid://cv58n1wybrl87" path="res://sprites/virus_icon_evolution.png" id="1_3xoaq"]
-[ext_resource type="Texture2D" uid="uid://f75o51edwvvc" path="res://sprites/virus_icon.png" id="1_pfgcy"]
-[ext_resource type="PackedScene" uid="uid://5080b2qnb3xn" path="res://scene/virus_attack_evolution.tscn" id="2_4nltk"]
-[ext_resource type="Texture2D" uid="uid://cl61g1hjk2dr0" path="res://sprites/movement_speed.png" id="2_4ubfu"]
-[ext_resource type="Script" uid="uid://cakm216ebylpr" path="res://script/mega_virus.gd" id="3_pfgcy"]
-[ext_resource type="Texture2D" uid="uid://dvj8eo65vgs1y" path="res://sprites/little_bug.png" id="4_3lw6u"]
-[ext_resource type="Texture2D" uid="uid://djjgs07xsc75l" path="res://sprites/virus_texture_evolution.png" id="4_4ubfu"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="5_3lw6u"]
+[ext_resource type="Texture2D" uid="uid://f75o51edwvvc" path="res://sprites/virus_icon.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cl61g1hjk2dr0" path="res://sprites/movement_speed.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cv58n1wybrl87" path="res://sprites/virus_icon_evolution.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://5080b2qnb3xn" path="res://scene/virus_attack_evolution.tscn" id="4"]
+[ext_resource type="Script" uid="uid://cakm216ebylpr" path="res://script/mega_virus.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://dvj8eo65vgs1y" path="res://sprites/little_bug.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://djjgs07xsc75l" path="res://sprites/virus_texture_evolution.png" id="7"]
 
 [resource]
-script = ExtResource("3_pfgcy")
+script = ExtResource("5")
 amount = 12
 jumps = 5
 jump_radius = 520.0
 split_chance = 0.5
-small_bug_texture = ExtResource("4_3lw6u")
+small_bug_texture = ExtResource("6")
 damage = 25.0
 cooldown = 2.0
-projectile_node = ExtResource("2_4nltk")
-before_evolution = ExtResource("1_pfgcy")
-before_item_needed = ExtResource("2_4ubfu")
+projectile_node = ExtResource("4")
+item_needed = null
+evolution = null
+before_evolution = ExtResource("1")
+before_item_needed = ExtResource("2")
 title = "BUG_2.0"
-icon = ExtResource("1_3xoaq")
-texture = ExtResource("4_4ubfu")
+icon = ExtResource("3")
+texture = ExtResource("7")
 description = "BUG_V2_DESCRIPTION"
 metadata/_custom_type_script = "uid://q1rl7bx4gxi2"

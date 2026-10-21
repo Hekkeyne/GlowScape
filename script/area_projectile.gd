@@ -63,7 +63,7 @@ var speed:
 
 var net_id: int = 0
 
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("Projectile")
 	_base_scale = scale
 	current_max = base_speed
@@ -74,7 +74,7 @@ func _ready() -> void:
 		state = "search"
 		state_timer = search_cooldown
 
-func _setup_collision() -> void:
+func _setup_collision() -> void :
 	_sync_radius()
 	collision_layer = 0
 	collision_mask = 4294967295
@@ -85,7 +85,7 @@ func _setup_collision() -> void:
 	if not area_entered.is_connected(_on_area_entered):
 		area_entered.connect(_on_area_entered)
 
-func _sync_radius() -> void:
+func _sync_radius() -> void :
 	var shape_node = get_node_or_null("CollisionShape2D")
 	if shape_node and shape_node.shape is CircleShape2D:
 		(shape_node.shape as CircleShape2D).radius = hit_radius
@@ -97,7 +97,7 @@ func _enemies() -> Array:
 		_enemy_cache_frame = f
 	return _enemy_cache
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	age += delta
 	_grace = maxf(0.0, _grace - delta)
 	flash = maxf(0.0, flash - delta / flash_time)
@@ -136,7 +136,7 @@ func _physics_process(delta: float) -> void:
 	if vel.length_squared() > 1.0:
 		rotation = vel.angle()
 
-func _tick_seek(delta: float) -> void:
+func _tick_seek(delta: float) -> void :
 	if not is_instance_valid(target):
 		target = _pick_target(last_hit if is_instance_valid(last_hit) else null, bounce_dir)
 		if target == null:
@@ -152,7 +152,7 @@ func _tick_seek(delta: float) -> void:
 		var desired = (to / dist) * current_max
 		vel = vel.move_toward(desired, steer_accel * delta)
 
-func _sweep_hit(prev: Vector2, cur: Vector2) -> void:
+func _sweep_hit(prev: Vector2, cur: Vector2) -> void :
 	if state == "dying":
 		return
 	var seg = cur - prev
@@ -184,13 +184,13 @@ func _enemy_radius(e: Node2D) -> float:
 		return 16.0
 	return float(r)
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if state == "dying" or body == source:
 		return
 	if body.has_method("take_damage"):
 		_try_hit(body)
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void :
 	if state == "dying":
 		return
 	var parent = area.get_parent()
@@ -199,7 +199,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if parent.has_method("take_damage"):
 		_try_hit(parent)
 
-func _try_hit(enemy: Node2D) -> void:
+func _try_hit(enemy: Node2D) -> void :
 	if _grace > 0.0:
 		return
 	var id = enemy.get_instance_id()
@@ -207,7 +207,7 @@ func _try_hit(enemy: Node2D) -> void:
 		return
 	_on_hit(enemy)
 
-func _on_hit(enemy: Node2D) -> void:
+func _on_hit(enemy: Node2D) -> void :
 	_hit_times[enemy.get_instance_id()] = age
 	var spd = vel.length()
 	var spd_t = clampf(spd / max_speed, 0.0, 1.0)
@@ -236,7 +236,7 @@ func _on_hit(enemy: Node2D) -> void:
 		state = "search"
 		state_timer = search_cooldown
 
-func _spawn_explosion(pos: Vector2, spd_t: float, base_dmg: float) -> void:
+func _spawn_explosion(pos: Vector2, spd_t: float, base_dmg: float) -> void :
 	var radius = explosion_base_radius * lerpf(1.0, explosion_speed_mult, spd_t)
 	var dmg = base_dmg * explosion_damage_mult * _might()
 	var kb = explosion_knockback * lerpf(1.0, explosion_knockback_speed_mult, spd_t)
@@ -268,7 +268,7 @@ func _explosion_texture() -> Texture2D:
 		_fallback_tex = ImageTexture.create_from_image(img)
 	return _fallback_tex
 
-func _spawn_explosion_visual(pos: Vector2, radius: float) -> void:
+func _spawn_explosion_visual(pos: Vector2, radius: float) -> void :
 	var expl = Sprite2D.new()
 	expl.texture = _explosion_texture()
 	expl.global_position = pos
@@ -285,13 +285,13 @@ func _spawn_explosion_visual(pos: Vector2, radius: float) -> void:
 func _bounce_direction(enemy: Node2D) -> Vector2:
 	var normal = global_position - enemy.global_position
 	if normal.length_squared() < 0.01:
-		normal = -vel
+		normal = - vel
 	if normal.length_squared() < 0.01:
 		normal = Vector2.RIGHT
 	normal = normal.normalized()
 	var incoming = vel.normalized()
 	if incoming.length_squared() < 0.01:
-		incoming = -normal
+		incoming = - normal
 	var reflected = (incoming - 2.0 * incoming.dot(normal) * normal).normalized()
 	var dir = reflected.lerp(normal, bounce_back_mix).normalized()
 	var side = _pick_target(enemy, dir)
@@ -299,7 +299,7 @@ func _bounce_direction(enemy: Node2D) -> Vector2:
 		var to_side = (side.global_position - global_position).normalized()
 		if to_side.dot(dir) > -0.3:
 			dir = dir.lerp(to_side, bounce_aim_mix).normalized()
-	dir = dir.rotated(randf_range(-bounce_spread, bounce_spread))
+	dir = dir.rotated(randf_range( - bounce_spread, bounce_spread))
 	return dir
 
 func _might() -> float:
@@ -329,13 +329,13 @@ func _pick_target(exclude: Node2D, prefer_dir: Vector2) -> Node2D:
 				best_front = node
 	return best_front if best_front != null else best_any
 
-func _start_dying() -> void:
+func _start_dying() -> void :
 	if state == "dying":
 		return
 	state = "dying"
 	dying_timer = shrink_time
 
-func _tick_dying(delta: float) -> void:
+func _tick_dying(delta: float) -> void :
 	dying_timer -= delta
 	var t = clampf(dying_timer / shrink_time, 0.0, 1.0)
 	scale = _base_scale * maxf(t, 0.01)
@@ -345,13 +345,13 @@ func _tick_dying(delta: float) -> void:
 	if dying_timer <= 0.0:
 		queue_free()
 
-func _play_hit_sfx() -> void:
+func _play_hit_sfx() -> void :
 	if sfx.is_empty() or not has_node("AudioStreamPlayer2D"):
 		return
 	$AudioStreamPlayer2D.stream = sfx.pick_random()
 	$AudioStreamPlayer2D.pitch_scale = randf_range(0.7, 1.3)
 	$AudioStreamPlayer2D.play()
 
-func set_base(new_base: float) -> void:
+func set_base(new_base: float) -> void :
 	base_speed = new_base
 	current_max = maxf(current_max, new_base)

@@ -10,7 +10,7 @@ class_name Starfall
 var _last_angle: float = 0.0
 var _player_ref: Node2D = null
 
-func update(_delta: float) -> void:
+func update(_delta: float) -> void :
 	if not is_instance_valid(_player_ref):
 		var tree = Engine.get_main_loop() as SceneTree
 		if tree == null:
@@ -47,7 +47,7 @@ func activate(source, _target, scene_tree):
 			tw.tween_interval(star_delay)
 		tw.tween_callback(_spawn_star.bind(source, scene_tree))
 
-func _spawn_star(source: Node2D, scene_tree: SceneTree) -> void:
+func _spawn_star(source: Node2D, scene_tree: SceneTree) -> void :
 	if not is_instance_valid(self):
 		return
 	if not is_instance_valid(source):
@@ -74,7 +74,7 @@ func _spawn_star(source: Node2D, scene_tree: SceneTree) -> void:
 		star.bullet_texture = texture
 	scene_tree.current_scene.add_child(star)
 
-func _play_sfx(source: Node2D, stream: AudioStream, scene_tree: SceneTree) -> void:
+func _play_sfx(source: Node2D, stream: AudioStream, scene_tree: SceneTree) -> void :
 	var player = AudioStreamPlayer2D.new()
 	player.stream = stream
 	player.volume_db = -15
@@ -82,7 +82,7 @@ func _play_sfx(source: Node2D, stream: AudioStream, scene_tree: SceneTree) -> vo
 	player.position = source.position
 	scene_tree.current_scene.add_child(player)
 	player.play()
-	player.finished.connect(func(): player.queue_free())
+	player.finished.connect( func(): player.queue_free())
 
 func upgrade_item():
 	if max_level_reached():

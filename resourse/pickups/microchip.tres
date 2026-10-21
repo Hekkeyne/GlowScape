@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Microchips" format=3 uid="uid://dkrw773rb7g18"]
 
-[ext_resource type="Texture2D" uid="uid://c135ittd0nr0d" path="res://sprites/microchip.png" id="1_vr2vi"]
-[ext_resource type="Script" uid="uid://dyf36n3wxalk2" path="res://resourse/Items/Microchips.gd" id="2_5xqcm"]
+[ext_resource type="Texture2D" uid="uid://c135ittd0nr0d" path="res://sprites/microchip.png" id="1"]
+[ext_resource type="Script" uid="uid://dyf36n3wxalk2" path="res://resourse/Items/Microchips.gd" id="2"]
 
 [resource]
-script = ExtResource("2_5xqcm")
+script = ExtResource("2")
 microchips = 25
-texture = ExtResource("1_vr2vi")
+texture = ExtResource("1")
 title = "Microchip"
-icon = ExtResource("1_vr2vi")
+icon = ExtResource("1")
 weight = 5.0
 metadata/_custom_type_script = "uid://dyf36n3wxalk2"

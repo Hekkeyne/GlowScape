@@ -4,8 +4,8 @@ extends PanelContainer
 	set(value):
 		item = value
 		$TextureRect.texture = value.icon
-		item.player_ref = owner 
-		
+		item.player_ref = owner
+
 func _ready():
-	if item!=null:
-		item.player_ref=owner
+	if item != null:
+		item.player_ref = owner

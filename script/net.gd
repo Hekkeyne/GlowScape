@@ -1,10 +1,10 @@
 extends Node
 
-const PORT := 7777
-const DISCOVERY_PORT := 33333
-const NAME_PATH := "user://net_settings.cfg"
-const ROOM_MAX := 4
-const MAX_CHAT_HISTORY := 100
+const PORT: = 7777
+const DISCOVERY_PORT: = 33333
+const NAME_PATH: = "user://net_settings.cfg"
+const ROOM_MAX: = 4
+const MAX_CHAT_HISTORY: = 100
 signal peer_joined(id: int, pname: String)
 signal peer_left(id: int)
 signal peer_departed(id: int, pname: String)
@@ -26,8 +26,8 @@ signal projectile_snapshot_received(data: Array)
 signal revive_zone_spawned(pos: Vector2, dead_player_id: int)
 signal revive_zone_removed(dead_player_id: int)
 signal all_players_dead()
-var is_host := false
-var session_active := false
+var is_host: = false
+var session_active: = false
 var menu_scene: String = ""
 var player_name: String = "Player"
 var peer_names: Dictionary = {}
@@ -46,7 +46,7 @@ var _disc_sock: PacketPeerUDP = null
 var _beacon_acc: float = 0.0
 var _cfg: ConfigFile = ConfigFile.new()
 
-func _ready() -> void:
+func _ready() -> void :
 	_cfg.load(NAME_PATH)
 	player_name = _sanitize(_cfg.get_value("net", "name", "Player"))
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -57,7 +57,7 @@ func _ready() -> void:
 		multiplayer.multiplayer_peer = null
 		is_host = false
 
-func _notification(what: int) -> void:
+func _notification(what: int) -> void :
 	if what == NOTIFICATION_EXIT_TREE:
 		if multiplayer.has_multiplayer_peer() and session_active:
 			stop.call_deferred()
@@ -79,14 +79,14 @@ func is_valid_ip(s: String) -> bool:
 			return false
 	return true
 
-func save_name(new_name: String) -> void:
+func save_name(new_name: String) -> void :
 	player_name = _sanitize(new_name)
 	if player_name == "":
 		player_name = "Player"
 	_cfg.set_value("net", "name", player_name)
 	_cfg.save(NAME_PATH)
 
-func set_character(char: Character) -> void:
+func set_character(char: Character) -> void :
 	if char == null:
 		return
 	char_res_path = char.resource_path
@@ -97,19 +97,19 @@ func set_character(char: Character) -> void:
 func _char_dict() -> Dictionary:
 	return {"res": char_res_path, "icon": char_icon_path, "tex": char_tex_path, "color": char_color}
 
-func _register_peer(id: int, pname: String, chars: Dictionary) -> void:
+func _register_peer(id: int, pname: String, chars: Dictionary) -> void :
 	var is_new = not peer_names.has(id)
 	peer_names[id] = pname
 	peer_chars[id] = chars
 	if is_new:
 		peer_joined.emit(id, pname)
 
-func _push_history(sender: String, text: String) -> void:
+func _push_history(sender: String, text: String) -> void :
 	_chat_history.append({"sender": sender, "text": text})
 	if _chat_history.size() > MAX_CHAT_HISTORY:
 		_chat_history.pop_front()
 
-func set_pending_password(password: String) -> void:
+func set_pending_password(password: String) -> void :
 	_pending_password = password
 
 func players_count() -> int:
@@ -119,7 +119,7 @@ func has_password() -> bool:
 	return _room_password != ""
 
 func host(p_room_name: String, p_password: String) -> String:
-	var peer := ENetMultiplayerPeer.new()
+	var peer: = ENetMultiplayerPeer.new()
 	peer.create_server(PORT, ROOM_MAX - 1)
 	multiplayer.multiplayer_peer = peer
 	is_host = true
@@ -138,9 +138,9 @@ func host(p_room_name: String, p_password: String) -> String:
 	_beacon_acc = 0.0
 	return get_local_ip()
 
-func join(ip: String) -> void:
-	var peer := ENetMultiplayerPeer.new()
-	var err := peer.create_client(ip, PORT)
+func join(ip: String) -> void :
+	var peer: = ENetMultiplayerPeer.new()
+	var err: = peer.create_client(ip, PORT)
 	if err != OK or peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTING:
 		peer.close()
 		connection_failed.emit()
@@ -151,7 +151,7 @@ func join(ip: String) -> void:
 	_chat_history.clear()
 	_kicked_ids.clear()
 
-func send_chat(text: String) -> void:
+func send_chat(text: String) -> void :
 	var clean = text.strip_edges()
 	if clean == "":
 		return
@@ -160,7 +160,7 @@ func send_chat(text: String) -> void:
 		_push_history(player_name, clean)
 	_chat_msg.rpc(player_name, clean)
 
-func kick_player(id: int) -> void:
+func kick_player(id: int) -> void :
 	if not is_host or id == multiplayer.get_unique_id():
 		return
 	var pname = str(peer_names.get(id, "?"))
@@ -168,52 +168,52 @@ func kick_player(id: int) -> void:
 	_kicked_ev.rpc(id, pname)
 	_mark_kicked(id, pname)
 	var peer = multiplayer.multiplayer_peer
-	get_tree().create_timer(0.4).timeout.connect(func():
+	get_tree().create_timer(0.4).timeout.connect( func():
 		if peer != null and peer.has_method("disconnect_peer") and _peers_connected.has(id):
 			peer.disconnect_peer(id)
 	)
 
-func _mark_kicked(id: int, pname: String) -> void:
+func _mark_kicked(id: int, pname: String) -> void :
 	_kicked_ids[id] = true
 	peer_kicked.emit(id, pname)
 
-func start_game(scene_path: String) -> void:
+func start_game(scene_path: String) -> void :
 	if not is_host:
 		return
 	game_started.emit(scene_path)
 	_start_game.rpc(scene_path)
 
-func send_enemy_snapshot(data: Array) -> void:
+func send_enemy_snapshot(data: Array) -> void :
 	if not is_host:
 		return
 	_enemy_snap.rpc(data)
 
-func send_enemy_damage(enemy_id: int, damage: float, is_crit: bool) -> void:
+func send_enemy_damage(enemy_id: int, damage: float, is_crit: bool) -> void :
 	_enemy_dmg.rpc(enemy_id, damage, is_crit)
 
-func send_player_damage(target_id: int, amount: float) -> void:
+func send_player_damage(target_id: int, amount: float) -> void :
 	if not is_host:
 		return
 	_player_dmg.rpc_id(target_id, amount)
 
-func send_pickup_snapshot(data: Array) -> void:
+func send_pickup_snapshot(data: Array) -> void :
 	if not is_host:
 		return
 	_pickup_snap.rpc(data)
 
-func send_pickup_collected(pickup_id: int) -> void:
+func send_pickup_collected(pickup_id: int) -> void :
 	_pickup_collect.rpc(pickup_id, multiplayer.get_unique_id())
 
-func send_xp(target_id: int, amount: float) -> void:
+func send_xp(target_id: int, amount: float) -> void :
 	if not is_host:
 		return
 	_give_xp.rpc_id(target_id, amount)
 
-func _on_peer_connected(id: int) -> void:
+func _on_peer_connected(id: int) -> void :
 	_peers_connected[id] = true
 	_announce.rpc_id(id, multiplayer.get_unique_id(), player_name, _char_dict())
 
-func _on_peer_disconnected(id: int) -> void:
+func _on_peer_disconnected(id: int) -> void :
 	var pname = str(peer_names.get(id, "?"))
 	_peers_connected.erase(id)
 	peer_names.erase(id)
@@ -230,7 +230,7 @@ func _on_peer_disconnected(id: int) -> void:
 	else:
 		peer_departed.emit(id, pname)
 
-func stop() -> void:
+func stop() -> void :
 	if not session_active and not multiplayer.has_multiplayer_peer():
 		return
 	var was_host = is_host
@@ -238,7 +238,7 @@ func stop() -> void:
 		_host_leaving.rpc()
 		var peer = multiplayer.multiplayer_peer
 		if is_inside_tree():
-			get_tree().create_timer(0.35).timeout.connect(func():
+			get_tree().create_timer(0.35).timeout.connect( func():
 				if multiplayer.multiplayer_peer == peer:
 					multiplayer.multiplayer_peer = null
 			)
@@ -260,23 +260,23 @@ func stop() -> void:
 		_disc_sock.close()
 		_disc_sock = null
 
-func _on_connected_to_server() -> void:
+func _on_connected_to_server() -> void :
 	var my_id = multiplayer.get_unique_id()
 	peer_names[my_id] = player_name
 	peer_chars[my_id] = _char_dict()
 	connected_to_server.emit()
 	_try_auth.rpc_id(1, _pending_password, player_name, _char_dict())
 
-func _on_connection_failed() -> void:
+func _on_connection_failed() -> void :
 	stop()
 	connection_failed.emit()
 
 @rpc("any_peer", "reliable")
-func _announce(id: int, pname: String, chars: Dictionary) -> void:
+func _announce(id: int, pname: String, chars: Dictionary) -> void :
 	_register_peer(id, pname, chars)
 
 @rpc("any_peer", "reliable")
-func _try_auth(password: String, pname: String, chars: Dictionary) -> void:
+func _try_auth(password: String, pname: String, chars: Dictionary) -> void :
 	if not is_host:
 		return
 	var sender = multiplayer.get_remote_sender_id()
@@ -290,28 +290,28 @@ func _try_auth(password: String, pname: String, chars: Dictionary) -> void:
 	_chat_history_sync.rpc_id(sender, _chat_history.duplicate())
 
 @rpc("authority", "reliable")
-func _member_joined(id: int, pname: String, chars: Dictionary) -> void:
+func _member_joined(id: int, pname: String, chars: Dictionary) -> void :
 	if id == multiplayer.get_unique_id():
 		return
 	_register_peer(id, pname, chars)
 
 @rpc("authority", "reliable")
-func _chat_history_sync(history: Array) -> void:
+func _chat_history_sync(history: Array) -> void :
 	chat_history_received.emit(history)
 
 @rpc("authority", "reliable")
-func _auth_ok(rname: String) -> void:
+func _auth_ok(rname: String) -> void :
 	room_name = rname
 	_pending_password = ""
 	auth_accepted.emit()
 
 @rpc("authority", "reliable")
-func _auth_fail() -> void:
+func _auth_fail() -> void :
 	stop()
 	auth_failed.emit()
 
 @rpc("authority", "reliable")
-func _roster(entries: Array) -> void:
+func _roster(entries: Array) -> void :
 	for e in entries:
 		var id = int(e.get("id", 0))
 		if id == multiplayer.get_unique_id():
@@ -319,83 +319,83 @@ func _roster(entries: Array) -> void:
 		_register_peer(id, str(e.get("name", "?")), e.get("chars", {}))
 
 @rpc("any_peer", "reliable")
-func _chat_msg(sender: String, text: String) -> void:
+func _chat_msg(sender: String, text: String) -> void :
 	if is_host:
 		_push_history(sender, text)
 	chat_message.emit(sender, text)
 
 @rpc("authority", "reliable")
-func _kick_notify() -> void:
+func _kick_notify() -> void :
 	stop()
 	kicked.emit()
 
 @rpc("authority", "reliable")
-func _kicked_ev(id: int, pname: String) -> void:
+func _kicked_ev(id: int, pname: String) -> void :
 	if id == multiplayer.get_unique_id():
 		return
 	_mark_kicked(id, pname)
 
 @rpc("authority", "reliable")
-func _host_leaving() -> void:
+func _host_leaving() -> void :
 	if is_host or not session_active:
 		return
 	stop()
 	server_lost.emit()
 
 @rpc("authority", "reliable")
-func _start_game(scene_path: String) -> void:
+func _start_game(scene_path: String) -> void :
 	game_started.emit(scene_path)
 
 @rpc("authority", "unreliable_ordered")
-func _enemy_snap(data: Array) -> void:
+func _enemy_snap(data: Array) -> void :
 	enemy_snapshot_received.emit(data)
 
 @rpc("any_peer", "unreliable_ordered")
-func _enemy_dmg(enemy_id: int, damage: float, is_crit: bool) -> void:
+func _enemy_dmg(enemy_id: int, damage: float, is_crit: bool) -> void :
 	enemy_damage_received.emit(enemy_id, damage, is_crit)
 
 @rpc("authority", "reliable")
-func _player_dmg(amount: float) -> void:
+func _player_dmg(amount: float) -> void :
 	var p = get_tree().get_first_node_in_group("Player")
 	if p and p.has_method("take_damage"):
 		p.take_damage(amount)
 
 @rpc("authority", "unreliable_ordered")
-func _pickup_snap(data: Array) -> void:
+func _pickup_snap(data: Array) -> void :
 	pickup_snapshot_received.emit(data)
 
 @rpc("any_peer", "reliable")
-func _pickup_collect(pickup_id: int, collector_id: int) -> void:
+func _pickup_collect(pickup_id: int, collector_id: int) -> void :
 	pickup_collected.emit(pickup_id, collector_id)
 
 @rpc("authority", "reliable")
-func _give_xp(amount: float) -> void:
+func _give_xp(amount: float) -> void :
 	var p = get_tree().get_first_node_in_group("Player")
 	if p and p.has_method("gain_XP"):
 		p.gain_XP(amount)
 
 @rpc("authority", "unreliable_ordered")
-func _projectile_snap(data: Array) -> void:
+func _projectile_snap(data: Array) -> void :
 	projectile_snapshot_received.emit(data)
 
 @rpc("any_peer", "reliable")
-func _request_revive_zone(pos: Vector2, dead_player_id: int) -> void:
+func _request_revive_zone(pos: Vector2, dead_player_id: int) -> void :
 	if not is_host:
 		return
 	spawn_revive_zone(pos, dead_player_id)
 
 @rpc("authority", "reliable")
-func _spawn_revive_zone(pos: Vector2, dead_player_id: int) -> void:
+func _spawn_revive_zone(pos: Vector2, dead_player_id: int) -> void :
 	revive_zone_spawned.emit(pos, dead_player_id)
 
 @rpc("any_peer", "reliable")
-func _revive_request(target_id: int) -> void:
+func _revive_request(target_id: int) -> void :
 	if not is_host:
 		return
 	_revive_broadcast.rpc(target_id)
 
 @rpc("authority", "reliable", "call_local")
-func _revive_broadcast(target_id: int) -> void:
+func _revive_broadcast(target_id: int) -> void :
 	var my_id = multiplayer.get_unique_id()
 	if target_id == my_id:
 		var local_player = get_tree().get_first_node_in_group("Player")
@@ -405,24 +405,24 @@ func _revive_broadcast(target_id: int) -> void:
 	if dummy and dummy.has_method("network_revive"):
 		dummy.network_revive()
 
-func send_projectile_snapshot(data: Array) -> void:
+func send_projectile_snapshot(data: Array) -> void :
 	if not is_host:
 		return
 	_projectile_snap.rpc(data)
 
-func request_revive_zone(pos: Vector2, dead_player_id: int) -> void:
+func request_revive_zone(pos: Vector2, dead_player_id: int) -> void :
 	if multiplayer.get_unique_id() == 1:
 		spawn_revive_zone(pos, dead_player_id)
 	else:
 		_request_revive_zone.rpc_id(1, pos, dead_player_id)
 
-func spawn_revive_zone(pos: Vector2, dead_player_id: int) -> void:
+func spawn_revive_zone(pos: Vector2, dead_player_id: int) -> void :
 	if not is_host:
 		return
 	revive_zone_spawned.emit(pos, dead_player_id)
 	_spawn_revive_zone.rpc(pos, dead_player_id)
 
-func remove_revive_zone(dead_player_id: int) -> void:
+func remove_revive_zone(dead_player_id: int) -> void :
 	if multiplayer.get_unique_id() == 1:
 		revive_zone_removed.emit(dead_player_id)
 		_remove_revive_zone.rpc(dead_player_id)
@@ -430,32 +430,32 @@ func remove_revive_zone(dead_player_id: int) -> void:
 		_request_remove_revive_zone.rpc_id(1, dead_player_id)
 
 @rpc("any_peer", "reliable")
-func _request_remove_revive_zone(dead_player_id: int) -> void:
+func _request_remove_revive_zone(dead_player_id: int) -> void :
 	if not is_host:
 		return
 	revive_zone_removed.emit(dead_player_id)
 	_remove_revive_zone.rpc(dead_player_id)
 
 @rpc("authority", "reliable")
-func _remove_revive_zone(dead_player_id: int) -> void:
+func _remove_revive_zone(dead_player_id: int) -> void :
 	revive_zone_removed.emit(dead_player_id)
 
-func broadcast_all_players_dead() -> void:
+func broadcast_all_players_dead() -> void :
 	if not is_host:
 		return
 	_all_players_dead_event.rpc()
 
 @rpc("authority", "reliable")
-func _all_players_dead_event() -> void:
+func _all_players_dead_event() -> void :
 	all_players_dead.emit()
-func send_revive_player(target_id: int) -> void:
+func send_revive_player(target_id: int) -> void :
 	if multiplayer.get_unique_id() == 1:
 		_process_revive(target_id)
 	else:
 		_revive_request.rpc_id(1, target_id)
-func send_revive_progress(dead_player_id: int, progress: float) -> void:
+func send_revive_progress(dead_player_id: int, progress: float) -> void :
 	_revive_zone_progress.rpc(dead_player_id, progress)
-func _process_revive(target_id: int) -> void:
+func _process_revive(target_id: int) -> void :
 	if not is_host:
 		return
 	var dummy = get_tree().get_first_node_in_group("RemotePlayers_%d" % target_id)
@@ -474,14 +474,14 @@ func _build_roster(exclude_id: int) -> Array:
 		out.append({"id": id, "name": peer_names[id], "chars": peer_chars.get(id, {})})
 	return out
 
-func _send_pong(ip: String, port: int) -> void:
+func _send_pong(ip: String, port: int) -> void :
 	if _disc_sock == null:
 		return
 	_disc_sock.set_dest_address(ip, port)
 	var pong = "PONG|%s|%s|%d|%d|%d" % [room_name, player_name, players_count(), ROOM_MAX, 1 if has_password() else 0]
 	_disc_sock.put_packet(pong.to_utf8_buffer())
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	if _disc_sock == null:
 		return
 	if is_host:
@@ -496,8 +496,8 @@ func _process(delta: float) -> void:
 		if msg == "PING":
 			_send_pong(from, from_port)
 
-func discover(timeout := 2.0) -> Array:
-	var sock := PacketPeerUDP.new()
+func discover(timeout: = 2.0) -> Array:
+	var sock: = PacketPeerUDP.new()
 	sock.set_broadcast_enabled(true)
 	if sock.bind(DISCOVERY_PORT) != OK:
 		sock.close()
@@ -508,7 +508,7 @@ func discover(timeout := 2.0) -> Array:
 	sock.put_packet("PING".to_utf8_buffer())
 	var seen: Dictionary = {}
 	var result: Array = []
-	var t := 0.0
+	var t: = 0.0
 	while t < timeout:
 		await get_tree().create_timer(0.05).timeout
 		t += 0.05
@@ -532,13 +532,13 @@ func discover(timeout := 2.0) -> Array:
 
 signal revive_zone_progress_updated(dead_player_id: int, progress: float)
 
-func broadcast_revive_progress(dead_player_id: int, progress: float) -> void:
+func broadcast_revive_progress(dead_player_id: int, progress: float) -> void :
 	if not is_host:
 		return
 	_revive_zone_progress.rpc(dead_player_id, progress)
 
 @rpc("any_peer", "unreliable_ordered")
-func _revive_zone_progress(dead_player_id: int, progress: float) -> void:
+func _revive_zone_progress(dead_player_id: int, progress: float) -> void :
 	revive_zone_progress_updated.emit(dead_player_id, progress)
 
 func get_local_ip() -> String:

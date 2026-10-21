@@ -23,7 +23,7 @@ var total_length: float = 0.0
 var life_timer: float = 0.0
 var hit_enemies: Dictionary = {}
 
-func setup(p_muzzle: Node2D, p_source: Node2D, p_dir: Vector2, p_reflections: int, p_damage: float, p_duration: float, p_grow: float) -> void:
+func setup(p_muzzle: Node2D, p_source: Node2D, p_dir: Vector2, p_reflections: int, p_damage: float, p_duration: float, p_grow: float) -> void :
 	muzzle = p_muzzle
 	source = p_source
 	direction = p_dir
@@ -35,7 +35,7 @@ func setup(p_muzzle: Node2D, p_source: Node2D, p_dir: Vector2, p_reflections: in
 
 var net_id: int = 0
 
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("Projectile")
 	glow_line = get_node_or_null("Glow")
 	if glow_line == null:
@@ -59,7 +59,7 @@ func _ready() -> void:
 		_hit_audio.bus = "Master"
 		add_child(_hit_audio)
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	life_timer -= delta
 	if _hit_sound_timer > 0.0:
 		_hit_sound_timer -= delta
@@ -81,7 +81,7 @@ func _process(delta: float) -> void:
 		_deal_damage()
 	modulate.a = lerpf(0.1, 1.0, clampf(life_timer / duration, 0.0, 1.0))
 
-func _update_points(progress: float) -> void:
+func _update_points(progress: float) -> void :
 	if full_points.size() < 2:
 		return
 	var target_len = total_length * progress
@@ -101,7 +101,7 @@ func _update_points(progress: float) -> void:
 	glow_line.points = pts
 	core_line.points = pts
 
-func _rebuild_path() -> void:
+func _rebuild_path() -> void :
 	var start: Vector2
 	if is_instance_valid(muzzle):
 		start = muzzle.global_position
@@ -140,10 +140,10 @@ func _intersect_bounds(pos: Vector2, dir: Vector2, rect: Rect2) -> Dictionary:
 	var best_t: float = INF
 	var best_normal: Vector2 = Vector2.ZERO
 	var sides = [
-		[0, rect.position.x, Vector2(-1, 0)],
-		[0, rect.end.x, Vector2(1, 0)],
-		[1, rect.position.y, Vector2(0, -1)],
-		[1, rect.end.y, Vector2(0, 1)],
+		[0, rect.position.x, Vector2(-1, 0)], 
+		[0, rect.end.x, Vector2(1, 0)], 
+		[1, rect.position.y, Vector2(0, -1)], 
+		[1, rect.end.y, Vector2(0, 1)], 
 	]
 	for s in sides:
 		var d = dir[s[0]]
@@ -161,7 +161,7 @@ func _intersect_bounds(pos: Vector2, dir: Vector2, rect: Rect2) -> Dictionary:
 			best_normal = s[2]
 	return {"t": best_t, "normal": best_normal}
 
-func _deal_damage() -> void:
+func _deal_damage() -> void :
 	var elapsed = duration - life_timer
 	var hit_this_frame = false
 	for enemy in get_tree().get_nodes_in_group("Enemy"):

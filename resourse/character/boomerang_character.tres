@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://c36i17bfvaxdf"]
 
-[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_nm5ss"]
-[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="1_obu0w"]
-[ext_resource type="Resource" uid="uid://bh4q2wmq672f" path="res://resourse/weapon/boomerange.tres" id="4_615xx"]
-[ext_resource type="Texture2D" uid="uid://bbgbp4lolnh5d" path="res://sprites/boomerang_character.png" id="5_rcj37"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bbgbp4lolnh5d" path="res://sprites/boomerang_character.png" id="2"]
+[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="3"]
+[ext_resource type="Resource" uid="uid://bh4q2wmq672f" path="res://resourse/weapon/boomerange.tres" id="4"]
 
 [sub_resource type="Resource" id="Resource_ujp7u"]
-script = ExtResource("1_nm5ss")
+script = ExtResource("1")
 max_health = 100.0
 movement_speed = 250.0
 might = 1.5
@@ -15,12 +15,12 @@ growth = 1.5
 metadata/_custom_type_script = "uid://c4otyonjcxtkq"
 
 [resource]
-script = ExtResource("1_obu0w")
+script = ExtResource("3")
 title = "BOOMERANG_CHARACTER"
-icon = ExtResource("5_rcj37")
-texture = ExtResource("5_rcj37")
+icon = ExtResource("2")
+texture = ExtResource("2")
 animation_name = "BOOMERANG_CHARACTER"
 base_stats = SubResource("Resource_ujp7u")
-starting_weapon = ExtResource("4_615xx")
+starting_weapon = ExtResource("4")
 color_trail = "e1ff00"
 metadata/_custom_type_script = "uid://cdfgec6qtjwl7"

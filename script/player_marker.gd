@@ -14,11 +14,11 @@ extends Node2D
 var target: Node2D = null
 var _target_position: Vector2 = Vector2.ZERO
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	if _target_position != Vector2.ZERO:
 		global_position = global_position.lerp(_target_position, move_speed * delta)
 
-func setup(p_target: Node2D, skin_texture: Texture2D) -> void:
+func setup(p_target: Node2D, skin_texture: Texture2D) -> void :
 	target = p_target
 	if skin_texture and skin:
 		skin.texture = skin_texture
@@ -27,7 +27,7 @@ func setup(p_target: Node2D, skin_texture: Texture2D) -> void:
 		global_position = player.global_position
 		_target_position = player.global_position
 
-func update_marker() -> void:
+func update_marker() -> void :
 	if not is_instance_valid(target):
 		queue_free()
 		return
@@ -57,4 +57,4 @@ func update_marker() -> void:
 	skin.rotation = 0.0
 
 func _is_on_screen(screen_pos: Vector2, screen_size: Vector2) -> bool:
-	return screen_pos.x >= -screen_margin and screen_pos.x <= screen_size.x + screen_margin and screen_pos.y >= -screen_margin and screen_pos.y <= screen_size.y + screen_margin
+	return screen_pos.x >= - screen_margin and screen_pos.x <= screen_size.x + screen_margin and screen_pos.y >= - screen_margin and screen_pos.y <= screen_size.y + screen_margin

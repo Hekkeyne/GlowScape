@@ -9,7 +9,7 @@ extends EnemyAIBehavior
 @export_range(0.0, 2.0, 0.05) var back_speed_mult: float = 0.8
 @export_range(0.0, 2.0, 0.05) var creep_speed_mult: float = 0.3
 
-enum State { CHASE, PREPARE, DASH }
+enum State{CHASE, PREPARE, DASH}
 var state: int = State.CHASE
 var timer: float = 0.0
 var dash_direction: Vector2 = Vector2.ZERO
@@ -63,7 +63,7 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 				_set_prepare_visuals(enemy, false)
 				return dash_direction * enemy.speed * dash_speed_mult
 			if distance < keep_distance * 0.7:
-				return -direction * enemy.speed * back_speed_mult
+				return - direction * enemy.speed * back_speed_mult
 			elif distance > keep_distance:
 				return direction * enemy.speed * creep_speed_mult
 			return Vector2.ZERO
@@ -90,7 +90,7 @@ func get_facing(enemy: CharacterBody2D, player: Node2D) -> Vector2:
 			return dash_direction
 	return Vector2.ZERO
 
-func _set_prepare_visuals(enemy: EnemyBase, enabled: bool) -> void:
+func _set_prepare_visuals(enemy: EnemyBase, enabled: bool) -> void :
 	var visual = enemy.visual_node
 	if not visual:
 		return

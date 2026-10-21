@@ -38,7 +38,7 @@ func activate(source, _target, scene_tree):
 		rig.init_rig(self, source)
 		scene_tree.current_scene.add_child(rig)
 
-func update(_delta: float) -> void:
+func update(_delta: float) -> void :
 	pass
 
 func upgrade_item():

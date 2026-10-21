@@ -34,11 +34,11 @@ var sector_radii: PackedFloat32Array = PackedFloat32Array()
 var line_color: Color = Color(1, 1, 1, 0.5)
 var highlight_color: Color = Color(1, 1, 1, 0.75)
 var strike_color: Color = Color(1.0, 0.15, 0.15, 0.75)
-func move_highlight(new_index: int) -> void:
+func move_highlight(new_index: int) -> void :
 	highlight_index = new_index
-func clear_highlight() -> void:
+func clear_highlight() -> void :
 	highlight_index = -1
-func _rebuild() -> void:
+func _rebuild() -> void :
 	white_alphas.resize(sector_count)
 	white_alphas.fill(0.0)
 	red_alphas.resize(sector_count)
@@ -61,19 +61,19 @@ func _smooth(x: float) -> float:
 	var c = clampf(x, 0.0, 1.0)
 	return c * c * (3.0 - 2.0 * c)
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	if white_alphas.size() != sector_count:
 		_rebuild()
-	var smooth_w = 1.0 - exp(-fade_speed * delta)
-	var smooth_r = 1.0 - exp(-fade_speed * red_speed_mult * delta)
-	var changed := false
+	var smooth_w = 1.0 - exp( - fade_speed * delta)
+	var smooth_r = 1.0 - exp( - fade_speed * red_speed_mult * delta)
+	var changed: = false
 	for i in range(sector_count):
-		var w_target := 0.0
+		var w_target: = 0.0
 		if i == highlight_index:
 			w_target = highlight_alpha
 		elif lit_sectors.has(i):
 			w_target = lit_alpha
-		var r_target := 0.0
+		var r_target: = 0.0
 		if i == strike_index:
 			r_target = strike_alpha
 		elif red_sectors.has(i):
@@ -110,7 +110,7 @@ func _process(delta: float) -> void:
 	if changed:
 		queue_redraw()
 
-func _draw() -> void:
+func _draw() -> void :
 	var step = TAU / sector_count
 	if sweep_active and sweep_alpha > 0.005:
 		for i in range(sector_count):
@@ -139,7 +139,7 @@ func _draw() -> void:
 		if red_alphas[i] > 0.005:
 			_draw_sector(i, strike_color, red_alphas[i])
 
-func _draw_sector_pie(index: int, r: float, color: Color, alpha: float) -> void:
+func _draw_sector_pie(index: int, r: float, color: Color, alpha: float) -> void :
 	var step = TAU / sector_count
 	var a0 = base_rotation + sweep_start + index * step
 	var a1 = a0 + step
@@ -157,7 +157,7 @@ func _draw_sector_pie(index: int, r: float, color: Color, alpha: float) -> void:
 	else:
 		draw_colored_polygon(pts, col)
 
-func _draw_sector(index: int, color: Color, alpha: float) -> void:
+func _draw_sector(index: int, color: Color, alpha: float) -> void :
 	var step = TAU / sector_count
 	var a0 = base_rotation + sweep_start + index * step if sweep_active else base_rotation + index * step
 	var a1 = a0 + step

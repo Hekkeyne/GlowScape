@@ -1,6 +1,6 @@
 extends Area2D
 class_name SwordProjectile
-enum State { ORBIT, AIM, SPIN_UP, FLY, EMERGE }
+enum State{ORBIT, AIM, SPIN_UP, FLY, EMERGE}
 @export var sfx_hit: Array[AudioStream] = []
 @export var knockback: float = 150.0
 @export var orbit_margin: float = 40.0
@@ -46,7 +46,7 @@ var _disc_sprite: Sprite2D = null
 var _emerge_start_pos: Vector2 = Vector2.ZERO
 var _emerge_target_pos: Vector2 = Vector2.ZERO
 var _emerge_target_rot: float = 0.0
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("Projectile")
 	set_process_priority(-100)
 	collision_layer = 0
@@ -79,7 +79,7 @@ func _ready() -> void:
 	var dir: Vector2 = _orbit_direction(_orbit_t)
 	rotation = dir.angle() + deg_to_rad(sprite_angle_offset)
 	_aim_dir = dir
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	match state:
 		State.ORBIT:
 			_tick_orbit(delta)
@@ -89,10 +89,10 @@ func _process(delta: float) -> void:
 			_tick_spin_up(delta)
 		State.EMERGE:
 			_tick_emerge(delta)
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if state == State.FLY:
 		_tick_fly(delta)
-func _tick_orbit(delta: float) -> void:
+func _tick_orbit(delta: float) -> void :
 	_cooldown_timer -= delta
 	_orbit_t = fmod(_orbit_t + orbit_speed * delta, 1.0)
 	if _orbit_t < 0.0:
@@ -115,7 +115,7 @@ func _orbit_direction(t: float) -> Vector2:
 	elif t < 0.75:
 		return Vector2.LEFT
 	return Vector2.UP
-func _tick_aim(delta: float) -> void:
+func _tick_aim(delta: float) -> void :
 	_aim_timer -= delta
 	if is_instance_valid(_target):
 		var dir: Vector2 = (_target.global_position - global_position).normalized()
@@ -131,7 +131,7 @@ func _tick_aim(delta: float) -> void:
 			_disc_sprite.visible = false
 			_disc_sprite.modulate.a = 0.0
 			_disc_sprite.rotation = 0.0
-func _tick_spin_up(delta: float) -> void:
+func _tick_spin_up(delta: float) -> void :
 	_charge_timer -= delta
 	var progress: float = 1.0 - clampf(_charge_timer / charge_time, 0.0, 1.0)
 	_current_spin = charge_spin_speed * progress * progress
@@ -146,7 +146,7 @@ func _tick_spin_up(delta: float) -> void:
 		_disc_sprite.rotation = 0.0
 	if _charge_timer <= 0.0:
 		_start_fly()
-func _tick_fly(delta: float) -> void:
+func _tick_fly(delta: float) -> void :
 	_current_speed = minf(_current_speed + fly_accel * delta, fly_max_speed)
 	_current_spin = lerpf(_current_spin, disc_spin_speed, 8.0 * delta)
 	var move: Vector2 = _fly_dir * _current_speed * delta
@@ -164,7 +164,7 @@ func _tick_fly(delta: float) -> void:
 			_shake_camera()
 			_edge_shaken = true
 		_start_emerge()
-func _tick_emerge(delta: float) -> void:
+func _tick_emerge(delta: float) -> void :
 	_emerge_timer -= delta
 	var progress: float = 1.0 - clampf(_emerge_timer / emerge_time, 0.0, 1.0)
 	var eased: float = progress * progress * (3.0 - 2.0 * progress)
@@ -180,7 +180,7 @@ func _tick_emerge(delta: float) -> void:
 		_sword_sprite.modulate.a = eased
 	if _emerge_timer <= 0.0:
 		_finish_emerge()
-func _find_target() -> void:
+func _find_target() -> void :
 	if not is_instance_valid(player_ref):
 		return
 	var best: Node2D = null
@@ -203,7 +203,7 @@ func _find_target() -> void:
 		_aim_timer = aim_time
 	else:
 		_cooldown_timer = 0.5
-func _start_fly() -> void:
+func _start_fly() -> void :
 	state = State.FLY
 	_current_speed = fly_speed
 	_current_spin = charge_spin_speed
@@ -229,7 +229,7 @@ func _start_fly() -> void:
 		_disc_sprite.rotation = 0.0
 	if _sword_sprite:
 		_sword_sprite.modulate.a = 0.0
-func _start_emerge() -> void:
+func _start_emerge() -> void :
 	state = State.EMERGE
 	_emerge_timer = emerge_time
 	_emerge_start_pos = global_position
@@ -237,7 +237,7 @@ func _start_emerge() -> void:
 	_emerge_target_pos = _get_perimeter_point(_orbit_t)
 	_emerge_target_rot = _orbit_direction(_orbit_t).angle() + deg_to_rad(sprite_angle_offset)
 	_disc_visual_spin = _current_spin
-func _finish_emerge() -> void:
+func _finish_emerge() -> void :
 	state = State.ORBIT
 	_cooldown_timer = cooldown
 	_current_speed = fly_speed
@@ -258,7 +258,7 @@ func _finish_emerge() -> void:
 func _ray_exit_distance(origin: Vector2, dir: Vector2, rect: Rect2) -> float:
 	if dir.length_squared() < 0.0001:
 		return -1.0
-	var tmin: float = -INF
+	var tmin: float = - INF
 	var tmax: float = INF
 	var eps: float = 0.0001
 	if absf(dir.x) < eps:
@@ -319,9 +319,9 @@ func _position_to_orbit_t(pos: Vector2) -> float:
 	var best_t: float = 0.0
 	var best_d: float = INF
 	var candidates: Array[Vector2] = [
-		Vector2(clampf(rel.x, 0.0, w), 0.0),
-		Vector2(w, clampf(rel.y, 0.0, h)),
-		Vector2(clampf(rel.x, 0.0, w), h),
+		Vector2(clampf(rel.x, 0.0, w), 0.0), 
+		Vector2(w, clampf(rel.y, 0.0, h)), 
+		Vector2(clampf(rel.x, 0.0, w), h), 
 		Vector2(0.0, clampf(rel.y, 0.0, h))
 	]
 	for i in range(candidates.size()):
@@ -339,7 +339,7 @@ func _position_to_orbit_t(pos: Vector2) -> float:
 				3:
 					best_t = 0.75 + ((h - cand.y) / h) * 0.25
 	return best_t
-func _shake_camera() -> void:
+func _shake_camera() -> void :
 	if shake_strength <= 0.0:
 		return
 	var vp: Viewport = get_viewport()
@@ -355,9 +355,9 @@ func _shake_camera() -> void:
 	var tw: Tween = cam.create_tween()
 	for i in range(6):
 		var amp: float = shake_strength * 32.0 * (1.0 - float(i) / 6.0)
-		tw.tween_property(cam, "offset", base + Vector2(randf_range(-amp, amp), randf_range(-amp, amp)), 0.03)
+		tw.tween_property(cam, "offset", base + Vector2(randf_range( - amp, amp), randf_range( - amp, amp)), 0.03)
 	tw.tween_property(cam, "offset", base, 0.05)
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if state != State.FLY:
 		return
 	if body == null or not is_instance_valid(body):
@@ -365,7 +365,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("Enemy"):
 		return
 	_hit(body)
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void :
 	if state != State.FLY:
 		return
 	var target: Node = area.get_parent()
@@ -374,7 +374,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if not target.is_in_group("Enemy"):
 		return
 	_hit(target)
-func _hit(target: Node) -> void:
+func _hit(target: Node) -> void :
 	if _hit_enemies.has(target):
 		return
 	_hit_enemies.append(target)
@@ -387,7 +387,7 @@ func _hit(target: Node) -> void:
 		var enemy_target: Node2D = target as Node2D
 		enemy_target.knockback = _fly_dir * knockback
 	_play_hit_sfx()
-func _play_hit_sfx() -> void:
+func _play_hit_sfx() -> void :
 	if sfx_hit.is_empty():
 		return
 	var scene: Node = get_tree().current_scene
@@ -400,5 +400,4 @@ func _play_hit_sfx() -> void:
 	sound.global_position = global_position
 	scene.add_child(sound)
 	sound.play()
-	sound.finished.connect(func(): sound.queue_free())
-	
+	sound.finished.connect( func(): sound.queue_free())

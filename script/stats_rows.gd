@@ -5,7 +5,7 @@ const STAT_ORDER = ["max_health", "recovery", "armor", "movement_speed", "might"
 var fmt_num = func(v: float) -> String:
 	return str(int(v)) if v == round(v) else str(v)
 
-func show_stats(stats: Stats) -> void:
+func show_stats(stats: Stats) -> void :
 	for st in STAT_ORDER:
 		var row = get_node_or_null("Row_" + st)
 		if row == null:

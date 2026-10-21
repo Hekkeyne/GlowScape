@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://db6taw6d5e6su"]
 
-[ext_resource type="Script" uid="uid://b8f0juiqrgpij" path="res://script/music_wave_attack.gd" id="1_me7gx"]
-[ext_resource type="AudioStream" uid="uid://b5mwwyae3bd3s" path="res://resourse/audio/music_wave_attack.wav" id="2_n1geh"]
+[ext_resource type="Script" uid="uid://b8f0juiqrgpij" path="res://script/music_wave_attack.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://b5mwwyae3bd3s" path="res://resourse/audio/music_wave_attack.wav" id="2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ts85"]
 resource_local_to_scene = true
 radius = 17.0
 
@@ -11,13 +11,13 @@ radius = 17.0
 process_mode = 1
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_me7gx")
-sfx = Array[AudioStream]([ExtResource("2_n1geh")])
+script = ExtResource("1")
+sfx = [ExtResource("2")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=576228593]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=130012362]
-shape = SubResource("CircleShape2D_g4v7s")
+shape = SubResource("CircleShape2D_2ts85")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1291298760]
 self_modulate = Color(0.31764707, 0.9529412, 0.8509804, 1)

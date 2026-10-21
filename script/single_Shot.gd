@@ -14,7 +14,7 @@ func shoot(source, target, scene_tree):
 	player.position = source.position
 	scene_tree.current_scene.add_child(player)
 	player.play()
-	player.finished.connect(func(): player.queue_free())
+	player.finished.connect( func(): player.queue_free())
 	var projectiles = projectile_node.instantiate()
 	projectiles.position = source.position
 	projectiles.damage = damage

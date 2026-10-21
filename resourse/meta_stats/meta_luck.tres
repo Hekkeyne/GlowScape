@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="MetaStat" format=3 uid="uid://dc8atcwteuq2c"]
 
-[ext_resource type="Texture2D" uid="uid://xwt4ffwqecbx" path="res://sprites/luck_DIRECT.png" id="1_30vto"]
-[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="2_lq0ls"]
+[ext_resource type="Texture2D" uid="uid://xwt4ffwqecbx" path="res://sprites/luck_DIRECT.png" id="1"]
+[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="2"]
 
 [resource]
-script = ExtResource("2_lq0ls")
+script = ExtResource("2")
 stat_type = "luck"
 display_name = "META_LUCK"
-icon = ExtResource("1_30vto")
+icon = ExtResource("1")
 max_level = 10
 base_cost = 50
 cost_step = 25

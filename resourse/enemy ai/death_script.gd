@@ -32,7 +32,7 @@ extends EnemyAIBehavior
 @export var recover_anim: String = "close"
 @export var swing_anim: String = "fast"
 
-enum State { CHASE, AIM, DASH, RECOVER, SWING }
+enum State{CHASE, AIM, DASH, RECOVER, SWING}
 var state: int = State.CHASE
 var state_timer: float = 0.0
 var dash_dir: Vector2 = Vector2.RIGHT
@@ -46,7 +46,7 @@ var swing_side: float = 1.0
 var swing_timer: float = 0.0
 var strike_fired: bool = false
 
-func on_spawn(enemy: CharacterBody2D, _player: Node2D) -> void:
+func on_spawn(enemy: CharacterBody2D, _player: Node2D) -> void :
 	var e = enemy as EnemyBase
 	if not e:
 		return
@@ -54,7 +54,7 @@ func on_spawn(enemy: CharacterBody2D, _player: Node2D) -> void:
 	e.no_smoothing = true
 	e.force_particles = true
 
-func on_touch_player(e: EnemyBase, player: Node2D) -> void:
+func on_touch_player(e: EnemyBase, player: Node2D) -> void :
 	if not is_instance_valid(player):
 		return
 	if player.has_method("instant_death"):
@@ -84,7 +84,7 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 				tp_roll_timer -= 1.0
 				if tp_cd <= 0.0 and distance > 250.0 and randf() < teleport_chance:
 					_blink(e, player)
-					state_timer = -tp_stagger_time
+					state_timer = - tp_stagger_time
 					return Vector2.ZERO
 			if state_timer >= chase_time:
 				state_timer = 0.0
@@ -103,7 +103,7 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 			var wp = clampf(state_timer / aim_time, 0.0, 1.0)
 			if e.visual_node:
 				var amp = lerpf(1.0, 7.0, wp * wp)
-				e.visual_node.offset = Vector2(randf_range(-amp, amp), randf_range(-amp, amp))
+				e.visual_node.offset = Vector2(randf_range( - amp, amp), randf_range( - amp, amp))
 			e.modulate = Color.WHITE.lerp(Color(1.0, 0.25, 0.2), wp)
 			if wp >= 1.0:
 				if e.visual_node:
@@ -128,7 +128,7 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 			var phase_time = swing_windup + swing_strike
 			if swing_timer < swing_windup:
 				if e.visual_node:
-					e.visual_node.rotation = lerpf(e.visual_node.rotation, -swing_side * 1.1, 25.0 * delta)
+					e.visual_node.rotation = lerpf(e.visual_node.rotation, - swing_side * 1.1, 25.0 * delta)
 				e.scale_mult = lerpf(e.scale_mult, 1.12, 12.0 * delta)
 				e.modulate = Color(1.0, 0.85, 0.6) if fmod(state_timer, 0.1) < 0.05 else Color.WHITE
 			elif swing_timer < phase_time:
@@ -142,7 +142,7 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 				e.modulate = Color.WHITE
 			else:
 				swings_left -= 1
-				swing_side = -swing_side
+				swing_side = - swing_side
 				swing_timer = 0.0
 				strike_fired = false
 				if swings_left <= 0:
@@ -162,7 +162,7 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 			return Vector2.ZERO
 	return Vector2.ZERO
 
-func _enter_dash(e: EnemyBase, player: Node2D) -> void:
+func _enter_dash(e: EnemyBase, player: Node2D) -> void :
 	state = State.DASH
 	state_timer = 0.0
 	dash_traveled = 0.0
@@ -171,8 +171,8 @@ func _enter_dash(e: EnemyBase, player: Node2D) -> void:
 	dash_length = e.global_position.distance_to(target) + dash_overshoot
 	e.modulate = Color(1.0, 0.2, 0.2)
 
-func _blink(e: EnemyBase, player: Node2D) -> void:
-	var vel := Vector2.ZERO
+func _blink(e: EnemyBase, player: Node2D) -> void :
+	var vel: = Vector2.ZERO
 	if "velocity" in player and player.velocity is Vector2:
 		vel = player.velocity
 	var dir: Vector2
@@ -184,7 +184,7 @@ func _blink(e: EnemyBase, player: Node2D) -> void:
 	e.teleport_to(player.global_position + dir * dist)
 	tp_cd = teleport_cooldown
 
-func _fire_swing_slashes(e: EnemyBase, player: Node2D) -> void:
+func _fire_swing_slashes(e: EnemyBase, player: Node2D) -> void :
 	if not homing_slash_scene:
 		return
 	var base_dir = (player.global_position - e.global_position).normalized()

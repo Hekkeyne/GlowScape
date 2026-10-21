@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c8uovs17srxem"]
 
-[ext_resource type="Texture2D" uid="uid://chvvyc5ohpvwh" path="res://sprites/spider.png" id="1_1up6c"]
+[ext_resource type="Texture2D" uid="uid://chvvyc5ohpvwh" path="res://sprites/spider.png" id="1"]
 
 [node name="Node2D" type="Node2D" unique_id=665265748]
 
 [node name="Line" type="Line2D" parent="." unique_id=1407162260]
 width = 15.0
-texture = ExtResource("1_1up6c")
+texture = ExtResource("1")
 texture_mode = 1

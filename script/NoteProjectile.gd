@@ -5,14 +5,14 @@ class_name NoteProjectile
 @export_range(0.0, 400.0, 10.0) var homing_radius: float = 180.0
 @export_range(0.0, 10.0, 0.25) var homing_strength: float = 2.5
 
-var direction := Vector2.RIGHT
-var speed := 260.0
-var damage := 1.0
-var knockback := 40.0
+var direction: = Vector2.RIGHT
+var speed: = 260.0
+var damage: = 1.0
+var knockback: = 40.0
 var source
 
 var _hit_enemies: Array = []
-var lifetime := 2.5
+var lifetime: = 2.5
 var _home_target: Node2D = null
 var _home_timer: float = 0.0
 
@@ -20,7 +20,7 @@ const HOMING_INTERVAL: float = 0.15
 
 var net_id: int = 0
 
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("Projectile")
 	rotation = direction.angle()
 	if not body_entered.is_connected(_on_body_entered):
@@ -28,7 +28,7 @@ func _ready() -> void:
 	if not area_entered.is_connected(_on_area_entered):
 		area_entered.connect(_on_area_entered)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	_process_homing(delta)
 	global_position += direction * speed * delta
 	rotation_degrees += 360.0 * delta
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	if lifetime <= 0.0:
 		queue_free()
 
-func _process_homing(delta: float) -> void:
+func _process_homing(delta: float) -> void :
 	if homing_strength <= 0.0:
 		return
 	_home_timer -= delta
@@ -46,7 +46,7 @@ func _process_homing(delta: float) -> void:
 	if not is_instance_valid(_home_target):
 		return
 	var desired = (_home_target.global_position - global_position).angle()
-	var diff = wrapf(desired - direction.angle(), -PI, PI)
+	var diff = wrapf(desired - direction.angle(), - PI, PI)
 	direction = direction.rotated(signf(diff) * minf(absf(diff), homing_strength * delta))
 
 func _find_home_target() -> Node2D:
@@ -71,14 +71,14 @@ func _find_home_target() -> Node2D:
 			best = node
 	return best
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if body == null or not is_instance_valid(body):
 		return
 	if not body.is_in_group("Enemy"):
 		return
 	_hit(body, body.global_position)
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void :
 	var target = area.get_parent()
 	if target == null or not is_instance_valid(target):
 		return
@@ -89,7 +89,7 @@ func _on_area_entered(area: Area2D) -> void:
 		hit_position = target.global_position
 	_hit(target, hit_position)
 
-func _hit(target: Node, hit_position: Vector2) -> void:
+func _hit(target: Node, hit_position: Vector2) -> void :
 	if _hit_enemies.has(target):
 		return
 	_hit_enemies.append(target)
@@ -105,7 +105,7 @@ func _hit(target: Node, hit_position: Vector2) -> void:
 		target.knockback = kb * knockback
 	_play_sfx(hit_position)
 
-func _play_sfx(pos: Vector2) -> void:
+func _play_sfx(pos: Vector2) -> void :
 	if sfx.is_empty():
 		return
 	var player = get_node_or_null("AudioStreamPlayer2D")
@@ -116,7 +116,7 @@ func _play_sfx(pos: Vector2) -> void:
 	else:
 		_spawn_audio(sfx.pick_random(), pos, -16.0)
 
-func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db := -12.0) -> void:
+func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db: = -12.0) -> void :
 	if stream == null:
 		return
 	var scene = get_tree().current_scene
@@ -129,4 +129,4 @@ func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db := -12.0) -> void
 	player.global_position = pos
 	scene.add_child(player)
 	player.play()
-	player.finished.connect(func(): player.queue_free())
+	player.finished.connect( func(): player.queue_free())

@@ -65,7 +65,7 @@ const PHASE_BOOM = 4
 
 var net_id: int = 0
 
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("Projectile")
 	z_index = 55
 	field = get_node_or_null("Field")
@@ -95,13 +95,13 @@ func _ready() -> void:
 		_explosion_audio.bus = "Master"
 		add_child(_explosion_audio)
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	timer += delta
 	spin += delta * spin_speed
 	swirl.rotation = spin
-	rim.rotation = -spin * 0.6
+	rim.rotation = - spin * 0.6
 	if field:
-		field.rotation = -spin * 0.25
+		field.rotation = - spin * 0.25
 	match phase:
 		PHASE_FLY:
 			if not fly_init:
@@ -171,16 +171,16 @@ func _process(delta: float) -> void:
 			if wave_r >= explode_radius * 2.2 and knocked.is_empty():
 				queue_free()
 
-func _start_particles() -> void:
+func _start_particles() -> void :
 	for child in sparks.get_children():
 		if child is CPUParticles2D and not child.one_shot:
 			child.emitting = true
 
-func _field_scale() -> void:
+func _field_scale() -> void :
 	var s = current_pull / maxf(field_art_radius, 1.0)
 	field.scale = Vector2(s, s)
 
-func _pull(delta: float, strength_mult: float) -> void:
+func _pull(delta: float, strength_mult: float) -> void :
 	dot_tick += delta
 	var do_dot = dot_tick >= 0.5
 	if do_dot:
@@ -202,7 +202,7 @@ func _pull(delta: float, strength_mult: float) -> void:
 				node.take_damage(dealt)
 				damage_dealt += dealt
 
-func _spawn_missiles() -> void:
+func _spawn_missiles() -> void :
 	var count = mini(max_missiles, min_missiles + int(damage_dealt / maxf(damage_per_missile, 1.0)))
 	var shared_busy: Dictionary = {}
 	for i in range(count):
@@ -219,7 +219,7 @@ func _spawn_missiles() -> void:
 		get_tree().current_scene.add_child(missile)
 		missile.global_position = global_position
 
-func _wave_knock(delta: float) -> void:
+func _wave_knock(delta: float) -> void :
 	for node in get_tree().get_nodes_in_group("Enemy"):
 		if node == null or not is_instance_valid(node) or not node is Node2D:
 			continue
@@ -248,9 +248,9 @@ func _wave_knock(delta: float) -> void:
 			continue
 		k.n.global_position += k.d * knock_strength * (k.t / knock_time) * delta
 
-func _boom() -> void:
+func _boom() -> void :
 	_explosion_audio.pitch_scale = randf_range(0.8, 1.2)
-	_explosion_audio.volume_db=-15
+	_explosion_audio.volume_db = -15
 	if _explosion_audio != null:
 		_explosion_audio.play()
 	phase = PHASE_BOOM
@@ -293,7 +293,7 @@ func _might() -> float:
 		return source.might
 	return 1.0
 
-func _try_shake(amp: float, time: float) -> void:
+func _try_shake(amp: float, time: float) -> void :
 	if is_instance_valid(source) and source.has_method("screen_shake"):
 		source.screen_shake(amp, time)
 		return

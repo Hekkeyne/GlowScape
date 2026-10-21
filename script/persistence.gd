@@ -5,7 +5,7 @@ var meta_stats: Array = []
 @onready var bonus_stats: Stats = Stats.new()
 var character = null
 
-func _ready() -> void:
+func _ready() -> void :
 	meta_stats = _load_meta()
 	rebuild_bonus_stats()
 
@@ -58,7 +58,7 @@ func _bonus_for(char) -> Stats:
 				s.luck += total
 	return s
 
-func rebuild_bonus_stats(char = null) -> void:
+func rebuild_bonus_stats(char = null) -> void :
 	bonus_stats = _bonus_for(char if char != null else character)
 
 func get_combined_stats(base: Stats, char = null) -> Stats:

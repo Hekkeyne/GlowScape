@@ -6,7 +6,7 @@ class_name DirectUpgrade
 @export var effect_value: float = 1.0
 @export_enum("might", "area", "recovery", "armor", "movement_speed", "magnet", "growth", "luck", "max_health") var stat_type: String = "might"
 
-func apply(player) -> void:
+func apply(player) -> void :
 	if not is_instance_valid(player):
 		return
 	match stat_type:

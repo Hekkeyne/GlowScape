@@ -23,9 +23,9 @@ func _on_pressed(character: Character):
 		character.starting_weapon = ResourceLoader.load(character.starting_weapon.resource_path, "", ResourceLoader.CACHE_MODE_IGNORE)
 	Persistence.character = character
 	starting_weapon.texture = character.starting_weapon.icon
-	$"../../../TitleStartingWeapon".text=character.starting_weapon.title
+	$"../../../TitleStartingWeapon".text = character.starting_weapon.title
 	%StatsRows.show_stats(Persistence.get_combined_stats(character.base_stats, character))
 	%Play.disabled = false
-	%Multiplayer.disabled=false
+	%Multiplayer.disabled = false
 	emit_signal("on_play")
-	%Play/Label.text = "M_START2"
+	%Play / Label.text = "M_START2"

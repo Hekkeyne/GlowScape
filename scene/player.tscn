@@ -1,28 +1,28 @@
 [gd_scene format=3 uid="uid://bqcrmi3rtwqc1"]
 
-[ext_resource type="Script" uid="uid://crypf71rmqc07" path="res://script/player.gd" id="1_hjaqi"]
-[ext_resource type="Texture2D" uid="uid://sm6d1lrgufmr" path="res://sprites/XP_bar_under.png" id="2_ml7e8"]
-[ext_resource type="Texture2D" uid="uid://cvnkiftqhyg7p" path="res://sprites/progtess_bar_under.png" id="3_ct4mp"]
-[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="3_hp4bs"]
-[ext_resource type="Texture2D" uid="uid://hw6fji0pogwp" path="res://sprites/UI_placeholder.png" id="3_j4wxg"]
-[ext_resource type="Texture2D" uid="uid://d2qwr7sla38y" path="res://sprites/progtess_bar.png" id="4_s4jxa"]
-[ext_resource type="PackedScene" uid="uid://db4drylx548xy" path="res://scene/slot.tscn" id="5_s4jxa"]
-[ext_resource type="Texture2D" uid="uid://cy713xbjqk2xe" path="res://sprites/TargetPoint.png" id="8_g2vtq"]
-[ext_resource type="Texture2D" uid="uid://d33yn34yl5apc" path="res://sprites/XP_bar.png" id="9_2fvbb"]
-[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="9_ihjo1"]
-[ext_resource type="PackedScene" uid="uid://bmsqv0sspqyw8" path="res://scene/passive_slot.tscn" id="9_u7b46"]
-[ext_resource type="Script" uid="uid://x7xd55p5h8nf" path="res://script/random_button.gd" id="11_wt23p"]
-[ext_resource type="Script" uid="uid://cckq1o8ux8gdn" path="res://script/options.gd" id="12_dk1vr"]
-[ext_resource type="Texture2D" uid="uid://d4m3bkuiq7ib7" path="res://sprites/tp_bar.png" id="20_wt23p"]
-[ext_resource type="Texture2D" uid="uid://dw4kvc18xr1dg" path="res://sprites/button_ui.png" id="21_wt23p"]
-[ext_resource type="Texture2D" uid="uid://bel6fe0cpswi5" path="res://sprites/lazer_character_evolution.png" id="22_4reak"]
-[ext_resource type="Script" uid="uid://dxd2xpik37seq" path="res://script/card.gd" id="22_qucqc"]
-[ext_resource type="Texture2D" uid="uid://bi3abpvhhv7wd" path="res://sprites/wheel_spin.png" id="23_k8m7u"]
-[ext_resource type="Script" uid="uid://4pr1wo7unwan" path="res://script/camera_2d.gd" id="24_k8m7u"]
-[ext_resource type="Texture2D" uid="uid://bo4ovbwfkdlby" path="res://sprites/violet.png" id="24_qucqc"]
-[ext_resource type="PackedScene" uid="uid://c8wdk1vofpjl4" path="res://scene/pause_mode.tscn" id="24_wt23p"]
-[ext_resource type="Script" uid="uid://ofdi2ap15giq" path="res://script/back_button.gd" id="28_3vgh4"]
-[ext_resource type="Texture2D" uid="uid://jvx55qdca02s" path="res://sprites/card_sprite.png" id="29_h3knh"]
+[ext_resource type="Script" uid="uid://crypf71rmqc07" path="res://script/player.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://c8wdk1vofpjl4" path="res://scene/pause_mode.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://sm6d1lrgufmr" path="res://sprites/XP_bar_under.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://d33yn34yl5apc" path="res://sprites/XP_bar.png" id="5"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="6"]
+[ext_resource type="Texture2D" uid="uid://cvnkiftqhyg7p" path="res://sprites/progtess_bar_under.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://d2qwr7sla38y" path="res://sprites/progtess_bar.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://hw6fji0pogwp" path="res://sprites/UI_placeholder.png" id="9"]
+[ext_resource type="Script" uid="uid://cckq1o8ux8gdn" path="res://script/options.gd" id="10"]
+[ext_resource type="Script" uid="uid://x7xd55p5h8nf" path="res://script/random_button.gd" id="11"]
+[ext_resource type="PackedScene" uid="uid://db4drylx548xy" path="res://scene/slot.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://bmsqv0sspqyw8" path="res://scene/passive_slot.tscn" id="13"]
+[ext_resource type="Texture2D" uid="uid://d4m3bkuiq7ib7" path="res://sprites/tp_bar.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://dw4kvc18xr1dg" path="res://sprites/button_ui.png" id="15"]
+[ext_resource type="Script" uid="uid://dxd2xpik37seq" path="res://script/card.gd" id="16"]
+[ext_resource type="Texture2D" uid="uid://bi3abpvhhv7wd" path="res://sprites/wheel_spin.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://bo4ovbwfkdlby" path="res://sprites/violet.png" id="18"]
+[ext_resource type="Script" uid="uid://ofdi2ap15giq" path="res://script/back_button.gd" id="19"]
+[ext_resource type="Texture2D" uid="uid://jvx55qdca02s" path="res://sprites/card_sprite.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://cy713xbjqk2xe" path="res://sprites/TargetPoint.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://bel6fe0cpswi5" path="res://sprites/lazer_character_evolution.png" id="22"]
+[ext_resource type="Script" uid="uid://4pr1wo7unwan" path="res://script/camera_2d.gd" id="23"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_34jf3"]
 light_mode = 1
@@ -37,14 +37,14 @@ radius = 50.0
 
 [node name="player" type="CharacterBody2D" unique_id=561257320 groups=["Player"]]
 process_mode = 1
-script = ExtResource("1_hjaqi")
+script = ExtResource("1")
 invincible_duration = 0.25
 
 [node name="player" type="CPUParticles2D" parent="." unique_id=1119473783]
 texture_filter = 1
 emitting = false
 amount = 15
-texture = ExtResource("3_hp4bs")
+texture = ExtResource("2")
 lifetime_randomness = 0.67
 draw_order = 1
 emission_shape = 2
@@ -63,7 +63,7 @@ scale_amount_max = 3.0
 process_mode = 1
 layer = 2
 
-[node name="Pause_Mode" parent="UI" unique_id=1700640308 instance=ExtResource("24_wt23p")]
+[node name="Pause_Mode" parent="UI" unique_id=1700640308 instance=ExtResource("3")]
 process_mode = 3
 
 [node name="XP" type="TextureProgressBar" parent="UI" unique_id=1888533220]
@@ -82,8 +82,8 @@ offset_right = -75.0
 offset_bottom = 14.519997
 max_value = 0.0
 fill_mode = 1
-texture_under = ExtResource("2_ml7e8")
-texture_progress = ExtResource("9_2fvbb")
+texture_under = ExtResource("4")
+texture_progress = ExtResource("5")
 
 [node name="Level" type="Label" parent="UI/XP" unique_id=580397342]
 unique_name_in_owner = true
@@ -93,7 +93,7 @@ offset_top = 22.0
 offset_right = 748.0
 offset_bottom = 45.0
 theme_override_colors/font_color = Color(0.9843137, 0.9490196, 0.21176471, 1)
-theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_fonts/font = ExtResource("6")
 theme_override_font_sizes/font_size = 20
 text = "LABEL_LEVEL"
 
@@ -110,8 +110,8 @@ offset_bottom = 14.519997
 grow_horizontal = 0
 mouse_filter = 2
 value = 100.0
-texture_under = ExtResource("3_ct4mp")
-texture_progress = ExtResource("4_s4jxa")
+texture_under = ExtResource("7")
+texture_progress = ExtResource("8")
 
 [node name="HealthLabel" type="Label" parent="UI/health" unique_id=1905651333]
 unique_name_in_owner = true
@@ -121,7 +121,7 @@ offset_top = 22.0
 offset_right = 752.0
 offset_bottom = 45.0
 theme_override_colors/font_color = Color(0.41568628, 0.74509805, 0.1882353, 1)
-theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_fonts/font = ExtResource("6")
 theme_override_font_sizes/font_size = 20
 text = "LABEL_HEALTH"
 horizontal_alignment = 2
@@ -142,7 +142,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_j4wxg")
+texture = ExtResource("9")
 region_rect = Rect2(0, 0, 40, 40)
 patch_margin_left = 3
 patch_margin_top = 3
@@ -167,7 +167,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
-script = ExtResource("12_dk1vr")
+script = ExtResource("10")
 weapons = NodePath("../../weapons")
 passive_items = NodePath("../../PassiveItems")
 particles = NodePath("../../../Camera2D/Particle")
@@ -183,7 +183,7 @@ offset_top = 27.0
 offset_right = 225.0
 offset_bottom = 80.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_fonts/font = ExtResource("6")
 theme_override_font_sizes/font_size = 25
 text = "УРОВЕНЬ ПОВЫШЕН
 выберите улучшение"
@@ -202,7 +202,7 @@ offset_right = -265.0
 offset_bottom = -16.52002
 grow_horizontal = 2
 mouse_filter = 1
-script = ExtResource("11_wt23p")
+script = ExtResource("11")
 
 [node name="Button_Texture" type="NinePatchRect" parent="UI/Panel/RandomButton" unique_id=462862583]
 layout_mode = 1
@@ -212,7 +212,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-texture = ExtResource("3_j4wxg")
+texture = ExtResource("9")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
@@ -225,7 +225,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_fonts/font = ExtResource("6")
 theme_override_font_sizes/font_size = 20
 text = "RANDOM_BUTTON"
 horizontal_alignment = 1
@@ -245,22 +245,22 @@ offset_bottom = 134.51999
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="slot" parent="UI/weapons" unique_id=123618376 instance=ExtResource("5_s4jxa")]
+[node name="slot" parent="UI/weapons" unique_id=123618376 instance=ExtResource("12")]
 layout_mode = 2
 
-[node name="slot2" parent="UI/weapons" unique_id=1449733323 instance=ExtResource("5_s4jxa")]
+[node name="slot2" parent="UI/weapons" unique_id=1449733323 instance=ExtResource("12")]
 layout_mode = 2
 
-[node name="slot3" parent="UI/weapons" unique_id=466929034 instance=ExtResource("5_s4jxa")]
+[node name="slot3" parent="UI/weapons" unique_id=466929034 instance=ExtResource("12")]
 layout_mode = 2
 
-[node name="slot4" parent="UI/weapons" unique_id=338462428 instance=ExtResource("5_s4jxa")]
+[node name="slot4" parent="UI/weapons" unique_id=338462428 instance=ExtResource("12")]
 layout_mode = 2
 
-[node name="slot5" parent="UI/weapons" unique_id=1943271243 instance=ExtResource("5_s4jxa")]
+[node name="slot5" parent="UI/weapons" unique_id=1943271243 instance=ExtResource("12")]
 layout_mode = 2
 
-[node name="slot6" parent="UI/weapons" unique_id=357824885 instance=ExtResource("5_s4jxa")]
+[node name="slot6" parent="UI/weapons" unique_id=357824885 instance=ExtResource("12")]
 layout_mode = 2
 
 [node name="PassiveItems" type="HBoxContainer" parent="UI" unique_id=1846147967]
@@ -272,22 +272,22 @@ offset_top = 74.52
 offset_right = 815.0
 offset_bottom = 134.51999
 
-[node name="PassiveSlot" parent="UI/PassiveItems" unique_id=1616843693 instance=ExtResource("9_u7b46")]
+[node name="PassiveSlot" parent="UI/PassiveItems" unique_id=1616843693 instance=ExtResource("13")]
 layout_mode = 2
 
-[node name="PassiveSlot2" parent="UI/PassiveItems" unique_id=1683618962 instance=ExtResource("9_u7b46")]
+[node name="PassiveSlot2" parent="UI/PassiveItems" unique_id=1683618962 instance=ExtResource("13")]
 layout_mode = 2
 
-[node name="PassiveSlot3" parent="UI/PassiveItems" unique_id=732086170 instance=ExtResource("9_u7b46")]
+[node name="PassiveSlot3" parent="UI/PassiveItems" unique_id=732086170 instance=ExtResource("13")]
 layout_mode = 2
 
-[node name="PassiveSlot4" parent="UI/PassiveItems" unique_id=935456900 instance=ExtResource("9_u7b46")]
+[node name="PassiveSlot4" parent="UI/PassiveItems" unique_id=935456900 instance=ExtResource("13")]
 layout_mode = 2
 
-[node name="PassiveSlot5" parent="UI/PassiveItems" unique_id=2093134086 instance=ExtResource("9_u7b46")]
+[node name="PassiveSlot5" parent="UI/PassiveItems" unique_id=2093134086 instance=ExtResource("13")]
 layout_mode = 2
 
-[node name="PassiveSlot6" parent="UI/PassiveItems" unique_id=1304895571 instance=ExtResource("9_u7b46")]
+[node name="PassiveSlot6" parent="UI/PassiveItems" unique_id=1304895571 instance=ExtResource("13")]
 layout_mode = 2
 
 [node name="Teleport" type="TextureProgressBar" parent="UI" unique_id=454279724]
@@ -303,8 +303,8 @@ offset_right = 75.0
 offset_bottom = 89.52
 grow_horizontal = 2
 value = 100.0
-texture_under = ExtResource("20_wt23p")
-texture_progress = ExtResource("20_wt23p")
+texture_under = ExtResource("14")
+texture_progress = ExtResource("14")
 
 [node name="TeleportLabel" type="Label" parent="UI/Teleport" unique_id=860513719]
 unique_name_in_owner = true
@@ -313,7 +313,7 @@ offset_left = -36.0
 offset_top = 17.0
 offset_right = 188.0
 offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_fonts/font = ExtResource("6")
 text = "LABEL_TELEPORT"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -334,13 +334,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("21_wt23p")
+texture = ExtResource("15")
 region_rect = Rect2(0, 0, 40, 40)
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
-script = ExtResource("22_qucqc")
+script = ExtResource("16")
 
 [node name="WheelSprite" type="TextureRect" parent="UI/Card" unique_id=1552645296]
 layout_mode = 1
@@ -353,7 +353,7 @@ offset_right = 216.0
 offset_bottom = 454.0
 grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("23_k8m7u")
+texture = ExtResource("17")
 stretch_mode = 5
 
 [node name="Reward" type="Control" parent="UI/Card/WheelSprite" unique_id=45238788]
@@ -378,7 +378,7 @@ offset_left = 49.0
 offset_top = -80.00006
 offset_right = 113.0
 offset_bottom = -16.000061
-texture = ExtResource("24_qucqc")
+texture = ExtResource("18")
 
 [node name="TextureRect2" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=1572282070]
 custom_minimum_size = Vector2(32, 32)
@@ -388,7 +388,7 @@ offset_left = 161.0
 offset_top = -80.00006
 offset_right = 225.0
 offset_bottom = -16.000061
-texture = ExtResource("24_qucqc")
+texture = ExtResource("18")
 
 [node name="TextureRect3" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=512966814]
 custom_minimum_size = Vector2(32, 32)
@@ -398,7 +398,7 @@ offset_left = 241.0
 offset_top = -6.1035156e-05
 offset_right = 305.0
 offset_bottom = 63.99994
-texture = ExtResource("24_qucqc")
+texture = ExtResource("18")
 
 [node name="TextureRect4" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=107477547]
 custom_minimum_size = Vector2(32, 32)
@@ -408,7 +408,7 @@ offset_left = 241.0
 offset_top = 111.99994
 offset_right = 305.0
 offset_bottom = 175.99994
-texture = ExtResource("24_qucqc")
+texture = ExtResource("18")
 
 [node name="TextureRect5" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=1683353833]
 custom_minimum_size = Vector2(32, 32)
@@ -418,7 +418,7 @@ offset_left = 161.0
 offset_top = 191.99994
 offset_right = 225.0
 offset_bottom = 255.99994
-texture = ExtResource("24_qucqc")
+texture = ExtResource("18")
 
 [node name="TextureRect6" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=1982615659]
 custom_minimum_size = Vector2(32, 32)
@@ -428,7 +428,7 @@ offset_left = 49.0
 offset_top = 191.99994
 offset_right = 113.0
 offset_bottom = 255.99994
-texture = ExtResource("24_qucqc")
+texture = ExtResource("18")
 
 [node name="TextureRect7" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=2067599216]
 custom_minimum_size = Vector2(32, 32)
@@ -438,7 +438,7 @@ offset_left = -31.0
 offset_top = 111.99994
 offset_right = 33.0
 offset_bottom = 175.99994
-texture = ExtResource("24_qucqc")
+texture = ExtResource("18")
 
 [node name="TextureRect8" type="TextureRect" parent="UI/Card/WheelSprite/Reward" unique_id=293736418]
 custom_minimum_size = Vector2(32, 32)
@@ -448,7 +448,7 @@ offset_left = -31.0
 offset_top = -6.1035156e-05
 offset_right = 33.0
 offset_bottom = 63.99994
-texture = ExtResource("24_qucqc")
+texture = ExtResource("18")
 
 [node name="Open" type="TextureButton" parent="UI/Card" unique_id=1241371683]
 custom_minimum_size = Vector2(250, 85)
@@ -472,7 +472,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-texture = ExtResource("3_j4wxg")
+texture = ExtResource("9")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
@@ -485,7 +485,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_fonts/font = ExtResource("6")
 theme_override_font_sizes/font_size = 20
 text = "Крутить"
 horizontal_alignment = 1
@@ -514,7 +514,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-texture = ExtResource("3_j4wxg")
+texture = ExtResource("9")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
@@ -527,7 +527,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_fonts/font = ExtResource("6")
 theme_override_font_sizes/font_size = 20
 text = "BACK_BUTTON"
 horizontal_alignment = 1
@@ -547,7 +547,7 @@ offset_right = 300.19998
 offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_fonts/font = ExtResource("6")
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -563,7 +563,7 @@ offset_left = 64.0
 offset_top = 41.519997
 offset_right = 224.0
 offset_bottom = 64.52
-theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_fonts/font = ExtResource("6")
 theme_override_font_sizes/font_size = 20
 text = "TR_CHIPS"
 
@@ -579,7 +579,7 @@ offset_right = -533.0
 offset_bottom = 53.359985
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("28_3vgh4")
+script = ExtResource("19")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/Back" unique_id=1952495778]
 show_behind_parent = true
@@ -590,7 +590,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("29_h3knh")
+texture = ExtResource("20")
 region_rect = Rect2(0, 0, 32, 51)
 patch_margin_left = 6
 patch_margin_top = 6
@@ -613,19 +613,19 @@ offset_right = 60.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_ihjo1")
+theme_override_fonts/font = ExtResource("6")
 theme_override_font_sizes/font_size = 50
 text = "EXIT_TO_MENU"
 
 [node name="TargetPoint" type="Sprite2D" parent="." unique_id=445790419]
 unique_name_in_owner = true
 modulate = Color(0.5568628, 0, 0.8784314, 1)
-texture = ExtResource("8_g2vtq")
+texture = ExtResource("21")
 
 [node name="ring" type="CPUParticles2D" parent="TargetPoint" unique_id=1748464753]
 unique_name_in_owner = true
 amount = 10
-texture = ExtResource("3_hp4bs")
+texture = ExtResource("2")
 lifetime = 0.25
 lifetime_randomness = 1.0
 emission_shape = 1
@@ -635,7 +635,7 @@ scale_amount_min = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=316768836]
 modulate = Color(1.4369954, 1.4369954, 1.4369954, 1)
-texture = ExtResource("22_4reak")
+texture = ExtResource("22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=156322994]
 shape = SubResource("CircleShape2D_g4v7s")
@@ -644,7 +644,7 @@ shape = SubResource("CircleShape2D_g4v7s")
 texture_filter = 1
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
-script = ExtResource("24_k8m7u")
+script = ExtResource("23")
 portrait_zoom = 1.5
 
 [node name="Particle" type="CPUParticles2D" parent="Camera2D" unique_id=1852914260]
@@ -652,7 +652,7 @@ process_mode = 3
 self_modulate = Color(0.9843137, 0.9490196, 0.21176471, 1)
 position = Vector2(0, 1080)
 amount = 100
-texture = ExtResource("3_hp4bs")
+texture = ExtResource("2")
 lifetime = 2.0
 preprocess = 0.39
 emission_shape = 3
@@ -690,7 +690,7 @@ one_shot = true
 [node name="start_teleport" type="CPUParticles2D" parent="." unique_id=218182458]
 emitting = false
 amount = 15
-texture = ExtResource("3_hp4bs")
+texture = ExtResource("2")
 one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 1.0

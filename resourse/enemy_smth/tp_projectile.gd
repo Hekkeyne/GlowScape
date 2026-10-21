@@ -7,12 +7,12 @@ var lifetime: float = 1.0
 var caster: Node2D = null
 var decel: float = 0.0
 
-func _ready() -> void:
+func _ready() -> void :
 	monitoring = false
 	velocity = direction * speed
 	decel = speed / maxf(lifetime, 0.05)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	velocity = velocity.move_toward(Vector2.ZERO, decel * delta)
 	position += velocity * delta
 	rotation += 8.0 * delta * (velocity.length() / speed)

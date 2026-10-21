@@ -19,7 +19,7 @@ extends EnemyAIBehavior
 @export_range(20.0, 150.0, 10.0) var gem_attract_speed: float = 60.0
 @export_range(0.1, 2.0, 0.05) var search_interval: float = 0.5
 
-enum State { SEARCHING, MOVING_TO_GEM, PREPARING, SHOOTING, DYING }
+enum State{SEARCHING, MOVING_TO_GEM, PREPARING, SHOOTING, DYING}
 var state: int = State.SEARCHING
 var target_gem: Area2D = null
 var shoot_timer: float = 0.0
@@ -109,7 +109,7 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 			var eased_progress = progress * progress
 			if e.visual_node:
 				var shake_intensity = eased_progress * max_shake_intensity
-				e.visual_node.position = Vector2(randf_range(-shake_intensity, shake_intensity), randf_range(-shake_intensity, shake_intensity))
+				e.visual_node.position = Vector2(randf_range( - shake_intensity, shake_intensity), randf_range( - shake_intensity, shake_intensity))
 			if die_timer <= 0.0:
 				_release_target_gem()
 				_set_attracting(e, false)
@@ -119,11 +119,11 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 			return Vector2.ZERO
 	return Vector2.ZERO
 
-func on_death(_enemy: CharacterBody2D) -> void:
+func on_death(_enemy: CharacterBody2D) -> void :
 	_release_target_gem()
 	is_attracting = false
 
-func _release_target_gem() -> void:
+func _release_target_gem() -> void :
 	if is_instance_valid(target_gem):
 		if target_gem.has_method("stop_attract"):
 			target_gem.stop_attract()

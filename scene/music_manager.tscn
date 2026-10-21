@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://biyvabeehjb25"]
 
-[ext_resource type="Script" uid="uid://b71obdhwryrh3" path="res://script/music_manager.gd" id="1_lexfc"]
-[ext_resource type="AudioStream" uid="uid://uc6aeneimx8v" path="res://resourse/music/01. Battle Theme I (full).ogg" id="2_kkflv"]
-[ext_resource type="AudioStream" uid="uid://b5dy11nt0ju6k" path="res://resourse/music/09. Battle Theme II (full).ogg" id="3_yvcws"]
-[ext_resource type="AudioStream" uid="uid://dpb7t3r7nypw8" path="res://resourse/music/16. Battle Theme III (full).ogg" id="4_mvmqu"]
-[ext_resource type="AudioStream" uid="uid://d3j11ulllr7uq" path="res://resourse/music/24. Battle Theme IV (full).ogg" id="5_iq1qn"]
-[ext_resource type="AudioStream" uid="uid://dcnkdenj80oq0" path="res://resourse/music/play_theme_1.ogg" id="6_gdyun"]
-[ext_resource type="AudioStream" uid="uid://7ugeuvwriypq" path="res://resourse/music/play_theme_2.ogg" id="7_ix1jf"]
-[ext_resource type="AudioStream" uid="uid://etdvib6cht2s" path="res://resourse/music/play_theme_3.ogg" id="8_56d0b"]
-[ext_resource type="AudioStream" uid="uid://bsmqnwin52i73" path="res://resourse/music/play_theme_4.ogg" id="9_xog0y"]
+[ext_resource type="Script" uid="uid://b71obdhwryrh3" path="res://script/music_manager.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://uc6aeneimx8v" path="res://resourse/music/01. Battle Theme I (full).ogg" id="2"]
+[ext_resource type="AudioStream" uid="uid://b5dy11nt0ju6k" path="res://resourse/music/09. Battle Theme II (full).ogg" id="3"]
+[ext_resource type="AudioStream" uid="uid://dpb7t3r7nypw8" path="res://resourse/music/16. Battle Theme III (full).ogg" id="4"]
+[ext_resource type="AudioStream" uid="uid://d3j11ulllr7uq" path="res://resourse/music/24. Battle Theme IV (full).ogg" id="5"]
+[ext_resource type="AudioStream" uid="uid://dcnkdenj80oq0" path="res://resourse/music/play_theme_1.ogg" id="6"]
+[ext_resource type="AudioStream" uid="uid://7ugeuvwriypq" path="res://resourse/music/play_theme_2.ogg" id="7"]
+[ext_resource type="AudioStream" uid="uid://etdvib6cht2s" path="res://resourse/music/play_theme_3.ogg" id="8"]
+[ext_resource type="AudioStream" uid="uid://bsmqnwin52i73" path="res://resourse/music/play_theme_4.ogg" id="9"]
 
 [node name="MusicManager" type="Control" unique_id=293318194]
 process_mode = 3
@@ -18,8 +18,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lexfc")
-built_in_tracks = Array[AudioStream]([ExtResource("2_kkflv"), ExtResource("3_yvcws"), ExtResource("4_mvmqu"), ExtResource("5_iq1qn"), ExtResource("6_gdyun"), ExtResource("7_ix1jf"), ExtResource("8_56d0b"), ExtResource("9_xog0y")])
+script = ExtResource("1")
+built_in_tracks = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=966281847]
 process_mode = 3

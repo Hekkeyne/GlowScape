@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kjyl5smpkh1e"]
 
-[ext_resource type="Script" uid="uid://xed5j6w6jfhv" path="res://script/star_projectile.gd" id="1_l3375"]
-[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="4_5jd6r"]
+[ext_resource type="Script" uid="uid://xed5j6w6jfhv" path="res://script/star_projectile.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(10, 10)
@@ -10,7 +10,7 @@ size = Vector2(10, 10)
 process_mode = 1
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_l3375")
+script = ExtResource("1")
 spin_speed = 0.0
 max_pierce = 5
 
@@ -22,7 +22,7 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1291298760]
 self_modulate = Color(0.7647059, 0.7529412, 0.7529412, 1)
 amount = 10
-texture = ExtResource("4_5jd6r")
+texture = ExtResource("2")
 draw_order = 1
 emission_shape = 1
 emission_sphere_radius = 5.0

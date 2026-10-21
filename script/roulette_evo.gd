@@ -12,7 +12,7 @@ class_name RouletteEvolution
 @export_range(0.05, 0.5, 0.05) var highlight_alpha: float = 0.18
 @export_range(0.0, 1000.0, 50.0) var strike_knockback: float = 300.0
 
-enum State { IDLE, APPEARING, FILLING, LOCK, STRIKING, DISAPPEARING }
+enum State{IDLE, APPEARING, FILLING, LOCK, STRIKING, DISAPPEARING}
 var state: int = State.IDLE
 var appear_timer: float = 0.0
 var fill_timer: float = 0.0
@@ -54,7 +54,7 @@ func activate(source, _target, scene_tree):
 	visual.sweep_active = false
 	visual.line_progress = 0.0
 	visual.line_alpha = 1.0
-	base_rotation = -PI / 2.0 - (TAU / base_sectors) / 2.0
+	base_rotation = - PI / 2.0 - (TAU / base_sectors) / 2.0
 	visual.base_rotation = base_rotation
 	visual.highlight_index = -1
 	visual.strike_index = -1
@@ -159,7 +159,7 @@ func _screen_radius() -> float:
 		zoom = maxf(cam.zoom.x, 0.001)
 	return (vp_size.length() * 0.5 / zoom) * 1.1
 
-func _start_strike() -> void:
+func _start_strike() -> void :
 	state = State.STRIKING
 	strike_timer = 0.0
 	visual.lit_sectors.clear()
@@ -170,7 +170,7 @@ func _start_strike() -> void:
 	visual.queue_redraw()
 	_deal_damage()
 
-func _deal_damage() -> void:
+func _deal_damage() -> void :
 	if not is_instance_valid(source_ref) or tree_ref == null:
 		return
 	var center = source_ref.global_position
@@ -194,7 +194,7 @@ func _deal_damage() -> void:
 			if "knockback" in enemy:
 				enemy.knockback = kb_dir * strike_knockback
 
-func _kill_visual() -> void:
+func _kill_visual() -> void :
 	if is_instance_valid(visual):
 		visual.queue_free()
 	visual = null

@@ -10,13 +10,13 @@ var _speed: float = 210.0
 var _add_speed: float = 1.0
 var _sprite: Sprite2D = null
 
-func _ready() -> void:
+func _ready() -> void :
 	_player_ref = get_tree().get_first_node_in_group("Player")
 	_sprite = get_node_or_null("Sprite2D")
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)
 
-func update_from_snapshot(entry: Dictionary) -> void:
+func update_from_snapshot(entry: Dictionary) -> void :
 	_net_id = int(entry.get("id", 0))
 	target_pos = entry.get("pos", Vector2.ZERO)
 	var type_path = entry.get("type", "")
@@ -30,7 +30,7 @@ func update_from_snapshot(entry: Dictionary) -> void:
 		if is_mega:
 			modulate = Color.YELLOW
 
-func _load_type(type_path: String) -> void:
+func _load_type(type_path: String) -> void :
 	if _sprite == null:
 		return
 	if not ResourceLoader.exists(type_path):
@@ -41,12 +41,12 @@ func _load_type(type_path: String) -> void:
 	if "icon" in type_res and type_res.icon != null:
 		_sprite.texture = type_res.icon
 
-func follow(_target: CharacterBody2D) -> void:
+func follow(_target: CharacterBody2D) -> void :
 	if _collected:
 		return
 	_following = true
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if _collected:
 		return
 	if _following and _player_ref and is_instance_valid(_player_ref) and not _player_ref.is_dead:
@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		global_position = global_position.lerp(target_pos, clampf(delta * 12.0, 0.0, 1.0))
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if _collected:
 		return
 	if body == _player_ref and _player_ref and not _player_ref.is_dead:

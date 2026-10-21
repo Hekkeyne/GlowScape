@@ -20,7 +20,7 @@ var _age: float = 0.0
 var _pierce_count: int = 0
 var _current_speed: float = 300.0
 
-func _ready() -> void:
+func _ready() -> void :
 	_current_speed = speed
 	add_to_group("Projectile")
 	if bullet_texture:
@@ -33,7 +33,7 @@ func _ready() -> void:
 	if not area_entered.is_connected(_on_area_entered):
 		area_entered.connect(_on_area_entered)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	_age += delta
 	if _age >= lifetime:
 		queue_free()
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	rotation += spin_speed * delta
 	global_position += direction * _current_speed * delta
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if body == null or not is_instance_valid(body):
 		return
 	if body == source:
@@ -50,7 +50,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	_hit(body, body.global_position)
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void :
 	var target = area.get_parent()
 	if target == null or not is_instance_valid(target):
 		return
@@ -60,7 +60,7 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 	_hit(target, target.global_position)
 
-func _hit(target: Node, hit_position: Vector2) -> void:
+func _hit(target: Node, hit_position: Vector2) -> void :
 	if _hit_enemies.has(target):
 		return
 	_hit_enemies.append(target)
@@ -81,7 +81,7 @@ func _hit(target: Node, hit_position: Vector2) -> void:
 	if _pierce_count >= max_pierce:
 		queue_free()
 
-func _play_pierce_flash() -> void:
+func _play_pierce_flash() -> void :
 	var sprite = get_node_or_null("Sprite2D")
 	if not sprite:
 		return
@@ -90,7 +90,7 @@ func _play_pierce_flash() -> void:
 	tw.tween_property(sprite, "modulate", Color(3.0, 3.0, 3.0, 1.0), 0.04)
 	tw.tween_property(sprite, "modulate", original, 0.08)
 
-func _play_hit_sfx(pos: Vector2) -> void:
+func _play_hit_sfx(pos: Vector2) -> void :
 	if sfx_hit.is_empty():
 		return
 	var player = AudioStreamPlayer2D.new()
@@ -100,4 +100,4 @@ func _play_hit_sfx(pos: Vector2) -> void:
 	player.global_position = pos
 	get_tree().current_scene.add_child(player)
 	player.play()
-	player.finished.connect(func(): player.queue_free())
+	player.finished.connect( func(): player.queue_free())

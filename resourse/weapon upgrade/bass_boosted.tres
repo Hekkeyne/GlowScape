@@ -1,34 +1,35 @@
 [gd_resource type="Resource" script_class="Requiem" format=3 uid="uid://cje761hula56t"]
 
-[ext_resource type="Texture2D" uid="uid://spxwvb8lvxw8" path="res://sprites/music_wave_icon_evolution.png" id="1_0snj8"]
-[ext_resource type="Texture2D" uid="uid://cie7jue0fkmqt" path="res://sprites/music_wave_icon.png" id="1_d6r6n"]
-[ext_resource type="Script" uid="uid://c12hn1q6eikm4" path="res://script/music_wave_evolved.gd" id="1_hxk35"]
-[ext_resource type="Texture2D" uid="uid://jas6j7fohqa2" path="res://sprites/area.png" id="2_er11x"]
-[ext_resource type="PackedScene" uid="uid://bhuxbkia4n0mn" path="res://scene/NoteProjectile.tscn" id="2_pvsqb"]
-[ext_resource type="Texture2D" uid="uid://bm60jjchd1xfg" path="res://sprites/note1.png" id="3_mjvoq"]
-[ext_resource type="Texture2D" uid="uid://b3qqx5ni51gsu" path="res://sprites/note2.png" id="4_d6r6n"]
-[ext_resource type="Texture2D" uid="uid://bihy17aeru1qm" path="res://sprites/music_wave_evolution.png" id="4_o7cij"]
-[ext_resource type="Texture2D" uid="uid://c3dpdwgbb0eyn" path="res://sprites/note3.png" id="5_er11x"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="5_mjvoq"]
-[ext_resource type="PackedScene" uid="uid://db6taw6d5e6su" path="res://scene/music_wave_attack.tscn" id="8_er11x"]
+[ext_resource type="Texture2D" uid="uid://cie7jue0fkmqt" path="res://sprites/music_wave_icon.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://jas6j7fohqa2" path="res://sprites/area.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://spxwvb8lvxw8" path="res://sprites/music_wave_icon_evolution.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://bhuxbkia4n0mn" path="res://scene/NoteProjectile.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://bm60jjchd1xfg" path="res://sprites/note1.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://b3qqx5ni51gsu" path="res://sprites/note2.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://c3dpdwgbb0eyn" path="res://sprites/note3.png" id="7"]
+[ext_resource type="PackedScene" uid="uid://db6taw6d5e6su" path="res://scene/music_wave_attack.tscn" id="8"]
+[ext_resource type="Script" uid="uid://c12hn1q6eikm4" path="res://script/music_wave_evolved.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://bihy17aeru1qm" path="res://sprites/music_wave_evolution.png" id="10"]
 
 [resource]
-script = ExtResource("1_hxk35")
+script = ExtResource("9")
 angular_speed = 15.0
 area_percent = 100.0
-note_scene = ExtResource("2_pvsqb")
-note_textures = Array[Texture2D]([ExtResource("3_mjvoq"), ExtResource("4_d6r6n"), ExtResource("5_er11x")])
+note_scene = ExtResource("4")
+note_textures = [ExtResource("5"), ExtResource("6"), ExtResource("7")]
 notes_amount = 10
 note_speed = 500.0
 note_damage_multiplier = 1.5
 big_beat_knockback = 300.0
 damage = 15.0
 cooldown = 1.0
-projectile_node = ExtResource("8_er11x")
-before_evolution = ExtResource("1_d6r6n")
-before_item_needed = ExtResource("2_er11x")
+projectile_node = ExtResource("8")
+item_needed = null
+evolution = null
+before_evolution = ExtResource("1")
+before_item_needed = ExtResource("2")
 title = "REQUIEM"
-icon = ExtResource("1_0snj8")
-texture = ExtResource("4_o7cij")
+icon = ExtResource("3")
+texture = ExtResource("10")
 description = "REQUIEM_DESCRIPTION"
 metadata/_custom_type_script = "uid://b75ytld3rh0xq"

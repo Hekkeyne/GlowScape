@@ -28,29 +28,29 @@ func _ready():
 	_popup_pool = UpgradePopupPool.new()
 	get_tree().current_scene.add_child.call_deferred(_popup_pool)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void :
 	if event.is_action_pressed("random_upgrade"):
 		trigger_random_upgrade()
 
-func queue_level_up() -> void:
+func queue_level_up() -> void :
 	_pending_levels += 1
 	if not visible and not _is_showing:
 		_show_next()
 
-func _show_next() -> void:
+func _show_next() -> void :
 	if _pending_levels <= 0:
 		return
 	_pending_levels -= 1
 	_is_showing = true
 	show_options()
 
-func trigger_random_upgrade() -> void:
+func trigger_random_upgrade() -> void :
 	if not random_upgrade_used:
 		random_upgrade_used = true
 	if visible:
 		_pick_random_visible_slot()
 
-func _pick_random_visible_slot() -> void:
+func _pick_random_visible_slot() -> void :
 	var slots: Array = []
 	for child in get_children():
 		if child is DirectUpgradeSlot:
@@ -158,7 +158,7 @@ func show_options():
 	var start_pos = Vector2(center.x - p_size.x / 2.0, rect.end.y + p_size.y)
 	var target_pos = center - p_size / 2.0
 	%Panel.global_position = start_pos
-	create_tween().tween_property(%Panel, "global_position", target_pos, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	create_tween().tween_property( %Panel, "global_position", target_pos, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	particles.emitting = true
 	panel.show()
 	if not multiplayer.has_multiplayer_peer():
@@ -197,13 +197,13 @@ func show_direct_upgrades():
 	var start_pos = Vector2(center.x - p_size.x / 2.0, rect.end.y + p_size.y)
 	var target_pos = center - p_size / 2.0
 	%Panel.global_position = start_pos
-	create_tween().tween_property(%Panel, "global_position", target_pos, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	create_tween().tween_property( %Panel, "global_position", target_pos, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	particles.emitting = true
 	panel.show()
 	if not multiplayer.has_multiplayer_peer():
 		get_tree().paused = true
 
-func apply_random_upgrade(all_maxed: bool) -> void:
+func apply_random_upgrade(all_maxed: bool) -> void :
 	var player = get_tree().get_first_node_in_group("Player")
 	if not is_instance_valid(player):
 		return
@@ -234,13 +234,13 @@ func apply_random_upgrade(all_maxed: bool) -> void:
 		if was_new:
 			_popup_pool.spawn(player.global_position, display_name + " " + tr("NEW_ITEM_TEXT"), Color.GREEN)
 		else:
-			_popup_pool.spawn(player.global_position, display_name + " " + tr("LEVEL_OPTION_SLOT") % str(item.level)+"/"+str(item.upgrades.size()+1), Color.WHITE)
+			_popup_pool.spawn(player.global_position, display_name + " " + tr("LEVEL_OPTION_SLOT") % str(item.level) + "/" + str(item.upgrades.size() + 1), Color.WHITE)
 
 func close_option():
 	var rect: Rect2 = get_viewport().get_visible_rect()
 	var center: Vector2 = rect.position + rect.size / 2.0
 	var offscreen_pos = Vector2(center.x - %Panel.size.x / 2.0, rect.end.y + %Panel.size.y)
-	await (create_tween().tween_property(%Panel, "global_position", offscreen_pos, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)).finished
+	await (create_tween().tween_property( %Panel, "global_position", offscreen_pos, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)).finished
 	hide()
 	particles.emitting = false
 	panel.hide()
@@ -331,5 +331,5 @@ func get_available_upgrades() -> Array[Item]:
 			upgrades.append(passive_item)
 	return upgrades
 
-func _on_random_button_pressed() -> void:
+func _on_random_button_pressed() -> void :
 	trigger_random_upgrade()

@@ -32,7 +32,7 @@ func activate(source, _target, scene_tree):
 	player_ref = source
 	if not is_instance_valid(active_blade):
 		_spawn_blade(source, scene_tree)
-func update(delta: float) -> void:
+func update(delta: float) -> void :
 	if not is_instance_valid(player_ref):
 		var tree: SceneTree = Engine.get_main_loop() as SceneTree
 		if tree == null:
@@ -45,7 +45,7 @@ func reset():
 		active_blade.queue_free()
 	active_blade = null
 	player_ref = null
-func _push_to_blade(blade) -> void:
+func _push_to_blade(blade) -> void :
 	blade.set("damage", damage)
 	blade.set("cooldown", cooldown)
 	blade.set("attack_radius", _attack_radius())
@@ -69,7 +69,7 @@ func _push_to_blade(blade) -> void:
 	blade.set("max_screen_margin", max_screen_margin)
 	blade.set("shake_strength", shake_strength)
 	blade.set("knockback", knockback)
-func _spawn_blade(source: Node2D, scene_tree: SceneTree) -> void:
+func _spawn_blade(source: Node2D, scene_tree: SceneTree) -> void :
 	if blade_scene == null:
 		return
 	var blade: Node2D = blade_scene.instantiate() as Node2D

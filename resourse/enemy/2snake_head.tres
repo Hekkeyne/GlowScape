@@ -1,37 +1,37 @@
 [gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://b3mge2sruwy38"]
 
-[ext_resource type="Script" uid="uid://cqyf23pccxc8q" path="res://resourse/enemy ai/snake_head_ai.gd" id="1_5hgps"]
-[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="1_topgj"]
-[ext_resource type="PackedScene" uid="uid://s4upc8b7lm8j" path="res://resourse/enemy scene/snake_segment.tscn" id="2_jc8xk"]
-[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="2_wbghg"]
-[ext_resource type="Resource" uid="uid://ceev075343bmh" path="res://resourse/enemy/2snake_segment.tres" id="3_co8i0"]
-[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="4_jc8xk"]
-[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="5_dqpkp"]
-[ext_resource type="PackedScene" uid="uid://c6jchiw4e8xh8" path="res://resourse/enemy scene/snake_head.tscn" id="6_egfgy"]
-[ext_resource type="Texture2D" uid="uid://cwta2c6d3xe3u" path="res://sprites/snake_head_texture.png" id="6_jc8xk"]
-[ext_resource type="Texture2D" uid="uid://ci4dqsrrcmq8x" path="res://sprites/snake_head_icon.png" id="7_c4gyp"]
+[ext_resource type="Script" uid="uid://cqyf23pccxc8q" path="res://resourse/enemy ai/snake_head_ai.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://s4upc8b7lm8j" path="res://resourse/enemy scene/snake_segment.tscn" id="2"]
+[ext_resource type="Resource" uid="uid://ceev075343bmh" path="res://resourse/enemy/2snake_segment.tres" id="3"]
+[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="4"]
+[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="4_c4gyp"]
+[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="5"]
+[ext_resource type="Texture2D" uid="uid://ci4dqsrrcmq8x" path="res://sprites/snake_head_icon.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://c6jchiw4e8xh8" path="res://resourse/enemy scene/snake_head.tscn" id="7"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="8"]
+[ext_resource type="Texture2D" uid="uid://cwta2c6d3xe3u" path="res://sprites/snake_head_texture.png" id="9"]
 
 [sub_resource type="Resource" id="Resource_eoxfy"]
-script = ExtResource("1_5hgps")
+script = ExtResource("1")
 segment_spacing = 40.0
-segment_scene = ExtResource("2_jc8xk")
-segment_type = ExtResource("3_co8i0")
+segment_scene = ExtResource("2")
+segment_type = ExtResource("3")
 wiggle_amplitude = 0.7
 wiggle_frequency = 5.0
 metadata/_custom_type_script = "uid://cqyf23pccxc8q"
 
 [resource]
-script = ExtResource("2_wbghg")
+script = ExtResource("8")
 title = "SNAKE_HEAD"
-icon = ExtResource("7_c4gyp")
-texture = ExtResource("6_jc8xk")
+icon = ExtResource("6")
+texture = ExtResource("9")
 health = 45.0
 damage = 15.0
-drops = Array[ExtResource("1_topgj")]([ExtResource("4_jc8xk")])
+drops = Array[ExtResource("4_c4gyp")]([ExtResource("4")])
 description = "SNAKE_HEAD_DESCRIPTION"
 speed = 160.0
-scene = ExtResource("6_egfgy")
+scene = ExtResource("7")
 ai_behavior = SubResource("Resource_eoxfy")
 despawn_distance = 1200.0
-elite_guaranteed_drop = ExtResource("5_dqpkp")
+elite_guaranteed_drop = ExtResource("5")
 metadata/_custom_type_script = "uid://b7abjov5qlnih"

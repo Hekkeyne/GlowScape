@@ -1,66 +1,66 @@
 [gd_resource type="Resource" script_class="Starfall" format=3 uid="uid://2t3t3c7gg3do"]
 
-[ext_resource type="Resource" uid="uid://dd3o7dqtd1hww" path="res://resourse/weapon upgrade/StarSword.tres" id="1_oh42v"]
-[ext_resource type="Texture2D" uid="uid://cfqom33nmdowx" path="res://sprites/starfall_icon.png" id="1_qlmrb"]
-[ext_resource type="Script" uid="uid://bxpgkngc8ifku" path="res://script/starfall.gd" id="2_ors85"]
-[ext_resource type="PackedScene" uid="uid://kjyl5smpkh1e" path="res://scene/star_projectile.tscn" id="2_qlmrb"]
-[ext_resource type="Resource" uid="uid://cgbu23stel5b7" path="res://resourse/weapon_copy/holy_sword_COPY_FOR_STARFALL.tres" id="2_t7g1d"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="3_h421n"]
-[ext_resource type="Texture2D" uid="uid://cpo65iyv06cut" path="res://sprites/star_proj_1.png" id="4_4m3hj"]
-[ext_resource type="Texture2D" uid="uid://cg0kcn2yteog7" path="res://sprites/star_proj_2.png" id="5_t7g1d"]
-[ext_resource type="Script" uid="uid://cnmocb4ilsppk" path="res://resourse/upgrade/StarfallUpgrade.gd" id="7_4m3hj"]
+[ext_resource type="Resource" uid="uid://dd3o7dqtd1hww" path="res://resourse/weapon upgrade/StarSword.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://cfqom33nmdowx" path="res://sprites/starfall_icon.png" id="2"]
+[ext_resource type="Resource" uid="uid://cgbu23stel5b7" path="res://resourse/weapon_copy/holy_sword_COPY_FOR_STARFALL.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://kjyl5smpkh1e" path="res://scene/star_projectile.tscn" id="4"]
+[ext_resource type="Script" uid="uid://bxpgkngc8ifku" path="res://script/starfall.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://cpo65iyv06cut" path="res://sprites/star_proj_1.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cg0kcn2yteog7" path="res://sprites/star_proj_2.png" id="7"]
+[ext_resource type="Script" uid="uid://cnmocb4ilsppk" path="res://resourse/upgrade/StarfallUpgrade.gd" id="8"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="8_oh42v"]
 
 [sub_resource type="Resource" id="Resource_wt23p"]
-script = ExtResource("7_4m3hj")
+script = ExtResource("8")
 cooldown = -1.0
 metadata/_custom_type_script = "uid://cnmocb4ilsppk"
 
 [sub_resource type="Resource" id="Resource_k8m7u"]
-script = ExtResource("7_4m3hj")
+script = ExtResource("8")
 amount = 2
 metadata/_custom_type_script = "uid://cnmocb4ilsppk"
 
 [sub_resource type="Resource" id="Resource_qucqc"]
-script = ExtResource("7_4m3hj")
+script = ExtResource("8")
 damage = 5.0
 metadata/_custom_type_script = "uid://cnmocb4ilsppk"
 
 [sub_resource type="Resource" id="Resource_xsw3c"]
-script = ExtResource("7_4m3hj")
+script = ExtResource("8")
 cooldown = -0.5
 metadata/_custom_type_script = "uid://cnmocb4ilsppk"
 
 [sub_resource type="Resource" id="Resource_l1uwf"]
-script = ExtResource("7_4m3hj")
+script = ExtResource("8")
 amount = 3
 metadata/_custom_type_script = "uid://cnmocb4ilsppk"
 
 [sub_resource type="Resource" id="Resource_8ie14"]
-script = ExtResource("7_4m3hj")
+script = ExtResource("8")
 speed = 250.0
 metadata/_custom_type_script = "uid://cnmocb4ilsppk"
 
 [sub_resource type="Resource" id="Resource_3vgh4"]
-script = ExtResource("7_4m3hj")
+script = ExtResource("8")
 amount = 2
 damage = 5.0
 cooldown = -1.5
 metadata/_custom_type_script = "uid://cnmocb4ilsppk"
 
 [resource]
-script = ExtResource("2_ors85")
+script = ExtResource("5")
 star_count = 3
-textures = Array[Texture2D]([ExtResource("4_4m3hj"), ExtResource("5_t7g1d")])
+textures = Array[Texture2D]([ExtResource("6"), ExtResource("7")])
 spawn_spread = 10.0
 damage = 10.0
 cooldown = 5.0
 speed = 500.0
-projectile_node = ExtResource("2_qlmrb")
-upgrades = Array[ExtResource("3_h421n")]([SubResource("Resource_wt23p"), SubResource("Resource_k8m7u"), SubResource("Resource_qucqc"), SubResource("Resource_xsw3c"), SubResource("Resource_l1uwf"), SubResource("Resource_8ie14"), SubResource("Resource_3vgh4")])
-item_needed = ExtResource("2_t7g1d")
-evolution = ExtResource("1_oh42v")
+projectile_node = ExtResource("4")
+upgrades = Array[ExtResource("8_oh42v")]([SubResource("Resource_wt23p"), SubResource("Resource_k8m7u"), SubResource("Resource_qucqc"), SubResource("Resource_xsw3c"), SubResource("Resource_l1uwf"), SubResource("Resource_8ie14"), SubResource("Resource_3vgh4")])
+item_needed = ExtResource("3")
+evolution = ExtResource("1")
 title = "STARFALL"
-icon = ExtResource("1_qlmrb")
-texture = ExtResource("1_qlmrb")
+icon = ExtResource("2")
+texture = ExtResource("2")
 description = "STARFALL_DESCRIPTION"
 metadata/_custom_type_script = "uid://bxpgkngc8ifku"

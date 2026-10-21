@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://uftc8h3apshn"]
 
-[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="1_3nwmy"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="1"]
 
 [node name="damage" type="Label" unique_id=1559642066]
 offset_left = -20.0
 offset_top = -12.0
 offset_right = 20.0
 offset_bottom = 11.0
-theme_override_fonts/font = ExtResource("1_3nwmy")
+theme_override_fonts/font = ExtResource("1")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1

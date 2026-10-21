@@ -1,64 +1,64 @@
 [gd_resource type="Resource" script_class="DamaginArea" format=3 uid="uid://0nwxdn0y3sls"]
 
-[ext_resource type="Texture2D" uid="uid://cie7jue0fkmqt" path="res://sprites/music_wave_icon.png" id="1_ggdp3"]
-[ext_resource type="Resource" uid="uid://cje761hula56t" path="res://resourse/weapon upgrade/bass_boosted.tres" id="1_m22ei"]
-[ext_resource type="Resource" uid="uid://7me1533t4p62" path="res://resourse/Items/Area.tres" id="3_kjrgv"]
-[ext_resource type="Script" uid="uid://b75ytld3rh0xq" path="res://script/DanaginArea.gd" id="3_uqrpv"]
-[ext_resource type="PackedScene" uid="uid://db6taw6d5e6su" path="res://scene/music_wave_attack.tscn" id="4_kjrgv"]
-[ext_resource type="Texture2D" uid="uid://dd8pl05rvv457" path="res://sprites/music_wave.png" id="4_m22ei"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="5_kjrgv"]
-[ext_resource type="Script" uid="uid://d23pv08was6q2" path="res://resourse/upgrade/DamaginAreaUpgrade.gd" id="8_l7ida"]
+[ext_resource type="Resource" uid="uid://cje761hula56t" path="res://resourse/weapon upgrade/bass_boosted.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://cie7jue0fkmqt" path="res://sprites/music_wave_icon.png" id="2"]
+[ext_resource type="Resource" uid="uid://7me1533t4p62" path="res://resourse/Items/Area.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://db6taw6d5e6su" path="res://scene/music_wave_attack.tscn" id="4"]
+[ext_resource type="Script" uid="uid://b75ytld3rh0xq" path="res://script/DanaginArea.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://dd8pl05rvv457" path="res://sprites/music_wave.png" id="6"]
+[ext_resource type="Script" uid="uid://d23pv08was6q2" path="res://resourse/upgrade/DamaginAreaUpgrade.gd" id="7"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="7_m22ei"]
 
 [sub_resource type="Resource" id="Resource_f2v8x"]
-script = ExtResource("8_l7ida")
+script = ExtResource("7")
 area = 5.0
 description = "радиус"
 metadata/_custom_type_script = "uid://d23pv08was6q2"
 
 [sub_resource type="Resource" id="Resource_yujdy"]
-script = ExtResource("8_l7ida")
+script = ExtResource("7")
 damage = 2.0
 description = "урон"
 metadata/_custom_type_script = "uid://d23pv08was6q2"
 
 [sub_resource type="Resource" id="Resource_xgptf"]
-script = ExtResource("8_l7ida")
+script = ExtResource("7")
 cooldown = -0.25
 description = "кд"
 metadata/_custom_type_script = "uid://d23pv08was6q2"
 
 [sub_resource type="Resource" id="Resource_cp0ct"]
-script = ExtResource("8_l7ida")
+script = ExtResource("7")
 area = 10.0
 metadata/_custom_type_script = "uid://d23pv08was6q2"
 
 [sub_resource type="Resource" id="Resource_ngvcu"]
-script = ExtResource("8_l7ida")
+script = ExtResource("7")
 damage = 3.0
 metadata/_custom_type_script = "uid://d23pv08was6q2"
 
 [sub_resource type="Resource" id="Resource_0q1ej"]
-script = ExtResource("8_l7ida")
+script = ExtResource("7")
 cooldown = -0.25
 metadata/_custom_type_script = "uid://d23pv08was6q2"
 
 [sub_resource type="Resource" id="Resource_yp2x1"]
-script = ExtResource("8_l7ida")
+script = ExtResource("7")
 damage = 5.0
 metadata/_custom_type_script = "uid://d23pv08was6q2"
 
 [resource]
-script = ExtResource("3_uqrpv")
+script = ExtResource("5")
 area_percent = 100.0
 damage = 7.5
 cooldown = 2.0
-projectile_node = ExtResource("4_kjrgv")
-upgrades = Array[ExtResource("5_kjrgv")]([SubResource("Resource_f2v8x"), SubResource("Resource_yujdy"), SubResource("Resource_xgptf"), SubResource("Resource_cp0ct"), SubResource("Resource_ngvcu"), SubResource("Resource_0q1ej"), SubResource("Resource_yp2x1")])
-item_needed = ExtResource("3_kjrgv")
-evolution = ExtResource("1_m22ei")
+projectile_node = ExtResource("4")
+upgrades = Array[ExtResource("7_m22ei")]([SubResource("Resource_f2v8x"), SubResource("Resource_yujdy"), SubResource("Resource_xgptf"), SubResource("Resource_cp0ct"), SubResource("Resource_ngvcu"), SubResource("Resource_0q1ej"), SubResource("Resource_yp2x1")])
+item_needed = ExtResource("3")
+evolution = ExtResource("1")
 require_max_level_passive = false
 title = "MW"
-icon = ExtResource("1_ggdp3")
-texture = ExtResource("4_m22ei")
+icon = ExtResource("2")
+texture = ExtResource("6")
 description = "MW_DESCRIPTION"
 metadata/_custom_type_script = "uid://b75ytld3rh0xq"

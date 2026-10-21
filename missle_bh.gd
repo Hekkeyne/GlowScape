@@ -24,7 +24,7 @@ const PHASE_CURVE = 0
 const PHASE_HOOK = 1
 const PHASE_DASH = 2
 
-func _ready() -> void:
+func _ready() -> void :
 	z_index = 56
 	dir = launch_dir
 	sprite = get_node_or_null("Sprite")
@@ -35,7 +35,7 @@ func _ready() -> void:
 	if sprite and texture:
 		sprite.texture = texture
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	timer += delta
 	if timer >= max_life:
 		queue_free()
@@ -65,7 +65,7 @@ func _process(delta: float) -> void:
 				target = _acquire_target()
 			if is_instance_valid(target):
 				var desired = (target.global_position - global_position).angle()
-				var diff = wrapf(desired - dir.angle(), -PI, PI)
+				var diff = wrapf(desired - dir.angle(), - PI, PI)
 				dir = dir.rotated(signf(diff) * minf(absf(diff), homing * delta))
 				if global_position.distance_to(target.global_position) < hit_radius:
 					if target.has_method("take_damage"):

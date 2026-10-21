@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Vacuum" format=3 uid="uid://dchdc3r6pjnsv"]
 
-[ext_resource type="Texture2D" uid="uid://1pocyjjlsf5o" path="res://sprites/black_hole.png" id="1_ndb7l"]
-[ext_resource type="Script" uid="uid://cmv73nwupoi5p" path="res://script/vacuum.gd" id="2_snwxo"]
+[ext_resource type="Texture2D" uid="uid://1pocyjjlsf5o" path="res://sprites/black_hole.png" id="1"]
+[ext_resource type="Script" uid="uid://cmv73nwupoi5p" path="res://script/vacuum.gd" id="2"]
 
 [resource]
-script = ExtResource("2_snwxo")
+script = ExtResource("2")
 title = "Black_hole"
-icon = ExtResource("1_ndb7l")
+icon = ExtResource("1")
 weight = 2.0
 metadata/_custom_type_script = "uid://cmv73nwupoi5p"

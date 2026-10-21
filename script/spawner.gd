@@ -68,7 +68,7 @@ var second: int:
 			second -= 60
 			minute += 1
 		if has_node("%second"):
-			%second.text = str(second).lpad(2, '0')
+			%second.text = str(second).lpad(2, "0")
 
 var last_endgame_buff_minute: int = -1
 var buff_stack: int = 0
@@ -105,10 +105,10 @@ var _culls_prev_sec: int = 0
 var _culls_total: int = 0
 var _gems_merged_total: int = 0
 
-func _ready() -> void:
+func _ready() -> void :
 	learned_cap = initial_cap
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	var fps = float(Engine.get_frames_per_second())
 	_fps_smooth = lerpf(_fps_smooth, fps, 0.05)
 	var budget = burst_per_frame if _spawn_queue.size() >= burst_threshold else spawn_per_frame
@@ -151,11 +151,11 @@ func _physics_process(delta: float) -> void:
 		_culls_prev_sec = _culls_this_sec
 		_culls_this_sec = 0
 
-func _update_baseline() -> void:
+func _update_baseline() -> void :
 	_recent_max = maxf(_fps_smooth, _recent_max - baseline_decay * check_interval)
 	baseline_fps = maxf(_recent_max, 1.0)
 
-func _adapt() -> void:
+func _adapt() -> void :
 	var ratio = _fps_smooth / baseline_fps
 	var enemies = get_tree().get_node_count_in_group("Enemy")
 	if ratio < drop_ratio:
@@ -186,7 +186,7 @@ func _target_scale() -> float:
 	var t = clampf(ratio / drop_ratio, 0.0, 1.0)
 	return lerpf(fps_min_scale, 1.0, t)
 
-func _try_cull() -> void:
+func _try_cull() -> void :
 	var ratio = _fps_smooth / baseline_fps
 	if ratio >= cull_ratio:
 		return
@@ -207,12 +207,12 @@ func _try_cull() -> void:
 		enemies.append(e)
 	if enemies.is_empty():
 		return
-	enemies.sort_custom(func(a, b): return a.global_position.distance_squared_to(player_pos) > b.global_position.distance_squared_to(player_pos))
+	enemies.sort_custom( func(a, b): return a.global_position.distance_squared_to(player_pos) > b.global_position.distance_squared_to(player_pos))
 	var n = mini(cull_batch, enemies.size())
 	for i in range(n):
 		_cull_enemy(enemies[i])
 
-func _cull_enemy(e: EnemyBase) -> void:
+func _cull_enemy(e: EnemyBase) -> void :
 	e.remove_from_group("Enemy")
 	if e.collision_shape:
 		e.collision_shape.set_deferred("disabled", true)
@@ -221,7 +221,7 @@ func _cull_enemy(e: EnemyBase) -> void:
 	_culls_this_sec += 1
 	_culls_total += 1
 
-func _try_merge_gems() -> void:
+func _try_merge_gems() -> void :
 	var ratio = _fps_smooth / baseline_fps
 	if ratio >= gem_merge_ratio:
 		return
@@ -267,7 +267,7 @@ func _gem_busy(g: Node) -> bool:
 	return false
 
 func count_type(t: Enemy) -> int:
-	var c := 0
+	var c: = 0
 	for node in get_tree().get_nodes_in_group("Enemy"):
 		if not is_instance_valid(node):
 			continue
@@ -294,7 +294,7 @@ func _get_endgame_start_minute() -> int:
 func _get_cycle_len() -> int:
 	return _get_pool_len() + maxi(random_pool_minutes, 0)
 
-func spawn(pos: Vector2, elite: bool = false) -> void:
+func spawn(pos: Vector2, elite: bool = false) -> void :
 	if executioner_alive:
 		_skip_exec += 1
 		return
@@ -386,21 +386,21 @@ func pick_type() -> Enemy:
 func random_position() -> Vector2:
 	return player.position + randf_range(start_distance, end_distance) * Vector2.RIGHT.rotated(randf_range(0, 2 * PI))
 
-func amount(number: int = 1) -> void:
+func amount(number: int = 1) -> void :
 	var live = get_tree().get_node_count_in_group("Enemy")
 	var head = learned_cap - live - _spawn_queue.size()
 	var scaled = mini(int(round(float(number) * spawn_scale)), maxi(head, 0))
 	for i in range(scaled):
 		_spawn_queue.append(random_position())
 
-func _on_timer_timeout() -> void:
+func _on_timer_timeout() -> void :
 	second += 1
 	var progress: float = float(second % 60) / 60
 	amount(int(2 + int(pow(progress, 2) * 15)) + minute * 3)
 	if second == 0:
 		_on_new_minute()
 
-func _on_new_minute() -> void:
+func _on_new_minute() -> void :
 	pool_minute += 1
 	if random_pool_minutes > 0:
 		var cycle_len = _get_cycle_len()
@@ -416,7 +416,7 @@ func _on_new_minute() -> void:
 			last_endgame_buff_minute = minute
 			_apply_buff_to_all()
 
-func _spawn_cycle_boss() -> void:
+func _spawn_cycle_boss() -> void :
 	if enable_final_boss and boss_index < boss_types.size():
 		var boss_type = boss_types[boss_index]
 		boss_index += 1
@@ -428,7 +428,7 @@ func _spawn_cycle_boss() -> void:
 		if executioner_type:
 			_spawn_special(executioner_type)
 
-func _spawn_special(type: Enemy) -> void:
+func _spawn_special(type: Enemy) -> void :
 	var scene = type.scene if type.scene else fallback_enemy_scene
 	if not scene:
 		return
@@ -446,7 +446,7 @@ func _spawn_special(type: Enemy) -> void:
 			_wipe_enemies(instance)
 		instance.enemy_died.connect(_on_executioner_died, CONNECT_ONE_SHOT)
 
-func _wipe_enemies(except: Node) -> void:
+func _wipe_enemies(except: Node) -> void :
 	for node in get_tree().get_nodes_in_group("Enemy"):
 		if node == except:
 			continue
@@ -464,31 +464,31 @@ func _wipe_enemies(except: Node) -> void:
 	if is_instance_valid(except) and except.has_method("screen_shake"):
 		except.screen_shake(18.0, 0.6)
 
-func _on_executioner_died(_e: EnemyBase) -> void:
+func _on_executioner_died(_e: EnemyBase) -> void :
 	executioner_alive = false
 	buff_stack += 1
 	_apply_buff_to_all()
 	pool_minute = 0
 
-func _apply_buff_to_all() -> void:
+func _apply_buff_to_all() -> void :
 	for enemy in get_tree().get_nodes_in_group("Enemy"):
 		if enemy.has_method("apply_endgame_buff"):
 			enemy.apply_endgame_buff(endgame_health_bonus, endgame_damage_bonus)
 
-func _on_pattern_timeout() -> void:
+func _on_pattern_timeout() -> void :
 	var live = get_tree().get_node_count_in_group("Enemy")
 	var head = learned_cap - live - _spawn_queue.size()
 	var scaled = mini(int(round(50.0 * spawn_scale)), maxi(head, 0))
 	for i in range(scaled):
 		_spawn_queue.append(random_position())
 
-func _on_elite_timeout() -> void:
+func _on_elite_timeout() -> void :
 	spawn(random_position(), true)
 
-func _on_destructible_timeout() -> void:
+func _on_destructible_timeout() -> void :
 	spawn_destructible(random_position())
 
-func spawn_destructible(pos) -> void:
+func spawn_destructible(pos) -> void :
 	var object = destructible.instantiate()
 	object.position = pos
 	get_tree().current_scene.add_child(object)

@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="MetaStat" format=3 uid="uid://dxinyghx4sa8h"]
 
-[ext_resource type="Texture2D" uid="uid://sl75bqaxmdsg" path="res://sprites/growth_DIRECT.png" id="1_f82p1"]
-[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="2_05ynj"]
+[ext_resource type="Texture2D" uid="uid://sl75bqaxmdsg" path="res://sprites/growth_DIRECT.png" id="1"]
+[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="2"]
 
 [resource]
-script = ExtResource("2_05ynj")
+script = ExtResource("2")
 stat_type = "growth"
 display_name = "META_GROWTH"
-icon = ExtResource("1_f82p1")
+icon = ExtResource("1")
 max_level = 10
 base_cost = 15
 cost_step = 15

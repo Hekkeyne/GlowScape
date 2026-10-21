@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://m3oovnffnhv5"]
 
-[ext_resource type="Script" uid="uid://l0i2bo5uxur2" path="res://script/boomerang.gd" id="1_kgnss"]
-[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="2_8ycvh"]
-[ext_resource type="AudioStream" uid="uid://bgrk4sbkxojcy" path="res://resourse/audio/8bit-shoot25.wav" id="2_gbgpm"]
-[ext_resource type="Texture2D" uid="uid://dovxc0aa4rffc" path="res://sprites/boomerang_texture.png" id="2_utop4"]
+[ext_resource type="Script" uid="uid://l0i2bo5uxur2" path="res://script/boomerang.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://bgrk4sbkxojcy" path="res://resourse/audio/8bit-shoot25.wav" id="2"]
+[ext_resource type="Texture2D" uid="uid://dovxc0aa4rffc" path="res://sprites/boomerang_texture.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hpie0"]
 radius = 15.033297
@@ -12,11 +12,11 @@ radius = 15.033297
 process_mode = 1
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_kgnss")
-sfx = Array[AudioStream]([ExtResource("2_gbgpm")])
+script = ExtResource("1")
+sfx = [ExtResource("2")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=729339372]
-texture = ExtResource("2_utop4")
+texture = ExtResource("3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1533679182]
 shape = SubResource("CircleShape2D_hpie0")
@@ -24,7 +24,7 @@ shape = SubResource("CircleShape2D_hpie0")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=887257714]
 self_modulate = Color(0.88235295, 1, 0, 1)
 amount = 10
-texture = ExtResource("2_8ycvh")
+texture = ExtResource("4")
 draw_order = 1
 emission_shape = 1
 emission_sphere_radius = 8.0

@@ -1,31 +1,31 @@
 [gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://ci20jjitxu6c7"]
 
-[ext_resource type="Script" uid="uid://26detechx5yf" path="res://resourse/enemy ai/repeater_child.gd" id="1_ssc2f"]
-[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="2_pxaxh"]
-[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="3_e4ve0"]
-[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="4_e4ve0"]
-[ext_resource type="PackedScene" uid="uid://o17ex01swrso" path="res://resourse/enemy scene/repeater_child.tscn" id="4_xqhsc"]
-[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="5_jphkk"]
-[ext_resource type="Texture2D" uid="uid://c17o3u4so6kg3" path="res://sprites/mushroom_enemy1_icon.png" id="5_r7dah"]
-[ext_resource type="Texture2D" uid="uid://cnky6pgkm7qwx" path="res://sprites/mushroom_enemy1.png" id="6_pxaxh"]
+[ext_resource type="Script" uid="uid://26detechx5yf" path="res://resourse/enemy ai/repeater_child.gd" id="1"]
+[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="2"]
+[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="2_r7dah"]
+[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://c17o3u4so6kg3" path="res://sprites/mushroom_enemy1_icon.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://o17ex01swrso" path="res://resourse/enemy scene/repeater_child.tscn" id="5"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://cnky6pgkm7qwx" path="res://sprites/mushroom_enemy1.png" id="7"]
 
 [sub_resource type="Resource" id="Resource_ryuuk"]
-script = ExtResource("1_ssc2f")
+script = ExtResource("1")
 grow_time = 4.5
 end_scale = 1.5
 adult_path = "uid://cp2cds0bk4srl"
 metadata/_custom_type_script = "uid://26detechx5yf"
 
 [resource]
-script = ExtResource("5_jphkk")
+script = ExtResource("6")
 title = "MUSH_CHILD"
-icon = ExtResource("5_r7dah")
-texture = ExtResource("6_pxaxh")
+icon = ExtResource("4")
+texture = ExtResource("7")
 health = 1.0
-drops = Array[ExtResource("2_pxaxh")]([ExtResource("3_e4ve0")])
+drops = Array[ExtResource("2_r7dah")]([ExtResource("2")])
 description = "MUSH_CHILD_DESCRIPTION"
-scene = ExtResource("4_xqhsc")
+scene = ExtResource("5")
 ai_behavior = SubResource("Resource_ryuuk")
 despawn_distance = 1200.0
-elite_guaranteed_drop = ExtResource("4_e4ve0")
+elite_guaranteed_drop = ExtResource("3")
 metadata/_custom_type_script = "uid://26detechx5yf"

@@ -4,29 +4,29 @@ class_name ParasiteBug
 @export var sfx: Array[AudioStream] = []
 @export var jump_sfx: Array[AudioStream] = []
 
-var damage := 1.0
-var knockback := 40.0
+var damage: = 1.0
+var knockback: = 40.0
 var source
 
 var current_target: Node2D = null
-var is_small := false
+var is_small: = false
 
-var jumps_left := 3
-var jump_radius := 260.0
-var jump_speed := 520.0
-var jump_delay := 0.25
-var split_chance := 0.35
+var jumps_left: = 3
+var jump_radius: = 260.0
+var jump_speed: = 520.0
+var jump_delay: = 0.25
+var split_chance: = 0.35
 var small_bug_texture: Texture2D
 var bug_scene: PackedScene
 
-var _state := "JUMPING"
-var _timer := 0.0
-var _attach_offset := Vector2.ZERO
+var _state: = "JUMPING"
+var _timer: = 0.0
+var _attach_offset: = Vector2.ZERO
 var _hit_enemies: Array = []
-var lifetime := 6.0
+var lifetime: = 6.0
 
 
-func _ready() -> void:
+func _ready() -> void :
 	rotation = randf() * TAU
 
 	if not body_entered.is_connected(_on_body_entered):
@@ -36,7 +36,7 @@ func _ready() -> void:
 		area_entered.connect(_on_area_entered)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if current_target != null and not is_instance_valid(current_target):
 		current_target = null
 
@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if _state == "ATTACHED":
-		# Сидим на враге, двигаемся вместе с ним.
+
 		if is_instance_valid(current_target):
 			global_position = current_target.global_position + _attach_offset
 
@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 				queue_free()
 		return
 
-	# JUMPING
+
 	if not is_instance_valid(current_target):
 		if not _pick_next_target(null):
 			queue_free()
@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 		rotation += 10.0 * delta
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if _state != "JUMPING":
 		return
 
@@ -87,7 +87,7 @@ func _on_body_entered(body: Node2D) -> void:
 	_arrive(body)
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void :
 	if _state != "JUMPING":
 		return
 
@@ -102,8 +102,8 @@ func _on_area_entered(area: Area2D) -> void:
 	_arrive(target)
 
 
-func _arrive(enemy: Node) -> void:
-	# Уже кусали этого врага — пролетаем сквозь.
+func _arrive(enemy: Node) -> void :
+
 	if _hit_enemies.has(enemy):
 		return
 
@@ -113,7 +113,7 @@ func _arrive(enemy: Node) -> void:
 	_attach_offset = Vector2(randf_range(-8.0, 8.0), randf_range(-10.0, 2.0))
 	_timer = jump_delay
 
-	# Укус в момент касания — как у остальных снарядов.
+
 	var final_damage = damage
 
 	if source != null and "might" in source:
@@ -191,7 +191,7 @@ func _find_nearest_enemy(exclude: Node) -> Node2D:
 	return best
 
 
-func _spawn_split() -> void:
+func _spawn_split() -> void :
 	if bug_scene == null:
 		return
 
@@ -241,7 +241,7 @@ func _play_sfx(streams: Array[AudioStream], pos: Vector2, volume: float):
 		_spawn_audio(streams.pick_random(), pos, volume)
 
 
-func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db := -12.0) -> void:
+func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db: = -12.0) -> void :
 	if stream == null:
 		return
 
@@ -258,5 +258,4 @@ func _spawn_audio(stream: AudioStream, pos: Vector2, volume_db := -12.0) -> void
 
 	scene.add_child(player)
 	player.play()
-	player.finished.connect(func(): player.queue_free())
-	
+	player.finished.connect( func(): player.queue_free())

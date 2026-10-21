@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="MetaStat" format=3 uid="uid://ctmph3nf3ahbs"]
 
-[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="1_rceom"]
-[ext_resource type="Texture2D" uid="uid://i7mer2fc1828" path="res://sprites/movement_speed_DIRECT.png" id="1_txpwe"]
+[ext_resource type="Texture2D" uid="uid://i7mer2fc1828" path="res://sprites/movement_speed_DIRECT.png" id="1"]
+[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="2"]
 
 [resource]
-script = ExtResource("1_rceom")
+script = ExtResource("2")
 stat_type = "movement_speed"
 display_name = "META_MSPEED"
-icon = ExtResource("1_txpwe")
+icon = ExtResource("1")
 max_level = 10
 cost_step = 30
 effect_per_level = 10.0

@@ -4,25 +4,25 @@ extends Node2D
 @export var enemy_types: Array[Resource] = []
 @export var characters: Array[Resource] = []
 @export var weapons: Array[Resource] = []
-@export var min_enemies := 4
-@export var max_enemies := 8
-@export var transition_min := 18.0
-@export var transition_max := 32.0
-@export var arena_margin := 30.0
-@export var world_scale := 1.0
-@export var overlay_alpha := 0.35
+@export var min_enemies: = 4
+@export var max_enemies: = 8
+@export var transition_min: = 18.0
+@export var transition_max: = 32.0
+@export var arena_margin: = 30.0
+@export var world_scale: = 1.0
+@export var overlay_alpha: = 0.35
 
 var _player: CharacterBody2D = null
 var _overlay: ColorRect = null
-var _trans_t := 0.0
-var _busy := false
-var _arena := Rect2()
-var _initialized := false
+var _trans_t: = 0.0
+var _busy: = false
+var _arena: = Rect2()
+var _initialized: = false
 
-func _ready() -> void:
+func _ready() -> void :
 	_initialize()
 
-func _initialize() -> void:
+func _initialize() -> void :
 	if _initialized:
 		return
 	_initialized = true
@@ -33,13 +33,13 @@ func _initialize() -> void:
 	_setup_deferred.call_deferred()
 	_trans_t = randf_range(transition_min, transition_max)
 
-func _setup_deferred() -> void:
+func _setup_deferred() -> void :
 	_new_loadout()
 	if _player and is_instance_valid(_player):
 		_player.global_position = _random_pos_in_arena()
 	_spawn_wave()
 
-func _update_visibility(is_visible: bool) -> void:
+func _update_visibility(is_visible: bool) -> void :
 	if is_visible:
 		if not _initialized:
 			_initialize()
@@ -50,7 +50,7 @@ func _update_visibility(is_visible: bool) -> void:
 		visible = false
 		process_mode = Node.PROCESS_MODE_DISABLED
 
-func _clear_all() -> void:
+func _clear_all() -> void :
 	_initialized = false
 	if _player and is_instance_valid(_player):
 		_player.queue_free()
@@ -64,15 +64,15 @@ func _clear_all() -> void:
 	_busy = false
 	_trans_t = 0.0
 
-func _compute_arena() -> void:
+func _compute_arena() -> void :
 	var panel = get_parent() as Control
 	if panel:
-		_arena = Rect2(panel.global_position, panel.size).grow(-arena_margin)
+		_arena = Rect2(panel.global_position, panel.size).grow( - arena_margin)
 	else:
 		var vp_size = get_viewport().get_visible_rect().size
-		_arena = Rect2(Vector2.ZERO, vp_size).grow(-arena_margin)
+		_arena = Rect2(Vector2.ZERO, vp_size).grow( - arena_margin)
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	_compute_arena()
 	if _player and is_instance_valid(_player):
 		_player.arena = _arena
@@ -89,14 +89,14 @@ func _process(delta: float) -> void:
 	if _trans_t <= 0.0:
 		_transition()
 		return
-	var alive := 0
+	var alive: = 0
 	for e in get_tree().get_nodes_in_group("Enemy"):
 		if is_instance_valid(e) and not e.is_dying:
 			alive += 1
 	if alive < min_enemies:
 		_spawn_wave()
 
-func _setup_overlay() -> void:
+func _setup_overlay() -> void :
 	var panel = get_parent() as Control
 	if panel == null:
 		return
@@ -106,7 +106,7 @@ func _setup_overlay() -> void:
 	panel.add_child.call_deferred(_overlay)
 	_overlay.set_anchors_preset.call_deferred(Control.PRESET_FULL_RECT)
 
-func _setup_player() -> void:
+func _setup_player() -> void :
 	if sim_player_scene == null:
 		push_warning("MenuSim: sim_player_scene not set")
 		return
@@ -115,11 +115,11 @@ func _setup_player() -> void:
 	_player.arena = _arena
 	_player.died.connect(_on_player_died)
 
-func _on_player_died() -> void:
+func _on_player_died() -> void :
 	if not _busy:
 		_transition()
 
-func _transition() -> void:
+func _transition() -> void :
 	_busy = true
 	if _overlay and is_instance_valid(_overlay):
 		var tw = create_tween()
@@ -136,7 +136,7 @@ func _transition() -> void:
 		await tw2.finished
 	_busy = false
 
-func _new_loadout() -> void:
+func _new_loadout() -> void :
 	if _player == null or not is_instance_valid(_player):
 		return
 	var ch = characters.pick_random() if not characters.is_empty() else null
@@ -148,19 +148,19 @@ func _new_loadout() -> void:
 			ws.append(pool[i])
 	_player.setup(ch, ws)
 
-func _respawn_player() -> void:
+func _respawn_player() -> void :
 	if _player == null or not is_instance_valid(_player):
 		return
 	_player.global_position = _random_pos_in_arena()
 	_player.setup(_player.character, _player.weapons)
 
-func _spawn_wave() -> void:
+func _spawn_wave() -> void :
 	if _player == null or not is_instance_valid(_player):
 		return
 	if enemy_types.is_empty():
 		push_warning("MenuSim: enemy_types is empty")
 		return
-	var count := randi_range(min_enemies, max_enemies)
+	var count: = randi_range(min_enemies, max_enemies)
 	for i in range(count):
 		var base_type = enemy_types.pick_random()
 		if base_type == null:
@@ -184,19 +184,19 @@ func _spawn_wave() -> void:
 func _random_pos_in_arena() -> Vector2:
 	for _i in range(10):
 		var p = Vector2(
-			randf_range(_arena.position.x, _arena.end.x),
+			randf_range(_arena.position.x, _arena.end.x), 
 			randf_range(_arena.position.y, _arena.end.y)
 		)
 		if _player == null or not is_instance_valid(_player) or p.distance_to(_player.global_position) > 180.0:
 			return p
 	return _arena.get_center()
 
-func _clear_enemies() -> void:
+func _clear_enemies() -> void :
 	for e in get_tree().get_nodes_in_group("Enemy"):
 		if is_instance_valid(e):
 			e.queue_free()
 
-func _clear_enemy_drops(enemy_node: Node) -> void:
+func _clear_enemy_drops(enemy_node: Node) -> void :
 	if not is_instance_valid(enemy_node):
 		return
 	if enemy_node.type != null and "drops" in enemy_node.type:
@@ -205,7 +205,7 @@ func _clear_enemy_drops(enemy_node: Node) -> void:
 		if "type" in child and child.type != null and "drops" in child.type:
 			child.type.drops.clear()
 
-func _contain_projectiles() -> void:
+func _contain_projectiles() -> void :
 	var panel = get_parent() as Control
 	if not panel:
 		return
@@ -221,7 +221,7 @@ func _contain_projectiles() -> void:
 			continue
 		node.reparent(panel)
 
-func _contain_enemies() -> void:
+func _contain_enemies() -> void :
 	for e in get_tree().get_nodes_in_group("Enemy"):
 		if not is_instance_valid(e):
 			continue

@@ -1,76 +1,76 @@
 [gd_resource type="Resource" script_class="BlackHoleWeapon" format=3 uid="uid://bco14efsrnia0"]
 
-[ext_resource type="Texture2D" uid="uid://bihbrc3dklnx0" path="res://sprites/black_hole_core.png" id="1_i4emy"]
-[ext_resource type="PackedScene" uid="uid://b852nppui31yu" path="res://scene/black_hole.tscn" id="1_uyncc"]
-[ext_resource type="Texture2D" uid="uid://bnpug3fsxtoyq" path="res://sprites/black_hole_icon.png" id="2_b2i5c"]
-[ext_resource type="Texture2D" uid="uid://bemxwoq58pdgr" path="res://sprites/black_hole_field.png" id="2_f3trb"]
-[ext_resource type="Resource" uid="uid://5wy2wsvjix5d" path="res://resourse/weapon upgrade/black_hole_evo.tres" id="2_f7il8"]
-[ext_resource type="Script" uid="uid://02lptnua1k1b" path="res://script/black_hole_weap.gd" id="2_h2jfb"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="3_b2i5c"]
-[ext_resource type="PackedScene" uid="uid://dw3682sfi0w20" path="res://scene/missle_bh.tscn" id="5_gvhpx"]
-[ext_resource type="Resource" uid="uid://dcyu4x6x85of7" path="res://resourse/Items/Movement_Speed.tres" id="6_35gsa"]
-[ext_resource type="Texture2D" uid="uid://x4yhterurv3h" path="res://sprites/black_hole_rim.png" id="6_gvhpx"]
+[ext_resource type="Texture2D" uid="uid://bihbrc3dklnx0" path="res://sprites/black_hole_core.png" id="1"]
+[ext_resource type="Resource" uid="uid://5wy2wsvjix5d" path="res://resourse/weapon upgrade/black_hole_evo.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://bemxwoq58pdgr" path="res://sprites/black_hole_field.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://b852nppui31yu" path="res://scene/black_hole.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://bnpug3fsxtoyq" path="res://sprites/black_hole_icon.png" id="5"]
+[ext_resource type="Resource" uid="uid://dcyu4x6x85of7" path="res://resourse/Items/Movement_Speed.tres" id="6"]
+[ext_resource type="PackedScene" uid="uid://dw3682sfi0w20" path="res://scene/missle_bh.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://x4yhterurv3h" path="res://sprites/black_hole_rim.png" id="8"]
 [ext_resource type="PackedScene" uid="uid://dhw7wici5tb12" path="res://scene/laser_projectile.tscn" id="8_35gsa"]
-[ext_resource type="Texture2D" uid="uid://dyahooocualhy" path="res://sprites/black_hole_swirl.png" id="8_f7il8"]
-[ext_resource type="Script" uid="uid://tke3dsxf76mx" path="res://resourse/upgrade/BHUpgrade.gd" id="13_35gsa"]
+[ext_resource type="Script" uid="uid://02lptnua1k1b" path="res://script/black_hole_weap.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://dyahooocualhy" path="res://sprites/black_hole_swirl.png" id="10"]
+[ext_resource type="Script" uid="uid://tke3dsxf76mx" path="res://resourse/upgrade/BHUpgrade.gd" id="11"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="12_tpd1s"]
 
 [sub_resource type="Resource" id="Resource_qagfp"]
-script = ExtResource("13_35gsa")
+script = ExtResource("11")
 damage = 5.0
 metadata/_custom_type_script = "uid://tke3dsxf76mx"
 
 [sub_resource type="Resource" id="Resource_q03u5"]
-script = ExtResource("13_35gsa")
+script = ExtResource("11")
 radius = 150.0
 metadata/_custom_type_script = "uid://tke3dsxf76mx"
 
 [sub_resource type="Resource" id="Resource_xwqqm"]
-script = ExtResource("13_35gsa")
+script = ExtResource("11")
 duration = 1.5
 metadata/_custom_type_script = "uid://tke3dsxf76mx"
 
 [sub_resource type="Resource" id="Resource_0lqb5"]
-script = ExtResource("13_35gsa")
+script = ExtResource("11")
 knock = 125.0
 metadata/_custom_type_script = "uid://tke3dsxf76mx"
 
 [sub_resource type="Resource" id="Resource_0s5yr"]
-script = ExtResource("13_35gsa")
+script = ExtResource("11")
 holes = 1
 duration = 1.0
 metadata/_custom_type_script = "uid://tke3dsxf76mx"
 
 [sub_resource type="Resource" id="Resource_g453x"]
-script = ExtResource("13_35gsa")
+script = ExtResource("11")
 knock = 75.0
 cooldown = -2.0
 metadata/_custom_type_script = "uid://tke3dsxf76mx"
 
 [sub_resource type="Resource" id="Resource_c7kh5"]
-script = ExtResource("13_35gsa")
+script = ExtResource("11")
 cooldown = -3.0
 metadata/_custom_type_script = "uid://tke3dsxf76mx"
 
 [resource]
-script = ExtResource("2_h2jfb")
+script = ExtResource("9")
 amount = null
-hole_scene = ExtResource("1_uyncc")
-missile_scene = ExtResource("5_gvhpx")
+hole_scene = ExtResource("4")
+missile_scene = ExtResource("7")
 cluster_radius = 400.0
 evolved = null
-core_texture = ExtResource("1_i4emy")
-rim_texture = ExtResource("6_gvhpx")
-swirl_texture = ExtResource("8_f7il8")
-field_texture = ExtResource("2_f3trb")
+core_texture = ExtResource("1")
+rim_texture = ExtResource("8")
+swirl_texture = ExtResource("10")
+field_texture = ExtResource("3")
 damage = 20.0
 cooldown = 15.0
 speed = null
-upgrades = Array[ExtResource("3_b2i5c")]([SubResource("Resource_qagfp"), SubResource("Resource_q03u5"), SubResource("Resource_xwqqm"), SubResource("Resource_0lqb5"), SubResource("Resource_0s5yr"), SubResource("Resource_g453x"), SubResource("Resource_c7kh5")])
-item_needed = ExtResource("6_35gsa")
-evolution = ExtResource("2_f7il8")
+upgrades = Array[ExtResource("12_tpd1s")]([SubResource("Resource_qagfp"), SubResource("Resource_q03u5"), SubResource("Resource_xwqqm"), SubResource("Resource_0lqb5"), SubResource("Resource_0s5yr"), SubResource("Resource_g453x"), SubResource("Resource_c7kh5")])
+item_needed = ExtResource("6")
+evolution = ExtResource("2")
 require_max_level_passive = null
 title = "BH"
-icon = ExtResource("2_b2i5c")
-texture = ExtResource("2_b2i5c")
+icon = ExtResource("5")
+texture = ExtResource("5")
 description = "BH_DESCRIPTION"
 metadata/_custom_type_script = "uid://02lptnua1k1b"

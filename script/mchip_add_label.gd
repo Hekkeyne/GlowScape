@@ -1,6 +1,6 @@
 extends Label
 
-func _ready() -> void:
+func _ready() -> void :
 	pop()
 
 func pop():

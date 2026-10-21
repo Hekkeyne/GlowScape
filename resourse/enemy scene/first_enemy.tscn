@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d0r0ns5ow50i8"]
 
-[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1_yxi1p"]
-[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2_mt0dy"]
-[ext_resource type="Texture2D" uid="uid://j41nunrfqfiy" path="res://sprites/first_enemy.png" id="3_yxi1p"]
+[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://j41nunrfqfiy" path="res://sprites/first_enemy.png" id="3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xh83n"]
 radius = 5.3333335
@@ -13,13 +13,13 @@ position = Vector2(-2, 0)
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_yxi1p")
+script = ExtResource("1")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2132661467]
 self_modulate = Color(0.8745098, 0.5294118, 0.14901961, 1)
 position = Vector2(-6.6666603, 0)
 amount = 3
-texture = ExtResource("2_mt0dy")
+texture = ExtResource("2")
 lifetime = 0.4
 draw_order = 1
 emission_shape = 1
@@ -37,4 +37,4 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_xh83n")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1925860203]
-texture = ExtResource("3_yxi1p")
+texture = ExtResource("3")

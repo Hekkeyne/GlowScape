@@ -9,7 +9,7 @@ extends Area2D
 @export var spin: float = 10.0
 @export_range(0.05, 0.5, 0.05) var death_duration: float = 0.2
 
-enum State { BACK, AIM, FLY }
+enum State{BACK, AIM, FLY}
 var state: int = State.BACK
 var state_timer: float = 0.0
 var direction: Vector2 = Vector2.RIGHT
@@ -19,16 +19,16 @@ var curve: float = 0.0
 var back_heading: float = 0.0
 var is_dying: bool = false
 
-func _ready() -> void:
-	back_heading = (-direction).angle()
+func _ready() -> void :
+	back_heading = ( - direction).angle()
 	body_entered.connect(_on_body_entered)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if is_dying:
 		return
-	
+
 	state_timer += delta
-	
+
 	match state:
 		State.BACK:
 			back_heading += curve * delta
@@ -50,20 +50,20 @@ func _physics_process(delta: float) -> void:
 		State.FLY:
 			velocity = direction * max_speed
 			rotation += spin * delta
-	
+
 	position += velocity * delta
 	lifetime -= delta
 	if lifetime <= 0.0:
 		_die()
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if is_dying:
 		return
 	if body.is_in_group("Player") and body.has_method("take_damage"):
 		body.take_damage(damage)
 		_die()
 
-func _die() -> void:
+func _die() -> void :
 	if is_dying:
 		return
 	is_dying = true
@@ -72,7 +72,7 @@ func _die() -> void:
 		cs.set_deferred("disabled", true)
 	_play_death_animation()
 
-func _play_death_animation() -> void:
+func _play_death_animation() -> void :
 	var my_sprite = find_child("Sprite2D")
 	if my_sprite and my_sprite.texture:
 		for i in range(3):
@@ -87,7 +87,7 @@ func _play_death_animation() -> void:
 			var tw = shard.create_tween().set_parallel(true)
 			tw.tween_property(shard, "position", shard.position + dir * randf_range(30.0, 60.0), death_duration)
 			tw.tween_property(shard, "modulate:a", 0.0, death_duration)
-			tw.tween_property(shard, "rotation", shard.rotation + randf_range(-PI, PI), death_duration)
+			tw.tween_property(shard, "rotation", shard.rotation + randf_range( - PI, PI), death_duration)
 			tw.set_parallel(false)
 			tw.tween_callback(shard.queue_free)
 	queue_free()

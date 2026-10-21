@@ -10,13 +10,13 @@ var _camera_was_top_level: bool = false
 var _camera_physics_was: bool = true
 var _camera_process_was: bool = true
 
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("SpectatorManager")
 
-func _exit_tree() -> void:
+func _exit_tree() -> void :
 	stop_spectating()
 
-func start_spectating() -> void:
+func start_spectating() -> void :
 	if is_spectating:
 		return
 	camera = get_viewport().get_camera_2d()
@@ -34,7 +34,7 @@ func start_spectating() -> void:
 		_current = 0
 		camera.global_position = _targets[0].global_position
 
-func stop_spectating() -> void:
+func stop_spectating() -> void :
 	if not is_spectating:
 		return
 	is_spectating = false
@@ -43,10 +43,10 @@ func stop_spectating() -> void:
 		camera.set_physics_process(_camera_physics_was)
 		camera.set_process(_camera_process_was)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void :
 	if not is_spectating:
 		return
-	var pressed := false
+	var pressed: = false
 	if event is InputEventScreenTouch and event.pressed:
 		pressed = true
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -54,13 +54,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if pressed:
 		next_target()
 
-func next_target() -> void:
+func next_target() -> void :
 	_refresh_targets()
 	if _targets.is_empty():
 		return
 	_current = (_current + 1) % _targets.size()
 
-func _refresh_targets() -> void:
+func _refresh_targets() -> void :
 	_targets.clear()
 	var local_player = get_tree().get_first_node_in_group("player")
 	if local_player != null and is_instance_valid(local_player) and not local_player.is_dead:
@@ -72,7 +72,7 @@ func _refresh_targets() -> void:
 		if n != null and is_instance_valid(n) and n.modulate.a > 0.5:
 			_targets.append(n)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if not is_spectating or camera == null or not is_instance_valid(camera):
 		return
 	_refresh_targets()

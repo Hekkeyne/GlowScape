@@ -50,7 +50,7 @@ func _spawn_disc():
 	discs.append(d)
 	_tree.current_scene.call_deferred("add_child", d)
 
-func on_disc_hit(attacker: Node2D, _pos: Vector2) -> void:
+func on_disc_hit(attacker: Node2D, _pos: Vector2) -> void :
 	if _tree == null or not is_instance_valid(attacker):
 		return
 	if web_line_scene == null:
@@ -68,7 +68,7 @@ func on_disc_hit(attacker: Node2D, _pos: Vector2) -> void:
 		return
 	_add_web(attacker.global_position, nearest.global_position)
 
-func _add_web(a: Vector2, b: Vector2) -> void:
+func _add_web(a: Vector2, b: Vector2) -> void :
 	if web_line_scene == null:
 		return
 	var root = web_line_scene.instantiate()
@@ -117,7 +117,7 @@ func _update_webs(delta):
 		_web_tick = 0.0
 		_web_damage(tick)
 
-func _web_damage(tick: float) -> void:
+func _web_damage(tick: float) -> void :
 	if web_damage_mult <= 0.0 or _webs.is_empty():
 		return
 	var dps = damage * web_damage_mult

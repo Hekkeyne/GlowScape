@@ -23,7 +23,7 @@ var _names: Array = []
 var _kicks: Array = []
 var _slot_ids: Array = []
 
-func _ready() -> void:
+func _ready() -> void :
 	for i in range(1, 5):
 		var idx = str(i)
 		var slot: Control = _pick(null, "%Slot" + idx, "Slot" + idx)
@@ -51,7 +51,7 @@ func _ready() -> void:
 	Net.chat_history_received.connect(_on_history)
 	refresh()
 
-func reset_view() -> void:
+func reset_view() -> void :
 	for c in chat_list.get_children():
 		c.queue_free()
 	_slot_ids.clear()
@@ -64,7 +64,7 @@ func _pick(slot: Node, unique_name: String, plain_name: String) -> Node:
 		n = slot.get_node_or_null(plain_name)
 	return n
 
-func refresh() -> void:
+func refresh() -> void :
 	if title_label != null:
 		title_label.text = Net.room_name if Net.room_name != "" else tr("MULTIPLAYER_TITLE")
 	if start_btn != null:
@@ -107,29 +107,29 @@ func refresh() -> void:
 			if kick != null:
 				kick.visible = false
 
-func _on_roster_joined(_id: int, pname: String) -> void:
+func _on_roster_joined(_id: int, pname: String) -> void :
 	refresh()
 	_sys(tr("SYS_JOIN") % pname, sys_color_join)
 
-func _on_roster_left(_id: int) -> void:
+func _on_roster_left(_id: int) -> void :
 	refresh()
 
-func _on_peer_departed(_id: int, pname: String) -> void:
+func _on_peer_departed(_id: int, pname: String) -> void :
 	_sys(tr("SYS_LEAVE") % pname, sys_color_leave)
 
-func _on_peer_kicked(_id: int, pname: String) -> void:
+func _on_peer_kicked(_id: int, pname: String) -> void :
 	_sys(tr("SYS_KICKED") % pname, sys_color_kick)
 
-func _on_self_kicked() -> void:
+func _on_self_kicked() -> void :
 	_sys(tr("SYS_YOU_KICKED"), sys_color_kick)
 
-func _on_history(history: Array) -> void:
+func _on_history(history: Array) -> void :
 	for c in chat_list.get_children():
 		c.queue_free()
 	for entry in history:
 		_append_line("%s: %s" % [str(entry.get("sender", "?")), str(entry.get("text", ""))], Color.WHITE)
 
-func _on_kick_pressed(slot_index: int) -> void:
+func _on_kick_pressed(slot_index: int) -> void :
 	if not Net.is_host:
 		return
 	if slot_index < 0 or slot_index >= _slot_ids.size():
@@ -139,31 +139,31 @@ func _on_kick_pressed(slot_index: int) -> void:
 		return
 	Net.kick_player(id)
 
-func _on_start_pressed() -> void:
+func _on_start_pressed() -> void :
 	start_requested.emit()
 
-func _on_leave_pressed() -> void:
+func _on_leave_pressed() -> void :
 	leave_requested.emit()
 
-func _on_send_pressed() -> void:
+func _on_send_pressed() -> void :
 	_send_chat()
 
-func _on_chat_submitted(_text: String) -> void:
+func _on_chat_submitted(_text: String) -> void :
 	_send_chat()
 
-func _send_chat() -> void:
+func _send_chat() -> void :
 	var t = chat_input.text
 	chat_input.text = ""
 	Net.send_chat(t)
 	chat_input.grab_focus()
 
-func _on_chat_message(sender: String, text: String) -> void:
+func _on_chat_message(sender: String, text: String) -> void :
 	_append_line("%s: %s" % [sender, text], Color.WHITE)
 
-func _sys(text: String, color: Color) -> void:
+func _sys(text: String, color: Color) -> void :
 	_append_line(text, color)
 
-func _append_line(text: String, color: Color) -> void:
+func _append_line(text: String, color: Color) -> void :
 	var line = Label.new()
 	line.text = text
 	line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

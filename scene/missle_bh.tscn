@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dw3682sfi0w20"]
 
-[ext_resource type="Script" uid="uid://bl8g2oi3k05xr" path="res://missle_bh.gd" id="1_dxp6o"]
-[ext_resource type="Texture2D" uid="uid://c3li1vd6hsy3w" path="res://sprites/black_hole_evolution_missle.png" id="2_fsrbd"]
+[ext_resource type="Script" uid="uid://bl8g2oi3k05xr" path="res://missle_bh.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c3li1vd6hsy3w" path="res://sprites/black_hole_evolution_missle.png" id="2"]
 
 [node name="Node2D" type="Node2D" unique_id=566621357]
-script = ExtResource("1_dxp6o")
+script = ExtResource("1")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=358670767]
-texture = ExtResource("2_fsrbd")
+texture = ExtResource("2")

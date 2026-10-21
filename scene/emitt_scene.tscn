@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cf0y3qq2hrbcr"]
 
-[ext_resource type="Texture2D" uid="uid://dkiigqo324220" path="res://sprites/emitt_sprite.png" id="1_0aa84"]
-[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2_0aa84"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dkiigqo324220" path="res://sprites/emitt_sprite.png" id="2"]
 
 [node name="Node2D" type="Node2D" unique_id=1048638088]
 
@@ -9,7 +9,7 @@
 self_modulate = Color(0.8627451, 0.38039216, 0.70980394, 1)
 position = Vector2(-1, 0)
 amount = 5
-texture = ExtResource("2_0aa84")
+texture = ExtResource("1")
 lifetime = 0.25
 randomness = 1.0
 lifetime_randomness = 1.0
@@ -21,4 +21,4 @@ scale_amount_max = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=370069033]
 position = Vector2(-8, 0)
-texture = ExtResource("1_0aa84")
+texture = ExtResource("2")

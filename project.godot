@@ -44,6 +44,11 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="GlowScape"
 
+[editor_overrides]
+
+text_editor/behavior/indent/type=0
+text_editor/behavior/indent/size=4
+
 [file_customization]
 
 folder_colors={

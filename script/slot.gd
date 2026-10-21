@@ -2,31 +2,31 @@ extends PanelContainer
 
 var enabled: bool = true
 
-@export var item : Weapon:
+@export var item: Weapon:
 	set(value):
-		if item!=null and item.has_method("reset"):
+		if item != null and item.has_method("reset"):
 			item.reset()
-		item=value
+		item = value
 		if item == null:
-			$TextureRect.texture=preload("res://sprites/ITEM_placeholder.png")
+			$TextureRect.texture = preload("res://sprites/ITEM_placeholder.png")
 			visible = true
 			return
-		$TextureRect.texture=value.icon
-		$cooldown.wait_time=value.cooldown
-		item.slot=self
+		$TextureRect.texture = value.icon
+		$cooldown.wait_time = value.cooldown
+		item.slot = self
 
-func set_enabled(v: bool) -> void:
+func set_enabled(v: bool) -> void :
 	enabled = v
 	set_process(v)
 	set_physics_process(v)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if not enabled:
 		return
-	if item!=null and item.has_method("update"):
+	if item != null and item.has_method("update"):
 		item.update(delta)
 
-func _on_cooldown_timeout() -> void:
+func _on_cooldown_timeout() -> void :
 	if not enabled or not item:
 		return
 	var player = get_tree().get_first_node_in_group("Player")
@@ -35,7 +35,7 @@ func _on_cooldown_timeout() -> void:
 	var target = _find_nearest_enemy(player)
 	if target == null:
 		return
-	$cooldown.wait_time=item.cooldown
+	$cooldown.wait_time = item.cooldown
 	item.activate(player, target, get_tree())
 
 func _find_nearest_enemy(player: Node2D) -> Node2D:

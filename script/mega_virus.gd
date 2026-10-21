@@ -1,11 +1,11 @@
 extends Weapon
 class_name ParasiteSwarm
-@export var amount := 2
-@export var jumps := 3
-@export var jump_radius := 260.0
-@export var jump_speed := 520.0
-@export var jump_delay := 0.25
-@export var split_chance := 0.35
+@export var amount: = 2
+@export var jumps: = 3
+@export var jump_radius: = 260.0
+@export var jump_speed: = 520.0
+@export var jump_delay: = 0.25
+@export var split_chance: = 0.35
 @export var small_bug_texture: Texture2D
 
 func activate(source, _target, scene_tree):

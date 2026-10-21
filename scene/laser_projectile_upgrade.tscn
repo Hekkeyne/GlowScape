@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://0clxm43bw744"]
 
-[ext_resource type="Script" uid="uid://bix6bjcnig7tu" path="res://script/laser_projectile.gd" id="1_fx7np"]
-[ext_resource type="AudioStream" uid="uid://dpw4enhdpcoa7" path="res://resourse/audio/hurt1.wav" id="2_5cuqe"]
-[ext_resource type="AudioStream" uid="uid://cyhnw2uwevgh2" path="res://resourse/audio/hurt2.wav" id="3_giscq"]
-[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="4_6xrk3"]
+[ext_resource type="Script" uid="uid://bix6bjcnig7tu" path="res://script/laser_projectile.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://dpw4enhdpcoa7" path="res://resourse/audio/hurt1.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://cyhnw2uwevgh2" path="res://resourse/audio/hurt2.wav" id="3"]
+[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(8, 2)
@@ -12,8 +12,8 @@ size = Vector2(8, 2)
 process_mode = 1
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_fx7np")
-sfx = Array[AudioStream]([ExtResource("2_5cuqe"), ExtResource("3_giscq")])
+script = ExtResource("1")
+sfx = [ExtResource("2"), ExtResource("3")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=576228593]
 
@@ -23,7 +23,7 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1291298760]
 self_modulate = Color(0.69803923, 0.21176471, 0.9843137, 1)
 amount = 10
-texture = ExtResource("4_6xrk3")
+texture = ExtResource("4")
 draw_order = 1
 emission_shape = 1
 emission_sphere_radius = 5.0

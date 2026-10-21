@@ -1,32 +1,32 @@
 [gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://s71q1v6s62cl"]
 
-[ext_resource type="Script" uid="uid://toin04mdftbw" path="res://resourse/enemy ai/death_script.gd" id="1_lwk6l"]
-[ext_resource type="PackedScene" uid="uid://dmboldococwei" path="res://resourse/enemy_smth/death_saw.tscn" id="1_tsulk"]
-[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="2_q5t25"]
-[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="3_tsulk"]
-[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="4_popkt"]
-[ext_resource type="Texture2D" uid="uid://cb3fdflmykmfm" path="res://sprites/death_icon.png" id="5_2mqvx"]
-[ext_resource type="PackedScene" uid="uid://cf4i2wa1aoc3s" path="res://resourse/enemy scene/death.tscn" id="6_lwk6l"]
-[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="7_g6efs"]
-[ext_resource type="Texture2D" uid="uid://b1dyg0i842e1h" path="res://sprites/death.png" id="8_q5t25"]
+[ext_resource type="PackedScene" uid="uid://dmboldococwei" path="res://resourse/enemy_smth/death_saw.tscn" id="1"]
+[ext_resource type="Script" uid="uid://toin04mdftbw" path="res://resourse/enemy ai/death_script.gd" id="2"]
+[ext_resource type="Resource" uid="uid://q5x4k56sea56" path="res://resourse/pickups/low_xp.tres" id="3"]
+[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="3_q5t25"]
+[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://cb3fdflmykmfm" path="res://sprites/death_icon.png" id="5"]
+[ext_resource type="PackedScene" uid="uid://cf4i2wa1aoc3s" path="res://resourse/enemy scene/death.tscn" id="6"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="7"]
+[ext_resource type="Texture2D" uid="uid://b1dyg0i842e1h" path="res://sprites/death.png" id="8"]
 
 [sub_resource type="Resource" id="Resource_bxxfn"]
-script = ExtResource("1_lwk6l")
-homing_slash_scene = ExtResource("1_tsulk")
+script = ExtResource("2")
+homing_slash_scene = ExtResource("1")
 homing_turn = 4.0
 metadata/_custom_type_script = "uid://toin04mdftbw"
 
 [resource]
-script = ExtResource("7_g6efs")
+script = ExtResource("7")
 title = "DEATH"
-icon = ExtResource("5_2mqvx")
-texture = ExtResource("8_q5t25")
+icon = ExtResource("5")
+texture = ExtResource("8")
 health = 9999999.0
 damage = 9999999.0
-drops = Array[ExtResource("2_q5t25")]([ExtResource("3_tsulk")])
+drops = Array[ExtResource("3_q5t25")]([ExtResource("3")])
 description = "DEATH_DESCRIPTION"
-scene = ExtResource("6_lwk6l")
+scene = ExtResource("6")
 ai_behavior = SubResource("Resource_bxxfn")
 despawn_distance = 1200.0
-elite_guaranteed_drop = ExtResource("4_popkt")
+elite_guaranteed_drop = ExtResource("4")
 metadata/_custom_type_script = "uid://bu1rpt0d1jk7b"

@@ -1,68 +1,68 @@
 [gd_resource type="Resource" script_class="Boomerang" format=3 uid="uid://bh4q2wmq672f"]
 
-[ext_resource type="PackedScene" uid="uid://m3oovnffnhv5" path="res://scene/boomerang.tscn" id="1_5lx0y"]
-[ext_resource type="Resource" uid="uid://bloxk8efkv535" path="res://resourse/weapon upgrade/spectralSplitterang.tres" id="1_cwexg"]
-[ext_resource type="Texture2D" uid="uid://cgpf3kclp1aea" path="res://sprites/boomerang.png" id="1_q4n7b"]
-[ext_resource type="Script" uid="uid://n8550xjn1x70" path="res://script/boomerange_weap.gd" id="2_oxfjh"]
-[ext_resource type="Resource" uid="uid://b7n1wv5dlswjn" path="res://resourse/Items/Recovery.tres" id="3_ktiof"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="3_q4n7b"]
-[ext_resource type="Texture2D" uid="uid://dovxc0aa4rffc" path="res://sprites/boomerang_texture.png" id="6_6738d"]
-[ext_resource type="Script" uid="uid://dkwlosy42jb78" path="res://resourse/upgrade/Boomerangupgrade.gd" id="8_ktiof"]
+[ext_resource type="Resource" uid="uid://bloxk8efkv535" path="res://resourse/weapon upgrade/spectralSplitterang.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://cgpf3kclp1aea" path="res://sprites/boomerang.png" id="2"]
+[ext_resource type="Resource" uid="uid://b7n1wv5dlswjn" path="res://resourse/Items/Recovery.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://m3oovnffnhv5" path="res://scene/boomerang.tscn" id="4"]
+[ext_resource type="Script" uid="uid://n8550xjn1x70" path="res://script/boomerange_weap.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://dovxc0aa4rffc" path="res://sprites/boomerang_texture.png" id="6"]
+[ext_resource type="Script" uid="uid://dkwlosy42jb78" path="res://resourse/upgrade/Boomerangupgrade.gd" id="7"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="7_ktiof"]
 
 [sub_resource type="Resource" id="Resource_maamb"]
-script = ExtResource("8_ktiof")
+script = ExtResource("7")
 amount = 1
 metadata/_custom_type_script = "uid://dkwlosy42jb78"
 
 [sub_resource type="Resource" id="Resource_crurj"]
-script = ExtResource("8_ktiof")
+script = ExtResource("7")
 amount = 1
 speed = 75.0
 return_speed = 75.0
 metadata/_custom_type_script = "uid://dkwlosy42jb78"
 
 [sub_resource type="Resource" id="Resource_ds27l"]
-script = ExtResource("8_ktiof")
+script = ExtResource("7")
 amount = 1
 damage = 5.0
 metadata/_custom_type_script = "uid://dkwlosy42jb78"
 
 [sub_resource type="Resource" id="Resource_7g8hy"]
-script = ExtResource("8_ktiof")
+script = ExtResource("7")
 amount = 1
 cooldown = -1.0
 metadata/_custom_type_script = "uid://dkwlosy42jb78"
 
 [sub_resource type="Resource" id="Resource_7dgqb"]
-script = ExtResource("8_ktiof")
+script = ExtResource("7")
 amount = 2
 damage = 2.5
 metadata/_custom_type_script = "uid://dkwlosy42jb78"
 
 [sub_resource type="Resource" id="Resource_0fdgi"]
-script = ExtResource("8_ktiof")
+script = ExtResource("7")
 max_distance = 250.0
 metadata/_custom_type_script = "uid://dkwlosy42jb78"
 
 [sub_resource type="Resource" id="Resource_vsxhx"]
-script = ExtResource("8_ktiof")
+script = ExtResource("7")
 amount = 1
 damage = 2.5
 metadata/_custom_type_script = "uid://dkwlosy42jb78"
 
 [resource]
-script = ExtResource("2_oxfjh")
+script = ExtResource("5")
 max_distance = 500.0
 damage = 10.0
 cooldown = 4.0
 speed = 400.0
-projectile_node = ExtResource("1_5lx0y")
-upgrades = Array[ExtResource("3_q4n7b")]([SubResource("Resource_maamb"), SubResource("Resource_crurj"), SubResource("Resource_ds27l"), SubResource("Resource_7g8hy"), SubResource("Resource_7dgqb"), SubResource("Resource_0fdgi"), SubResource("Resource_vsxhx")])
-item_needed = ExtResource("3_ktiof")
-evolution = ExtResource("1_cwexg")
+projectile_node = ExtResource("4")
+upgrades = Array[ExtResource("7_ktiof")]([SubResource("Resource_maamb"), SubResource("Resource_crurj"), SubResource("Resource_ds27l"), SubResource("Resource_7g8hy"), SubResource("Resource_7dgqb"), SubResource("Resource_0fdgi"), SubResource("Resource_vsxhx")])
+item_needed = ExtResource("3")
+evolution = ExtResource("1")
 require_max_level_passive = false
 title = "BOOMERANG"
-icon = ExtResource("1_q4n7b")
-texture = ExtResource("6_6738d")
+icon = ExtResource("2")
+texture = ExtResource("6")
 description = "BOOMERANG_DESCRIPTION"
 metadata/_custom_type_script = "uid://n8550xjn1x70"

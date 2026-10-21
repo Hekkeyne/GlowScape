@@ -54,4 +54,3 @@ func upgrade_item():
 	amount += upgrade.amount
 	angular_speed += upgrade.angular_speed
 	level += 1
-	

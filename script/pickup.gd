@@ -36,7 +36,7 @@ var attract_speed: float = 60.0
 var net_id: int = 0
 static var _next_pickup_id: int = 1
 
-func _ready() -> void:
+func _ready() -> void :
 	if multiplayer.has_multiplayer_peer() and Net.is_host:
 		net_id = _next_pickup_id
 		_next_pickup_id += 1
@@ -60,7 +60,7 @@ func _ready() -> void:
 					queue_free()
 					return
 				else:
-					var others = all_gems.filter(func(g): return g != self)
+					var others = all_gems.filter( func(g): return g != self)
 					if others.size() > 0:
 						var target = others[0]
 						target.make_mega_gem()
@@ -114,14 +114,14 @@ func throw_at_player(target_pos: Vector2, damage: float, xp_mult: float, throw_s
 	if has_node("Sprite2D"):
 		$Sprite2D.rotation = projectile_direction.angle() + PI / 2
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if _collected:
 		return
 	_check_enemy_validity()
 	if is_preparing:
 		prepare_timer -= delta
 		var shake_intensity = (0.5 - prepare_timer) / 0.5 * 0.1
-		scale = original_scale + Vector2(randf_range(-shake_intensity, shake_intensity), randf_range(-shake_intensity, shake_intensity))
+		scale = original_scale + Vector2(randf_range( - shake_intensity, shake_intensity), randf_range( - shake_intensity, shake_intensity))
 		if prepare_timer <= 0.0:
 			scale = original_scale
 		return
@@ -142,7 +142,7 @@ func _physics_process(delta: float) -> void:
 			global_position += drift_dir * mega_drift_speed * delta
 	_handle_attraction_and_follow(delta)
 
-func _check_enemy_validity() -> void:
+func _check_enemy_validity() -> void :
 	if reserved_by and not is_instance_valid(reserved_by):
 		reserved_by = null
 		can_follow = true
@@ -150,7 +150,7 @@ func _check_enemy_validity() -> void:
 		attracted_by_enemy = null
 		can_follow = true
 
-func _handle_attraction_and_follow(delta: float) -> void:
+func _handle_attraction_and_follow(delta: float) -> void :
 	var moving_to_player = false
 	var moving_to_enemy = false
 	if player_ref and can_follow and is_instance_valid(player_ref):
@@ -186,7 +186,7 @@ func _handle_attraction_and_follow(delta: float) -> void:
 			$Sprite2D.rotation = lerp_angle($Sprite2D.rotation, direction.angle() + PI / 2, 20.0 * delta)
 		add_speed += 0.01
 
-func follow(_target: CharacterBody2D, gem_flag: bool = false) -> void:
+func follow(_target: CharacterBody2D, gem_flag: bool = false) -> void :
 	if type is CardResource:
 		return
 	if gem_flag == true:
@@ -195,7 +195,7 @@ func follow(_target: CharacterBody2D, gem_flag: bool = false) -> void:
 		return
 	can_follow = true
 
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void :
 	if _collected:
 		return
 	if is_projectile:
@@ -219,7 +219,7 @@ func _on_body_entered(_body: Node2D) -> void:
 			player_ref.gain_XP(final_xp)
 	queue_free()
 
-func _apply_collection(collector_id: int) -> void:
+func _apply_collection(collector_id: int) -> void :
 	var base_xp = type.XP if (type and "XP" in type) else 0.0
 	var final_xp = (base_xp + bonus_xp) * xp_multiplier
 	if type:
@@ -233,7 +233,7 @@ func _apply_collection(collector_id: int) -> void:
 
 
 
-func _explode_gem(direct_hit_player: bool) -> void:
+func _explode_gem(direct_hit_player: bool) -> void :
 	if _collected:
 		return
 	_collected = true
@@ -278,7 +278,7 @@ func _explode_gem(direct_hit_player: bool) -> void:
 				player_ref.take_damage(projectile_damage)
 			var knockback_dir = (player_ref.global_position - global_position).normalized()
 			if knockback_dir == Vector2.ZERO:
-				knockback_dir = -projectile_direction
+				knockback_dir = - projectile_direction
 			if player_ref.has_method("apply_knockback"):
 				player_ref.apply_knockback(knockback_dir * explosion_knockback)
 		elif dist_to_player <= explosion_radius:
@@ -287,7 +287,7 @@ func _explode_gem(direct_hit_player: bool) -> void:
 				player_ref.take_damage(aoe_damage)
 			var knockback_dir = (player_ref.global_position - global_position).normalized()
 			if knockback_dir == Vector2.ZERO:
-				knockback_dir = -projectile_direction
+				knockback_dir = - projectile_direction
 			if player_ref.has_method("apply_knockback"):
 				var falloff = 1.0 - (dist_to_player / explosion_radius)
 				player_ref.apply_knockback(knockback_dir * explosion_knockback * falloff)

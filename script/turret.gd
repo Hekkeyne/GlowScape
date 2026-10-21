@@ -1,10 +1,10 @@
 extends Weapon
 class_name Turret
 
-@export var max_turrets := 2
+@export var max_turrets: = 2
 @export var turret_types: Array[String] = ["mg"]
-@export var turret_lifetime := 10.0
-@export var range_bonus := 60.0
+@export var turret_lifetime: = 10.0
+@export var range_bonus: = 60.0
 @export var turret_scene: PackedScene
 @export var bullet_scene: PackedScene
 @export var rocket_scene: PackedScene
@@ -14,8 +14,8 @@ class_name Turret
 @export var explosion_texture: Texture2D
 @export var bullet_texture: Texture2D
 @export var rocket_texture: Texture2D
-@export var orbit_radius := 60.0
-@export var orbit_speed := 90.0
+@export var orbit_radius: = 60.0
+@export var orbit_speed: = 90.0
 
 var active_turrets: Array = []
 var player_ref: Node2D = null
@@ -30,14 +30,14 @@ func activate(source, _target, scene_tree):
 	if turret_types.is_empty() or turret_scene == null:
 		return
 	player_ref = source
-	active_turrets = active_turrets.filter(func(t): return is_instance_valid(t))
-	var missing := max_turrets - active_turrets.size()
+	active_turrets = active_turrets.filter( func(t): return is_instance_valid(t))
+	var missing: = max_turrets - active_turrets.size()
 	for i in range(missing):
 		var type = turret_types.pick_random()
 		_spawn_turret(source, scene_tree, type)
 	_redistribute_turrets()
 
-func update(_delta: float) -> void:
+func update(_delta: float) -> void :
 	var r = _attack_radius()
 	for t in active_turrets:
 		if is_instance_valid(t) and "attack_range" in t:
@@ -89,7 +89,7 @@ func _get_group_lifetime() -> float:
 	return group_life
 
 func _redistribute_turrets():
-	var alive := []
+	var alive: = []
 	for t in active_turrets:
 		if is_instance_valid(t):
 			alive.append(t)

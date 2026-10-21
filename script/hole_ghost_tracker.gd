@@ -21,7 +21,7 @@ var _life: float = 0.0
 var _eat_radius: float = 0.0
 var _portal_tex: Texture2D = null
 
-func _ready() -> void:
+func _ready() -> void :
 	_hole = get_parent() as Node2D
 	if _hole != null:
 		for prop in ["swirl_texture", "rim_texture", "core_texture"]:
@@ -36,7 +36,7 @@ func _hole_dying() -> bool:
 		return true
 	return use_duration_trigger and ("duration" in _hole) and _life >= _hole.duration
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	_life += delta
 	if not _released and _hole_dying():
 		_release()
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	if _released and _pending_eject.is_empty() and _pending_appear.is_empty() and _pending_restore.is_empty():
 		queue_free()
 
-func _track_hole() -> void:
+func _track_hole() -> void :
 	var r2 = _hole.pull_radius * _hole.pull_radius
 	_eat_radius = maxf(_eat_radius, _hole.pull_radius)
 	var pos = _hole.global_position
@@ -68,7 +68,7 @@ func _track_hole() -> void:
 				_pending_restore.append({"e": e, "t": randf_range(0.0, exit_restore_window)})
 	_in_hole = now_in
 
-func _release() -> void:
+func _release() -> void :
 	_released = true
 	if not is_instance_valid(_hole):
 		_restore_all_now()
@@ -99,7 +99,7 @@ func _release() -> void:
 		_pending_eject.append({"e": e, "t": eject_delay + randf_range(0.0, eject_window), "pos": _random_screen_pos()})
 	_in_hole.clear()
 
-func _process_ejects(delta: float) -> void:
+func _process_ejects(delta: float) -> void :
 	for idx in range(_pending_eject.size() - 1, -1, -1):
 		var p = _pending_eject[idx]
 		p.t -= delta
@@ -109,7 +109,7 @@ func _process_ejects(delta: float) -> void:
 				_pending_appear.append({"e": p.e, "pos": p.pos, "t": portal_telegraph})
 			_pending_eject.remove_at(idx)
 
-func _process_appears(delta: float) -> void:
+func _process_appears(delta: float) -> void :
 	for idx in range(_pending_appear.size() - 1, -1, -1):
 		var p = _pending_appear[idx]
 		p.t -= delta
@@ -123,7 +123,7 @@ func _process_appears(delta: float) -> void:
 					_orig_mask.erase(e)
 			_pending_appear.remove_at(idx)
 
-func _process_restores(delta: float) -> void:
+func _process_restores(delta: float) -> void :
 	for idx in range(_pending_restore.size() - 1, -1, -1):
 		var p = _pending_restore[idx]
 		p.t -= delta
@@ -146,7 +146,7 @@ func _random_screen_pos() -> Vector2:
 		half = size * 0.5 * 0.85
 	var best: Vector2 = center
 	for _try in range(6):
-		var candidate = center + Vector2(randf_range(-half.x, half.x), randf_range(-half.y, half.y))
+		var candidate = center + Vector2(randf_range( - half.x, half.x), randf_range( - half.y, half.y))
 		best = candidate
 		var ok = true
 		for used in _used_pos:
@@ -158,7 +158,7 @@ func _random_screen_pos() -> Vector2:
 	_used_pos.append(best)
 	return best
 
-func _spawn_portal(pos: Vector2) -> void:
+func _spawn_portal(pos: Vector2) -> void :
 	if _portal_tex == null:
 		return
 	var s = Sprite2D.new()
@@ -174,12 +174,12 @@ func _spawn_portal(pos: Vector2) -> void:
 	tw.tween_property(s, "modulate:a", 0.0, portal_fade).set_delay(portal_telegraph)
 	tw.finished.connect(s.queue_free)
 
-func _cancel_restore(e: Node) -> void:
+func _cancel_restore(e: Node) -> void :
 	for idx in range(_pending_restore.size() - 1, -1, -1):
 		if _pending_restore[idx].e == e:
 			_pending_restore.remove_at(idx)
 
-func _restore_all_now() -> void:
+func _restore_all_now() -> void :
 	for p in _pending_eject:
 		if is_instance_valid(p.e):
 			p.e.visible = true
@@ -202,5 +202,5 @@ func _restore_all_now() -> void:
 	_pending_restore.clear()
 	_in_hole.clear()
 
-func _exit_tree() -> void:
+func _exit_tree() -> void :
 	_restore_all_now()

@@ -1,7 +1,7 @@
 extends Area2D
-@export var sfx : Array[AudioStream]=[]
-var direction : Vector2 = Vector2.RIGHT
-@export var speed : float = 300
+@export var sfx: Array[AudioStream] = []
+var direction: Vector2 = Vector2.RIGHT
+@export var speed: float = 300
 @export var damage: float = 2.5
 @export var lifetime: float = 2.0
 @export_range(0.1, 1.0, 0.05) var death_time: float = 0.25
@@ -27,33 +27,33 @@ var _homing_timer: float = 0.0
 var source
 var _hit_this_frame: bool = false
 
-func _apply_texture() -> void:
+func _apply_texture() -> void :
 	var spr = find_child("Sprite2D", true, false)
 	if spr and bullet_texture:
 		spr.texture = bullet_texture
 
 var net_id: int = 0
 
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("Projectile")
 	rotation = direction.angle()
 	_apply_texture()
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if _dying or _hit_this_frame:
 		return
 	if body.has_method("take_damage"):
 		_deal_damage_to(body)
 		_try_split()
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void :
 	if _dying or _hit_this_frame:
 		return
 	if area.get_parent().has_method("take_damage"):
 		_deal_damage_to(area.get_parent())
 		_try_split()
 
-func _deal_damage_to(body: Node2D) -> void:
+func _deal_damage_to(body: Node2D) -> void :
 	_hit_this_frame = true
 	if "might" in source:
 		body.take_damage(damage * source.might)
@@ -68,13 +68,13 @@ func _deal_damage_to(body: Node2D) -> void:
 	if "knockback" in body:
 		body.knockback = direction * (75.0 if not is_fragment else 30.0)
 
-func _try_split() -> void:
+func _try_split() -> void :
 	if not split_on_hit or is_fragment or has_split:
 		return
 	has_split = true
 	_split_projectiles.call_deferred()
 
-func _split_projectiles() -> void:
+func _split_projectiles() -> void :
 	if projectile_scene == null:
 		queue_free()
 		return
@@ -83,7 +83,7 @@ func _split_projectiles() -> void:
 	for i in range(fragment_count):
 		var t = float(i) / float(fragment_count - 1)
 		var frag = projectile_scene.instantiate()
-		frag.direction = direction.rotated(lerpf(-spread, spread, t))
+		frag.direction = direction.rotated(lerpf( - spread, spread, t))
 		frag.damage = damage / 5.0
 		frag.speed = speed * fragment_speed_mult
 		frag.lifetime = lifetime * fragment_lifetime_mult
@@ -96,7 +96,7 @@ func _split_projectiles() -> void:
 		frag.global_position = global_position
 	queue_free()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	_hit_this_frame = false
 	if _dying:
 		global_position += direction * speed * 0.3 * delta
@@ -113,7 +113,7 @@ func _physics_process(delta: float) -> void:
 	rotation = direction.angle()
 	_sweep_hit_enemies(prev_pos, global_position)
 
-func _sweep_hit_enemies(prev: Vector2, cur: Vector2) -> void:
+func _sweep_hit_enemies(prev: Vector2, cur: Vector2) -> void :
 	if _dying or _hit_this_frame:
 		return
 	var seg = cur - prev
@@ -137,7 +137,7 @@ func _sweep_hit_enemies(prev: Vector2, cur: Vector2) -> void:
 			_try_split()
 			return
 
-func _start_death() -> void:
+func _start_death() -> void :
 	if _dying:
 		return
 	_dying = true
@@ -146,9 +146,9 @@ func _start_death() -> void:
 	tw.set_parallel(true)
 	tw.tween_property(self, "modulate:a", 0.0, death_time)
 	tw.tween_property(self, "scale", scale * 0.3, death_time)
-	tw.finished.connect(func(): queue_free())
+	tw.finished.connect( func(): queue_free())
 
-func _update_homing(delta: float) -> void:
+func _update_homing(delta: float) -> void :
 	_homing_timer -= delta
 	if _homing_timer <= 0.0:
 		_homing_timer = 0.15

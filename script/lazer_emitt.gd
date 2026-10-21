@@ -26,11 +26,11 @@ const STATE_CROWN = 0
 const STATE_OUT = 1
 const STATE_HOLD = 2
 
-func init_rig(p_weapon: LaserWeapon, p_player: Node2D) -> void:
+func init_rig(p_weapon: LaserWeapon, p_player: Node2D) -> void :
 	weapon = p_weapon
 	player = p_player
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	if not is_instance_valid(player) or weapon == null:
 		queue_free()
 		return
@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 				if not is_instance_valid(targets[i]):
 					_to_crown(i, 0.2)
 				else:
-					var diff = wrapf(aim_angles[i] - node.rotation, -PI, PI)
+					var diff = wrapf(aim_angles[i] - node.rotation, - PI, PI)
 					node.rotation += signf(diff) * minf(absf(diff), weapon.aim_speed * delta)
 					if absf(diff) < 0.1 and node.position.distance_to(_deploy_pos(i)) < 14.0:
 						states[i] = STATE_HOLD
@@ -77,7 +77,7 @@ func _process(delta: float) -> void:
 					if not is_instance_valid(targets[i]):
 						_to_crown(i, 0.2)
 					else:
-						var diff = wrapf(aim_angles[i] - node.rotation, -PI, PI)
+						var diff = wrapf(aim_angles[i] - node.rotation, - PI, PI)
 						node.rotation += signf(diff) * minf(absf(diff), weapon.aim_speed * delta)
 						timers[i] -= delta
 						if timers[i] <= 0.0:
@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 		_move(i, delta)
 		_apply_visual(i, delta)
 
-func _update_side(delta: float) -> void:
+func _update_side(delta: float) -> void :
 	var v: Vector2 = Vector2.ZERO
 	if player is CharacterBody2D:
 		v = (player as CharacterBody2D).velocity
@@ -96,21 +96,21 @@ func _update_side(delta: float) -> void:
 		if states[i] != STATE_CROWN:
 			slot_angles[i] = side_angles[i] + slot_offsets[i]
 			continue
-		var diff = wrapf(behind - side_angles[i], -PI, PI)
+		var diff = wrapf(behind - side_angles[i], - PI, PI)
 		side_angles[i] += signf(diff) * minf(absf(diff), weapon.side_swing_speed * delta)
 		slot_angles[i] = side_angles[i] + slot_offsets[i]
 
 func _behind_angle() -> float:
 	return (last_move_dir * -1.0).angle()
 
-func _sync_count() -> void:
+func _sync_count() -> void :
 	var n = weapon.laser_count
 	while emitters.size() < n:
 		_add_emitter()
 	while emitters.size() > n:
 		_remove_emitter(emitters.size() - 1)
 
-func _add_emitter() -> void:
+func _add_emitter() -> void :
 	var node: Node2D
 	if weapon.emitter_scene:
 		node = weapon.emitter_scene.instantiate()
@@ -141,7 +141,7 @@ func _add_emitter() -> void:
 	_recompute_offsets()
 	node.position = _slot_pos(emitters.size() - 1)
 
-func _remove_emitter(i: int) -> void:
+func _remove_emitter(i: int) -> void :
 	for b in beams[i]:
 		if is_instance_valid(b):
 			b.queue_free()
@@ -164,7 +164,7 @@ func _remove_emitter(i: int) -> void:
 	beams.remove_at(i)
 	_recompute_offsets()
 
-func _recompute_offsets() -> void:
+func _recompute_offsets() -> void :
 	var n = emitters.size()
 	slot_offsets.resize(n)
 	var half = weapon.crown_span * 0.5
@@ -176,13 +176,13 @@ func _recompute_offsets() -> void:
 			elif i % 2 == 1:
 				slot_offsets[i] = half * float((i + 1) / 2) / float(maxi(P, 1))
 			else:
-				slot_offsets[i] = -half * float(i / 2) / float(maxi(P, 1))
+				slot_offsets[i] = - half * float(i / 2) / float(maxi(P, 1))
 	else:
 		var P = n / 2
 		for i in range(n):
 			var p = i / 2 + 1
 			var mag = half * float(2 * p - 1) / float(maxi(2 * P - 1, 1))
-			slot_offsets[i] = mag if i % 2 == 0 else -mag
+			slot_offsets[i] = mag if i % 2 == 0 else - mag
 
 func _slot_pos(i: int) -> Vector2:
 	var base = Vector2.from_angle(slot_angles[i]) * weapon.crown_radius
@@ -193,17 +193,17 @@ func _slot_pos(i: int) -> Vector2:
 func _deploy_pos(i: int) -> Vector2:
 	return Vector2.from_angle(slot_angles[i]) * weapon.deploy_radius
 
-func _to_crown(i: int, t: float) -> void:
+func _to_crown(i: int, t: float) -> void :
 	states[i] = STATE_CROWN
 	timers[i] = t
 	recharge_max[i] = t
 	targets[i] = null
 	wait_beam[i] = 0
 
-func _move(i: int, delta: float) -> void:
+func _move(i: int, delta: float) -> void :
 	var node = emitters[i]
 	if states[i] == STATE_HOLD and wait_beam[i] == 1:
-		velocities[i] *= exp(-weapon.spring_damping * delta)
+		velocities[i] *= exp( - weapon.spring_damping * delta)
 		node.position += velocities[i] * delta
 		return
 	var target_local: Vector2
@@ -215,7 +215,7 @@ func _move(i: int, delta: float) -> void:
 		target_local = _deploy_pos(i)
 		stiffness = weapon.dive_stiffness
 	velocities[i] += (target_local - node.position) * stiffness * delta
-	velocities[i] *= exp(-weapon.spring_damping * delta)
+	velocities[i] *= exp( - weapon.spring_damping * delta)
 	node.position += velocities[i] * delta
 
 func _pick_target(busy: Dictionary) -> Node2D:
@@ -244,7 +244,7 @@ func _beams_alive(i: int) -> bool:
 			return true
 	return false
 
-func _fire(i: int) -> void:
+func _fire(i: int) -> void :
 	var base_dir = Vector2.from_angle(aim_angles[i])
 	emitters[i].rotation = aim_angles[i]
 	var shared_hits: Dictionary = {}
@@ -268,9 +268,9 @@ func _fire(i: int) -> void:
 	beams[i] = new_beams
 	wait_beam[i] = 1
 	fire_timers[i] = weapon.beam_duration
-	velocities[i] += -base_dir * weapon.recoil_force
+	velocities[i] += - base_dir * weapon.recoil_force
 
-func _apply_visual(i: int, delta: float) -> void:
+func _apply_visual(i: int, delta: float) -> void :
 	var node = emitters[i]
 	if not is_instance_valid(node):
 		return

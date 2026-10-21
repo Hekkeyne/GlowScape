@@ -6,7 +6,7 @@ var _pool: Array[Label] = []
 var _tweens: Dictionary = {}
 var _cursor: int = 0
 
-func _ready() -> void:
+func _ready() -> void :
 	z_index = 100
 	for i in pool_size:
 		var popup: Label = popup_scene.instantiate() as Label
@@ -16,10 +16,10 @@ func _ready() -> void:
 		add_child(popup)
 		_pool.append(popup)
 
-func spawn(pos: Vector2, amount: float, is_crit: bool = false) -> void:
+func spawn(pos: Vector2, amount: float, is_crit: bool = false) -> void :
 	if _pool.is_empty():
 		return
-	var popup := _get_free_popup()
+	var popup: = _get_free_popup()
 	if popup == null:
 		popup = _pool[_cursor]
 		_cursor = (_cursor + 1) % _pool.size()
@@ -34,10 +34,10 @@ func _get_free_popup() -> Label:
 			return popup
 	return null
 
-func _play(popup: Label, pos: Vector2, amount: float, is_crit: bool) -> void:
+func _play(popup: Label, pos: Vector2, amount: float, is_crit: bool) -> void :
 	if not is_instance_valid(popup):
 		return
-	popup.text = str(int(amount))if amount == round(amount) else "%.1f" % amount
+	popup.text = str(int(amount)) if amount == round(amount) else "%.1f" % amount
 	if is_crit:
 		popup.add_theme_color_override("font_color", Color.RED)
 	else:

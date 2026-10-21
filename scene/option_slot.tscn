@@ -1,23 +1,22 @@
 [gd_scene format=3 uid="uid://eptsfnv5er7j"]
 
-[ext_resource type="Texture2D" uid="uid://c8fsbwmiqe54r" path="res://sprites/lazer_blaster.png" id="2_b08fr"]
-[ext_resource type="Script" uid="uid://cxo3i5cttmoge" path="res://script/option_slot.gd" id="2_l7ydm"]
-[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="4_50bda"]
-[ext_resource type="Texture2D" uid="uid://22wil73h7nxs" path="res://sprites/card_sprite_choose_2.png" id="4_b08fr"]
+[ext_resource type="Script" uid="uid://cxo3i5cttmoge" path="res://script/option_slot.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c8fsbwmiqe54r" path="res://sprites/lazer_blaster.png" id="2"]
+[ext_resource type="FontFile" uid="uid://ldapn585sda5" path="res://sprites/PublicPixel.ttf" id="3"]
+[ext_resource type="Texture2D" uid="uid://22wil73h7nxs" path="res://sprites/card_sprite_choose_2.png" id="4"]
 
 [node name="OptionSlot" type="TextureButton" unique_id=2015674889]
 process_mode = 3
 process_priority = 1
 texture_filter = 1
 custom_maximum_size = Vector2(375, -1)
-anchors_preset = -1
 anchor_right = 0.156
 anchor_bottom = 0.47200003
 offset_right = -66.52002
 offset_bottom = -100.76004
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("2_l7ydm")
+script = ExtResource("1")
 
 [node name="OptionSprite" type="TextureRect" parent="." unique_id=739533]
 layout_mode = 1
@@ -25,7 +24,7 @@ anchors_preset = -1
 offset_right = 48.0
 offset_bottom = 48.0
 scale = Vector2(2, 2)
-texture = ExtResource("2_b08fr")
+texture = ExtResource("2")
 stretch_mode = 4
 
 [node name="OptionSprite2" type="TextureRect" parent="." unique_id=307544533]
@@ -42,7 +41,7 @@ grow_horizontal = 0
 grow_vertical = 0
 rotation = 3.1415927
 scale = Vector2(2, 2)
-texture = ExtResource("2_b08fr")
+texture = ExtResource("2")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="." unique_id=811344455]
@@ -54,7 +53,7 @@ anchor_bottom = 1.0
 offset_top = 2.109993
 offset_right = -1.5258789e-05
 offset_bottom = -287.0
-theme_override_fonts/font = ExtResource("4_50bda")
+theme_override_fonts/font = ExtResource("3")
 theme_override_font_sizes/font_size = 20
 text = "TEXT LEVEL"
 horizontal_alignment = 1
@@ -69,7 +68,7 @@ anchor_bottom = 1.0
 offset_top = 22.109993
 offset_right = -1.5258789e-05
 offset_bottom = -267.0
-theme_override_fonts/font = ExtResource("4_50bda")
+theme_override_fonts/font = ExtResource("3")
 theme_override_font_sizes/font_size = 20
 text = "TEXT LEVEL"
 horizontal_alignment = 1
@@ -87,7 +86,7 @@ offset_top = 68.187
 offset_right = -0.93200684
 offset_bottom = -97.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("4_50bda")
+theme_override_fonts/font = ExtResource("3")
 theme_override_font_sizes/font_size = 20
 text = "THE LONGEST TEXT FFOR CHECK HOW IT WILL BE LOOCK"
 horizontal_alignment = 1
@@ -104,7 +103,7 @@ anchor_bottom = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_b08fr")
+texture = ExtResource("4")
 region_rect = Rect2(0, 0, 32, 51)
 patch_margin_left = 6
 patch_margin_top = 6

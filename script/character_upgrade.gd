@@ -9,7 +9,7 @@ var current_char: Character = null
 var fmt_num = func(v: float) -> String:
 	return str(int(v)) if v == round(v) else str(v)
 
-func _ready() -> void:
+func _ready() -> void :
 	if char_grid:
 		char_grid.character_selected.connect(set_character)
 	_connect_rows()
@@ -17,11 +17,11 @@ func _ready() -> void:
 	if char_grid and char_grid.characters.size() > 0:
 		set_character(char_grid.characters[0])
 
-func _on_visibility_changed() -> void:
+func _on_visibility_changed() -> void :
 	if visible:
 		refresh()
 
-func _connect_rows() -> void:
+func _connect_rows() -> void :
 	if rows_root == null:
 		return
 	for st in STAT_TYPES:
@@ -42,7 +42,7 @@ func _find_child(node: Node, node_name: String) -> Node:
 			return found
 	return null
 
-func set_character(c: Character) -> void:
+func set_character(c: Character) -> void :
 	current_char = c
 	refresh()
 
@@ -52,7 +52,7 @@ func _meta_for(stat_type: String) -> MetaStat:
 			return m
 	return null
 
-func _on_plus(stat_type: String) -> void:
+func _on_plus(stat_type: String) -> void :
 	var meta = _meta_for(stat_type)
 	if meta == null or current_char == null:
 		return
@@ -67,14 +67,14 @@ func _on_plus(stat_type: String) -> void:
 		refresh()
 		stats_changed.emit()
 
-func _on_reset_pressed() -> void:
+func _on_reset_pressed() -> void :
 	if current_char == null:
 		return
 	get_node("/root/SaveData").reset_meta(Persistence.char_key(current_char))
 	refresh()
 	stats_changed.emit()
 
-func refresh() -> void:
+func refresh() -> void :
 	var sd = get_node("/root/SaveData")
 	var chips = get_node_or_null("ChipsLabel")
 	if chips == null:
@@ -84,7 +84,7 @@ func refresh() -> void:
 	if current_char == null or rows_root == null:
 		return
 	var key = Persistence.char_key(current_char)
-	$Panel/CurrentCharacter.texture=current_char.icon
+	$Panel / CurrentCharacter.texture = current_char.icon
 	for st in STAT_TYPES:
 		var row = rows_root.get_node_or_null("Row_" + st)
 		if row == null:
@@ -113,7 +113,7 @@ func refresh() -> void:
 			plus.disabled = locked or lvl >= meta.max_level or sd.microchips < meta.cost_at(lvl)
 	_highlight_grid()
 
-func _highlight_grid() -> void:
+func _highlight_grid() -> void :
 	if char_grid == null:
 		return
 	for child in char_grid.get_children():

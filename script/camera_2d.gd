@@ -9,32 +9,32 @@ extends Camera2D
 var _trauma: float = 0.0
 var _shake_base_offset: Vector2 = Vector2.ZERO
 
-func _ready() -> void:
+func _ready() -> void :
 	_apply()
 	get_window().size_changed.connect(_apply)
 	_adjust_zoom()
 	_shake_base_offset = offset
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	_shake_process(delta)
 
-func _apply() -> void:
+func _apply() -> void :
 	var s: Vector2i = get_window().size
 	var z: float = portrait_zoom if s.y > s.x else landscape_zoom
 	zoom = Vector2(z, z)
 
-func _adjust_zoom() -> void:
+func _adjust_zoom() -> void :
 	var w: Window = get_window()
 	var target_zoom: float = portrait_zoom if w.size.y > w.size.x else landscape_zoom
 	create_tween().tween_property(self, "zoom", Vector2(target_zoom, target_zoom), 0.3)
 
-func add_screen_shake(amount: float) -> void:
+func add_screen_shake(amount: float) -> void :
 	_trauma = clampf(_trauma + amount, 0.0, 1.0)
 
-func set_shake_base_offset(new_offset: Vector2) -> void:
+func set_shake_base_offset(new_offset: Vector2) -> void :
 	_shake_base_offset = new_offset
 
-func _shake_process(delta: float) -> void:
+func _shake_process(delta: float) -> void :
 	if _trauma <= 0.0:
 		if offset != _shake_base_offset:
 			offset = _shake_base_offset

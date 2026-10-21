@@ -6,14 +6,12 @@ uid="uid://c8sx72jjjmy32"
 
 [deps]
 
-files=["res://resourse/translator.ru.translation", "res://resourse/translator.en.translation"]
+files=["res://resourse/translator.en.translation", "res://resourse/translator.ru.translation"]
 
 source_file="res://resourse/translator.csv"
-dest_files=["res://resourse/translator.ru.translation", "res://resourse/translator.en.translation"]
+dest_files=["res://resourse/translator.en.translation", "res://resourse/translator.ru.translation"]
 
 [params]
 
-compress=0
-delimiter=1
-unescape_keys=false
-unescape_translations=true
+compress=false
+delimiter=0

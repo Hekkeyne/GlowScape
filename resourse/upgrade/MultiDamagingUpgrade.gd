@@ -1,9 +1,9 @@
 extends Upgrade
 class_name MultiDamagingUpgrade
 
-@export var amount : int
-@export var speed : float
-@export var area : float
+@export var amount: int
+@export var speed: float
+@export var area: float
 
 
 func create_description():

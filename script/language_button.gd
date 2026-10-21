@@ -3,13 +3,13 @@ extends TextureButton
 var is_changed = false
 const SAVE_PATH = "user://settings.cfg"
 
-func _ready() -> void:
+func _ready() -> void :
 	var saved_locale = _load_locale()
 	if saved_locale == "":
 		saved_locale = OS.get_locale_language()
 	_apply_locale(saved_locale)
 
-func _apply_locale(locale: String) -> void:
+func _apply_locale(locale: String) -> void :
 	match locale:
 		"ru":
 			if has_node("Sprite2D"):
@@ -20,7 +20,7 @@ func _apply_locale(locale: String) -> void:
 				$Sprite2D.texture = load("res://sprites/eng_lang.png")
 			TranslationServer.set_locale("en")
 
-func _save_locale(locale: String) -> void:
+func _save_locale(locale: String) -> void :
 	var config = ConfigFile.new()
 	config.load(SAVE_PATH)
 	config.set_value("language", "locale", locale)
@@ -33,7 +33,7 @@ func _load_locale() -> String:
 		return config.get_value("language", "locale", "")
 	return ""
 
-func _on_mouse_entered() -> void:
+func _on_mouse_entered() -> void :
 	if has_node("NinePatchRect"):
 		create_tween().tween_property($NinePatchRect, "modulate", Color(2, 2, 2, 2), 0.25)
 	if has_node("SFX"):
@@ -41,11 +41,11 @@ func _on_mouse_entered() -> void:
 		$SFX.pitch_scale = randf_range(0.7, 1.3)
 		$SFX.play()
 
-func _on_mouse_exited() -> void:
+func _on_mouse_exited() -> void :
 	if has_node("NinePatchRect"):
 		create_tween().tween_property($NinePatchRect, "modulate", Color(1, 1, 1, 1), 0.25)
 
-func _on_pressed() -> void:
+func _on_pressed() -> void :
 	is_changed = true
 	var current = TranslationServer.get_locale()
 	var new_locale: String
@@ -61,7 +61,7 @@ func _on_pressed() -> void:
 	_save_locale(new_locale)
 	_force_ui_update(get_tree().root)
 
-func _force_ui_update(node: Node) -> void:
+func _force_ui_update(node: Node) -> void :
 	if node is Control and node.has_method("get_text") and node.has_method("set_text"):
 		var current_text = node.get_text()
 		node.set_text(current_text)

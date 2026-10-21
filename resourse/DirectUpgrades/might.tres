@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="DirectUpgrade" format=3 uid="uid://dh4pb3mwhfdog"]
 
-[ext_resource type="Script" uid="uid://vkilulnisgb7" path="res://resourse/idk lol/direct_upgrade.gd" id="1_n64sh"]
-[ext_resource type="Texture2D" uid="uid://bjrmwncducopu" path="res://sprites/might_DIRECT.png" id="1_ro3v1"]
+[ext_resource type="Texture2D" uid="uid://bjrmwncducopu" path="res://sprites/might_DIRECT.png" id="1"]
+[ext_resource type="Script" uid="uid://vkilulnisgb7" path="res://resourse/idk lol/direct_upgrade.gd" id="2"]
 
 [resource]
-script = ExtResource("1_n64sh")
+script = ExtResource("2")
 title = "MIGHT"
-icon = ExtResource("1_ro3v1")
+icon = ExtResource("1")
 effect_value = 0.1
 metadata/_custom_type_script = "uid://vkilulnisgb7"

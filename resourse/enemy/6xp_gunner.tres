@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://pabd110306cl"]
 
-[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="1_nr2v0"]
-[ext_resource type="Script" uid="uid://bkdkcdvewipqf" path="res://resourse/enemy ai/shooter_xp.gd" id="1_smsuk"]
-[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="2_7p5xu"]
-[ext_resource type="Resource" uid="uid://kddwicwhckk" path="res://resourse/pickups/large_xp.tres" id="3_wq2bi"]
-[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="4_jo0xv"]
-[ext_resource type="Texture2D" uid="uid://vq503ei02gej" path="res://sprites/magnet_enemy_icon.png" id="5_0a8ji"]
-[ext_resource type="PackedScene" uid="uid://hog4xgs6v8f8" path="res://resourse/enemy scene/gunner_xp.tscn" id="6_mgalj"]
-[ext_resource type="Texture2D" uid="uid://bsp0g22smskot" path="res://sprites/magnet_enemy.png" id="8_0a8ji"]
+[ext_resource type="Script" uid="uid://bkdkcdvewipqf" path="res://resourse/enemy ai/shooter_xp.gd" id="1"]
+[ext_resource type="Resource" uid="uid://kddwicwhckk" path="res://resourse/pickups/large_xp.tres" id="2"]
+[ext_resource type="Script" uid="uid://cjlaasi02mddf" path="res://script/PickupResource.gd" id="2_wq2bi"]
+[ext_resource type="Resource" uid="uid://dj7vvynjfmjmg" path="res://resourse/pickups/Card.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://vq503ei02gej" path="res://sprites/magnet_enemy_icon.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://hog4xgs6v8f8" path="res://resourse/enemy scene/gunner_xp.tscn" id="5"]
+[ext_resource type="Script" uid="uid://b7abjov5qlnih" path="res://resourse/enemy_smth/enemy_type.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://bsp0g22smskot" path="res://sprites/magnet_enemy.png" id="7"]
 
 [sub_resource type="Resource" id="Resource_e5eh4"]
-script = ExtResource("1_smsuk")
+script = ExtResource("1")
 search_radius = 400.0
 pickup_range = 25.0
 shoot_cooldown = 0.5
@@ -22,17 +22,17 @@ gem_attract_speed = 150.0
 metadata/_custom_type_script = "uid://bkdkcdvewipqf"
 
 [resource]
-script = ExtResource("2_7p5xu")
+script = ExtResource("6")
 title = "XP_GUNNER"
-icon = ExtResource("5_0a8ji")
-texture = ExtResource("8_0a8ji")
+icon = ExtResource("4")
+texture = ExtResource("7")
 health = 225.0
 damage = 20.0
-drops = Array[ExtResource("1_nr2v0")]([ExtResource("3_wq2bi")])
+drops = Array[ExtResource("2_wq2bi")]([ExtResource("2")])
 description = "XP_GUNNER_DESCRIPTION"
 speed = 260.0
-scene = ExtResource("6_mgalj")
+scene = ExtResource("5")
 ai_behavior = SubResource("Resource_e5eh4")
-elite_guaranteed_drop = ExtResource("4_jo0xv")
+elite_guaranteed_drop = ExtResource("3")
 max_count = 50
 metadata/_custom_type_script = "uid://b7abjov5qlnih"

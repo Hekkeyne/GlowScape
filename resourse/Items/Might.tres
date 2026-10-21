@@ -1,36 +1,36 @@
 [gd_resource type="Resource" script_class="PassiveItem" format=3 uid="uid://d23fyc5kghvc3"]
 
-[ext_resource type="Script" uid="uid://drv1e7e8gwj10" path="res://resourse/Items/PassiveItem.gd" id="1_8o3l7"]
-[ext_resource type="Texture2D" uid="uid://d1iadp7ta1l1d" path="res://sprites/might.png" id="2_v7q58"]
-[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="3_ebpux"]
+[ext_resource type="Texture2D" uid="uid://d1iadp7ta1l1d" path="res://sprites/might.png" id="1"]
+[ext_resource type="Script" uid="uid://drv1e7e8gwj10" path="res://resourse/Items/PassiveItem.gd" id="2"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="3"]
 
 [sub_resource type="Resource" id="Resource_ooi66"]
-script = ExtResource("3_ebpux")
+script = ExtResource("3")
 might = 0.1
 description = "+50% урона"
 metadata/_custom_type_script = "uid://c4otyonjcxtkq"
 
 [sub_resource type="Resource" id="Resource_hof7t"]
-script = ExtResource("3_ebpux")
+script = ExtResource("3")
 might = 0.15
 description = "+45% урона"
 metadata/_custom_type_script = "uid://c4otyonjcxtkq"
 
 [sub_resource type="Resource" id="Resource_7kiqp"]
-script = ExtResource("3_ebpux")
+script = ExtResource("3")
 might = 0.2
 description = "+30% урона"
 metadata/_custom_type_script = "uid://c4otyonjcxtkq"
 
 [sub_resource type="Resource" id="Resource_gk0e6"]
-script = ExtResource("3_ebpux")
+script = ExtResource("3")
 might = 0.3
 metadata/_custom_type_script = "uid://c4otyonjcxtkq"
 
 [resource]
-script = ExtResource("1_8o3l7")
-upgrades = Array[ExtResource("3_ebpux")]([SubResource("Resource_ooi66"), SubResource("Resource_hof7t"), SubResource("Resource_7kiqp"), SubResource("Resource_gk0e6")])
+script = ExtResource("2")
+upgrades = Array[ExtResource("3")]([SubResource("Resource_ooi66"), SubResource("Resource_hof7t"), SubResource("Resource_7kiqp"), SubResource("Resource_gk0e6")])
 title = "MIGHT"
-icon = ExtResource("2_v7q58")
+icon = ExtResource("1")
 description = "MIGHT_DESCRIPTION"
 metadata/_custom_type_script = "uid://drv1e7e8gwj10"

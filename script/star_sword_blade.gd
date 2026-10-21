@@ -1,6 +1,6 @@
 extends Area2D
 class_name StarSwordBlade
-enum State { IDLE, SPIN_UP, SPIN_EMIT, FLY_WALL, RETURN }
+enum State{IDLE, SPIN_UP, SPIN_EMIT, FLY_WALL, RETURN}
 @export var spin_up_time: float = 0.45
 @export var charge_spin_speed: float = 18.0
 @export var disc_spin_speed: float = 28.0
@@ -69,7 +69,7 @@ var _fly_dir: Vector2 = Vector2.RIGHT
 var _fly_speed: float = 0.0
 var _target: Node2D = null
 var _hit_enemies: Array = []
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("Projectile")
 	collision_layer = 0
 	collision_mask = 4294967295
@@ -96,7 +96,7 @@ func _ready() -> void:
 	_cooldown_timer = cooldown * randf()
 	global_position = _get_home_position()
 	rotation = _get_home_rotation()
-func _setup_trail_pool() -> void:
+func _setup_trail_pool() -> void :
 	var tex: Texture2D = null
 	if _disc_sprite != null and _disc_sprite.texture != null:
 		tex = _disc_sprite.texture
@@ -112,7 +112,7 @@ func _setup_trail_pool() -> void:
 		move_child(ghost, 0)
 		_trail_pool.append(ghost)
 		_trail_life.append(0.0)
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	_update_move_dir(delta)
 	match state:
 		State.IDLE:
@@ -126,13 +126,13 @@ func _physics_process(delta: float) -> void:
 		State.RETURN:
 			_tick_return(delta)
 	_update_trail(delta)
-func _update_move_dir(delta: float) -> void:
+func _update_move_dir(delta: float) -> void :
 	if is_instance_valid(player_ref) and player_ref is CharacterBody2D:
 		var v: Vector2 = (player_ref as CharacterBody2D).velocity
 		if v.length_squared() > 400.0:
 			_last_move_dir = v.normalized()
 	var target_angle: float = _last_move_dir.angle()
-	var diff: float = wrapf(target_angle - _front_angle, -PI, PI)
+	var diff: float = wrapf(target_angle - _front_angle, - PI, PI)
 	_front_angle += signf(diff) * minf(absf(diff), side_swing_speed * delta)
 func _get_home_position() -> Vector2:
 	if not is_instance_valid(player_ref):
@@ -142,13 +142,13 @@ func _get_home_position() -> Vector2:
 	return player_ref.global_position + offset
 func _get_home_rotation() -> float:
 	return _front_angle + deg_to_rad(sprite_forward_offset)
-func _tick_idle(delta: float) -> void:
+func _tick_idle(delta: float) -> void :
 	_rig_time += delta
 	if _cooldown_timer > 0.0:
 		_cooldown_timer -= delta
 	var target_pos: Vector2 = _get_home_position()
 	_home_velocity += (target_pos - global_position) * follow_stiffness * delta
-	_home_velocity *= exp(-follow_damping * delta)
+	_home_velocity *= exp( - follow_damping * delta)
 	global_position += _home_velocity * delta
 	rotation = lerp_angle(rotation, _get_home_rotation(), 10.0 * delta)
 	if _sprite:
@@ -161,12 +161,12 @@ func _tick_idle(delta: float) -> void:
 			_sprite.modulate.a = 1.0
 	if _cooldown_timer <= 0.0:
 		_find_target()
-func _find_target() -> void:
+func _find_target() -> void :
 	if not is_instance_valid(player_ref):
 		return
 	var best: Node2D = null
 	var best_d: float = INF
-	var usable_rect: Rect2 = _screen_world_rect().grow(-attack_margin)
+	var usable_rect: Rect2 = _screen_world_rect().grow( - attack_margin)
 	if usable_rect.size.x <= 0.0 or usable_rect.size.y <= 0.0:
 		usable_rect = _screen_world_rect()
 	var enemies: Array = get_tree().get_nodes_in_group("Enemy")
@@ -185,7 +185,7 @@ func _find_target() -> void:
 	if best != null:
 		_target = best
 		_start_spin_up()
-func _start_spin_up() -> void:
+func _start_spin_up() -> void :
 	state = State.SPIN_UP
 	_charge_timer = maxf(spin_up_time, 0.05)
 	_current_spin = 0.0
@@ -197,7 +197,7 @@ func _start_spin_up() -> void:
 		_disc_sprite.visible = false
 		_disc_sprite.modulate.a = 0.0
 		_disc_sprite.rotation = 0.0
-func _tick_spin_up(delta: float) -> void:
+func _tick_spin_up(delta: float) -> void :
 	_rig_time += delta
 	_charge_timer -= delta
 	var progress: float = 1.0 - clampf(_charge_timer / maxf(spin_up_time, 0.001), 0.0, 1.0)
@@ -215,7 +215,7 @@ func _tick_spin_up(delta: float) -> void:
 		state = State.SPIN_EMIT
 		_spin_stars_spawned = 0
 		_spin_emit_timer = spin_emit_time / float(maxi(spin_star_count, 1))
-func _tick_spin_emit(delta: float) -> void:
+func _tick_spin_emit(delta: float) -> void :
 	_rig_time += delta
 	_current_spin = lerpf(_current_spin, disc_spin_speed, 8.0 * delta)
 	rotation += _current_spin * delta * _spin_dir
@@ -228,7 +228,7 @@ func _tick_spin_emit(delta: float) -> void:
 		_spin_emit_timer = spin_emit_time / float(maxi(spin_star_count, 1))
 	if _spin_stars_spawned >= spin_star_count:
 		_start_fly_wall()
-func _start_fly_wall() -> void:
+func _start_fly_wall() -> void :
 	state = State.FLY_WALL
 	_fly_speed = fly_speed
 	_hit_enemies.clear()
@@ -247,7 +247,7 @@ func _start_fly_wall() -> void:
 	if _sprite:
 		_sprite.modulate.a = 0.0
 	_constrain_to_screen(false)
-func _tick_fly_wall(delta: float) -> void:
+func _tick_fly_wall(delta: float) -> void :
 	_rig_time += delta
 	_update_target_direction(delta)
 	_fly_speed = maxf(_fly_speed - fly_passive_decel * delta, 0.0)
@@ -259,7 +259,7 @@ func _tick_fly_wall(delta: float) -> void:
 		_on_wall_hit()
 	if _fly_speed < return_speed_threshold:
 		_start_return()
-func _update_target_direction(delta: float) -> void:
+func _update_target_direction(delta: float) -> void :
 	var best: Node2D = null
 	var best_d: float = INF
 	var enemies: Array = get_tree().get_nodes_in_group("Enemy")
@@ -276,22 +276,22 @@ func _update_target_direction(delta: float) -> void:
 	if best != null and best_d > 0.01:
 		_target = best
 		var to_target: Vector2 = (best.global_position - global_position).normalized()
-		var angle_diff: float = wrapf(to_target.angle() - _fly_dir.angle(), -PI, PI)
+		var angle_diff: float = wrapf(to_target.angle() - _fly_dir.angle(), - PI, PI)
 		var turn_amount: float = signf(angle_diff) * minf(absf(angle_diff), target_turn_speed * delta)
 		_fly_dir = _fly_dir.rotated(turn_amount)
-func _on_wall_hit() -> void:
+func _on_wall_hit() -> void :
 	_fly_speed *= bounce_damp
 	_spawn_bounce_stars()
 	_shake_camera()
 	_hit_enemies.clear()
-func _start_return() -> void:
+func _start_return() -> void :
 	state = State.RETURN
 	_emerge_timer = maxf(emerge_time, 0.001)
 	_disc_visual_spin = _current_spin
 	_cooldown_timer = cooldown
 	_hit_enemies.clear()
 	_target = null
-func _tick_return(delta: float) -> void:
+func _tick_return(delta: float) -> void :
 	_rig_time += delta
 	if _cooldown_timer > 0.0:
 		_cooldown_timer -= delta
@@ -308,7 +308,7 @@ func _tick_return(delta: float) -> void:
 		_sprite.modulate.a = eased
 	var target_pos: Vector2 = _get_home_position()
 	_home_velocity += (target_pos - global_position) * follow_stiffness * 1.5 * delta
-	_home_velocity *= exp(-follow_damping * delta)
+	_home_velocity *= exp( - follow_damping * delta)
 	if _home_velocity.length() > return_max_speed:
 		_home_velocity = _home_velocity.normalized() * return_max_speed
 	global_position += _home_velocity * delta
@@ -324,7 +324,7 @@ func _tick_return(delta: float) -> void:
 			_disc_sprite.rotation = 0.0
 		if _cooldown_timer <= 0.0:
 			_find_target()
-func _update_trail(delta: float) -> void:
+func _update_trail(delta: float) -> void :
 	for i in range(_trail_pool.size()):
 		if _trail_life[i] <= 0.0:
 			continue
@@ -346,7 +346,7 @@ func _update_trail(delta: float) -> void:
 		return
 	_trail_timer = trail_interval
 	_spawn_trail()
-func _spawn_trail() -> void:
+func _spawn_trail() -> void :
 	if _disc_sprite == null or _disc_sprite.texture == null or _trail_pool.is_empty():
 		return
 	_trail_cursor = (_trail_cursor + 1) % _trail_pool.size()
@@ -358,7 +358,7 @@ func _spawn_trail() -> void:
 	ghost.modulate = Color(1.0, 1.0, 1.0, trail_alpha)
 	ghost.visible = true
 	_trail_life[_trail_cursor] = trail_lifetime
-func _shake_camera() -> void:
+func _shake_camera() -> void :
 	if shake_strength <= 0.0:
 		return
 	var vp: Viewport = get_viewport()
@@ -369,7 +369,7 @@ func _shake_camera() -> void:
 		return
 	if cam.has_method("add_screen_shake"):
 		cam.call("add_screen_shake", shake_strength)
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if state != State.FLY_WALL and state != State.SPIN_EMIT:
 		return
 	if body == null or not is_instance_valid(body):
@@ -377,7 +377,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("Enemy"):
 		return
 	_try_hit(body, state == State.FLY_WALL)
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void :
 	if state != State.FLY_WALL and state != State.SPIN_EMIT:
 		return
 	if area == null or not is_instance_valid(area):
@@ -388,7 +388,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if not target.is_in_group("Enemy"):
 		return
 	_try_hit(target, state == State.FLY_WALL)
-func _check_nearby_hits(speed_boost: bool) -> void:
+func _check_nearby_hits(speed_boost: bool) -> void :
 	var radius_sq: float = hit_radius * hit_radius
 	var enemies: Array = get_tree().get_nodes_in_group("Enemy")
 	for node in enemies:
@@ -439,7 +439,7 @@ func _constrain_to_screen(bounce: bool) -> bool:
 	elif global_position.x > max_x:
 		hit = true
 		if bounce:
-			_fly_dir.x = -absf(_fly_dir.x)
+			_fly_dir.x = - absf(_fly_dir.x)
 	if global_position.y < min_y:
 		hit = true
 		if bounce:
@@ -447,7 +447,7 @@ func _constrain_to_screen(bounce: bool) -> bool:
 	elif global_position.y > max_y:
 		hit = true
 		if bounce:
-			_fly_dir.y = -absf(_fly_dir.y)
+			_fly_dir.y = - absf(_fly_dir.y)
 	if hit:
 		global_position.x = clampf(global_position.x, min_x, max_x)
 		global_position.y = clampf(global_position.y, min_y, max_y)
@@ -456,7 +456,7 @@ func _constrain_to_screen(bounce: bool) -> bool:
 				_fly_dir = Vector2.RIGHT
 			_fly_dir = _fly_dir.normalized()
 	return hit
-func _spawn_spin_star() -> void:
+func _spawn_spin_star() -> void :
 	if spin_star_scene == null:
 		return
 	var star: Node2D = spin_star_scene.instantiate() as Node2D
@@ -471,7 +471,7 @@ func _spawn_spin_star() -> void:
 	if spin_star_textures.size() > 0:
 		star.set("bullet_texture", spin_star_textures.pick_random())
 	get_tree().current_scene.add_child(star)
-func _spawn_bounce_stars() -> void:
+func _spawn_bounce_stars() -> void :
 	if bounce_star_scene == null:
 		return
 	var speed_ratio: float = clampf(_fly_speed / maxf(fly_max_speed, 1.0), 0.0, 1.0)

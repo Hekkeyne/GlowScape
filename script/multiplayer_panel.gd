@@ -30,7 +30,7 @@ var _dots_count: int = 0
 @onready var connect_btn: TextureButton = %ConnectButton
 @onready var status_label: Label = %StatusLabel
 
-func _ready() -> void:
+func _ready() -> void :
 	name_field.text = Net.player_name
 	no_password_check.button_pressed = true
 	refresh_btn.pressed.connect(_on_refresh_pressed)
@@ -42,7 +42,7 @@ func _ready() -> void:
 	clear_status()
 	_refresh_visibility()
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	if not _connecting:
 		return
 	_dots_timer += delta
@@ -62,16 +62,16 @@ func _need_password() -> bool:
 func _has_direct_ip() -> bool:
 	return direct_ip_field.text.strip_edges() != ""
 
-func _set_btn(btn: BaseButton, enabled: bool) -> void:
+func _set_btn(btn: BaseButton, enabled: bool) -> void :
 	btn.disabled = not enabled
 	btn.modulate.a = dim_alpha if not enabled else 1.0
 
-func _set_line(line: LineEdit, enabled: bool) -> void:
+func _set_line(line: LineEdit, enabled: bool) -> void :
 	line.editable = enabled
 	line.modulate.a = dim_alpha if not enabled else 1.0
 	line.mouse_filter = Control.MOUSE_FILTER_STOP if enabled else Control.MOUSE_FILTER_IGNORE
 
-func _refresh_visibility() -> void:
+func _refresh_visibility() -> void :
 	var in_room = _in_room()
 	var idle = not in_room and not _connecting
 	var need_pass = _need_password()
@@ -85,12 +85,12 @@ func _refresh_visibility() -> void:
 	_set_line(room_name_field, not in_room)
 	_set_line(direct_ip_field, idle)
 	_set_line(password_field, (need_pass or direct_ip) and idle)
-	_set_line(create_password_field, (not no_password_check.button_pressed) and not in_room)
+	_set_line(create_password_field, ( not no_password_check.button_pressed) and not in_room)
 
-func _on_direct_ip_changed(_t: String) -> void:
+func _on_direct_ip_changed(_t: String) -> void :
 	_refresh_visibility()
 
-func _on_save_name_pressed() -> void:
+func _on_save_name_pressed() -> void :
 	var n = name_field.text.strip_edges()
 	if n == "":
 		n = "Player"
@@ -98,20 +98,20 @@ func _on_save_name_pressed() -> void:
 	name_field.text = n
 	set_ok_text(tr("NAME_SAVED_LABEL") + " " + n)
 
-func _on_no_password_toggled(_button_pressed: bool) -> void:
+func _on_no_password_toggled(_button_pressed: bool) -> void :
 	_refresh_visibility()
 
-func set_rooms(rooms: Array) -> void:
+func set_rooms(rooms: Array) -> void :
 	_rooms = rooms
 	_selected = -1
 	_rebuild_rows()
 	_refresh_visibility()
 
-func _rebuild_rows() -> void:
+func _rebuild_rows() -> void :
 	_clear_list()
 	if room_row_scene == null:
 		return
-	var order := range(_rooms.size())
+	var order: = range(_rooms.size())
 	if bottom_up:
 		order.reverse()
 	for idx in order:
@@ -125,13 +125,13 @@ func _rebuild_rows() -> void:
 	else:
 		clear_status()
 
-func _clear_list() -> void:
+func _clear_list() -> void :
 	for row in _rows:
 		if is_instance_valid(row):
 			row.queue_free()
 	_rows.clear()
 
-func _on_row_pressed(index: int) -> void:
+func _on_row_pressed(index: int) -> void :
 	if _connecting or _in_room():
 		return
 	_selected = index
@@ -146,7 +146,7 @@ func _on_row_pressed(index: int) -> void:
 	else:
 		_request_connect(_rooms[index], "")
 
-func _on_connect_pressed() -> void:
+func _on_connect_pressed() -> void :
 	if _connecting or _in_room():
 		return
 	var ip = direct_ip_field.text.strip_edges()
@@ -162,7 +162,7 @@ func _on_connect_pressed() -> void:
 		return
 	_request_connect(_rooms[_selected], password_field.text)
 
-func _request_connect(room: Dictionary, password: String) -> void:
+func _request_connect(room: Dictionary, password: String) -> void :
 	_connecting = true
 	_dots_count = 1
 	_dots_timer = 0.0
@@ -170,7 +170,7 @@ func _request_connect(room: Dictionary, password: String) -> void:
 	status_label.text = tr("CONNECTING_LABEL") + "."
 	connect_requested.emit(room, password)
 
-func _request_direct(ip: String, password: String) -> void:
+func _request_direct(ip: String, password: String) -> void :
 	_connecting = true
 	_dots_count = 1
 	_dots_timer = 0.0
@@ -178,7 +178,7 @@ func _request_direct(ip: String, password: String) -> void:
 	status_label.text = tr("CONNECTING_LABEL") + "."
 	direct_join_requested.emit(ip, password)
 
-func _on_refresh_pressed() -> void:
+func _on_refresh_pressed() -> void :
 	if _connecting or _in_room():
 		return
 	_selected = -1
@@ -189,7 +189,7 @@ func _on_refresh_pressed() -> void:
 	_refresh_visibility()
 	refresh_requested.emit()
 
-func _on_create_pressed() -> void:
+func _on_create_pressed() -> void :
 	if _connecting or _in_room():
 		return
 	_selected = -1
@@ -201,34 +201,34 @@ func _on_create_pressed() -> void:
 	var rname = room_name_field.text.strip_edges()
 	if rname == "":
 		rname = tr("ROOM_NAME_DEFAULT") % Net.player_name
-	var password := ""
+	var password: = ""
 	if not no_password_check.button_pressed:
 		password = create_password_field.text
 	create_requested.emit(rname, password)
 
-func set_status_busy(text: String) -> void:
+func set_status_busy(text: String) -> void :
 	_connecting = true
 	_dots_count = 1
 	_dots_timer = 0.0
 	status_label.remove_theme_color_override("font_color")
 	status_label.text = text + "."
 
-func set_status_text(text: String) -> void:
+func set_status_text(text: String) -> void :
 	_connecting = false
 	status_label.text = text
 	status_label.add_theme_color_override("font_color", Color(1.0, 0.45, 0.35))
 
-func set_ok_text(text: String) -> void:
+func set_ok_text(text: String) -> void :
 	_connecting = false
 	status_label.text = text
 	status_label.add_theme_color_override("font_color", Color(0.55, 1.0, 0.55))
 
-func set_info_text(text: String) -> void:
+func set_info_text(text: String) -> void :
 	_connecting = false
 	status_label.text = text
 	status_label.remove_theme_color_override("font_color")
 
-func clear_status() -> void:
+func clear_status() -> void :
 	_connecting = false
 	status_label.text = ""
 	status_label.remove_theme_color_override("font_color")

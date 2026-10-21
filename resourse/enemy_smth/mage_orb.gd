@@ -13,34 +13,34 @@ var target: Node2D = null
 var elapsed: float = 0.0
 var is_dying: bool = false
 
-func _ready() -> void:
+func _ready() -> void :
 	body_entered.connect(_on_body_entered)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if is_dying:
 		return
-	
+
 	elapsed += delta
-	
+
 	if not is_instance_valid(target):
 		_die()
 		return
-	
+
 	if elapsed >= initial_straight_time:
 		var to_target = (target.global_position - global_position).normalized()
 		var current_angle = direction.angle()
 		var target_angle = to_target.angle()
-		var angle_diff = wrapf(target_angle - current_angle, -PI, PI)
+		var angle_diff = wrapf(target_angle - current_angle, - PI, PI)
 		var max_turn = turn_speed * delta
-		direction = Vector2.RIGHT.rotated(current_angle + clampf(angle_diff, -max_turn, max_turn))
-	
+		direction = Vector2.RIGHT.rotated(current_angle + clampf(angle_diff, - max_turn, max_turn))
+
 	position += direction * speed * delta
-	
+
 	lifetime -= delta
 	if lifetime <= 0.0:
 		_die()
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if is_dying:
 		return
 	if body.is_in_group("Player"):
@@ -51,18 +51,18 @@ func _on_body_entered(body: Node2D) -> void:
 			body.apply_knockback(dir * knockback_force)
 		_die()
 
-func _die() -> void:
+func _die() -> void :
 	if is_dying:
 		return
 	is_dying = true
-	
+
 	var cs = find_child("CollisionShape2D")
 	if cs:
 		cs.set_deferred("disabled", true)
-	
+
 	_play_death_animation()
 
-func _play_death_animation() -> void:
+func _play_death_animation() -> void :
 	var tw = create_tween()
 	tw.set_parallel(true)
 	tw.tween_property(self, "scale", Vector2(2.5, 2.5), death_duration)

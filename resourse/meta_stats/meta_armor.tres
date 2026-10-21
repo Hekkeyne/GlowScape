@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="MetaStat" format=3 uid="uid://b5fumlg50h2xh"]
 
-[ext_resource type="Texture2D" uid="uid://dreq1pdwsf652" path="res://sprites/armor_DIRECT.png" id="1_5ibp6"]
-[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="1_tjr03"]
+[ext_resource type="Texture2D" uid="uid://dreq1pdwsf652" path="res://sprites/armor_DIRECT.png" id="1"]
+[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="2"]
 
 [resource]
-script = ExtResource("1_tjr03")
+script = ExtResource("2")
 stat_type = "armor"
 display_name = "META_ARMOR"
-icon = ExtResource("1_5ibp6")
+icon = ExtResource("1")
 max_level = 10
 base_cost = 15
 effect_per_level = 5.0

@@ -30,7 +30,7 @@ func activate(source, _target, scene_tree):
 	if pool.is_empty():
 		return
 	var src_pos = source.global_position
-	pool.sort_custom(func(a, b): return a.global_position.distance_squared_to(src_pos) < b.global_position.distance_squared_to(src_pos))
+	pool.sort_custom( func(a, b): return a.global_position.distance_squared_to(src_pos) < b.global_position.distance_squared_to(src_pos))
 	var working: Array = pool.duplicate()
 	var centers: Array = []
 	var ring_angle: float = randf() * TAU

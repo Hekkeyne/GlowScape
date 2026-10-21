@@ -1,21 +1,19 @@
 [gd_resource type="Resource" script_class="LaserWeapon" format=3 uid="uid://c3dxfdd4ktoet"]
 
-[ext_resource type="PackedScene" uid="uid://yfg8i44sn5rf" path="res://scene/lazer.tscn" id="1_xomji"]
-[ext_resource type="PackedScene" uid="uid://bds0iiu147kpe" path="res://scene/emitt_scene_evo.tscn" id="2_hosmn"]
-[ext_resource type="Texture2D" uid="uid://c3gildaidvu7d" path="res://sprites/magnet.png" id="3_16s4g"]
-[ext_resource type="Texture2D" uid="uid://om53q2bck1dy" path="res://sprites/lazer_icon.png" id="4_hckvs"]
-[ext_resource type="Texture2D" uid="uid://bb45qrxyqj3t7" path="res://sprites/emitt_sprite_evo.png" id="5_1w653"]
-[ext_resource type="Resource" uid="uid://drh0uvi4kujdv" path="res://resourse/Items/Magnet.tres" id="5_vxvfh"]
-[ext_resource type="Texture2D" uid="uid://dr000otqwgtvv" path="res://sprites/lazer_evo_icon.png" id="6_8iqa2"]
-[ext_resource type="PackedScene" uid="uid://dhw7wici5tb12" path="res://scene/laser_projectile.tscn" id="6_rfjbp"]
-[ext_resource type="Script" uid="uid://ca03n53472hum" path="res://script/lazer_weap.gd" id="7_gfgvg"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="8_80cln"]
+[ext_resource type="PackedScene" uid="uid://yfg8i44sn5rf" path="res://scene/lazer.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://om53q2bck1dy" path="res://sprites/lazer_icon.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c3gildaidvu7d" path="res://sprites/magnet.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://bds0iiu147kpe" path="res://scene/emitt_scene_evo.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://bb45qrxyqj3t7" path="res://sprites/emitt_sprite_evo.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dr000otqwgtvv" path="res://sprites/lazer_evo_icon.png" id="6"]
+[ext_resource type="Resource" uid="uid://drh0uvi4kujdv" path="res://resourse/Items/Magnet.tres" id="7"]
+[ext_resource type="Script" uid="uid://ca03n53472hum" path="res://script/lazer_weap.gd" id="8"]
 
 [resource]
-script = ExtResource("7_gfgvg")
-beam_scene = ExtResource("1_xomji")
-emitter_scene = ExtResource("2_hosmn")
-emitter_texture = ExtResource("5_1w653")
+script = ExtResource("8")
+beam_scene = ExtResource("1")
+emitter_scene = ExtResource("4")
+emitter_texture = ExtResource("5")
 beam_duration = 2.0
 grow_time = 0.4
 star_count = 5
@@ -24,11 +22,12 @@ bob_amp = 3.0
 rehit_interval = 0.5
 damage = 25.0
 cooldown = 5.0
-item_needed = ExtResource("5_vxvfh")
-before_evolution = ExtResource("4_hckvs")
-before_item_needed = ExtResource("3_16s4g")
+item_needed = ExtResource("7")
+evolution = null
+before_evolution = ExtResource("2")
+before_item_needed = ExtResource("3")
 title = "WAND_EVO"
-icon = ExtResource("6_8iqa2")
-texture = ExtResource("6_8iqa2")
+icon = ExtResource("6")
+texture = ExtResource("6")
 description = "WAND_EVO_DESCRIPTION"
 metadata/_custom_type_script = "uid://ca03n53472hum"

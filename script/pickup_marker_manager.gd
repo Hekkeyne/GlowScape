@@ -6,14 +6,14 @@ extends Node2D
 var _markers: Dictionary = {}
 var _timer: float = 0.0
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	_timer += delta
 	if _timer < update_interval:
 		return
 	_timer = 0.0
 	_update_all_markers()
 
-func _update_all_markers() -> void:
+func _update_all_markers() -> void :
 	var seen: Dictionary = {}
 	var targets: Array = []
 	for node in get_tree().get_nodes_in_group("MegaGem"):
@@ -50,7 +50,7 @@ func _update_all_markers() -> void:
 			_markers[id].queue_free()
 		_markers.erase(id)
 
-func _spawn_marker(id: int, entry: Dictionary) -> void:
+func _spawn_marker(id: int, entry: Dictionary) -> void :
 	if not marker_scene:
 		return
 	var marker = marker_scene.instantiate()

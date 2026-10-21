@@ -34,7 +34,7 @@ func calculate_movement(enemy: CharacterBody2D, player: Node2D, delta: float) ->
 		e.speed_up_particles.emitting = in_zone
 	return direction * e.speed * speed_factor
 
-func on_touch_player(e: EnemyBase, player: Node2D) -> void:
+func on_touch_player(e: EnemyBase, player: Node2D) -> void :
 	if exploded or e.is_dying:
 		return
 	exploded = true
@@ -49,7 +49,7 @@ func on_touch_player(e: EnemyBase, player: Node2D) -> void:
 	_spawn_children(e)
 	e.die()
 
-func on_death(enemy: CharacterBody2D) -> void:
+func on_death(enemy: CharacterBody2D) -> void :
 	if exploded:
 		return
 	var e = enemy as EnemyBase
@@ -59,7 +59,7 @@ func on_death(enemy: CharacterBody2D) -> void:
 		return
 	_spawn_children(e)
 
-func _spawn_children(e: EnemyBase) -> void:
+func _spawn_children(e: EnemyBase) -> void :
 	var scene = child_type.scene
 	if not scene:
 		return

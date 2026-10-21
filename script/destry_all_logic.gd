@@ -18,7 +18,7 @@ class_name RouletteWeapon
 @export var destroy_sound: AudioStream = null
 @export_range(0.0, 0.5, 0.01) var step_pitch_variance: float = 0.08
 
-enum State { IDLE, APPEARING, SPINNING, LOCK, STRIKING, DISAPPEARING }
+enum State{IDLE, APPEARING, SPINNING, LOCK, STRIKING, DISAPPEARING}
 var state: int = State.IDLE
 var appear_timer: float = 0.0
 var spin_timer: float = 0.0
@@ -61,12 +61,12 @@ func activate(source, _target, scene_tree):
 	if step_sound != null:
 		_step_audio = AudioStreamPlayer2D.new()
 		_step_audio.stream = step_sound
-		_step_audio.volume_db=-15
+		_step_audio.volume_db = -15
 		scene_tree.current_scene.add_child(_step_audio)
 	if destroy_sound != null:
 		_destroy_audio = AudioStreamPlayer2D.new()
 		_destroy_audio.stream = destroy_sound
-		_destroy_audio.volume_db=-15
+		_destroy_audio.volume_db = -15
 		scene_tree.current_scene.add_child(_destroy_audio)
 	var sectors = _current_sectors()
 	visual.sector_count = sectors
@@ -77,7 +77,7 @@ func activate(source, _target, scene_tree):
 	visual.fill_texture = texture
 	visual.line_progress = 0.0
 	visual.line_alpha = 1.0
-	base_rotation = -PI / 2.0 - (TAU / sectors) / 2.0
+	base_rotation = - PI / 2.0 - (TAU / sectors) / 2.0
 	visual.base_rotation = base_rotation
 	visual.highlight_index = -1
 	visual.strike_index = -1
@@ -171,14 +171,14 @@ func update(delta):
 				_kill_visual()
 				state = State.IDLE
 
-func _step_to(idx: int) -> void:
+func _step_to(idx: int) -> void :
 	if idx != _last_step_index:
 		_play_step()
 		_last_step_index = idx
 	if is_instance_valid(visual):
 		visual.move_highlight(idx)
 
-func _play_step() -> void:
+func _play_step() -> void :
 	if not is_instance_valid(_step_audio):
 		return
 	if step_pitch_variance > 0.0:
@@ -187,14 +187,14 @@ func _play_step() -> void:
 		_step_audio.global_position = source_ref.global_position
 	_step_audio.play()
 
-func _play_destroy() -> void:
+func _play_destroy() -> void :
 	if not is_instance_valid(_destroy_audio):
 		return
 	if is_instance_valid(source_ref):
 		_destroy_audio.global_position = source_ref.global_position
 	_destroy_audio.play()
 
-func _free_audio() -> void:
+func _free_audio() -> void :
 	if is_instance_valid(_step_audio):
 		_step_audio.queue_free()
 	_step_audio = null
@@ -217,7 +217,7 @@ func _screen_radius() -> float:
 		zoom = maxf(cam.zoom.x, 0.001)
 	return (vp_size.length() * 0.5 / zoom) * 1.1
 
-func _start_strike() -> void:
+func _start_strike() -> void :
 	state = State.STRIKING
 	strike_timer = 0.0
 	visual.clear_highlight()
@@ -227,7 +227,7 @@ func _start_strike() -> void:
 	_play_destroy()
 	_deal_damage()
 
-func _deal_damage() -> void:
+func _deal_damage() -> void :
 	if not is_instance_valid(source_ref) or tree_ref == null:
 		return
 	var step = TAU / visual.sector_count
@@ -256,7 +256,7 @@ func _deal_damage() -> void:
 			if "knockback" in enemy:
 				enemy.knockback = kb_dir * strike_knockback
 
-func _kill_visual() -> void:
+func _kill_visual() -> void :
 	if is_instance_valid(visual):
 		visual.queue_free()
 	visual = null

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b6g6juxtrnp6y"]
 
-[ext_resource type="Script" uid="uid://fhom3qm1qlpy" path="res://script/circular_projectile.gd" id="1_2jy4o"]
-[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="2_dnwqf"]
-[ext_resource type="AudioStream" uid="uid://dfr1roh2o45tb" path="res://resourse/audio/circular_attack.wav" id="3_dnwqf"]
-[ext_resource type="Texture2D" uid="uid://c63srjs6lkfw" path="res://sprites/circular_projectile.png" id="3_vtjkc"]
+[ext_resource type="Script" uid="uid://fhom3qm1qlpy" path="res://script/circular_projectile.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://dfr1roh2o45tb" path="res://resourse/audio/circular_attack.wav" id="2"]
+[ext_resource type="Texture2D" uid="uid://c63srjs6lkfw" path="res://sprites/circular_projectile.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hpie0"]
 radius = 15.0
@@ -12,11 +12,11 @@ radius = 15.0
 process_mode = 1
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_2jy4o")
-sfx = Array[AudioStream]([ExtResource("3_dnwqf")])
+script = ExtResource("1")
+sfx = [ExtResource("2")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=729339372]
-texture = ExtResource("3_vtjkc")
+texture = ExtResource("3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1533679182]
 shape = SubResource("CircleShape2D_hpie0")
@@ -24,7 +24,7 @@ shape = SubResource("CircleShape2D_hpie0")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=887257714]
 self_modulate = Color(1, 0.101960786, 0.101960786, 1)
 amount = 10
-texture = ExtResource("2_dnwqf")
+texture = ExtResource("4")
 draw_order = 1
 emission_shape = 1
 emission_sphere_radius = 8.0

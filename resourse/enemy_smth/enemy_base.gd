@@ -52,7 +52,7 @@ var _dummy_attack_cd: Dictionary = {}
 var _target_update_acc: float = 0.0
 const TARGET_UPDATE_INTERVAL: float = 0.3
 
-func _ready() -> void:
+func _ready() -> void :
 	if multiplayer.has_multiplayer_peer() and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED and not Net.is_host:
 		queue_free()
 		return
@@ -88,7 +88,7 @@ func _get_valid_target() -> Node2D:
 		return player_ref
 	return null
 
-func _drop_item() -> void:
+func _drop_item() -> void :
 	if type.drops.is_empty():
 		return
 	var drop_data: Pickups
@@ -105,7 +105,7 @@ func _drop_item() -> void:
 	pickup.player_ref = get_tree().get_first_node_in_group("Player")
 	get_tree().current_scene.add_child.call_deferred(pickup)
 
-func _update_target() -> void:
+func _update_target() -> void :
 	var candidates: Array = []
 	var local_p = get_tree().get_first_node_in_group("Player")
 	if local_p and is_instance_valid(local_p) and not local_p.is_dead:
@@ -130,21 +130,21 @@ func _update_target() -> void:
 			nearest = candidates[i]
 	player_ref = nearest
 
-func _apply_elite_stats() -> void:
+func _apply_elite_stats() -> void :
 	if is_elite and _stats_initialized and not _elite_stats_applied:
 		health *= elite_health_mult
 		damage *= elite_damage_mult
 		_elite_stats_applied = true
 
-func _setup_collision() -> void:
+func _setup_collision() -> void :
 	collision_shape = $CollisionShape2D
 	add_to_group("Enemy")
 
-func on_touch_player(player: CharacterBody2D) -> void:
+func on_touch_player(player: CharacterBody2D) -> void :
 	if ai and ai.has_method("on_touch_player"):
 		ai.on_touch_player(self, player)
 
-func explode_fx(tex_override: Texture2D = null) -> void:
+func explode_fx(tex_override: Texture2D = null) -> void :
 	var tex: Texture2D = tex_override
 	if not tex:
 		if visual_node is Sprite2D:
@@ -179,7 +179,7 @@ func explode_fx(tex_override: Texture2D = null) -> void:
 		st.set_parallel(false)
 		st.tween_callback(shard.queue_free)
 
-func screen_shake(intensity: float = 10.0, duration: float = 0.3) -> void:
+func screen_shake(intensity: float = 10.0, duration: float = 0.3) -> void :
 	var camera = get_viewport().get_camera_2d()
 	if not camera:
 		return
@@ -188,20 +188,20 @@ func screen_shake(intensity: float = 10.0, duration: float = 0.3) -> void:
 	for i in range(steps):
 		var decay = 1.0 - float(i) / steps
 		tw.tween_property(
-			camera, "offset",
-			Vector2(randf_range(-intensity, intensity), randf_range(-intensity, intensity)) * decay,
+			camera, "offset", 
+			Vector2(randf_range( - intensity, intensity), randf_range( - intensity, intensity)) * decay, 
 			0.05
 		)
 	tw.tween_property(camera, "offset", Vector2.ZERO, 0.05)
 
-func _apply_elite_visuals() -> void:
+func _apply_elite_visuals() -> void :
 	if not is_elite:
 		return
 	scale = Vector2(2, 2)
 	if visual_node:
 		visual_node.material = ShaderPool.outline
 
-func _setup_visual() -> void:
+func _setup_visual() -> void :
 	visual_node = get_node_or_null("AnimatedSprite2D")
 	if not visual_node:
 		visual_node = get_node_or_null("Sprite2D")
@@ -215,14 +215,14 @@ func _setup_visual() -> void:
 	dash_particles = get_node_or_null("DashParticles")
 	speed_up_particles = get_node_or_null("SpeedUpParticles")
 
-func play_anim(anim: String) -> void:
+func play_anim(anim: String) -> void :
 	var a = visual_node as AnimatedSprite2D
 	if a and a.sprite_frames and a.sprite_frames.has_animation(anim):
 		if a.animation != anim:
 			a.play(anim)
 
 var invincible: bool = false
-func set_invincible(duration: float) -> void:
+func set_invincible(duration: float) -> void :
 	invincible = true
 	var blink = create_tween().set_loops(ceili(duration / 0.2))
 	blink.tween_property(self, "modulate:a", 0.35, 0.1)
@@ -232,7 +232,7 @@ func set_invincible(duration: float) -> void:
 	modulate.a = 1.0
 	invincible = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if is_dying or not type:
 		return
 	if multiplayer.has_multiplayer_peer() and Net.is_host:
@@ -246,7 +246,7 @@ func _physics_process(delta: float) -> void:
 		_flash_timer -= delta
 		if _flash_timer <= 0.0 and visual_node:
 			visual_node.modulate = Color.WHITE
-	var desired_velocity := Vector2.ZERO
+	var desired_velocity: = Vector2.ZERO
 	if ai:
 		desired_velocity = ai.calculate_movement(self, player_ref, delta)
 	if ignore_knockback:
@@ -263,7 +263,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		var collider = move_and_collide(current_move_velocity * delta)
 		_handle_collision(collider)
-	var facing := current_move_velocity.normalized()
+	var facing: = current_move_velocity.normalized()
 	if ai and ai.has_method("get_facing"):
 		var f: Vector2 = ai.get_facing(self, player_ref)
 		if f != Vector2.ZERO:
@@ -278,7 +278,7 @@ func _ensure_target() -> bool:
 			return false
 	return true
 
-func _check_attack_dummies(delta: float) -> void:
+func _check_attack_dummies(delta: float) -> void :
 	if not multiplayer.has_multiplayer_peer() or not Net.is_host:
 		return
 	for d in get_tree().get_nodes_in_group("RemotePlayer"):
@@ -297,25 +297,25 @@ func _check_attack_dummies(delta: float) -> void:
 		_dummy_attack_cd[pid] = dummy_attack_cooldown
 		Net.send_player_damage(pid, damage)
 
-func _handle_collision(collider: KinematicCollision2D) -> void:
+func _handle_collision(collider: KinematicCollision2D) -> void :
 	if not collider:
 		return
 	var target = collider.get_collider()
 	if not target or not is_instance_valid(target):
 		return
-	var dir = -collider.get_normal()
+	var dir = - collider.get_normal()
 	if dir == Vector2.ZERO:
 		dir = (target.global_position - global_position).normalized()
 	if target.has_method("apply_knockback"):
 		target.apply_knockback(dir * 10.0)
 
-func _update_visual_effects(delta: float, direction: Vector2) -> void:
+func _update_visual_effects(delta: float, direction: Vector2) -> void :
 	if not visual_node:
 		return
 	if direction != Vector2.ZERO and not lock_rotation:
 		var target_angle = direction.angle()
 		rotation = lerp_angle(rotation, target_angle, 20.0 * delta)
-	var target_scale := Vector2(1.0, 1.0)
+	var target_scale: = Vector2(1.0, 1.0)
 	if direction != Vector2.ZERO and not no_squash:
 		target_scale = Vector2(1.1, 0.9)
 	target_scale *= scale_mult
@@ -326,19 +326,19 @@ func _update_visual_effects(delta: float, direction: Vector2) -> void:
 	if particles:
 		particles.emitting = run_particles_enabled and (force_particles or (direction != Vector2.ZERO and separation < 700.0))
 
-func set_separation(value: float) -> void:
+func set_separation(value: float) -> void :
 	separation = value
 	if player_ref and is_instance_valid(player_ref) and "nearest_enemy_distance" in player_ref and separation < player_ref.nearest_enemy_distance:
 		player_ref.nearest_enemy = self
 
-func apply_knockback(amount: Vector2) -> void:
+func apply_knockback(amount: Vector2) -> void :
 	knockback += amount
 
-func apply_endgame_buff(hp_bonus: float, dmg_bonus: float) -> void:
+func apply_endgame_buff(hp_bonus: float, dmg_bonus: float) -> void :
 	health += hp_bonus
 	damage += dmg_bonus
 
-func take_damage(amount: float) -> void:
+func take_damage(amount: float) -> void :
 	if is_dying or invincible:
 		return
 	var luck: float = 1.0
@@ -355,7 +355,7 @@ func take_damage(amount: float) -> void:
 	if health <= 0.0:
 		die()
 
-func die() -> void:
+func die() -> void :
 	if is_dying:
 		return
 	is_dying = true
@@ -386,16 +386,16 @@ func is_dying_now():
 		print("DIED")
 	return is_dying
 
-func _spawn_damage_popup(amount: float, is_crit: bool) -> void:
+func _spawn_damage_popup(amount: float, is_crit: bool) -> void :
 	DamagePopup.spawn(global_position, amount, is_crit)
 
-func _flash_damage() -> void:
+func _flash_damage() -> void :
 	if not visual_node or not ("modulate" in visual_node):
 		return
 	visual_node.modulate = Color(0.2, 0.2, 0.2)
 	_flash_timer = 0.08
 
-func _play_spawn_effect() -> void:
+func _play_spawn_effect() -> void :
 	if is_segment:
 		return
 	if visual_node and visual_node is Sprite2D:
@@ -405,7 +405,7 @@ func _play_spawn_effect() -> void:
 		visual_node.material = burn_mat
 		var tween = create_tween()
 		tween.tween_method(_set_burn_radius, 2.0, 0.0, 1.0)
-		tween.finished.connect(func():
+		tween.finished.connect( func():
 			if is_elite:
 				visual_node.material = ShaderPool.outline
 			else:
@@ -417,7 +417,7 @@ func _play_spawn_effect() -> void:
 			var tween = create_tween()
 			tween.tween_property(visual_node, "modulate:a", 1.0, 0.8)
 
-func _play_death_effect() -> void:
+func _play_death_effect() -> void :
 	if not visual_node:
 		return
 	var burn_mat = ShaderPool.burn.duplicate() as ShaderMaterial
@@ -427,11 +427,11 @@ func _play_death_effect() -> void:
 	tween.tween_method(_set_burn_radius, 0.0, 2.0, 1.0)
 	await tween.finished
 
-func _set_burn_radius(value: float) -> void:
+func _set_burn_radius(value: float) -> void :
 	if visual_node and visual_node.material:
 		visual_node.material.set_shader_parameter("radius", value)
 
-func teleport_to(pos: Vector2) -> void:
+func teleport_to(pos: Vector2) -> void :
 	_teleport_flash(global_position)
 	global_position = pos
 	knockback = Vector2.ZERO
@@ -439,7 +439,7 @@ func teleport_to(pos: Vector2) -> void:
 	if ai and ai.has_method("on_teleported"):
 		ai.on_teleported(self)
 
-func _teleport_flash(pos: Vector2) -> void:
+func _teleport_flash(pos: Vector2) -> void :
 	var tex: Texture2D = null
 	if visual_node is Sprite2D:
 		tex = visual_node.texture

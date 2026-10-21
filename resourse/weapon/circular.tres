@@ -1,66 +1,66 @@
 [gd_resource type="Resource" script_class="Circular" format=3 uid="uid://xe4txl5opw8c"]
 
-[ext_resource type="Resource" uid="uid://c4yuko130y0pr" path="res://resourse/weapon upgrade/lightning_circular.tres" id="1_e4o6m"]
-[ext_resource type="Texture2D" uid="uid://c63srjs6lkfw" path="res://sprites/circular_projectile.png" id="1_s13ob"]
-[ext_resource type="Script" uid="uid://d1p2rk1gmapwm" path="res://script/CircularWeapon.gd" id="2_qomw8"]
-[ext_resource type="PackedScene" uid="uid://b6g6juxtrnp6y" path="res://scene/circular_projectile.tscn" id="2_s13ob"]
-[ext_resource type="Resource" uid="uid://evcioijmo6yh" path="res://resourse/Items/Armor.tres" id="3_e4o6m"]
-[ext_resource type="Texture2D" uid="uid://bvniyhcm07ett" path="res://sprites/circular_icon.png" id="3_s13ob"]
-[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="4_a8m0w"]
-[ext_resource type="Script" uid="uid://dlvg56t43ojsk" path="res://resourse/upgrade/CircularUpgrade.gd" id="8_jjnsx"]
+[ext_resource type="Resource" uid="uid://c4yuko130y0pr" path="res://resourse/weapon upgrade/lightning_circular.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://bvniyhcm07ett" path="res://sprites/circular_icon.png" id="2"]
+[ext_resource type="Resource" uid="uid://evcioijmo6yh" path="res://resourse/Items/Armor.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://b6g6juxtrnp6y" path="res://scene/circular_projectile.tscn" id="4"]
+[ext_resource type="Script" uid="uid://d1p2rk1gmapwm" path="res://script/CircularWeapon.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://c63srjs6lkfw" path="res://sprites/circular_projectile.png" id="6"]
+[ext_resource type="Script" uid="uid://dlvg56t43ojsk" path="res://resourse/upgrade/CircularUpgrade.gd" id="7"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="7_e4o6m"]
 
 [sub_resource type="Resource" id="Resource_pk8el"]
-script = ExtResource("8_jjnsx")
+script = ExtResource("7")
 amount = 1
 metadata/_custom_type_script = "uid://dlvg56t43ojsk"
 
 [sub_resource type="Resource" id="Resource_3vgh4"]
-script = ExtResource("8_jjnsx")
+script = ExtResource("7")
 angular_speed = 75.0
 amount = 1
 metadata/_custom_type_script = "uid://dlvg56t43ojsk"
 
 [sub_resource type="Resource" id="Resource_h3knh"]
-script = ExtResource("8_jjnsx")
+script = ExtResource("7")
 amount = 1
 damage = 5.0
 metadata/_custom_type_script = "uid://dlvg56t43ojsk"
 
 [sub_resource type="Resource" id="Resource_cp0ct"]
-script = ExtResource("8_jjnsx")
+script = ExtResource("7")
 angular_speed = 100.0
 metadata/_custom_type_script = "uid://dlvg56t43ojsk"
 
 [sub_resource type="Resource" id="Resource_ngvcu"]
-script = ExtResource("8_jjnsx")
+script = ExtResource("7")
 amount = 1
 damage = 10.0
 metadata/_custom_type_script = "uid://dlvg56t43ojsk"
 
 [sub_resource type="Resource" id="Resource_0q1ej"]
-script = ExtResource("8_jjnsx")
+script = ExtResource("7")
 damage = 2.5
 metadata/_custom_type_script = "uid://dlvg56t43ojsk"
 
 [sub_resource type="Resource" id="Resource_yp2x1"]
-script = ExtResource("8_jjnsx")
+script = ExtResource("7")
 angular_speed = 75.0
 damage = 2.5
 metadata/_custom_type_script = "uid://dlvg56t43ojsk"
 
 [resource]
-script = ExtResource("2_qomw8")
+script = ExtResource("5")
 angular_speed = 200
 radius = 100
 damage = 15.0
 cooldown = 2.0
-projectile_node = ExtResource("2_s13ob")
-upgrades = Array[ExtResource("4_a8m0w")]([SubResource("Resource_pk8el"), SubResource("Resource_3vgh4"), SubResource("Resource_h3knh"), SubResource("Resource_cp0ct"), SubResource("Resource_ngvcu"), SubResource("Resource_0q1ej"), SubResource("Resource_yp2x1")])
-item_needed = ExtResource("3_e4o6m")
-evolution = ExtResource("1_e4o6m")
+projectile_node = ExtResource("4")
+upgrades = Array[ExtResource("7_e4o6m")]([SubResource("Resource_pk8el"), SubResource("Resource_3vgh4"), SubResource("Resource_h3knh"), SubResource("Resource_cp0ct"), SubResource("Resource_ngvcu"), SubResource("Resource_0q1ej"), SubResource("Resource_yp2x1")])
+item_needed = ExtResource("3")
+evolution = ExtResource("1")
 require_max_level_passive = false
 title = "CIRCULAR"
-icon = ExtResource("3_s13ob")
-texture = ExtResource("1_s13ob")
+icon = ExtResource("2")
+texture = ExtResource("6")
 description = "CIRCULAR_DESCRIPTION"
 metadata/_custom_type_script = "uid://d1p2rk1gmapwm"

@@ -31,12 +31,12 @@ func activate(source, _target, scene_tree):
 	if scene_tree.paused:
 		return
 	player_ref = source
-	active_swords = active_swords.filter(func(s): return is_instance_valid(s))
+	active_swords = active_swords.filter( func(s): return is_instance_valid(s))
 	var missing = sword_count - active_swords.size()
 	for i in range(missing):
 		_spawn_sword(source, scene_tree)
 
-func update(_delta: float) -> void:
+func update(_delta: float) -> void :
 	if not is_instance_valid(player_ref):
 		var tree = Engine.get_main_loop() as SceneTree
 		if tree == null:
@@ -75,7 +75,7 @@ func reset():
 	active_swords.clear()
 	player_ref = null
 
-func _spawn_sword(source: Node2D, scene_tree: SceneTree) -> void:
+func _spawn_sword(source: Node2D, scene_tree: SceneTree) -> void :
 	if sword_scene == null:
 		return
 	var sword = sword_scene.instantiate()

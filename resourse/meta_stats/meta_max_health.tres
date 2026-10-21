@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="MetaStat" format=3 uid="uid://brw4e6a80p101"]
 
-[ext_resource type="Texture2D" uid="uid://drsx44vpgrubh" path="res://sprites/health_DIRECT.png" id="1_6ua4q"]
-[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="2_lvv62"]
+[ext_resource type="Texture2D" uid="uid://drsx44vpgrubh" path="res://sprites/health_DIRECT.png" id="1"]
+[ext_resource type="Script" uid="uid://dgeh84pcgehsj" path="res://script/mets_stats.gd" id="2"]
 
 [resource]
-script = ExtResource("2_lvv62")
+script = ExtResource("2")
 stat_type = "max_health"
 display_name = "META_MHEALTH"
-icon = ExtResource("1_6ua4q")
+icon = ExtResource("1")
 max_level = 10
 base_cost = 25
 cost_step = 30

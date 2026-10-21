@@ -1,14 +1,14 @@
 extends Weapon
 class_name SpectralSplitterang
 
-@export var amount := 1
-@export var spread := 14.0
-@export var max_distance := 280.0
-@export var return_speed := 380.0
-@export var split_count := 3
-@export var fan_angle := 35.0
-@export var child_damage_multiplier := 0.7
-@export var throw_interval := 0.08
+@export var amount: = 1
+@export var spread: = 14.0
+@export var max_distance: = 280.0
+@export var return_speed: = 380.0
+@export var split_count: = 3
+@export var fan_angle: = 35.0
+@export var child_damage_multiplier: = 0.7
+@export var throw_interval: = 0.08
 
 func activate(source, _target, scene_tree):
 	if source == null or not is_instance_valid(source):
@@ -18,7 +18,7 @@ func activate(source, _target, scene_tree):
 	if scene_tree == null or scene_tree.current_scene == null:
 		return
 	var used_targets: Array = []
-	var count := int(amount)
+	var count: = int(amount)
 	for i in range(count):
 		if not is_instance_valid(source):
 			return
@@ -33,13 +33,13 @@ func _throw(source, target, scene_tree, index: int):
 	if projectile_node == null:
 		return
 	var projectile = projectile_node.instantiate()
-	var dir := Vector2.RIGHT
+	var dir: = Vector2.RIGHT
 	if target != null and is_instance_valid(target) and target is Node2D:
 		dir = (target.global_position - source.global_position).normalized()
 	else:
 		dir = Vector2.from_angle(randf() * TAU)
 	var total: float = max(1, int(amount))
-	var offset := (index - (total - 1) / 2.0) * spread
+	var offset: = (index - (total - 1) / 2.0) * spread
 	dir = dir.rotated(deg_to_rad(offset))
 	projectile.damage = damage
 	projectile.speed = speed
@@ -68,7 +68,7 @@ func _find_nearest_enemy(scene_tree: SceneTree, source: Node2D, exclude: Array =
 	var r2 = radius * radius
 	var from_position = source.global_position
 	var best: Node2D = null
-	var best_distance := INF
+	var best_distance: = INF
 	for enemy in scene_tree.get_nodes_in_group("Enemy"):
 		if enemy == null or not is_instance_valid(enemy) or not enemy is Node2D:
 			continue

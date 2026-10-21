@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://bqh5iif87qvwx"]
 
-[ext_resource type="Script" uid="uid://bbso2f2x75ws6" path="res://resourse/enemy_smth/tp_projectile.gd" id="1_guos0"]
-[ext_resource type="Texture2D" uid="uid://cy713xbjqk2xe" path="res://sprites/TargetPoint.png" id="1_w6bvc"]
-[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="3_o1r0d"]
+[ext_resource type="Script" uid="uid://bbso2f2x75ws6" path="res://resourse/enemy_smth/tp_projectile.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cy713xbjqk2xe" path="res://sprites/TargetPoint.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 5.0
 
 [node name="Area2D" type="Area2D" unique_id=144260905]
 modulate = Color(0.5568628, 0, 0.8784314, 1)
-script = ExtResource("1_guos0")
+script = ExtResource("1")
 speed = 500.0
 telegraph_time = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1009904165]
-texture = ExtResource("1_w6bvc")
+texture = ExtResource("2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2018418761]
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="ring" type="CPUParticles2D" parent="." unique_id=986303835]
 amount = 2
-texture = ExtResource("3_o1r0d")
+texture = ExtResource("3")
 lifetime = 0.25
 lifetime_randomness = 1.0
 emission_shape = 1

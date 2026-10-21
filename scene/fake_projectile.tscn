@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://0j821qsptp3y"]
 
-[ext_resource type="Script" uid="uid://bix6bjcnig7tu" path="res://script/laser_projectile.gd" id="1_l2gu0"]
-[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="4_xvjfx"]
+[ext_resource type="Script" uid="uid://bix6bjcnig7tu" path="res://script/laser_projectile.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(8, 2)
@@ -10,7 +10,7 @@ size = Vector2(8, 2)
 process_mode = 1
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_l2gu0")
+script = ExtResource("1")
 speed = 500.0
 damage = 10.0
 
@@ -23,7 +23,7 @@ shape = SubResource("RectangleShape2D_g4v7s")
 self_modulate = Color(0.21176471, 0.94509804, 0.9843137, 1)
 emitting = false
 amount = 10
-texture = ExtResource("4_xvjfx")
+texture = ExtResource("2")
 draw_order = 1
 emission_shape = 1
 emission_sphere_radius = 5.0

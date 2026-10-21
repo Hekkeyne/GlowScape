@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c3mh1y0qxtmd5"]
 
-[ext_resource type="Script" uid="uid://dubda5aq0la06" path="res://script/star_sword_blade.gd" id="1_1t1f0"]
-[ext_resource type="Texture2D" uid="uid://bow38up30yfve" path="res://sprites/star_sword_evolution .png" id="2_22q12"]
-[ext_resource type="Texture2D" uid="uid://ddrtvw6h7b2vx" path="res://sprites/star_sword_evolution_circle.png" id="3_22q12"]
-[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="4_urq40"]
+[ext_resource type="Script" uid="uid://dubda5aq0la06" path="res://script/star_sword_blade.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bow38up30yfve" path="res://sprites/star_sword_evolution .png" id="2"]
+[ext_resource type="Texture2D" uid="uid://ddrtvw6h7b2vx" path="res://sprites/star_sword_evolution_circle.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://crudirxcuk6aw" path="res://sprites/lazer_projectile_particle.png" id="4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t18yu"]
 radius = 85.0
@@ -12,7 +12,7 @@ radius = 85.0
 process_mode = 1
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_1t1f0")
+script = ExtResource("1")
 fly_max_speed = 2500.0
 fly_passive_decel = 100.0
 
@@ -21,18 +21,18 @@ shape = SubResource("CircleShape2D_t18yu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=576228593]
 scale = Vector2(3, 3)
-texture = ExtResource("2_22q12")
+texture = ExtResource("2")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1931102975]
 visible = false
 scale = Vector2(3, 3)
-texture = ExtResource("3_22q12")
+texture = ExtResource("3")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1291298760]
 self_modulate = Color(0.21176471, 0.94509804, 0.9843137, 1)
 position = Vector2(-33, 0)
 amount = 10
-texture = ExtResource("4_urq40")
+texture = ExtResource("4")
 draw_order = 1
 emission_shape = 1
 emission_sphere_radius = 5.0

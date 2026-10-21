@@ -8,23 +8,23 @@ const PATH = "user://player_data.cfg"
 
 @onready var config = ConfigFile.new()
 
-func _ready() -> void:
+func _ready() -> void :
 	load_data()
 	apply_volume()
 
-func save_data() -> void:
+func save_data() -> void :
 	config.save(PATH)
 
-func set_data() -> void:
+func set_data() -> void :
 	config.set_value("Player", "microchips", microchips)
 	config.set_value("Player", "skill_tree", skill_tree)
 	config.set_value("Player", "meta_levels", meta_levels)
 
-func set_and_save() -> void:
+func set_and_save() -> void :
 	set_data()
 	save_data()
 
-func load_data() -> void:
+func load_data() -> void :
 	if config.load(PATH) != OK:
 		set_and_save()
 	microchips = config.get_value("Player", "microchips", 0)
@@ -59,7 +59,7 @@ func buy_meta_level(char_key: String, stat_type: String, cost: int) -> bool:
 	set_and_save()
 	return true
 
-func refund_meta_level(char_key: String, stat_type: String, refund: int) -> void:
+func refund_meta_level(char_key: String, stat_type: String, refund: int) -> void :
 	var lvl = get_meta_level(char_key, stat_type)
 	if lvl <= 0:
 		return
@@ -67,7 +67,7 @@ func refund_meta_level(char_key: String, stat_type: String, refund: int) -> void
 	microchips += refund
 	set_and_save()
 
-func reset_meta(char_key: String) -> void:
+func reset_meta(char_key: String) -> void :
 	var sum = _refund_sum(char_key)
 	meta_levels[char_key] = {}
 	microchips += sum
@@ -84,13 +84,13 @@ func _refund_sum(char_key: String) -> int:
 func get_volume() -> float:
 	return config.get_value("Settings", "volume", 1.0)
 
-func set_volume(value: float) -> void:
+func set_volume(value: float) -> void :
 	config.set_value("Settings", "volume", value)
 	save_data()
 	apply_volume()
 
-func apply_volume() -> void:
-	var bus := AudioServer.get_bus_index("Master")
+func apply_volume() -> void :
+	var bus: = AudioServer.get_bus_index("Master")
 	if bus > -1:
-		var v := clampf(get_volume(), 0.0, 1.0)
+		var v: = clampf(get_volume(), 0.0, 1.0)
 		AudioServer.set_bus_volume_db(bus, linear_to_db(v) if v > 0.001 else -80.0)

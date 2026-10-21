@@ -29,7 +29,7 @@ var _home_timer: float = 0.0
 
 const HOMING_INTERVAL: float = 0.15
 
-func _ready() -> void:
+func _ready() -> void :
 	_current_speed = speed_start
 	_current_max_speed = speed_max
 	add_to_group("Projectile")
@@ -43,7 +43,7 @@ func _ready() -> void:
 	if not area_entered.is_connected(_on_area_entered):
 		area_entered.connect(_on_area_entered)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	_age += delta
 	if _age >= lifetime:
 		queue_free()
@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	rotation += spin_speed * delta
 	global_position += direction * _current_speed * delta
 
-func _process_homing(delta: float) -> void:
+func _process_homing(delta: float) -> void :
 	_home_timer -= delta
 	if _home_timer <= 0.0 or not is_instance_valid(_home_target) or _hit_enemies.has(_home_target):
 		_home_timer = HOMING_INTERVAL
@@ -61,7 +61,7 @@ func _process_homing(delta: float) -> void:
 	if not is_instance_valid(_home_target):
 		return
 	var desired: float = (_home_target.global_position - global_position).angle()
-	var diff: float = wrapf(desired - direction.angle(), -PI, PI)
+	var diff: float = wrapf(desired - direction.angle(), - PI, PI)
 	direction = direction.rotated(signf(diff) * minf(absf(diff), homing_strength * delta))
 
 func _find_home_target() -> Node2D:
@@ -85,7 +85,7 @@ func _find_home_target() -> Node2D:
 			best = enemy
 	return best
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void :
 	if body == null or not is_instance_valid(body):
 		return
 	if body == source:
@@ -94,7 +94,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	_hit(body)
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D) -> void :
 	var target: Node2D = area.get_parent() as Node2D
 	if target == null or not is_instance_valid(target):
 		return
@@ -104,7 +104,7 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 	_hit(target)
 
-func _hit(target: Node) -> void:
+func _hit(target: Node) -> void :
 	if _hit_enemies.has(target):
 		return
 	_hit_enemies.append(target)

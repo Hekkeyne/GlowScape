@@ -7,27 +7,27 @@ var discs: Array = []
 var _source = null
 var _tree = null
 
-func _init() -> void:
+func _init() -> void :
 	speed = 220
 
-func activate(source, _target, scene_tree) -> void:
+func activate(source, _target, scene_tree) -> void :
 	_source = source
 	_tree = scene_tree
 	_maintain()
 
-func update(_delta: float) -> void:
+func update(_delta: float) -> void :
 	if _source == null or _tree == null:
 		return
 	_maintain()
 
-func _maintain() -> void:
+func _maintain() -> void :
 	for i in range(discs.size() - 1, -1, -1):
 		if not is_instance_valid(discs[i]):
 			discs.remove_at(i)
 	for i in range(amount - discs.size()):
 		_spawn_disc()
 
-func _spawn_disc() -> void:
+func _spawn_disc() -> void :
 	if _tree == null or not is_instance_valid(_source):
 		return
 	var d = projectile_node.instantiate()

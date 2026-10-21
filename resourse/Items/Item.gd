@@ -10,7 +10,7 @@ var level = 1
 var _original_stats: Dictionary = {}
 var _stats_saved: bool = false
 
-func _save_stats() -> void:
+func _save_stats() -> void :
 	if _stats_saved:
 		return
 	for prop in get_property_list():
@@ -23,7 +23,7 @@ func _save_stats() -> void:
 				_original_stats[pname] = value
 	_stats_saved = true
 
-func reset() -> void:
+func reset() -> void :
 	_save_stats()
 	for key in _original_stats:
 		set(key, _original_stats[key])

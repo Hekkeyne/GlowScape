@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://b1wewwbptl0pv"]
 
-[ext_resource type="Shader" uid="uid://tb7335mubyoy" path="res://resourse/transition.gdshader" id="1_eottm"]
-[ext_resource type="Texture2D" uid="uid://cnie3oc25rxwp" path="res://sprites/пкфвшутеащкцрфе.png" id="2_av22v"]
+[ext_resource type="Shader" uid="uid://tb7335mubyoy" path="res://resourse/transition.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://cnie3oc25rxwp" path="res://sprites/пкфвшутеащкцрфе.png" id="2"]
 
 [sub_resource type="Gradient" id="Gradient_eenwb"]
 
@@ -14,14 +14,14 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, -1)
 
 [resource]
-shader = ExtResource("1_eottm")
+shader = ExtResource("1")
 shader_parameter/base_color = Color(0, 0, 0, 1)
 shader_parameter/node_resolution = Vector2(0, 0)
 shader_parameter/factor = 0.0
 shader_parameter/width = 0.4
 shader_parameter/gradient_texture = SubResource("GradientTexture2D_d0u6y")
 shader_parameter/gradient_fixed = false
-shader_parameter/shape_texture = ExtResource("2_av22v")
+shader_parameter/shape_texture = ExtResource("2")
 shader_parameter/shape_tiling = 32.0
 shader_parameter/shape_rotation = 0.0
 shader_parameter/shape_scroll = Vector2(0, 0)

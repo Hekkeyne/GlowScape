@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://beekp8ckrhsnf"]
 
-[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1_71kgr"]
-[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="3_sdspw"]
-[ext_resource type="Resource" uid="uid://bp8y5uft3lt2h" path="res://resourse/weapon/lazer_blaster.tres" id="4_71kgr"]
-[ext_resource type="Texture2D" uid="uid://diti1hctj0qo2" path="res://sprites/lazer_character.png" id="5_sdspw"]
+[ext_resource type="Script" uid="uid://c4otyonjcxtkq" path="res://resourse/Stats.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://diti1hctj0qo2" path="res://sprites/lazer_character.png" id="2"]
+[ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="3"]
+[ext_resource type="Resource" uid="uid://bp8y5uft3lt2h" path="res://resourse/weapon/lazer_blaster.tres" id="4"]
 
 [sub_resource type="Resource" id="Resource_g4v7s"]
-script = ExtResource("1_71kgr")
+script = ExtResource("1")
 max_health = 100.0
 movement_speed = 200.0
 might = 1.0
@@ -15,12 +15,12 @@ growth = 1.0
 metadata/_custom_type_script = "uid://c4otyonjcxtkq"
 
 [resource]
-script = ExtResource("3_sdspw")
+script = ExtResource("3")
 title = "LAZER_CHARACTER"
-icon = ExtResource("5_sdspw")
-texture = ExtResource("5_sdspw")
+icon = ExtResource("2")
+texture = ExtResource("2")
 animation_name = "LAZER_CHARACTER"
 base_stats = SubResource("Resource_g4v7s")
-starting_weapon = ExtResource("4_71kgr")
+starting_weapon = ExtResource("4")
 color_trail = "36f1fb"
 metadata/_custom_type_script = "uid://cdfgec6qtjwl7"

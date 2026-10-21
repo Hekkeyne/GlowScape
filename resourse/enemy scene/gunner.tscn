@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://rdalg4ijxcec"]
 
-[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1_itw6a"]
-[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2_t50hc"]
-[ext_resource type="Texture2D" uid="uid://cxhixkadblhoq" path="res://sprites/gunner6.png" id="3_b072x"]
-[ext_resource type="Texture2D" uid="uid://bood52ugthy2h" path="res://sprites/gunner5.png" id="4_050n7"]
-[ext_resource type="Texture2D" uid="uid://cicwhpa5q8v2y" path="res://sprites/gunner4.png" id="5_nn2ih"]
-[ext_resource type="Texture2D" uid="uid://blw6q4prvl2f2" path="res://sprites/gunner3.png" id="6_bdsi3"]
-[ext_resource type="Texture2D" uid="uid://1e4a3gagbvbd" path="res://sprites/gunner2.png" id="7_6apyt"]
-[ext_resource type="Texture2D" uid="uid://cb5to1cfmw7ba" path="res://sprites/gunner1.png" id="8_osg7h"]
+[ext_resource type="Script" uid="uid://fvcpynda33dr" path="res://resourse/enemy_smth/enemy_base.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://de7ksx3iam7mm" path="res://sprites/partikle1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cxhixkadblhoq" path="res://sprites/gunner6.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bood52ugthy2h" path="res://sprites/gunner5.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cicwhpa5q8v2y" path="res://sprites/gunner4.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://blw6q4prvl2f2" path="res://sprites/gunner3.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://1e4a3gagbvbd" path="res://sprites/gunner2.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://cb5to1cfmw7ba" path="res://sprites/gunner1.png" id="8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxmbx"]
 radius = 7.0
@@ -17,22 +17,22 @@ height = 23.333332
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_b072x")
+"texture": ExtResource("3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_050n7")
+"texture": ExtResource("4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_nn2ih")
+"texture": ExtResource("5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_bdsi3")
+"texture": ExtResource("6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_6apyt")
+"texture": ExtResource("7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_osg7h")
+"texture": ExtResource("8")
 }],
 "loop": 0,
 "name": &"close",
@@ -40,22 +40,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_osg7h")
+"texture": ExtResource("8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_6apyt")
+"texture": ExtResource("7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_bdsi3")
+"texture": ExtResource("6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_nn2ih")
+"texture": ExtResource("5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_050n7")
+"texture": ExtResource("4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_b072x")
+"texture": ExtResource("3")
 }],
 "loop": 0,
 "name": &"open",
@@ -67,13 +67,13 @@ position = Vector2(-2, 0)
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_itw6a")
+script = ExtResource("1")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2132661467]
 self_modulate = Color(0.99215686, 0, 0.74509805, 1)
 position = Vector2(5.722046e-06, 0)
 amount = 3
-texture = ExtResource("2_t50hc")
+texture = ExtResource("2")
 lifetime = 0.4
 draw_order = 1
 emission_shape = 1

@@ -4,7 +4,7 @@ extends Node2D
 var _timer: float = 0.0
 var _next_net_id: int = 1
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	if not multiplayer.has_multiplayer_peer() or not Net.is_host:
 		return
 	_timer += delta
@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	_assign_ids()
 	_send_snapshot()
 
-func _assign_ids() -> void:
+func _assign_ids() -> void :
 	for proj in get_tree().get_nodes_in_group("Projectile"):
 		if not is_instance_valid(proj):
 			continue
@@ -24,7 +24,7 @@ func _assign_ids() -> void:
 			proj.net_id = _next_net_id
 			_next_net_id += 1
 
-func _send_snapshot() -> void:
+func _send_snapshot() -> void :
 	var data: Array = []
 	for proj in get_tree().get_nodes_in_group("Projectile"):
 		if not is_instance_valid(proj):
@@ -32,9 +32,9 @@ func _send_snapshot() -> void:
 		if not ("net_id" in proj) or proj.net_id <= 0:
 			continue
 		var entry: Dictionary = {
-			"id": proj.net_id,
-			"pos": proj.global_position,
-			"rot": proj.rotation,
+			"id": proj.net_id, 
+			"pos": proj.global_position, 
+			"rot": proj.rotation, 
 			"tex": _get_texture_path(proj)
 		}
 		data.append(entry)

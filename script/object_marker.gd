@@ -18,11 +18,11 @@ var _target_position: Vector2 = Vector2.ZERO
 var _current_icon: Texture2D = null
 var _was_on_screen: bool = false
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void :
 	if _target_position != Vector2.ZERO:
 		global_position = global_position.lerp(_target_position, move_speed * delta)
 
-func setup(p_target: Node2D, p_icon: Texture2D, p_is_elite: bool = false) -> void:
+func setup(p_target: Node2D, p_icon: Texture2D, p_is_elite: bool = false) -> void :
 	target = p_target
 	is_elite_marker = p_is_elite
 	if p_icon and icon:
@@ -33,7 +33,7 @@ func setup(p_target: Node2D, p_icon: Texture2D, p_is_elite: bool = false) -> voi
 		global_position = player.global_position
 		_target_position = player.global_position
 
-func update_marker() -> void:
+func update_marker() -> void :
 	if not is_instance_valid(target):
 		queue_free()
 		return
@@ -58,7 +58,7 @@ func update_marker() -> void:
 	visible = true
 	_was_on_screen = on_screen
 
-func _update_icon() -> void:
+func _update_icon() -> void :
 	if not icon or not is_instance_valid(target):
 		return
 	var new_icon = _get_target_icon()
@@ -88,7 +88,7 @@ func _find_sprite(node: Node) -> Sprite2D:
 			return found
 	return null
 
-func _update_direct_marker(target_world: Vector2, player_world: Vector2) -> void:
+func _update_direct_marker(target_world: Vector2, player_world: Vector2) -> void :
 	var to_target = target_world - player_world
 	var dist = to_target.length()
 	if dist < 1.0:
@@ -100,7 +100,7 @@ func _update_direct_marker(target_world: Vector2, player_world: Vector2) -> void
 	icon.rotation = 0.0
 	scale = Vector2.ONE
 
-func _update_around_player_marker(target_world: Vector2, player_world: Vector2) -> void:
+func _update_around_player_marker(target_world: Vector2, player_world: Vector2) -> void :
 	var to_target = target_world - player_world
 	var dist = to_target.length()
 	if dist < 1.0:
@@ -115,4 +115,4 @@ func _update_around_player_marker(target_world: Vector2, player_world: Vector2) 
 	scale = Vector2.ONE * lerpf(max_scale, min_scale, t)
 
 func _is_on_screen(screen_pos: Vector2, screen_size: Vector2) -> bool:
-	return screen_pos.x >= -screen_margin and screen_pos.x <= screen_size.x + screen_margin and screen_pos.y >= -screen_margin and screen_pos.y <= screen_size.y + screen_margin
+	return screen_pos.x >= - screen_margin and screen_pos.x <= screen_size.x + screen_margin and screen_pos.y >= - screen_margin and screen_pos.y <= screen_size.y + screen_margin

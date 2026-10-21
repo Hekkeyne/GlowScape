@@ -1,22 +1,22 @@
 extends CharacterBody2D
 
-var nearest_enemy 
-var nearest_enemy_distance: float = 0+area
-var movement_speed : float = 0
-var recovery:float=0 
-var armor:float = 0
-var might : float =0
+var nearest_enemy
+var nearest_enemy_distance: float = 0 + area
+var movement_speed: float = 0
+var recovery: float = 0
+var armor: float = 0
+var might: float = 0
 var area: float = 0
-var growth:float=0
-var can_dash : bool=true
+var growth: float = 0
+var can_dash: bool = true
 var is_invincible: bool = false
 var is_dead: bool = false
 @export var invincible_duration: float = 1.0
-@export var character : Character
+@export var character: Character
 var current_velocity: Vector2 = Vector2.ZERO
 @export var acceleration: float = 800.0
 @export var deceleration: float = 1200.0
-@export var sfx_tp : AudioStream=load("res://resourse/audio/tp_sfx_1.wav")
+@export var sfx_tp: AudioStream = load("res://resourse/audio/tp_sfx_1.wav")
 @export var death_wait_time: float = 1.0
 @export var death_fade_time: float = 0.8
 @export var button_slide_time: float = 0.5
@@ -24,68 +24,68 @@ var current_velocity: Vector2 = Vector2.ZERO
 @export var enemy_fade_time: float = 0.4
 var microchips: int = 0:
 	set(value):
-		microchips=value
+		microchips = value
 		%Microchips.text = tr("TR_CHIPS") % str(value)
-var magnet:float=0:
+var magnet: float = 0:
 	set(value):
-		magnet=value
-		$Magnet/Magnet.shape.radius=100+value
-var max_health : float=0:
+		magnet = value
+		$Magnet / Magnet.shape.radius = 100 + value
+var max_health: float = 0:
 	set(value):
-		max_health=value
-		%health.max_value=value
-var XP : float = 0:
+		max_health = value
+		%health.max_value = value
+var XP: float = 0:
 	set(value):
-		XP=value
-		%XP.value=value
-var total_XP : float = 0
-var level : int=1:
+		XP = value
+		%XP.value = value
+var total_XP: float = 0
+var level: int = 1:
 	set(value):
-		level=value
-		%Level.text=tr("LABEL_LEVEL") % str(value) 
+		level = value
+		%Level.text = tr("LABEL_LEVEL") % str(value)
 		%Options.queue_level_up()
 		%XP.max_value = BASE_XP + (value * 0.25 * BASE_XP)
-		if value>=30:
+		if value >= 30:
 			%XP.max_value = BASE_XP + (value * 0.5 * BASE_XP)
 var BASE_XP = 100
-var health : float = max_health:
+var health: float = max_health:
 	set(value):
 		health = clampf(value, 0.0, max_health)
-		%health.value=value
+		%health.value = value
 		%HealthLabel.text = tr("LABEL_HEALTH") % str(int(health))
 		if health <= 0.0 and not is_dead:
 			_die()
-var luck : float = 1.0
+var luck: float = 1.0
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var particles : CPUParticles2D = $player
+@onready var particles: CPUParticles2D = $player
 @onready var target_point = $TargetPoint
-@onready var back_button: TextureButton = $UI/Back
+@onready var back_button: TextureButton = $UI / Back
 var back_button_final_pos: Vector2 = Vector2.ZERO
-@export var teleport_distance: float = 200.0 
+@export var teleport_distance: float = 200.0
 @export var point_lerp_speed: float = 10.0
 var _snap_acc: float = 0.0
 var _net_ready: bool = false
 
-func _ready() -> void:
+func _ready() -> void :
 	character = Persistence.character
 	Persistence.gain_bonus_stats(self)
 	add_to_group("Player")
-	$Sprite2D.texture=character.texture
-	%Level.text=tr("LABEL_LEVEL") % str(level) 
+	$Sprite2D.texture = character.texture
+	%Level.text = tr("LABEL_LEVEL") % str(level)
 	%Microchips.text = tr("TR_CHIPS") % str(microchips)
 	%HealthLabel.text = tr("LABEL_HEALTH") % str(int(health))
 	set_base_stats(character.base_stats)
 	%Options.check_item(character.starting_weapon)
-	$player.modulate=Color.from_string(character.color_trail,Color.WHITE)
+	$player.modulate = Color.from_string(character.color_trail, Color.WHITE)
 	%TargetPoint.modulate = Color.from_string(character.color_trail, Color.WHITE)
 	$start_teleport.modulate = Color.from_string(character.color_trail, Color.WHITE)
 	%Teleport.tint_progress = Color.from_string(character.color_trail, Color.WHITE)
-	%TeleportLabel.modulate=Color.from_string(character.color_trail, Color.WHITE)
+	%TeleportLabel.modulate = Color.from_string(character.color_trail, Color.WHITE)
 	if back_button:
 		back_button_final_pos = back_button.position
 		back_button.position.y = -150
 		back_button.visible = false
-	%XP.max_value=BASE_XP
+	%XP.max_value = BASE_XP
 	Net.set_character(character)
 	await get_tree().process_frame
 	_net_ready = true
@@ -101,15 +101,15 @@ func _can_rpc() -> bool:
 		return false
 	return true
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void :
 	if is_dead:
 		return
 	if is_instance_valid(nearest_enemy):
 		nearest_enemy_distance = global_position.distance_to(nearest_enemy.global_position)
 	else:
-		nearest_enemy_distance = 250+area
-		nearest_enemy=null
-	var direction = Input.get_vector("left", "right", "up","down")
+		nearest_enemy_distance = 250 + area
+		nearest_enemy = null
+	var direction = Input.get_vector("left", "right", "up", "down")
 	if (Input.is_action_just_pressed("dash")) and can_dash:
 		%Teleport.value = 0
 		$start_teleport.emitting = true
@@ -122,7 +122,7 @@ func _physics_process(delta: float) -> void:
 		%TargetPoint.modulate = Color.WHITE
 		can_dash = false
 		%dash_cooldown.start()
-		create_tween().tween_property(%Teleport, "value", 100, 1)
+		create_tween().tween_property( %Teleport, "value", 100, 1)
 		if _can_rpc():
 			_send_dash.rpc(global_position)
 	knockback = knockback.move_toward(Vector2.ZERO, 400.0 * delta)
@@ -136,7 +136,7 @@ func _physics_process(delta: float) -> void:
 	animate_squash(direction, delta)
 	rotate_sprite(direction, delta)
 	check_XP()
-	health+=recovery*delta
+	health += recovery * delta
 	var target_pos = Vector2.ZERO
 	if direction != Vector2.ZERO:
 		target_pos = direction * teleport_distance
@@ -152,27 +152,27 @@ func _physics_process(delta: float) -> void:
 			_send_snap.rpc(global_position, current_velocity, ht, sprite.rotation)
 
 @rpc("any_peer", "unreliable_ordered", "call_remote")
-func _send_snap(pos: Vector2, vel: Vector2, health_t: float, rot: float) -> void:
+func _send_snap(pos: Vector2, vel: Vector2, health_t: float, rot: float) -> void :
 	var id = multiplayer.get_remote_sender_id()
 	var node = get_tree().get_first_node_in_group("RemotePlayers_%d" % id)
 	if node and is_instance_valid(node) and node.has_method("network_snap"):
 		node.network_snap(pos, vel, health_t, rot)
 
 @rpc("any_peer", "unreliable_ordered", "call_remote")
-func _send_dash(dest: Vector2) -> void:
+func _send_dash(dest: Vector2) -> void :
 	var id = multiplayer.get_remote_sender_id()
 	var node = get_tree().get_first_node_in_group("RemotePlayers_%d" % id)
 	if node and is_instance_valid(node) and node.has_method("network_dash"):
 		node.network_dash(dest)
 
 @rpc("any_peer", "reliable", "call_remote")
-func _send_dead() -> void:
+func _send_dead() -> void :
 	var id = multiplayer.get_remote_sender_id()
 	var node = get_tree().get_first_node_in_group("RemotePlayers_%d" % id)
 	if node and is_instance_valid(node) and node.has_method("network_dead"):
 		node.network_dead()
 
-func teleport_flash(pos: Vector2) -> void:
+func teleport_flash(pos: Vector2) -> void :
 	var f = Sprite2D.new()
 	f.texture = sprite.texture
 	f.modulate = Color(1.5, 1.5, 2.0, 0.8)
@@ -188,17 +188,17 @@ func teleport_flash(pos: Vector2) -> void:
 	tw.set_parallel(false)
 	tw.tween_callback(f.queue_free)
 
-func animate_squash(direction: Vector2, delta: float) -> void:
+func animate_squash(direction: Vector2, delta: float) -> void :
 	var target_scale = Vector2(1.0, 1.0)
 	if direction != Vector2.ZERO:
 		target_scale = Vector2(1.1, 0.9)
-		particles.emitting=true
+		particles.emitting = true
 	else:
 		target_scale = Vector2(1.0, 1.0)
-		particles.emitting=false
+		particles.emitting = false
 	sprite.scale = sprite.scale.lerp(target_scale, 15.0 * delta)
 
-func rotate_sprite(direction: Vector2, delta: float) -> void:
+func rotate_sprite(direction: Vector2, delta: float) -> void :
 	if direction != Vector2.ZERO:
 		var target_angle = direction.angle()
 		sprite.rotation = lerp_angle(sprite.rotation, target_angle, 20.0 * delta)
@@ -206,7 +206,7 @@ func rotate_sprite(direction: Vector2, delta: float) -> void:
 
 var knockback: Vector2 = Vector2.ZERO
 
-func apply_knockback(amount: Vector2) -> void:
+func apply_knockback(amount: Vector2) -> void :
 	knockback += amount
 
 func take_damage(amount):
@@ -215,7 +215,7 @@ func take_damage(amount):
 	health -= max(amount / ((armor + 100) / 100), 0)
 	_start_invincibility()
 
-func _start_invincibility() -> void:
+func _start_invincibility() -> void :
 	is_invincible = true
 	_flash_invincibility()
 	await get_tree().create_timer(invincible_duration).timeout
@@ -223,7 +223,7 @@ func _start_invincibility() -> void:
 		is_invincible = false
 		sprite.modulate.a = 1.0
 
-func _flash_invincibility() -> void:
+func _flash_invincibility() -> void :
 	var dim_time = maxf(invincible_duration - 0.5, 0.0)
 	var flash_duration = 0.5
 	var flash_count = 5
@@ -236,21 +236,21 @@ func _flash_invincibility() -> void:
 		var target_alpha = 1.0 if i % 2 == 0 else 0.0
 		tw.tween_property(sprite, "modulate:a", target_alpha, flash_step)
 
-func _die() -> void:
+func _die() -> void :
 	if is_dead:
 		return
 	is_dead = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	is_invincible = false
 	can_dash = false
-	$UI/XP.visible = false
+	$UI / XP.visible = false
 	%health.visible = false
 	%Panel.visible = false
-	$UI/weapons.visible = false
-	$UI/PassiveItems.visible = false
+	$UI / weapons.visible = false
+	$UI / PassiveItems.visible = false
 	%Teleport.visible = false
-	$UI/Card.visible = false
-	$UI/Pause_Mode.visible = true
+	$UI / Card.visible = false
+	$UI / Pause_Mode.visible = true
 	_disable_weapons()
 	if particles:
 		particles.emitting = false
@@ -273,21 +273,21 @@ func _die() -> void:
 	tw.parallel().tween_property(sprite, "scale", Vector2.ZERO, death_fade_time).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 	tw.parallel().tween_property(sprite, "rotation", sprite.rotation + rotation_amount, death_fade_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 
-func _disable_weapons() -> void:
-	for slot in $UI/weapons.get_children():
+func _disable_weapons() -> void :
+	for slot in $UI / weapons.get_children():
 		if slot.has_method("set_enabled"):
 			slot.set_enabled(false)
 		slot.set_process(false)
 		slot.set_physics_process(false)
 
-func _enable_weapons() -> void:
-	for slot in $UI/weapons.get_children():
+func _enable_weapons() -> void :
+	for slot in $UI / weapons.get_children():
 		if slot.has_method("set_enabled"):
 			slot.set_enabled(true)
 		slot.set_process(true)
 		slot.set_physics_process(true)
 
-func revive() -> void:
+func revive() -> void :
 	if not is_dead:
 		return
 	is_dead = false
@@ -295,11 +295,11 @@ func revive() -> void:
 	can_dash = true
 	health = max_health * 0.5
 	$CollisionShape2D.set_deferred("disabled", false)
-	$UI/XP.visible = true
+	$UI / XP.visible = true
 	%health.visible = true
 	%Panel.visible = true
-	$UI/weapons.visible = true
-	$UI/PassiveItems.visible = true
+	$UI / weapons.visible = true
+	$UI / PassiveItems.visible = true
 	%Teleport.visible = true
 	_enable_combat()
 	_enable_weapons()
@@ -319,7 +319,7 @@ func revive() -> void:
 	await get_tree().create_timer(2.0).timeout
 	is_invincible = false
 
-func _check_show_exit_deferred() -> void:
+func _check_show_exit_deferred() -> void :
 	await get_tree().create_timer(0.5).timeout
 	if not is_instance_valid(self):
 		return
@@ -328,7 +328,7 @@ func _check_show_exit_deferred() -> void:
 	if Net.is_host:
 		_check_all_players_dead_host()
 
-func _check_all_players_dead_host() -> void:
+func _check_all_players_dead_host() -> void :
 	await get_tree().create_timer(0.5).timeout
 	if not is_instance_valid(self):
 		return
@@ -348,24 +348,24 @@ func _all_players_dead_host() -> bool:
 			return false
 	return true
 
-func _disable_combat() -> void:
+func _disable_combat() -> void :
 	if $Magnet:
 		$Magnet.set_deferred("monitoring", false)
 		$Magnet.set_deferred("monitorable", false)
 	set_physics_process(false)
 	if $UI:
-		_stop_node_tree($UI/weapons)
-		_stop_node_tree($UI/PassiveItems)
-func _enable_combat() -> void:
+		_stop_node_tree($UI / weapons)
+		_stop_node_tree($UI / PassiveItems)
+func _enable_combat() -> void :
 	if $Magnet:
 		$Magnet.set_deferred("monitoring", true)
 		$Magnet.set_deferred("monitorable", true)
 	set_physics_process(true)
 	if $UI:
-		_start_node_tree($UI/weapons)
-		_start_node_tree($UI/PassiveItems)
+		_start_node_tree($UI / weapons)
+		_start_node_tree($UI / PassiveItems)
 
-func _start_node_tree(node: Node) -> void:
+func _start_node_tree(node: Node) -> void :
 	if not is_instance_valid(node):
 		return
 	node.set_process(true)
@@ -375,7 +375,7 @@ func _start_node_tree(node: Node) -> void:
 	for c in node.get_children():
 		_start_node_tree(c)
 
-func _stop_node_tree(node: Node) -> void:
+func _stop_node_tree(node: Node) -> void :
 	if not is_instance_valid(node):
 		return
 	node.set_process(false)
@@ -399,7 +399,7 @@ func _all_players_dead() -> bool:
 				return false
 	return true
 
-func _show_exit_button() -> void:
+func _show_exit_button() -> void :
 	if not back_button or back_button.visible:
 		return
 	back_button.visible = true
@@ -409,17 +409,17 @@ func _show_exit_button() -> void:
 	tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tw.tween_property(back_button, "position:y", back_button_final_pos.y, button_slide_time).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
-func _enable_spectator() -> void:
+func _enable_spectator() -> void :
 	var sm = get_tree().get_first_node_in_group("SpectatorManager")
 	if sm != null and sm.has_method("start_spectating"):
 		sm.start_spectating()
 
-func _set_game_pause(v: bool) -> void:
+func _set_game_pause(v: bool) -> void :
 	if multiplayer.has_multiplayer_peer():
 		return
 	get_tree().paused = v
 
-func _wave_clear_enemies() -> void:
+func _wave_clear_enemies() -> void :
 	var enemies = get_tree().get_nodes_in_group("Enemy")
 	var pickups = get_tree().get_nodes_in_group("pickup")
 	var player_pos = global_position
@@ -429,12 +429,12 @@ func _wave_clear_enemies() -> void:
 			to_clear.append({"node": enemy, "dist": player_pos.distance_to(enemy.global_position)})
 	for pickup in pickups:
 		if pickup and is_instance_valid(pickup):
-			to_clear.append({"node":pickup,"dist":player_pos.distance_to(pickup.global_position)})
+			to_clear.append({"node": pickup, "dist": player_pos.distance_to(pickup.global_position)})
 	if is_instance_valid(target_point):
 		to_clear.append({"node": target_point, "dist": 0.0})
 	if is_instance_valid(particles):
 		to_clear.append({"node": particles, "dist": 0.0})
-	to_clear.sort_custom(func(a, b): return a.dist < b.dist)
+	to_clear.sort_custom( func(a, b): return a.dist < b.dist)
 	for data in to_clear:
 		var node = data.node
 		var dist = data.dist
@@ -446,11 +446,11 @@ func _wave_clear_enemies() -> void:
 		node_tw.parallel().tween_property(node, "scale", Vector2.ZERO, enemy_fade_time).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 		node_tw.tween_callback(node.queue_free)
 
-func _on_timer_timeout() -> void:
-	%collision.set_deferred("disabled",true)
-	%collision.set_deferred("disabled",false)
+func _on_timer_timeout() -> void :
+	%collision.set_deferred("disabled", true)
+	%collision.set_deferred("disabled", false)
 
-func _on_selfdamage_body_entered(body: Node2D) -> void:
+func _on_selfdamage_body_entered(body: Node2D) -> void :
 	if is_dead:
 		return
 	if not ("damage" in body):
@@ -461,44 +461,44 @@ func _on_selfdamage_body_entered(body: Node2D) -> void:
 
 func gain_XP(amount):
 	$SFX.stream = load("res://resourse/audio/XP_pickup.wav")
-	$SFX.pitch_scale=randf_range(0.7,1.3)
+	$SFX.pitch_scale = randf_range(0.7, 1.3)
 	$SFX.play()
-	XP+=amount*growth
-	total_XP+=amount*growth
+	XP += amount * growth
+	total_XP += amount * growth
 
 func check_XP():
-	if XP>%XP.max_value:
-		XP-=%XP.max_value
+	if XP > %XP.max_value:
+		XP -= %XP.max_value
 		$SFX.stream = load("res://resourse/audio/level_up.wav")
-		$SFX.pitch_scale=randf_range(0.7,1.3)
+		$SFX.pitch_scale = randf_range(0.7, 1.3)
 		$SFX.play()
-		level+=1
+		level += 1
 
-func _on_magnet_area_entered(area: Area2D) -> void:
+func _on_magnet_area_entered(area: Area2D) -> void :
 	if is_dead:
 		return
 	if area.has_method("follow"):
 		area.follow(self)
 
 func gain_microchips(amount):
-	microchips+=amount
+	microchips += amount
 
-func _on_dash_cooldown_timeout() -> void:
-	can_dash=true
+func _on_dash_cooldown_timeout() -> void :
+	can_dash = true
 	%TargetPoint.modulate = Color.from_string(character.color_trail, Color.WHITE)
 
 func open_card():
-	$UI/Card.open_check()
+	$UI / Card.open_check()
 
-func _on_button_texture_mouse_entered() -> void:
-	$UI/Card/Open/Button_Texture.texture=preload("res://sprites/button_ui_pressedi.png")
-	$UI/Card/Close/Button_Texture.texture=preload("res://sprites/button_ui_pressedi.png")
+func _on_button_texture_mouse_entered() -> void :
+	$UI / Card / Open / Button_Texture.texture = preload("res://sprites/button_ui_pressedi.png")
+	$UI / Card / Close / Button_Texture.texture = preload("res://sprites/button_ui_pressedi.png")
 
-func _on_button_texture_mouse_exited() -> void:
-	$UI/Card/Open/Button_Texture.texture=preload("res://sprites/button_ui.png")
-	$UI/Card/Close/Button_Texture.texture=preload("res://sprites/button_ui.png")
+func _on_button_texture_mouse_exited() -> void :
+	$UI / Card / Open / Button_Texture.texture = preload("res://sprites/button_ui.png")
+	$UI / Card / Close / Button_Texture.texture = preload("res://sprites/button_ui.png")
 
-func set_base_stats(base_stats:Stats):
+func set_base_stats(base_stats: Stats):
 	max_health += base_stats.max_health
 	recovery += base_stats.recovery
 	armor += base_stats.armor
@@ -508,4 +508,4 @@ func set_base_stats(base_stats:Stats):
 	magnet += base_stats.magnet
 	growth += base_stats.growth
 	luck += base_stats.luck
-	health=max_health
+	health = max_health
