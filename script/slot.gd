@@ -12,7 +12,7 @@ var enabled: bool = true
 			visible = true
 			return
 		$TextureRect.texture = value.icon
-		$cooldown.wait_time = value.cooldown
+		$Cooldown.wait_time = value.cooldown
 		item.slot = self
 
 func set_enabled(v: bool) -> void :
@@ -26,8 +26,10 @@ func _physics_process(delta: float) -> void :
 	if item != null and item.has_method("update"):
 		item.update(delta)
 
-func _on_cooldown_timeout() -> void :
+func _on_target_check_timeout() -> void :
 	if not enabled or not item:
+		return
+	if not $Cooldown.is_stopped():
 		return
 	var player = get_tree().get_first_node_in_group("Player")
 	if player == null or not is_instance_valid(player):
@@ -35,8 +37,12 @@ func _on_cooldown_timeout() -> void :
 	var target = _find_nearest_enemy(player)
 	if target == null:
 		return
-	$cooldown.wait_time = item.cooldown
+	$Cooldown.wait_time = item.cooldown
+	$Cooldown.start()
 	item.activate(player, target, get_tree())
+
+func _on_cooldown_timeout() -> void :
+	pass
 
 func _find_nearest_enemy(player: Node2D) -> Node2D:
 	var best_dist = INF
@@ -51,7 +57,7 @@ func _find_nearest_enemy(player: Node2D) -> Node2D:
 		if dist < best_dist:
 			best_dist = dist
 			best_node = node
-	var detection_radius = 250.0 + (player.area if "area" in player else 0.0)
+	var detection_radius = player.area if "area" in player else 0.0
 	if best_dist <= pow(detection_radius, 2):
 		return best_node
 	return null

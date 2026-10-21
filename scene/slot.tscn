@@ -5,6 +5,7 @@
 
 [node name="slot" type="PanelContainer" unique_id=357824885]
 self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
 anchor_right = 0.031000001
 anchor_bottom = 0.056
 offset_right = -19.520004
@@ -18,7 +19,12 @@ texture = ExtResource("2")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="cooldown" type="Timer" parent="." unique_id=1194736480]
+[node name="Cooldown" type="Timer" parent="." unique_id=1194736480]
+one_shot = true
+
+[node name="TargetCheck" type="Timer" parent="." unique_id=1160867488]
+wait_time = 0.2
 autostart = true
 
-[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="TargetCheck" to="." method="_on_target_check_timeout"]

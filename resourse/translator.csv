@@ -1,235 +1,217 @@
-﻿key,en,ru
-M_START,Start,Начать
-M_UPG,Upgrades,Улучшения
-M_BEAST,Bestiary,Бестиарий
-TR_CHIPS,Microships: %s pts.,Чипы: %s ед.
-BACK_BUTTON,Back,Назад
-SKILL_POWER,Power,Сила
-SKILL_LUCK,Luck,Удача
-UPGR_NAME,"Skill name: %s %s 
-","Имя навыка: %s %s 
-"
-UPGR_PRICE,"Price: %s microchips 
-","Цена: %s чипов
-"
-STAT_MHEALTH,Maximum health increases by +%s,Запас здоровья увеличится на  +%s 
-STAT_RECOVERY,Health regenerates faster by +%s,Здоровье восстанавливается быстрее на  +%s
-STAT_ARMOR,Damage taken is reduced by +%s,Получаемый урон снижается на +%s
-STAT_MSPEED,Movement speed is increased by +%s,Скорость бега повышается на  +%s
-STAT_MIGHT,Attack power is increased by +%s %%,Сила атаки возрастает на   +%s %%
-STAT_AREA,Attack range increased by +%s,Дальность атаки повышается на +%s
-STAT_MAGNET,Item pickup radius is increased by +%s,Радиус сбора предметов увеличивается на   +%s
-STAT_GROWTH,Experience gained is increased by +%s %%,Получаемый опыт увеличивается на   +%s %%
-STAT_LUCK,Luck is increased by + %s ,Удача повышается на  +%s 
-UPGR_DESC,Skill description: ,Описание навыка: 
-CANCEL_BUTTON,Cancel,Отмена
-BUY_BUTTON,Buy,Купить
-UNAVAILABLE_BUTTON,Unavailable,Недоступно
-LABEL_LEVEL,%s Level,%s Уровень
-LABEL_HEALTH,Health %s,Здоровье %s
-LABEL_TELEPORT,Teleport,Телепорт
-PAUSE_TITLE,Paused,Игра на паузе
-PAUSE_RESUME,Resume,Продолжить
-EXIT_BUTTON,Exit,Выйти
-STAY_BUTTON,Stay,Остаться
-AUS,Are you sure?,Вы уверены?
-EXIT_TO_MENU,Exit to menu,Выйти в меню
-SPIN_BUTTON,Spin (%s),Крутить (%s)
-LEVEL_UP,"LEVEL UP!
-Choose up","УРОВЕНЬ ПОВЫШЕН!
-Выберите улучшение"
-LEVEL_OPTION_SLOT,Lvl %s,Ур. %s
-EVOLUTION_LABEL,SYNERGY!,СИНЕРГИЯ!
-WEAPON_DAMAGE,Increases damage dealt by %s,Увеличивает наносимый урон на %s
-WEAPON_COOLDOWN,Reduces weapon cooldown by %s,Уменьшает перезарядку оружия на %s
-WEAPON_ANG_SPEED,Increases projectile rotation speed by %s,Увеличивает скорость вращения снарядов на %s
-WEAPON_AMOUNT,Increases projectile amount by %s,Увеличивает количетво снарядов на  +%s
-WEAPON_AREA,Increases attack area by %s,Увеличивает область атаки на %s
-WEAPON_SPEED,Increases projectile flight speed by %s,Увеличивает скорость полета снаряда на %s
-LUCKY_SPEEN,LUCKY SPIN!,КОЛЕСО УДАЧИ!
-BEAST_NAME,Name: %s,Имя: %s
-BEAST_DAMAGE,Damage: %s,Урон: %s
-BEAST_HEALTH,Health: %s,Здоровье: %s
-ORANGE_ENEMY,Orange diamond,Оранжевый ромб
-ORANGE_ENEMY_DESCRIPTION,"The first enemy without unique abilities 
-Drops 3 xp","Самый первый враг без уникальных способностей 
-Выпадает 3 очка опыта "
-M_START2,Play,Играть
-STARTING_VEAPON,Starting weapon,Стартовое оружие
-MUSH,Dangerous mushroom,Опасный гриб
-MUSH_DESCRIPTION,"Don't let it catch you! Explodes and drops seeds.
-Grants 5 XP.","Не дайте ему вас догнать! При взрыве оставляет семна 
-Выпадает 5 опыта"
-RED_JAWS,Red charger,Красный таран
-RED_JAWS_DESCRIPTION,"Charges everyone in its path. 
-Drops 10 xp","Таранит всё на своём пути. 
-Выпадает 10 очков опыта"
-SNAKE_HEAD,Snake head,Змеиная голова
-SNAKE_HEAD_DESCRIPTION,"Destroy it to make its segments disappear. 
-Drops 3 xp","Уничтожте, чтобы её сегменты пропали. 
-Выпадает 3 очка опыта"
-SNAKE_SEGMENT,Snake segment,Тело змеи
-SNAKE_SEGMENT_DESCRIPTION,"It follows its head. 
-Drops 3 xp","Следует за своей головой. 
-Выпадает 3 очка опыта"
-CHOOSE_CHARACTER,Select a character.,Выберите персонажа
-PLAYER_MHEALTH,Max HP: %s,Запас здоровья: %s 
-PLAYER_RECOVERY,Health Regen: %s,Восстановление здоровья: %s
-PLAYER_ARMOR,Armor: %s,Защита: %s
-PLAYER_MSPEED,Speed: %s,Скорость: %s
-PLAYER_MIGHT,Might: %s,Сила : %s
-PLAYER_AREA,Area: %s,Дальность атаки: %s
-PLAYER_MAGNET,Magnet: %s,Радиус сбора: %s
-PLAYER_GROWTH,Growth: %s,Получаемый опыт: %s
-PLAYER_LUCK,Luck: %s,Удача: %s
-NEW_ITEM_TEXT,NEW,НОВОЕ
-WEAPON_RETURN_SPEED,Increases return speed by %s,Увеличивает скорость возвращения на %s
-WEAPON_MAX_DISTANCE,Increases flight range by %s,Увеличивает дальность полета на %s
-MUSH_CHILD,Dangerous mushroom sprout,Росток опасного гриба
-MUSH_CHILD_DESCRIPTION,"Grows for some time. Becomes a dangerous mushroom upon maturing.
- Drops nothing","Растет некоторое время. После созревания становится опасным грибом
-Ничего не выпадает"
-CRYSTAL,Crystal,Кристалл
-CRYSTAL_DESCRIPTION,"Teleports around, attacks the player from a distance.
-Drops 10 XP","Передвигается телепортом, атакует игрока издалека
-Выпадает 10 очков опыта"
-MAGE,Pyrotechnician,Пиротехник
-MAGE_DESCRIPTION,"Launches homing projectiles. 
-Drops 5 XP","Запускает самонаводящиеся снаряды. 
-Выпадает 5 очков опыта"
-SKILL_ARMOR,Armor,Защита
-BOOMERANG_DESCRIPTION,Throws a boomerang at the nearest enemy,Выпускает бумеранг в ближайшего врага
-CIRCULAR_DESCRIPTION,Spins around the player,Кружется вокруг игрока
-DISC_DESCRIPTION,Throws a homing disc,Бросает самонаводящийся диск
-BLASTER_DESCRIPTION,Shoots at the nearest enemy,Стреляет в ближайшего врага
-BUG_DESCRIPTION,Spawns on a random enemy and attacks it,Появляется на случайном враге и атакует его
-MW_DESCRIPTION,Creates a zone where enemies take damage,"Создает зону, в которой враги получают урон"
-TURRET_DESCRIPTION,Summons turrets that attack enemies,"Призывает турели, атакующие врагов"
-REQUIEM_DESCRIPTION,The zone begins to play a melody…,Зона начинает играть мелодию…
-HD_DESCRIPTION,The discs home in and... jump?,Диски самонаводятся и… прыгают?
-CB_DESCRIPTION,Shoots at the nearest enemy with a small delay,Стреляет в ближайшего врага с маленькой задержкой
-LC_DESCRIPTION,Releases lightning upon contact with an enemy,При соприкосновении с врагом выпускает молнии
-MEGA_TURRET_DESCRIPTION,Summons flame and electric turrets,Призывает огненную и электрическую турели
-BUG_V2_DESCRIPTION,They're... gross... and they jump…,Они… противные… и прыгают...
-SPLITTERANG_DESCRIPTION,Splits into 3 smaller boomerangs. Slight homing,Распадается на 3 маленьких бумеранга. Немного самонаводится
-BOOMERANG,Boomerang,Бумеранг
-CIRCULAR,Shuriken,Сюрикен
-DISC,Plasma disc,Плазменный диск
-BLASTER,Blaster,Бластер
-BUG,Bug,Жучок
-MW,Music wave,Музыкальная волна
-TURRET,Turret,Турель
-REQUIEM,Requiem,Реквием
-HOLY_DISC,Chakram,Чакрам
-CHARGED_BLASTER,Charged blaster,Заряженный бластер
-LIGHTNING_CIRCULAR,Lightning shuriken,Электрический сюрикен
-MEGA_TURRET,Elemental turret,Стихийная турель
-BUG_2.0,Bug 2.0,Жучок 2.0
-SPLITTERANG,Splitterang,Сплиттеранг
-AREA,Crosshair,Прицел
-ARMOR,Armor,Броня
-LUCK,Clover,Клевер
-MAGNET,Magnet,Магнит
-MAX_HEALTH,Heart,Сердце
-MIGHT,Old sword,Старый меч
-MOVEMENT_SPEED,Charge,Подзаряд
-RECOVERY,Soul,Душа
-XP_GUNNER,Golden magnet,Золотой магнит
-XP_GUNNER_DESCRIPTION,"Attacks with experience points. If there is no experience nearby, it self-destructs. 
-Drops 5 exp","Атакует очками опыта. Если поблизости нет опыта - самоуничтожается. 
-Выпадает 5 очков опыта"
-SKILL_AREA,Attack range,Область атаки
-SKILL_MH,Max health,Максимальное здоровье
-SKILL_GROWTH,Growth ,Прирост опыта
-SKILL_MAGNET,Magnet,Магнит
-SKILL_RECOVERY,Regeneration,Регенерация
-SKILL_SPEED,Speed,Скорость
-GROWTH,XP Amulet,Амулет опыта
-ROULETTE,Crystal shard,Осколок кристалла
-ROULETTE_DESCRIPTION,Attacks all enemies in a random area,Атакует всем врагов в случайной области
-ROULETTE_EVO,Red crystal,Красный кристалл
-ROULETTE_EVO_DESCRIPTION,Deals damage to all enemies on screen.,Наносит урон всем врагам на экране
-WEAPON_SECTORS,Remove %s sector,Удаляет %s сектор
-DEATH,Scythe,Коса
-DEATH_DESCRIPTION,Appears when your time is up…,"Появляется, когда твое время подходит к концу…"
-WAND,Wand,Палочка
-WAND_DESCRIPTION,"Hovers above the player, firing a laser","Летает над игроком, атакует лазером"
-WAND_EVO,Star,Звезда
-WAND_EVO_DESCRIPTION,Fires five lasers,Атакует пятью лазерами
-LASER_REFLECTIONS,Max bounces: %s,Количество отражений: %s
-LASER_EMITTERS,%s attacking projectiles,%s к количеству атакующих снарядов
-PERSEC,/sec,/сек
-BH,Black hole,Черная дыра
-BH_DESCRIPTION,"Pulls in enemies, dealing damage. Explodes after a while","Затягивает врагов, нанося урон. Через некоторое время взрывается"
-BH_EVO,Quasar,Квазар
-BH_EVO_DESCRIPTION,Releases stored energy as seeking bolts upon detonation,"Взрываясь, выпускает накопленную энергию"
-BH_HOLES,Holes per cast: +%s,Дыр за выстрел: +%s
-BH_DURATION,Pull duration: +%s sec,Время притяжения: +%s сек
-BH_PULL,Pull strength: +%s,Сила притяжения: +%s
-BH_KNOCK,Explosion knockback: +%s,Отброс взрыва: +%s
-BH_RADIUS,Enemy capture radius: +%s,Радиус захвата врага: +%s
-NOTE,Not enough,Недостаточно
-DIRECT_UPGRADE,GOLD UPGRADE,ЗОЛТОЕ УЛУЧШЕНИЕ
-RANDOM_BUTTON,Enable random upgrades,Включить случайные улучшения
-META_MIGHT,Damage: %s %%,Урон: %s %%
-META_COST,%s microchips,%s чипов
-META_LEVEL,Lvl %s/%s ,Ур. %s/%s 
-META_MAXED,MAX,МАКС
-META_AREA,Attack range: %s,Радиус атаки: %s
-META_RECOVERY,Regeneration: %s,Регенерация: %s
-META_ARMOR,Armor: %s,Защита: %s
-META_GROWTH,Growth: %s %%,Прирост опыта: %s %%
-META_LUCK,Luck : %s,Удача: %s
-META_MAGNET,Magnet: %s,Магнит: %s
-META_MHEALTH,Max HP: %s,Макс здоровье:%s
-META_MSPEED,Speed: %s,Скорость: %s
-UPGRADE_CHARACTER,Character upgrades,Улучшение персонажей
-CHARACTER_UPGRADE,Upgrades,Улучшения
-PLAYER_STATS_TITLE,Stats,Характеристика 
-SELECT_A_CHARACTER,Select a character,Выберите персонажа
-MULTIPLAYER_BUTTON,Multiplayer,Мультиплеер
-HOSTING_LABEL,Hosting: %s,Хостинг: %s
-CONNECTED_LABEL,Connected: %s,Подключено: %s
-IN_GAME_LABEL,In game,В игре
-MULTIPLAYER_TITLE,Multiplayer,Мультиплеер
-NO_PASSWORD_LABEL,No password,Без пароля
-ROOM_NAME_PLACEHOLDER,Room name,Название комнаты
-CONNECTING_LABEL,Connecting,Подключение
-NAME_SAVED_LABEL,Name saved:,Имя сохранено:
-NO_ROOMS_LABEL,No available rooms,Нет доступных комнат
-ROOM_NAME_DEFAULT,%s's Room,Комната %s
-SCANNING_LABEL,Scanning,Сканирование
-ROOM_CREATED_LABEL,Room created. IP: %s,Комната создана. IP: %s
-AUTHENTICATING_LABEL,Authenticating,Аутентификация
-JOINED_ROOM_LABEL,Joined: %s,Подключено: %s
-WRONG_PASSWORD_LABEL,Wrong password,Неверный пароль
-CONNECTION_FAILED_LABEL,Connection failed,Не удалось подключиться
-HOST_LEFT_LABEL,Host left the room,Хост покинул комнату
-NICKNAME_MULT,Nickname,Имя
-PASSWORD_MULT,YOUR room's password,Пароль ВАШЕЙ комнаты
-ROOM_MULT,Room name,Имя комнаты
-PASSWORD_ROOM_MULT,Room password,Пароль комнаты
-EMPTY_SLOT_LABEL,Empty,Пусто
-CHAT_PLACEHOLDER,Message...,Сообщение...
-KICKED_LABEL,You were kicked from the room,Вас кикнули из комнаты
-LEFT_ROOM_LABEL,You left the room,Вы покинули комнату
-IP_PLACEHOLDER,IP address,IP адрес
-IP_ERROR_LABEL,IP error: connection failed,Ошибка IP: не удалось подключиться
-MULT_CREATE,Create,Создать
-MULT_SAVE_NAME,Save name,Сохранить имя
-MULT_UPDATE,Update,Обновить
-MULT_CONNECT,Connect,Подключиться
-SYS_JOIN,%s joined,%s присоединился
-SYS_LEAVE,%s left the room,%s покинул комнату
-SYS_KICKED,%s was kicked,%s кикнут
-SYS_YOU_KICKED,You were kicked from the room,Тебя кикнули из комнаты
-M_QUIT,Quit,Выйти из игры
-WEPON_ON_SCREEN,(Weapon on screen),(Оружие на экране)
-STARFALL,Starfall,Звездопад
-STARFALL_DESCRIPTION,Stars fall wherever you look. Piercing enemies.,"Звёзды падают туда, куда ты смотришь. Пронзают врагов"
-WEAPON_STARFALL_AMOUNT,+%s stars,+%s звезды
-HOLY_SWORD,Obsidian sword,Обсидиановый меч
-HOLY_SWORD_DESCRIPTION,"Bound in darkness. Lurking at the edge of the screen, ready to cleave his foes.","Заточенный во тьме. Ждёт у края экрана, чтобы рассечь врагов."
-WEAPON_HOLY_SWORD_AMOUNT,+%s obsidian saw,+%s обсидиановый меч
-STAR_SWORD,Star blade,Звёздный клинок
-STAR_SWORD_DESCRIPTION,A hovering blade that shakes the sky and unleashes a barrage of stars upon enemies,"Парящий клинок, сотрясающий небо и обрушивающий на врагов шквал звёзд"
+﻿key;ru;en
+M_START;Начать;Start
+M_UPG;Улучшения;Upgrades
+M_BEAST;Бестиарий;Bestiary
+TR_CHIPS;Чипы: %s ед.;Microships: %s pts.
+BACK_BUTTON;Назад;Back
+SKILL_POWER;Сила;Power
+SKILL_LUCK;Удача;Luck
+UPGR_NAME;Имя навыка: %s %s\n;Skill name: %s %s\n
+UPGR_PRICE;Цена: %s чипов\n;Price: %s microchips\n
+STAT_MHEALTH;Запас здоровья увеличится на +%s;Maximum health increases by +%s
+STAT_RECOVERY;Здоровье восстанавливается быстрее на +%s;Health regenerates faster by +%s
+STAT_ARMOR;Получаемый урон снижается на +%s;Damage taken is reduced by +%s
+STAT_MSPEED;Скорость бега повышается на +%s;Movement speed is increased by +%s
+STAT_MIGHT;Сила атаки возрастает на +%s %%;Attack power is increased by +%s %%
+STAT_AREA;Дальность атаки повышается на +%s;Attack range increased by +%s
+STAT_MAGNET;Радиус сбора предметов увеличивается на +%s;Item pickup radius is increased by +%s
+STAT_GROWTH;Получаемый опыт увеличивается на +%s %%;Experience gained is increased by +%s %%
+STAT_LUCK;Удача повышается на +%s ;Luck is increased by + %s 
+UPGR_DESC;Описание навыка: ;Skill description: 
+CANCEL_BUTTON;Отмена;Cancel
+BUY_BUTTON;Купить;Buy
+UNAVAILABLE_BUTTON;Недоступно;Unavailable
+LABEL_LEVEL;%s Уровень;%s Level
+LABEL_HEALTH;Здоровье %s;Health %s
+LABEL_TELEPORT;Телепорт;Teleport
+PAUSE_TITLE;Игра на паузе;Paused
+PAUSE_RESUME;Продолжить;Resume
+EXIT_BUTTON;Выйти;Exit
+STAY_BUTTON;Остаться;Stay
+AUS;Вы уверены?;Are you sure?
+EXIT_TO_MENU;Выйти в меню;Exit to menu
+SPIN_BUTTON;Крутить (%s);Spin (%s)
+LEVEL_UP;УРОВЕНЬ ПОВЫШЕН!\nВыберите улучшение;LEVEL UP!\nChoose up
+LEVEL_OPTION_SLOT;Ур. %s;Lvl %s
+EVOLUTION_LABEL;СИНЕРГИЯ!;SYNERGY!
+WEAPON_DAMAGE;Увеличивает наносимый урон на %s;Increases damage dealt by %s
+WEAPON_COOLDOWN;Уменьшает перезарядку оружия на %s;Reduces weapon cooldown by %s
+WEAPON_ANG_SPEED;Увеличивает скорость вращения снарядов на %s;Increases projectile rotation speed by %s
+WEAPON_AMOUNT;Увеличивает количество снарядов на +%s;Increases projectile amount by %s
+WEAPON_AREA;Увеличивает область атаки на %s;Increases attack area by %s
+WEAPON_SPEED;Увеличивает скорость полета снаряда на %s;Increases projectile flight speed by %s
+LUCKY_SPEEN;КОЛЕСО УДАЧИ!;LUCKY SPIN!
+BEAST_NAME;Имя: %s;Name: %s
+BEAST_DAMAGE;Урон: %s;Damage: %s
+BEAST_HEALTH;Здоровье: %s;Health: %s
+ORANGE_ENEMY;Оранжевый ромб;Orange diamond
+ORANGE_ENEMY_DESCRIPTION;Самый первый враг без уникальных способностей \nВыпадает 3 очка опыта ;The first enemy without unique abilities \nDrops 3 xp
+M_START2;Играть;Play
+STARTING_VEAPON;Стартовое оружие;Starting weapon
+MUSH;Опасный гриб;Dangerous mushroom
+MUSH_DESCRIPTION;Не дайте ему вас догнать! При взрыве оставляет семена \nВыпадает 5 опыта;Don't let it catch you! Explodes and drops seeds.\nGrants 5 XP.
+RED_JAWS;Красный таран;Red charger
+RED_JAWS_DESCRIPTION;Таранит всё на своём пути. \nВыпадает 10 очков опыта;Charges everyone in its path. \nDrops 10 xp
+SNAKE_HEAD;Змеиная голова;Snake head
+SNAKE_HEAD_DESCRIPTION;Уничтожьте, чтобы её сегменты пропали. \nВыпадает 3 очка опыта;Destroy it to make its segments disappear. \nDrops 3 xp
+SNAKE_SEGMENT;Тело змеи;Snake segment
+SNAKE_SEGMENT_DESCRIPTION;Следует за своей головой. \nВыпадает 3 очка опыта;It follows its head. \nDrops 3 xp
+CHOOSE_CHARACTER;Выберите персонажа;Select a character.
+PLAYER_MHEALTH;Запас здоровья: %s ;Max HP: %s
+PLAYER_RECOVERY;Восстановление здоровья: %s;Health Regen: %s
+PLAYER_ARMOR;Защита: %s;Armor: %s
+PLAYER_MSPEED;Скорость: %s;Speed: %s
+PLAYER_MIGHT;Сила : %s;Might: %s
+PLAYER_AREA;Дальность атаки: %s;Area: %s
+PLAYER_MAGNET;Радиус сбора: %s;Magnet: %s
+PLAYER_GROWTH;Получаемый опыт: %s;Growth: %s
+PLAYER_LUCK;Удача: %s;Luck: %s
+NEW_ITEM_TEXT;НОВОЕ;NEW
+WEAPON_RETURN_SPEED;Увеличивает скорость возвращения на %s;Increases return speed by %s
+WEAPON_MAX_DISTANCE;Увеличивает дальность полета на %s;Increases flight range by %s
+MUSH_CHILD;Росток опасного гриба;Dangerous mushroom sprout
+MUSH_CHILD_DESCRIPTION;Растет некоторое время. После созревания становится опасным грибом\nНичего не выпадает;Grows for some time. Becomes a dangerous mushroom upon maturing.\n Drops nothing
+CRYSTAL;Кристалл;Crystal
+CRYSTAL_DESCRIPTION;Передвигается телепортом, атакует игрока издалека\nВыпадает 10 очков опыта;Teleports around, attacks the player from a distance.\nDrops 10 XP
+MAGE;Пиротехник;Pyrotechnician
+MAGE_DESCRIPTION;Запускает самонаводящиеся снаряды. \nВыпадает 5 очков опыта;Launches homing projectiles. \nDrops 5 XP
+SKILL_ARMOR;Защита;Armor
+BOOMERANG_DESCRIPTION;Выпускает бумеранг в ближайшего врага;Throws a boomerang at the nearest enemy
+CIRCULAR_DESCRIPTION;Кружится вокруг игрока;Spins around the player
+DISC_DESCRIPTION;Бросает самонаводящийся диск;Throws a homing disc
+BLASTER_DESCRIPTION;Стреляет в ближайшего врага;Shoots at the nearest enemy
+BUG_DESCRIPTION;Появляется на случайном враге и атакует его;Spawns on a random enemy and attacks it
+MW_DESCRIPTION;Создает зону, в которой враги получают урон;Creates a zone where enemies take damage
+TURRET_DESCRIPTION;Призывает турели, атакующие врагов;Summons turrets that attack enemies
+REQUIEM_DESCRIPTION;Зона начинает играть мелодию…;The zone begins to play a melody…
+HD_DESCRIPTION;Диски самонаводятся и… прыгают?;The discs home in and... jump?
+CB_DESCRIPTION;Стреляет в ближайшего врага с маленькой задержкой;Shoots at the nearest enemy with a small delay
+LC_DESCRIPTION;При соприкосновении с врагом выпускает молнии;Releases lightning upon contact with an enemy
+MEGA_TURRET_DESCRIPTION;Призывает огненную и электрическую турели;Summons flame and electric turrets
+BUG_V2_DESCRIPTION;Они… противные… и прыгают...;They're... gross... and they jump…
+SPLITTERANG_DESCRIPTION;Распадается на 3 маленьких бумеранга. Немного самонаводится;Splits into 3 smaller boomerangs. Slight homing
+BOOMERANG;Бумеранг;Boomerang
+CIRCULAR;Сюрикен;Shuriken
+DISC;Плазменный диск;Plasma disc
+BLASTER;Бластер;Blaster
+BUG;Жучок;Bug
+MW;Музыкальная волна;Music wave
+TURRET;Турель;Turret
+REQUIEM;Реквием;Requiem
+HOLY_DISC;Чакрам;Chakram
+CHARGED_BLASTER;Заряженный бластер;Charged blaster
+LIGHTNING_CIRCULAR;Электрический сюрикен;Lightning shuriken
+MEGA_TURRET;Стихийная турель;Elemental turret
+BUG_2.0;Жучок 2.0;Bug 2.0
+SPLITTERANG;Сплиттеранг;Splitterang
+AREA;Прицел;Crosshair
+ARMOR;Броня;Armor
+LUCK;Клевер;Clover
+MAGNET;Магнит;Magnet
+MAX_HEALTH;Сердце;Heart
+MIGHT;Старый меч;Old sword
+MOVEMENT_SPEED;Подзаряд;Charge
+RECOVERY;Душа;Soul
+XP_GUNNER;Золотой магнит;Golden magnet
+XP_GUNNER_DESCRIPTION;Атакует очками опыта. Если поблизости нет опыта - самоуничтожается. \nВыпадает 5 очков опыта;Attacks with experience points. If there is no experience nearby, it self-destructs. \nDrops 5 exp
+SKILL_AREA;Область атаки;Attack range
+SKILL_MH;Максимальное здоровье;Max health
+SKILL_GROWTH;Прирост опыта;Growth 
+SKILL_MAGNET;Магнит;Magnet
+SKILL_RECOVERY;Регенерация;Regeneration
+SKILL_SPEED;Скорость;Speed
+GROWTH;Амулет опыта;XP Amulet
+ROULETTE;Осколок кристалла;Crystal shard
+ROULETTE_DESCRIPTION;Атакует всех врагов в случайной области;Attacks all enemies in a random area
+ROULETTE_EVO;Красный кристалл;Red crystal
+ROULETTE_EVO_DESCRIPTION;Наносит урон всем врагам на экране.;Deals damage to all enemies on screen.
+WEAPON_SECTORS;Удаляет %s сектор;Remove %s sector
+DEATH;Коса;Scythe
+DEATH_DESCRIPTION;Появляется, когда твое время подходит к концу…;Appears when your time is up…
+WAND;Палочка;Wand
+WAND_DESCRIPTION;Летает над игроком, атакует лазером;Hovers above the player, firing a laser
+WAND_EVO;Звезда;Star
+WAND_EVO_DESCRIPTION;Атакует пятью лазерами;Fires five lasers
+LASER_REFLECTIONS;Количество отражений: %s;Max bounces: %s
+LASER_EMITTERS;%s к количеству атакующих снарядов;%s attacking projectiles
+PERSEC;/сек;/sec
+BH;Черная дыра;Black hole
+BH_DESCRIPTION;Затягивает врагов, нанося урон. Через некоторое время взрывается;Pulls in enemies, dealing damage. Explodes after a while
+BH_EVO;Квазар;Quasar
+BH_EVO_DESCRIPTION;Взрываясь, выпускает накопленную энергию;Releases stored energy as seeking bolts upon detonation
+BH_HOLES;Дыр за выстрел: +%s;Holes per cast: +%s
+BH_DURATION;Время притяжения: +%s сек;Pull duration: +%s sec
+BH_PULL;Сила притяжения: +%s;Pull strength: +%s
+BH_KNOCK;Отброс взрыва: +%s;Explosion knockback: +%s
+BH_RADIUS;Радиус захвата врага: +%s;Enemy capture radius: +%s
+NOTE;Недостаточно;Not enough
+DIRECT_UPGRADE;ЗОЛТОЕ УЛУЧШЕНИЕ;GOLD UPGRADE
+RANDOM_BUTTON;Включить случайные улучшения;Enable random upgrades
+META_MIGHT;Урон: %s %%;Damage: %s %%
+META_COST;%s чипов;%s microchips
+META_LEVEL;Ур. %s/%s ;Lvl %s/%s 
+META_MAXED;МАКС;MAX
+META_AREA;Радиус атаки: %s;Attack range: %s
+META_RECOVERY;Регенерация: %s;Regeneration: %s
+META_ARMOR;Защита: %s;Armor: %s
+META_GROWTH;Прирост опыта: %s %%;Growth: %s %%
+META_LUCK;Удача: %s;Luck : %s
+META_MAGNET;Магнит: %s;Magnet: %s
+META_MHEALTH;Макс здоровье:%s;Max HP: %s
+META_MSPEED;Скорость: %s;Speed: %s
+UPGRADE_CHARACTER;Улучшение персонажей;Character upgrades
+CHARACTER_UPGRADE;Улучшения;Upgrades
+PLAYER_STATS_TITLE;Характеристика ;Stats
+SELECT_A_CHARACTER;Выберите персонажа;Select a character
+MULTIPLAYER_BUTTON;Мультиплеер;Multiplayer
+HOSTING_LABEL;Хостинг: %s;Hosting: %s
+CONNECTED_LABEL;Подключено: %s;Connected: %s
+IN_GAME_LABEL;В игре;In game
+MULTIPLAYER_TITLE;Мультиплеер;Multiplayer
+NO_PASSWORD_LABEL;Без пароля;No password
+ROOM_NAME_PLACEHOLDER;Название комнаты;Room name
+CONNECTING_LABEL;Подключение;Connecting
+NAME_SAVED_LABEL;Имя сохранено:;Name saved:
+NO_ROOMS_LABEL;Нет доступных комнат;No available rooms
+ROOM_NAME_DEFAULT;Комната %s;%s's Room
+SCANNING_LABEL;Сканирование;Scanning
+ROOM_CREATED_LABEL;Комната создана. IP: %s;Room created. IP: %s
+AUTHENTICATING_LABEL;Аутентификация;Authenticating
+JOINED_ROOM_LABEL;Подключено: %s;Joined: %s
+WRONG_PASSWORD_LABEL;Неверный пароль;Wrong password
+CONNECTION_FAILED_LABEL;Не удалось подключиться;Connection failed
+HOST_LEFT_LABEL;Хост покинул комнату;Host left the room
+NICKNAME_MULT;Имя;Nickname
+PASSWORD_MULT;Пароль ВАШЕЙ комнаты;YOUR room's password
+ROOM_MULT;Имя комнаты;Room name
+PASSWORD_ROOM_MULT;Пароль комнаты;Room password
+EMPTY_SLOT_LABEL;Пусто;Empty
+CHAT_PLACEHOLDER;Сообщение...;Message...
+KICKED_LABEL;Вас кикнули из комнаты;You were kicked from the room
+LEFT_ROOM_LABEL;Вы покинули комнату;You left the room
+IP_PLACEHOLDER;IP адрес;IP address
+IP_ERROR_LABEL;Ошибка IP: не удалось подключиться;IP error: connection failed
+MULT_CREATE;Создать;Create
+MULT_SAVE_NAME;Сохранить имя;Save name
+MULT_UPDATE;Обновить;Update
+MULT_CONNECT;Подключиться;Connect
+SYS_JOIN;%s присоединился;%s joined
+SYS_LEAVE;%s покинул комнату;%s left the room
+SYS_KICKED;%s кикнут;%s was kicked
+SYS_YOU_KICKED;Тебя кикнули из комнаты;You were kicked from the room
+M_QUIT;Выйти из игры;Quit
+WEPON_ON_SCREEN;(Оружие на экране);(Weapon on screen)
+STARFALL;Звездопад;Starfall
+STARFALL_DESCRIPTION;Звёзды падают туда, куда ты смотришь. Пронзают врагов;Stars fall wherever you look. Piercing enemies.
+WEAPON_STARFALL_AMOUNT;+%s звезды;+%s stars
+HOLY_SWORD;Обсидиановый меч;Obsidian sword
+HOLY_SWORD_DESCRIPTION;Заточенный во тьме. Ждёт у края экрана, чтобы рассечь врагов.;Bound in darkness. Lurking at the edge of the screen, ready to cleave his foes.
+WEAPON_HOLY_SWORD_AMOUNT;+%s обсидиановый меч;+%s obsidian saw
+STAR_SWORD;Звёздный клинок;Star blade
+STAR_SWORD_DESCRIPTION;Парящий клинок, сотрясающий небо и обрушивающий на врагов шквал звёзд;A hovering blade that shakes the sky and unleashes a barrage of stars upon enemies
+VORTEX_MAX_ENEMIES;Макс. врагов: +%s ;Max enemies: +%s
+VORTEX_SPEED_BONUS;Скорость полёта вихря: +%s;Vortex flight speed: +%s
+VORTEX_LIFETIME;Время жизни вихра: +%s;Vortex lifetime: +%s
+VORTEX_AMOUNT;Количество вихрей: +%s;Number of vortexes: +%s
+VORTEX;Вихрь;Vortex
+VORTEX_DESCRIPTION;Затягивает врагов, нанося им периодический урон. Если затянет слишком много врагов - исчезнет;Pulls enemies in, dealing periodic damage. If it pulls in too many enemies, it disappears

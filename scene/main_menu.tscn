@@ -87,6 +87,7 @@
 [ext_resource type="Script" uid="uid://pl3iklaapxdq" path="res://script/play.gd" id="85"]
 [ext_resource type="Script" uid="uid://cdfgec6qtjwl7" path="res://script/Character.gd" id="85_yhdns"]
 [ext_resource type="Script" uid="uid://ckbmgm5i6volr" path="res://script/multiplayer.gd" id="86"]
+[ext_resource type="Resource" uid="uid://cdjqwy01nxce4" path="res://resourse/character/vortex_character.tres" id="86_h5nig"]
 [ext_resource type="Script" uid="uid://5fa4mi70u6ll" path="res://script/back_weapon.gd" id="87"]
 [ext_resource type="Script" uid="uid://bv1aw77uuk2il" path="res://script/stats_rows.gd" id="88"]
 [ext_resource type="Script" uid="uid://1pq7w5ulynmb" path="res://script/language_button.gd" id="89"]
@@ -2282,7 +2283,7 @@ size_flags_vertical = 3
 columns = 3
 script = ExtResource("83")
 character_slot = ExtResource("84")
-characters = Array[ExtResource("85_yhdns")]([ExtResource("40"), ExtResource("44"), ExtResource("39"), ExtResource("38"), ExtResource("42"), ExtResource("43"), ExtResource("41"), ExtResource("46"), ExtResource("45"), ExtResource("47"), ExtResource("48")])
+characters = Array[ExtResource("85_yhdns")]([ExtResource("40"), ExtResource("44"), ExtResource("39"), ExtResource("38"), ExtResource("42"), ExtResource("43"), ExtResource("41"), ExtResource("46"), ExtResource("45"), ExtResource("47"), ExtResource("48"), ExtResource("86_h5nig")])
 
 [node name="Label" type="Label" parent="Weapon_select" unique_id=1419191921]
 layout_mode = 0
@@ -4208,7 +4209,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("111")
-char_grid = NodePath("Character_panel/ScrollContainer/Character")
+char_grid = NodePath("RowsPanel/Rows/Character")
 rows_root = NodePath("RowsPanel/Rows")
 
 [node name="grundsquare" type="Sprite2D" parent="CharacterUpgrade" unique_id=424038385]
@@ -4346,15 +4347,6 @@ follow_focus = true
 horizontal_scroll_mode = 0
 scroll_hint_mode = 1
 
-[node name="Character" type="GridContainer" parent="CharacterUpgrade/Character_panel/ScrollContainer" unique_id=2053732442]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 2
-script = ExtResource("112")
-character_slot = ExtResource("84")
-characters = Array[ExtResource("85_yhdns")]([ExtResource("40"), ExtResource("44"), ExtResource("39"), ExtResource("38"), ExtResource("42"), ExtResource("43"), ExtResource("41"), ExtResource("46"), ExtResource("45"), ExtResource("47"), ExtResource("48")])
-
 [node name="RowsPanel" type="Panel" parent="CharacterUpgrade" unique_id=36210897]
 layout_mode = 1
 anchors_preset = -1
@@ -4377,6 +4369,15 @@ offset_left = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_bxxfn")
+
+[node name="Character" type="GridContainer" parent="CharacterUpgrade/RowsPanel/Rows" unique_id=2053732442]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+script = ExtResource("112")
+character_slot = ExtResource("84")
+characters = Array[ExtResource("85_yhdns")]([ExtResource("40"), ExtResource("44"), ExtResource("39"), ExtResource("38"), ExtResource("42"), ExtResource("43"), ExtResource("41"), ExtResource("46"), ExtResource("45"), ExtResource("47"), ExtResource("48"), ExtResource("86_h5nig")])
 
 [node name="Row_might" type="HBoxContainer" parent="CharacterUpgrade/RowsPanel/Rows" unique_id=408423591]
 layout_mode = 2

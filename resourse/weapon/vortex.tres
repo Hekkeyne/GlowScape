@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="VortexWeapon" format=3 uid="uid://cyvjb2mvxoduk"]
+
+[ext_resource type="Resource" uid="uid://bco14efsrnia0" path="res://resourse/weapon/black_hole.tres" id="1_xjmes"]
+[ext_resource type="Script" uid="uid://cg0yrek5mri5w" path="res://script/vortex.gd" id="2_3ju1p"]
+[ext_resource type="Texture2D" uid="uid://dndx605xkuerh" path="res://sprites/vortex_icon.png" id="2_jp367"]
+[ext_resource type="Script" uid="uid://l02j0w5jf2us" path="res://resourse/upgrade/Upgrade.gd" id="3_8pps2"]
+[ext_resource type="Resource" uid="uid://0q4ucwc66765" path="res://resourse/weapon/holy_sword.tres" id="3_adxwo"]
+[ext_resource type="PackedScene" uid="uid://6d12bp053qi8" path="res://scene/vortex.tscn" id="4_jy8bq"]
+[ext_resource type="Texture2D" uid="uid://d3riktiw47q23" path="res://sprites/vortex_circle.png" id="6_vkqce"]
+[ext_resource type="Script" uid="uid://d03y8vxcca223" path="res://resourse/upgrade/VortexUpgrade.gd" id="8_jp367"]
+
+[sub_resource type="Resource" id="Resource_h5nig"]
+script = ExtResource("8_jp367")
+max_enemies = 3
+amount = 1
+metadata/_custom_type_script = "uid://d03y8vxcca223"
+
+[sub_resource type="Resource" id="Resource_2kcuy"]
+script = ExtResource("8_jp367")
+lifetime = 2.0
+metadata/_custom_type_script = "uid://d03y8vxcca223"
+
+[sub_resource type="Resource" id="Resource_1rjff"]
+script = ExtResource("8_jp367")
+damage = 10.0
+metadata/_custom_type_script = "uid://d03y8vxcca223"
+
+[sub_resource type="Resource" id="Resource_vk2bc"]
+script = ExtResource("8_jp367")
+cooldown = -1.5
+metadata/_custom_type_script = "uid://d03y8vxcca223"
+
+[sub_resource type="Resource" id="Resource_7u47g"]
+script = ExtResource("8_jp367")
+max_enemies = 2
+lifetime = 1.0
+metadata/_custom_type_script = "uid://d03y8vxcca223"
+
+[sub_resource type="Resource" id="Resource_178um"]
+script = ExtResource("8_jp367")
+speed_bonus = 125.0
+metadata/_custom_type_script = "uid://d03y8vxcca223"
+
+[sub_resource type="Resource" id="Resource_ngf1q"]
+script = ExtResource("8_jp367")
+amount = 1
+metadata/_custom_type_script = "uid://d03y8vxcca223"
+
+[resource]
+script = ExtResource("2_3ju1p")
+spread_angle = 30.0
+max_enemies = 5
+damage = 10.0
+cooldown = 7.5
+speed = 250.0
+projectile_node = ExtResource("4_jy8bq")
+upgrades = Array[ExtResource("3_8pps2")]([SubResource("Resource_h5nig"), SubResource("Resource_2kcuy"), SubResource("Resource_1rjff"), SubResource("Resource_vk2bc"), SubResource("Resource_7u47g"), SubResource("Resource_178um"), SubResource("Resource_ngf1q")])
+item_needed = ExtResource("3_adxwo")
+evolution = ExtResource("1_xjmes")
+title = "VORTEX"
+icon = ExtResource("2_jp367")
+texture = ExtResource("6_vkqce")
+description = "VORTEX_DESCRIPTION"
+metadata/_custom_type_script = "uid://cg0yrek5mri5w"
